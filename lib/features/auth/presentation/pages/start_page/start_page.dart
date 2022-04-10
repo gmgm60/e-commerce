@@ -8,7 +8,7 @@ class StartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(),
-      body: Center(child: Text("start Screen")),
+      body: const Center(child: Text("start Screen")),
     );
   }
 }

@@ -13,7 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
-import '../../../features/auth/presentation/pages/start_page/start_page.dart'
+import '../../../features/products/presentation/products_page/products_page.dart'
     as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
@@ -22,24 +22,24 @@ class AppRouter extends _i2.RootStackRouter {
 
   @override
   final Map<String, _i2.PageFactory> pagesMap = {
-    StartRoute.name: (routeData) {
+    ProductsRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.StartPage());
+          routeData: routeData, child: const _i1.ProductsPage());
     }
   };
 
   @override
   List<_i2.RouteConfig> get routes => [
         _i2.RouteConfig('/#redirect',
-            path: '/', redirectTo: 'StartPage', fullMatch: true),
-        _i2.RouteConfig(StartRoute.name, path: 'StartPage')
+            path: '/', redirectTo: 'ProductsPage', fullMatch: true),
+        _i2.RouteConfig(ProductsRoute.name, path: 'ProductsPage')
       ];
 }
 
 /// generated route for
-/// [_i1.StartPage]
-class StartRoute extends _i2.PageRouteInfo<void> {
-  const StartRoute() : super(StartRoute.name, path: 'StartPage');
+/// [_i1.ProductsPage]
+class ProductsRoute extends _i2.PageRouteInfo<void> {
+  const ProductsRoute() : super(ProductsRoute.name, path: 'ProductsPage');
 
-  static const String name = 'StartRoute';
+  static const String name = 'ProductsRoute';
 }
