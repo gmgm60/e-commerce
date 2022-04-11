@@ -1,7 +1,7 @@
 name: ecommerce
 description: A new E-Commerce App.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -31,6 +31,7 @@ dependencies:
   shared_preferences: ^2.0.13
   font_awesome_flutter: ^10.1.0
   flutter_native_splash: ^2.1.5
+  cached_network_image: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -50,4 +51,5 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/
 
