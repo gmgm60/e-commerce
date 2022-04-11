@@ -29,6 +29,7 @@ class _$ProductModelTearOff {
       required String description,
       required String image,
       required double price,
+      required double discount,
       @JsonKey(name: "is_available") required bool isAvailable}) {
     return _ProductModel(
       id: id,
@@ -37,6 +38,7 @@ class _$ProductModelTearOff {
       description: description,
       image: image,
       price: price,
+      discount: discount,
       isAvailable: isAvailable,
     );
   }
@@ -58,6 +60,7 @@ mixin _$ProductModel {
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
+  double get discount => throw _privateConstructorUsedError;
   @JsonKey(name: "is_available")
   bool get isAvailable => throw _privateConstructorUsedError;
 
@@ -79,6 +82,7 @@ abstract class $ProductModelCopyWith<$Res> {
       String description,
       String image,
       double price,
+      double discount,
       @JsonKey(name: "is_available") bool isAvailable});
 }
 
@@ -98,6 +102,7 @@ class _$ProductModelCopyWithImpl<$Res> implements $ProductModelCopyWith<$Res> {
     Object? description = freezed,
     Object? image = freezed,
     Object? price = freezed,
+    Object? discount = freezed,
     Object? isAvailable = freezed,
   }) {
     return _then(_value.copyWith(
@@ -125,6 +130,10 @@ class _$ProductModelCopyWithImpl<$Res> implements $ProductModelCopyWith<$Res> {
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      discount: discount == freezed
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double,
       isAvailable: isAvailable == freezed
           ? _value.isAvailable
           : isAvailable // ignore: cast_nullable_to_non_nullable
@@ -147,6 +156,7 @@ abstract class _$ProductModelCopyWith<$Res>
       String description,
       String image,
       double price,
+      double discount,
       @JsonKey(name: "is_available") bool isAvailable});
 }
 
@@ -168,6 +178,7 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? image = freezed,
     Object? price = freezed,
+    Object? discount = freezed,
     Object? isAvailable = freezed,
   }) {
     return _then(_ProductModel(
@@ -195,6 +206,10 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      discount: discount == freezed
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double,
       isAvailable: isAvailable == freezed
           ? _value.isAvailable
           : isAvailable // ignore: cast_nullable_to_non_nullable
@@ -213,6 +228,7 @@ class _$_ProductModel implements _ProductModel {
       required this.description,
       required this.image,
       required this.price,
+      required this.discount,
       @JsonKey(name: "is_available") required this.isAvailable});
 
   factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
@@ -232,12 +248,14 @@ class _$_ProductModel implements _ProductModel {
   @override
   final double price;
   @override
+  final double discount;
+  @override
   @JsonKey(name: "is_available")
   final bool isAvailable;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, catId: $catId, name: $name, description: $description, image: $image, price: $price, isAvailable: $isAvailable)';
+    return 'ProductModel(id: $id, catId: $catId, name: $name, description: $description, image: $image, price: $price, discount: $discount, isAvailable: $isAvailable)';
   }
 
   @override
@@ -252,6 +270,7 @@ class _$_ProductModel implements _ProductModel {
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.price, price) &&
+            const DeepCollectionEquality().equals(other.discount, discount) &&
             const DeepCollectionEquality()
                 .equals(other.isAvailable, isAvailable));
   }
@@ -265,6 +284,7 @@ class _$_ProductModel implements _ProductModel {
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(price),
+      const DeepCollectionEquality().hash(discount),
       const DeepCollectionEquality().hash(isAvailable));
 
   @JsonKey(ignore: true)
@@ -286,6 +306,7 @@ abstract class _ProductModel implements ProductModel {
           required String description,
           required String image,
           required double price,
+          required double discount,
           @JsonKey(name: "is_available") required bool isAvailable}) =
       _$_ProductModel;
 
@@ -305,6 +326,8 @@ abstract class _ProductModel implements ProductModel {
   String get image;
   @override
   double get price;
+  @override
+  double get discount;
   @override
   @JsonKey(name: "is_available")
   bool get isAvailable;

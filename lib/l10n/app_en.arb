@@ -21,6 +21,34 @@
   "haveNoAccountYet": "Don't have Account yet?",
   "alreadyHaveAccount": "Already Have Account?",
 
-  "unKnownError": "Something went wrong! try again."
+  "unKnownError": "Something went wrong! try again.",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "description" : "Description :",
+  "off" : " % Off",
+  "currency" : " EGP"
 
 }

@@ -14,6 +14,7 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       image: json['image'] as String,
       price: (json['price'] as num).toDouble(),
+      discount: (json['discount'] as num).toDouble(),
       isAvailable: json['is_available'] as bool,
     );
 
@@ -25,5 +26,6 @@ Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
       'description': instance.description,
       'image': instance.image,
       'price': instance.price,
+      'discount': instance.discount,
       'is_available': instance.isAvailable,
     };
