@@ -10,6 +10,7 @@ class Product with _$Product {
     required String description,
     required String image,
     required double price,
+    required double discount,
     required bool isAvailable,
 }) = _Product ;
 }
