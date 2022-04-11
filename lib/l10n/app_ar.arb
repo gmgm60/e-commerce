@@ -1,5 +1,24 @@
 {
   "language": "اللغه",
   "currentLanguage": "العربية",
-  "appTitle": "برنامج تجاره الكترونيه"
+  "appTitle": "برنامج تجاره الكترونيه",
+  "welcomeText": "مرحبا بك في متجرنا",
+  "signInToContinue": "سجل الدخول للاستمرار",
+  "login": "تسجيل دخول",
+  "register": "إنشاء حساب",
+  "email": "البريد الإلكتروني",
+  "password": "كلمه السر",
+  "confirmPassword": "تأكيد كلمه السر",
+  "forgotPassword": "نسيت كلمه المرور؟",
+  "name": "الاسم",
+  "phone": "التليفون",
+  "phoneFieldValidation": "رقم التليفون غير صحيح",
+  "nameFieldValidation": "الاسم مطلوب",
+  "emailFieldValidation": "البريد الالكتروني غير صالح",
+  "passwordFieldValidation": "كلمه السر غير صالحه",
+  "confirmPasswordFieldValidation": "كلمه السر غير متطابقه",
+  "haveNoAccountYet": "ليس لديك حساب؟ انشاء حساب",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟ تسجيل دخول",
+
+  "unKnownError": "حدث خطأ ما، حاول مجددا! "
 }

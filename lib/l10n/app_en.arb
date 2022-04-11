@@ -2,5 +2,25 @@
   "language": "Language",
   "currentLanguage": "English",
   "appTitle": "E-Commerce App",
-  "productsTitle": "New Products"
+  "productsTitle": "New Products",
+  "welcomeText": "Welcome To E-commerce",
+  "signInToContinue": "Sign in to continue",
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "forgotPassword": "Forgot Password?",
+  "name": "Name",
+  "phone": "Phone",
+  "phoneFieldValidation": "Invalid Phone Number",
+  "nameFieldValidation": "User Name is required",
+  "emailFieldValidation": "Invalid Email",
+  "passwordFieldValidation": "Invalid Password",
+  "confirmPasswordFieldValidation": "Confirm Password Not Match",
+  "haveNoAccountYet": "Don't have Account yet?",
+  "alreadyHaveAccount": "Already Have Account?",
+
+  "unKnownError": "Something went wrong! try again."
+
 }
