@@ -21,11 +21,10 @@ class ProductsPage extends StatelessWidget {
           body: BlocBuilder<ProductsCubit, ProductsState>(
             builder: (context, state) {
               print("state : $state");
-              return ListView.builder(
-                  itemCount: context.read<ProductsCubit>().products.length,
-                  itemBuilder: (BuildContext context, index) => ProductRow(
-                        product: context.read<ProductsCubit>().products[index],
-                      ));
+              print("state : ${context.read<ProductsCubit>().products.length}");
+              return GridView.count(crossAxisCount: 2,childAspectRatio: .5,
+              children: context.read<ProductsCubit>().products.map((product) => ProductRow(product: product)).toList(),
+              );
             },
           ),
         );
@@ -36,28 +35,32 @@ class ProductsPage extends StatelessWidget {
 
 class ProductRow extends StatelessWidget {
   final Product product;
-
   const ProductRow({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Text(product.name),
-          Text(product.price.toString()),
-          Image.network(
-            product.image,
-            width: 300,
-            height: 200,
-            fit: BoxFit.contain,
+    return LayoutBuilder(
+      builder: (context, constrain) {
+        final double width = constrain.maxWidth ;
+        final double height = constrain.maxHeight ;
+       // print(constrain.maxHeight.toString() +"," +constrain.maxWidth.toString());
+        return Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+
+              Image.network(
+                product.image,
+                width: width * .8,
+                height: height*.7,
+                fit: BoxFit.contain,
+              ),
+              Text(product.name),
+              Text(product.price.toString()),
+            ],
           ),
-          Text(product.description),
-          const SizedBox(
-            height: 20,
-          )
-        ],
-      ),
+        );
+      }
     );
   }
 }
