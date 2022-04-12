@@ -3,9 +3,9 @@ import 'package:ecommerce/features/auth/presentation/pages/forgot_passowrd_page.
 import 'package:ecommerce/features/auth/presentation/pages/login_page.dart';
 import 'package:ecommerce/features/auth/presentation/pages/register_page.dart';
 import 'package:ecommerce/features/auth/presentation/pages/startup_page.dart';
+import 'package:ecommerce/features/orders/presentation/pages/orders_page/orders_page.dart';
 import 'package:ecommerce/features/products/presentation/pages/product_page/product_page.dart';
 import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
-import 'package:ecommerce/features/orders/presentation/pages/orders_page/orders_page.dart';
 import 'package:ecommerce/logout_page.dart';
 
 @MaterialAutoRouter(
@@ -13,6 +13,7 @@ import 'package:ecommerce/logout_page.dart';
   routes: [
     AutoRoute(
       page: StartupPage,
+      initial: true,
       path: 'StartupScreen',
     ),
     AutoRoute(
@@ -23,11 +24,7 @@ import 'package:ecommerce/logout_page.dart';
       page: ProductPage,
       path: 'ProductPage',
     ),
-    AutoRoute(
-      page: ProductsPage,
-      initial: true,
-      path: 'ProductsPage'
-    ),
+    AutoRoute(page: ProductsPage, path: 'ProductsPage'),
     AutoRoute(
       page: RegisterPage,
       path: 'RegisterPage',

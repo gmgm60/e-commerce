@@ -13,7 +13,7 @@ class OrdersPage extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) {
           return OrderItem(
-            product: Product(
+            product: Product(discount: 202,
               id: 1,
               catId: 1,
               name: 'Product1',
