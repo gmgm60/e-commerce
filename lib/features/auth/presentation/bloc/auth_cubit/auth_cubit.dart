@@ -5,6 +5,7 @@ import 'package:ecommerce/features/auth/domain/use_case/get_token_use_case.dart'
 import 'package:ecommerce/features/auth/domain/use_case/login_use_case.dart';
 import 'package:ecommerce/features/auth/domain/use_case/logout_use_case.dart';
 import 'package:ecommerce/features/auth/domain/use_case/register_use_case.dart';
+import 'package:ecommerce/features/auth/domain/use_case/reset_pass_use_case.dart';
 import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,12 +18,14 @@ class AuthCubit extends Cubit<AuthStates> {
     this._logoutUseCase,
     this._registerUseCase,
     this._getTokenUseCase,
+    this._resetPassUseCase,
   ) : super(const AuthInitialState());
 
   final LoginUseCase _loginUseCase;
   final LogoutUseCase _logoutUseCase;
   final RegisterUseCase _registerUseCase;
   final GetTokenUseCase _getTokenUseCase;
+  final ResetPassUseCase _resetPassUseCase;
 
   Future<void> getHomeScreen() async {
     emit(const AuthLoadingState());
@@ -57,4 +60,12 @@ class AuthCubit extends Cubit<AuthStates> {
       return const AuthLoadedState();
     }));
   }
+
+  Future<void> resetPassword({required String email}) async {
+    emit(const AuthLoadingState());
+    final result = await _resetPassUseCase(email);
+    emit(result.fold((error) => AuthErrorState(error: error.message),
+        (user) => const AuthLoadedState()));
+  }
+
 }

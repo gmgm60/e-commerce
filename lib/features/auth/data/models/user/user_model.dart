@@ -4,13 +4,18 @@ part 'user_model.g.dart';
 
 @JsonSerializable()
 class UserModel {
-  @JsonKey(name: 'user')
-  UserModelData user;
+  @JsonKey(name: 'status')
+  int status;
+
+  @JsonKey(name: 'data')
+  UserData userData;
+
   @JsonKey(name: 'token')
   String token;
 
   UserModel({
-    required this.user,
+    required this.status,
+    required this.userData,
     required this.token,
   });
 
@@ -21,40 +26,43 @@ class UserModel {
 }
 
 @JsonSerializable()
-class UserModelData {
+class UserData {
   @JsonKey(name: 'id')
   int id;
-
-  @JsonKey(name: 'user_name')
-  String userName;
-
+  @JsonKey(name: 'name')
+  String name;
   @JsonKey(name: 'email')
   String email;
-
+  @JsonKey(name: 'email_verified_at')
+  String? emailVerifiedAt;
   @JsonKey(name: 'role')
-  int role;
-
+  String? role;
   @JsonKey(name: 'image')
   String? image;
-
-  @JsonKey(name: 'updated_at')
-  String updatedAt;
-
+  @JsonKey(name: 'address')
+  String? address;
+  @JsonKey(name: 'phone')
+  String phone;
   @JsonKey(name: 'created_at')
-  String createdAt;
+  String? createdAt;
+  @JsonKey(name: 'updated_at')
+  String? updatedAt;
 
-  UserModelData({
+  UserData({
     required this.id,
-    required this.userName,
+    required this.name,
     required this.email,
+    this.emailVerifiedAt,
     required this.role,
     this.image,
-    required this.updatedAt,
-    required this.createdAt,
+    required this.address,
+    required this.phone,
+    this.updatedAt,
+    this.createdAt,
   });
 
-  factory UserModelData.fromJson(Map<String, dynamic> json) =>
-      _$UserModelDataFromJson(json);
+  factory UserData.fromJson(Map<String, dynamic> json) =>
+      _$UserDataFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserModelDataToJson(this);
+  Map<String, dynamic> toJson() => _$UserDataToJson(this);
 }

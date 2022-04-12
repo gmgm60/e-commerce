@@ -9,7 +9,9 @@ part of 'orders_api_service.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps
 
 class _OrdersApiService implements OrdersApiService {
-  _OrdersApiService(this._dio, {this.baseUrl});
+  _OrdersApiService(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
+  }
 
   final Dio _dio;
 

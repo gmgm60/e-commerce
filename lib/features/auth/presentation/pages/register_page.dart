@@ -25,6 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   late TextEditingController nameController;
   late TextEditingController phoneController;
+  late TextEditingController addressController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController passwordConfirmationController;
@@ -34,11 +35,12 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   void initState() {
     super.initState();
-    nameController = TextEditingController();
-    phoneController = TextEditingController();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
-    passwordConfirmationController = TextEditingController();
+    nameController = TextEditingController(text: 'taha');
+    phoneController = TextEditingController(text: '12312312302');
+    addressController = TextEditingController(text: 'hkjhkuh');
+    emailController = TextEditingController(text: 'taha@gmail.com');
+    passwordController = TextEditingController(text: '12345678');
+    passwordConfirmationController = TextEditingController(text: '12345678');
 
     _authCubit = getIt<AuthCubit>();
   }
@@ -48,6 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
     nameController.dispose();
     phoneController.dispose();
+    addressController.dispose();
     emailController.dispose();
     passwordController.dispose();
     passwordConfirmationController.dispose();
@@ -62,6 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
           state.whenOrNull(
             loaded: () {
               // todo navigate
+              AutoRouter.of(context).replace(const LogoutRoute());
             },
             error: (error) {
               ScaffoldMessenger.of(context)
@@ -107,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               return null;
                             },
                             inputType: TextInputType.phone,
-                            label: context.tr.name,
+                            label: context.tr.phone,
                             icon: Icons.person,
                           ),
                           const SizedBox(
@@ -127,6 +131,22 @@ class _RegisterPageState extends State<RegisterPage> {
                             inputType: TextInputType.emailAddress,
                             label: context.tr.email,
                             icon: Icons.email,
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          AppTextFormField(
+                            controller: addressController,
+                            validate: (value) {
+                              if (value == null || value.isEmpty) {
+                                return context.tr.addressFieldValidation;
+                              }
+
+                              return null;
+                            },
+                            inputType: TextInputType.text,
+                            label: context.tr.address,
+                            icon: Icons.location_on_outlined,
                           ),
                           const SizedBox(
                             height: 16,
@@ -179,12 +199,15 @@ class _RegisterPageState extends State<RegisterPage> {
                                         BlocProvider.of<AuthCubit>(context)
                                             .register(
                                           registerParam: RegisterParam(
-                                              name: nameController.text.trim(),
-                                              email: emailController.text.trim(),
-                                              password: passwordController.text,
-                                              passwordConfirmation:
-                                                  passwordConfirmationController
-                                                      .text),
+                                            name: nameController.text.trim(),
+                                            email: emailController.text.trim(),
+                                            password: passwordController.text,
+                                            passwordConfirmation:
+                                                passwordConfirmationController
+                                                    .text,
+                                            phone: phoneController.text,
+                                            address: addressController.text,
+                                          ),
                                         );
                                       }
                                     },
@@ -206,7 +229,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             .bodyText1!
                             .copyWith(color: appGrey),
                       ),
-                      const SizedBox(width: 2,),
+                      const SizedBox(
+                        width: 2,
+                      ),
                       TextButton(
                           onPressed: () {
                             AutoRouter.of(context).replace(const LoginRoute());

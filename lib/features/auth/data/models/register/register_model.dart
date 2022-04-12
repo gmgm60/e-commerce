@@ -12,9 +12,15 @@ class RegisterModel {
   String password;
   @JsonKey(name: 'password_confirmation')
   String passwordConfirmation;
+  @JsonKey(name: 'address')
+  String address;
+  @JsonKey(name: 'phone')
+  String phone;
 
   RegisterModel({
     required this.name,
+    required this.phone,
+    required this.address,
     required this.email,
     required this.password,
     required this.passwordConfirmation,

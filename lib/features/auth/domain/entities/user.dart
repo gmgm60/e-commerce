@@ -1,16 +1,15 @@
-import 'package:equatable/equatable.dart';
-
-class User extends Equatable {
-  final int id;
+class User {
   final String name;
   final String email;
+  final String address;
+  final String phone;
+  final String image;
 
   const User({
-    required this.id,
     required this.name,
     required this.email,
+    required this.address,
+    required this.phone,
+    required this.image,
   });
-
-  @override
-  List<Object?> get props => [id];
 }

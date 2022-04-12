@@ -32,8 +32,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
+    emailController = TextEditingController(text: 'taha@gmail.com');
+    passwordController = TextEditingController(text: '12345678');
     _authCubit = getIt<AuthCubit>();
   }
 
@@ -52,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
         listener: (context, state) {
           state.whenOrNull(loaded: () {
             // todo navigate home
+            AutoRouter.of(context).replace(const LogoutRoute());
           }, error: (error) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(error)));
@@ -65,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const AuthLogoDesign(),
-
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
                     child: Form(
@@ -113,7 +113,6 @@ class _LoginPageState extends State<LoginPage> {
                             builder: (context, state) {
                               return state.maybeWhen(
                                 orElse: () => AppElevatedButton(
-
                                     isLoading: state.maybeWhen(
                                       orElse: () => false,
                                       loading: () => true,
@@ -123,12 +122,13 @@ class _LoginPageState extends State<LoginPage> {
                                       if (formKey.currentState!.validate()) {
                                         FocusManager.instance.primaryFocus
                                             ?.unfocus();
-                                        BlocProvider.of<AuthCubit>(context).login(
-                                            loginParam: LoginParam(
-                                                email:
-                                                    emailController.text.trim(),
-                                                password:
-                                                    passwordController.text));
+                                        BlocProvider.of<AuthCubit>(context)
+                                            .login(
+                                                loginParam: LoginParam(
+                                                    email: emailController.text
+                                                        .trim(),
+                                                    password: passwordController
+                                                        .text));
                                       }
                                     },
                                     text: context.tr.login),
@@ -141,7 +141,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextButton(
                       onPressed: () {
-                        //AutoRouter.of(context).replace(const RegisterRoute());
+                        AutoRouter.of(context)
+                            .navigate(const ForgotPasswordRoute());
                       },
                       child: Text(
                         context.tr.forgotPassword,
@@ -160,10 +161,13 @@ class _LoginPageState extends State<LoginPage> {
                             .bodyText1!
                             .copyWith(color: appGrey),
                       ),
-                      const SizedBox(width: 2,),
+                      const SizedBox(
+                        width: 2,
+                      ),
                       TextButton(
                           onPressed: () {
-                            AutoRouter.of(context).replace(const RegisterRoute());
+                            AutoRouter.of(context)
+                                .replace(const RegisterRoute());
                           },
                           child: Text(
                             context.tr.register,

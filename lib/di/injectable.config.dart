@@ -17,24 +17,25 @@ import '../features/auth/domain/use_case/get_token_use_case.dart' as _i11;
 import '../features/auth/domain/use_case/login_use_case.dart' as _i12;
 import '../features/auth/domain/use_case/logout_use_case.dart' as _i13;
 import '../features/auth/domain/use_case/register_use_case.dart' as _i18;
-import '../features/auth/presentation/bloc/auth_cubit/auth_cubit.dart' as _i19;
+import '../features/auth/domain/use_case/reset_pass_use_case.dart' as _i19;
+import '../features/auth/presentation/bloc/auth_cubit/auth_cubit.dart' as _i20;
 import '../features/orders/data/data_source/remote/orders_api_service.dart'
     as _i4;
 import '../features/orders/data/repository/orders_repo_impl.dart' as _i15;
 import '../features/orders/domain/repository/order_repository.dart' as _i14;
-import '../features/orders/domain/use_case/get_order_use_case.dart' as _i20;
-import '../features/products/data/repository/products_repo_impl.dart' as _i22;
+import '../features/orders/domain/use_case/get_order_use_case.dart' as _i21;
+import '../features/products/data/repository/products_repo_impl.dart' as _i23;
 import '../features/products/data/service/remote/product_service_impl.dart'
     as _i17;
 import '../features/products/data/service/remote/rest_api.dart' as _i5;
-import '../features/products/domain/repository/product_repo.dart' as _i21;
+import '../features/products/domain/repository/product_repo.dart' as _i22;
 import '../features/products/domain/service/product_service.dart' as _i16;
-import '../features/products/domain/use_cases/get_products.dart' as _i23;
+import '../features/products/domain/use_cases/get_products.dart' as _i24;
 import '../features/products/presentation/cubit/products_cubit/products_cubit.dart'
-    as _i24;
-import 'module/dio.dart' as _i25;
+    as _i25;
+import 'module/dio.dart' as _i26;
 import 'module/shared_preferences.dart'
-    as _i26; // ignore_for_file: unnecessary_lambdas
+    as _i27; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -65,21 +66,24 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i17.ProductServiceImpl(get<_i5.RestApiImpl>()));
   gh.factory<_i18.RegisterUseCase>(
       () => _i18.RegisterUseCase(get<_i9.AuthRepository>()));
-  gh.factory<_i19.AuthCubit>(() => _i19.AuthCubit(
+  gh.factory<_i19.ResetPassUseCase>(
+      () => _i19.ResetPassUseCase(get<_i9.AuthRepository>()));
+  gh.factory<_i20.AuthCubit>(() => _i20.AuthCubit(
       get<_i12.LoginUseCase>(),
       get<_i13.LogoutUseCase>(),
       get<_i18.RegisterUseCase>(),
-      get<_i11.GetTokenUseCase>()));
-  gh.factory<_i20.GetOrderUseCase>(
-      () => _i20.GetOrderUseCase(get<_i14.OrdersRepository>()));
-  gh.factory<_i21.ProductRepo>(
-      () => _i22.ProductsRepoImpl(get<_i16.ProductService>()));
-  gh.factory<_i23.GetProducts>(() => _i23.GetProducts(get<_i21.ProductRepo>()));
-  gh.factory<_i24.ProductsCubit>(
-      () => _i24.ProductsCubit(get<_i23.GetProducts>()));
+      get<_i11.GetTokenUseCase>(),
+      get<_i19.ResetPassUseCase>()));
+  gh.factory<_i21.GetOrderUseCase>(
+      () => _i21.GetOrderUseCase(get<_i14.OrdersRepository>()));
+  gh.factory<_i22.ProductRepo>(
+      () => _i23.ProductsRepoImpl(get<_i16.ProductService>()));
+  gh.factory<_i24.GetProducts>(() => _i24.GetProducts(get<_i22.ProductRepo>()));
+  gh.factory<_i25.ProductsCubit>(
+      () => _i25.ProductsCubit(get<_i24.GetProducts>()));
   return get;
 }
 
-class _$MyDioInject extends _i25.MyDioInject {}
+class _$MyDioInject extends _i26.MyDioInject {}
 
-class _$InjectionModule extends _i26.InjectionModule {}
+class _$InjectionModule extends _i27.InjectionModule {}

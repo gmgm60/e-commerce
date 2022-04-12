@@ -13,12 +13,16 @@
   "name": "الاسم",
   "phone": "التليفون",
   "phoneFieldValidation": "رقم التليفون غير صحيح",
+  "address": "العنوان",
+  "addressFieldValidation": "العنوان مطلوب",
   "nameFieldValidation": "الاسم مطلوب",
   "emailFieldValidation": "البريد الالكتروني غير صالح",
   "passwordFieldValidation": "كلمه السر غير صالحه",
   "confirmPasswordFieldValidation": "كلمه السر غير متطابقه",
   "haveNoAccountYet": "ليس لديك حساب؟ انشاء حساب",
   "alreadyHaveAccount": "لديك حساب بالفعل؟ تسجيل دخول",
+  "unKnownError": "حدث خطأ ما، حاول مجددا! ",
+  "checkYourEmail":"افحص البريد الالكتروني الخاص بك",
+  "resetPassword":"تغيير كلمه السر"
 
-  "unKnownError": "حدث خطأ ما، حاول مجددا! "
 }
