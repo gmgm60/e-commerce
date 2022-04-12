@@ -13,6 +13,7 @@ class ProductModel with _$ProductModel {
     required String description,
     required String image,
     required double price,
+    required double discount,
     @JsonKey(name: "is_available")
     required bool isAvailable,
   }) = _ProductModel ;
