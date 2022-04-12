@@ -7,5 +7,7 @@ extension RegisterMapper on RegisterParam {
         email: email,
         password: password,
         passwordConfirmation: passwordConfirmation,
+        phone: phone,
+        address: address,
       );
 }

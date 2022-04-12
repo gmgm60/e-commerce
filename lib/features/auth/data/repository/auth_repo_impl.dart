@@ -6,8 +6,6 @@ import 'package:ecommerce/features/auth/data/data_source/remote/auth_api_service
 import 'package:ecommerce/features/auth/data/mappers/login_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/register_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
-import 'package:ecommerce/features/auth/data/models/login/login_model.dart';
-import 'package:ecommerce/features/auth/data/models/register/register_model.dart';
 import 'package:ecommerce/features/auth/domain/entities/login_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/register_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
@@ -24,11 +22,10 @@ class AuthRepoImpl extends AuthRepository {
 
   @override
   Future<Either<Failure, User>> login({required LoginParam loginParam}) async {
-    LoginModel loginModel = loginParam.toModel;
-    debugPrint('login start with user data: ${loginModel.toString()}');
+    debugPrint('login start...');
 
     try {
-      final userModel = await _service.login(loginSentData: loginModel);
+      final userModel = await _service.login(loginModel: loginParam.toModel);
 
       debugPrint('login user model: $userModel');
 
@@ -36,10 +33,10 @@ class AuthRepoImpl extends AuthRepository {
         debugPrint('login save token: $value');
       });
 
-      return right(userModel.user.fromModel);
+      return right(userModel.userData.fromModel);
     } catch (error) {
       debugPrint('Login Error: $error');
-
+      //todo handle error
       return left(const Failure(message: 'Login Error'));
     }
   }
@@ -47,23 +44,19 @@ class AuthRepoImpl extends AuthRepository {
   @override
   Future<Either<Failure, User>> register(
       {required RegisterParam registerParam}) async {
-    RegisterModel registerModel = registerParam.toModel;
-    debugPrint('register start with user data: ${registerModel.toString()}');
+    debugPrint('register start...');
 
     try {
       final userModel =
-          await _service.register(registerSentData: registerModel);
-
+          await _service.register(registerModel: registerParam.toModel);
       debugPrint('register user model: $userModel');
-
       _localService.saveToken(token: userModel.token).then((value) {
         debugPrint('register save token: $value');
       });
 
-      return right(userModel.user.fromModel);
+      return right(userModel.userData.fromModel);
     } catch (error) {
-      debugPrint('Register Error $error');
-
+      debugPrint('Register Error: $error');
       return left(const Failure(message: 'Register Error'));
     }
   }
@@ -79,17 +72,18 @@ class AuthRepoImpl extends AuthRepository {
 
         debugPrint('you have logged out...');
 
-        // remove token & userId from local
+        // remove token from local
         await _localService.deleteToken();
 
         return right(logoutResult);
       } catch (error) {
         debugPrint('Logout Catch Error: $error');
 
-        return left( Failure(message: error.toString()));
+        return left(Failure(message: error.toString()));
       }
     } else {
       debugPrint('Logout Error: No Token');
+      //todo handle error
       return left(const Failure(message: 'Logout Error'));
     }
   }
@@ -99,5 +93,20 @@ class AuthRepoImpl extends AuthRepository {
     String? token = _localService.getToken();
     if (token == null) return left(const Failure(message: 'Token Null'));
     return right(token);
+  }
+
+  @override
+  Future<Either<Failure, String>> resetPassword({required String email}) async {
+    debugPrint('Reset Password start...');
+
+    try {
+      final result = await _service.resetPassword(email: email);
+      debugPrint('resetPassword $result');
+
+      return right(result);
+    } catch (error) {
+      debugPrint('Reset Error: $error');
+      return left(const Failure(message: 'Reset Password Error'));
+    }
   }
 }

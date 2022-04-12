@@ -2,6 +2,7 @@ import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/theme/theme_light.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'di/injectable.dart';
 
 void main() async {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      supportedLocales:AppLocalizations.supportedLocales,
+      supportedLocales: AppLocalizations.supportedLocales,
       title: "E-Commerce App",
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       theme: themeLight,
