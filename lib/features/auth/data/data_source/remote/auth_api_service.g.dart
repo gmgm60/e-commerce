@@ -9,19 +9,21 @@ part of 'auth_api_service.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps
 
 class _AuthApiService implements AuthApiService {
-  _AuthApiService(this._dio, {this.baseUrl});
+  _AuthApiService(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
+  }
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<UserModel> register({required registerSentData}) async {
+  Future<UserModel> register({required registerModel}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(registerSentData.toJson());
+    _data.addAll(registerModel.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<UserModel>(
             Options(method: 'POST', headers: _headers, extra: _extra)
@@ -33,12 +35,12 @@ class _AuthApiService implements AuthApiService {
   }
 
   @override
-  Future<UserModel> login({required loginSentData}) async {
+  Future<UserModel> login({required loginModel}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(loginSentData.toJson());
+    _data.addAll(loginModel.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<UserModel>(
             Options(method: 'POST', headers: _headers, extra: _extra)
@@ -57,7 +59,7 @@ class _AuthApiService implements AuthApiService {
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<String>(_setStreamType<String>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
+        Options(method: 'GET', headers: _headers, extra: _extra)
             .compose(_dio.options, 'logout',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
@@ -73,7 +75,7 @@ class _AuthApiService implements AuthApiService {
     final _data = email;
     final _result = await _dio.fetch<String>(_setStreamType<String>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, 'reset',
+            .compose(_dio.options, 'forgot_password',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!;

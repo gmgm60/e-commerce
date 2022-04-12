@@ -7,33 +7,39 @@ part of 'user_model.dart';
 // **************************************************************************
 
 UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
-      user: UserModelData.fromJson(json['user'] as Map<String, dynamic>),
+      status: json['status'] as int,
+      userData: UserData.fromJson(json['data'] as Map<String, dynamic>),
       token: json['token'] as String,
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
-      'user': instance.user,
+      'status': instance.status,
+      'data': instance.userData,
       'token': instance.token,
     };
 
-UserModelData _$UserModelDataFromJson(Map<String, dynamic> json) =>
-    UserModelData(
+UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       id: json['id'] as int,
-      userName: json['user_name'] as String,
+      name: json['name'] as String,
       email: json['email'] as String,
-      role: json['role'] as int,
+      emailVerifiedAt: json['email_verified_at'] as String?,
+      role: json['role'] as String?,
       image: json['image'] as String?,
-      updatedAt: json['updated_at'] as String,
-      createdAt: json['created_at'] as String,
+      address: json['address'] as String?,
+      phone: json['phone'] as String,
+      updatedAt: json['updated_at'] as String?,
+      createdAt: json['created_at'] as String?,
     );
 
-Map<String, dynamic> _$UserModelDataToJson(UserModelData instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'id': instance.id,
-      'user_name': instance.userName,
+      'name': instance.name,
       'email': instance.email,
+      'email_verified_at': instance.emailVerifiedAt,
       'role': instance.role,
       'image': instance.image,
-      'updated_at': instance.updatedAt,
+      'address': instance.address,
+      'phone': instance.phone,
       'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
     };
