@@ -11,7 +11,11 @@ const String resetPassEndPoint = 'forgot_password';
 const String authorizationHeader = 'Authorization';
 const String bearerToken = 'Bearer';
 const String ordersEndPoint = 'orders';
+const String merchantsEndPoint = 'merchants';
 
+// locale code
+const String enLanguageCode = 'en';
+const String arLanguageCode = 'ar';
 
 // keys
 const String tokenKey = 'token_key';

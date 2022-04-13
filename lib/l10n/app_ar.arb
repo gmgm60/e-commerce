@@ -23,6 +23,13 @@
   "alreadyHaveAccount": "لديك حساب بالفعل؟ تسجيل دخول",
   "unKnownError": "حدث خطأ ما، حاول مجددا! ",
   "checkYourEmail":"افحص البريد الالكتروني الخاص بك",
-  "resetPassword":"تغيير كلمه السر"
+  "resetPassword":"تغيير كلمه السر",
+  "merchants":"التجار",
+  "categories":"الفئات",
+  "profile": "البروفايل",
+  "logout": "تسجيل خروج",
+  "english": "الانجليزيه",
+  "arabic": "العربيه",
+  "cancel": "إلغاء"
 
 }

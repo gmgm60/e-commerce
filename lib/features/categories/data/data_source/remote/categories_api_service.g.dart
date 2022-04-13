@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'orders_api_service.dart';
+part of 'categories_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,9 +8,9 @@ part of 'orders_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _OrdersApiService implements OrdersApiService {
-  _OrdersApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api.mockaroo.com/api/a109e990?count=100&key=ec0ea640';
+class _CategoriesApiService implements CategoriesApiService {
+  _CategoriesApiService(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'url';
   }
 
   final Dio _dio;
@@ -18,19 +18,19 @@ class _OrdersApiService implements OrdersApiService {
   String? baseUrl;
 
   @override
-  Future<OrdersModel> getOrders({required token}) async {
+  Future<CategoryModel> getCategories({required token}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<OrdersModel>(
+        _setStreamType<CategoryModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '',
+                .compose(_dio.options, 'path',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = OrdersModel.fromJson(_result.data!);
+    final value = CategoryModel.fromJson(_result.data!);
     return value;
   }
 
