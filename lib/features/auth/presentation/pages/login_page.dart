@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
         listener: (context, state) {
           state.whenOrNull(loaded: () {
             // todo navigate home
-            AutoRouter.of(context).replace(const MerchantsRoute());
+            AutoRouter.of(context).replace(const HomeRoute());
           }, error: (error) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(error)));
