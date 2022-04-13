@@ -11,8 +11,8 @@ abstract class RestApiImpl {
   @factoryMethod
   factory RestApiImpl(Dio dio) = _RestApiImpl;
 
-  @GET("/products.json?key=e59c4330")
-  Future<List<ProductModel>> getProfile({
+  @GET("/products?key=e59c4330")
+  Future<List<ProductModel>> getProducts({
     @Header("Authorization") required String token,
   });
 

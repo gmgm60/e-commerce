@@ -52,7 +52,7 @@
   "description" : "Description :",
   "off" : " % Off",
   "currency" : " EGP",
-
+  "yourCart" : "Your Cart",
   "checkYourEmail": "Check Your Email",
   "resetPassword": "Reset Your Password"
 }
