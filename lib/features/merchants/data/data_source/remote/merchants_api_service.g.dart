@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'orders_api_service.dart';
+part of 'merchants_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,9 +8,9 @@ part of 'orders_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _OrdersApiService implements OrdersApiService {
-  _OrdersApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api.mockaroo.com/api/a109e990?count=100&key=ec0ea640';
+class _MerchantsApiService implements MerchantsApiService {
+  _MerchantsApiService(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'https://api.mockaroo.com/api/e1776500';
   }
 
   final Dio _dio;
@@ -18,19 +18,21 @@ class _OrdersApiService implements OrdersApiService {
   String? baseUrl;
 
   @override
-  Future<OrdersModel> getOrders({required token}) async {
+  Future<List<MerchantData>> getMerchants(
+      {required count, required key}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{r'count': count, r'key': key};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<OrdersModel>(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<MerchantData>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = OrdersModel.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => MerchantData.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

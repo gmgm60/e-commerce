@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_cubit.dart';
 import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_states.dart';
@@ -29,7 +30,8 @@ class _StartupPageState extends State<StartupPage> {
         listener: (context, state) {
           state.whenOrNull(
               loaded: () {
-                // todo navigate
+                // todo
+                //AutoRouter.of(context).replace(const HomePage());
               },
               error: (error) => Navigator.of(context).pushReplacement(
                   MaterialPageRoute(

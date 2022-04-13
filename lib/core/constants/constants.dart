@@ -11,6 +11,7 @@ const String resetPassEndPoint = 'forgot_password';
 const String authorizationHeader = 'Authorization';
 const String bearerToken = 'Bearer';
 const String ordersEndPoint = 'orders';
+const String merchantsEndPoint = 'merchants';
 
 
 // keys
