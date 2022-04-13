@@ -12,8 +12,8 @@ class EditCart extends UseCase<Unit,List<CartItem>>{
   EditCart(this._cartRepository);
 
   @override
-  Future<Either<Failures, Unit>> call(List<CartItem> cart)async {
-    return await _cartRepository.editCart(cart: cart);
+  Future<Either<Failures, Unit>> call(List<CartItem> params)async {
+    return await _cartRepository.editCart(cart: params);
   }
 
 }

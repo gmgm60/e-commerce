@@ -22,9 +22,11 @@ CartItemModel _$CartItemModelFromJson(Map<String, dynamic> json) {
 class _$CartItemModelTearOff {
   const _$CartItemModelTearOff();
 
-  _CartItemModel call({required int id, required int count}) {
+  _CartItemModel call(
+      {@JsonKey(name: "product") required ProductModel productModel,
+      required int count}) {
     return _CartItemModel(
-      id: id,
+      productModel: productModel,
       count: count,
     );
   }
@@ -39,7 +41,8 @@ const $CartItemModel = _$CartItemModelTearOff();
 
 /// @nodoc
 mixin _$CartItemModel {
-  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "product")
+  ProductModel get productModel => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +56,9 @@ abstract class $CartItemModelCopyWith<$Res> {
   factory $CartItemModelCopyWith(
           CartItemModel value, $Res Function(CartItemModel) then) =
       _$CartItemModelCopyWithImpl<$Res>;
-  $Res call({int id, int count});
+  $Res call({@JsonKey(name: "product") ProductModel productModel, int count});
+
+  $ProductModelCopyWith<$Res> get productModel;
 }
 
 /// @nodoc
@@ -67,19 +72,26 @@ class _$CartItemModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
+    Object? productModel = freezed,
     Object? count = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
+      productModel: productModel == freezed
+          ? _value.productModel
+          : productModel // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  @override
+  $ProductModelCopyWith<$Res> get productModel {
+    return $ProductModelCopyWith<$Res>(_value.productModel, (value) {
+      return _then(_value.copyWith(productModel: value));
+    });
   }
 }
 
@@ -90,7 +102,10 @@ abstract class _$CartItemModelCopyWith<$Res>
           _CartItemModel value, $Res Function(_CartItemModel) then) =
       __$CartItemModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, int count});
+  $Res call({@JsonKey(name: "product") ProductModel productModel, int count});
+
+  @override
+  $ProductModelCopyWith<$Res> get productModel;
 }
 
 /// @nodoc
@@ -106,14 +121,14 @@ class __$CartItemModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
+    Object? productModel = freezed,
     Object? count = freezed,
   }) {
     return _then(_CartItemModel(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
+      productModel: productModel == freezed
+          ? _value.productModel
+          : productModel // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -125,19 +140,22 @@ class __$CartItemModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CartItemModel implements _CartItemModel {
-  _$_CartItemModel({required this.id, required this.count});
+  _$_CartItemModel(
+      {@JsonKey(name: "product") required this.productModel,
+      required this.count});
 
   factory _$_CartItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_CartItemModelFromJson(json);
 
   @override
-  final int id;
+  @JsonKey(name: "product")
+  final ProductModel productModel;
   @override
   final int count;
 
   @override
   String toString() {
-    return 'CartItemModel(id: $id, count: $count)';
+    return 'CartItemModel(productModel: $productModel, count: $count)';
   }
 
   @override
@@ -145,14 +163,15 @@ class _$_CartItemModel implements _CartItemModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CartItemModel &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.productModel, productModel) &&
             const DeepCollectionEquality().equals(other.count, count));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(productModel),
       const DeepCollectionEquality().hash(count));
 
   @JsonKey(ignore: true)
@@ -167,14 +186,16 @@ class _$_CartItemModel implements _CartItemModel {
 }
 
 abstract class _CartItemModel implements CartItemModel {
-  factory _CartItemModel({required int id, required int count}) =
-      _$_CartItemModel;
+  factory _CartItemModel(
+      {@JsonKey(name: "product") required ProductModel productModel,
+      required int count}) = _$_CartItemModel;
 
   factory _CartItemModel.fromJson(Map<String, dynamic> json) =
       _$_CartItemModel.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: "product")
+  ProductModel get productModel;
   @override
   int get count;
   @override

@@ -18,9 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CartItemTearOff {
   const _$CartItemTearOff();
 
-  _CartItem call({required int id, required int count}) {
+  _CartItem call({required Product product, required int count}) {
     return _CartItem(
-      id: id,
+      product: product,
       count: count,
     );
   }
@@ -31,7 +31,7 @@ const $CartItem = _$CartItemTearOff();
 
 /// @nodoc
 mixin _$CartItem {
-  int get id => throw _privateConstructorUsedError;
+  Product get product => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,7 +43,9 @@ mixin _$CartItem {
 abstract class $CartItemCopyWith<$Res> {
   factory $CartItemCopyWith(CartItem value, $Res Function(CartItem) then) =
       _$CartItemCopyWithImpl<$Res>;
-  $Res call({int id, int count});
+  $Res call({Product product, int count});
+
+  $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
@@ -56,19 +58,26 @@ class _$CartItemCopyWithImpl<$Res> implements $CartItemCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
+    Object? product = freezed,
     Object? count = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  @override
+  $ProductCopyWith<$Res> get product {
+    return $ProductCopyWith<$Res>(_value.product, (value) {
+      return _then(_value.copyWith(product: value));
+    });
   }
 }
 
@@ -77,7 +86,10 @@ abstract class _$CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
   factory _$CartItemCopyWith(_CartItem value, $Res Function(_CartItem) then) =
       __$CartItemCopyWithImpl<$Res>;
   @override
-  $Res call({int id, int count});
+  $Res call({Product product, int count});
+
+  @override
+  $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
@@ -91,14 +103,14 @@ class __$CartItemCopyWithImpl<$Res> extends _$CartItemCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
+    Object? product = freezed,
     Object? count = freezed,
   }) {
     return _then(_CartItem(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -110,16 +122,16 @@ class __$CartItemCopyWithImpl<$Res> extends _$CartItemCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CartItem implements _CartItem {
-  _$_CartItem({required this.id, required this.count});
+  _$_CartItem({required this.product, required this.count});
 
   @override
-  final int id;
+  final Product product;
   @override
   final int count;
 
   @override
   String toString() {
-    return 'CartItem(id: $id, count: $count)';
+    return 'CartItem(product: $product, count: $count)';
   }
 
   @override
@@ -127,14 +139,14 @@ class _$_CartItem implements _CartItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CartItem &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.product, product) &&
             const DeepCollectionEquality().equals(other.count, count));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(product),
       const DeepCollectionEquality().hash(count));
 
   @JsonKey(ignore: true)
@@ -144,10 +156,11 @@ class _$_CartItem implements _CartItem {
 }
 
 abstract class _CartItem implements CartItem {
-  factory _CartItem({required int id, required int count}) = _$_CartItem;
+  factory _CartItem({required Product product, required int count}) =
+      _$_CartItem;
 
   @override
-  int get id;
+  Product get product;
   @override
   int get count;
   @override
