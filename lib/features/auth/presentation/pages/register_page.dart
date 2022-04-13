@@ -64,8 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
         listener: (context, state) {
           state.whenOrNull(
             loaded: () {
-              // todo navigate
-              AutoRouter.of(context).replace(const LogoutRoute());
+              AutoRouter.of(context).replace(const HomeRoute());
             },
             error: (error) {
               ScaffoldMessenger.of(context)

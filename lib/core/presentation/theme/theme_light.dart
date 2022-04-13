@@ -79,4 +79,10 @@ final themeLight = ThemeData(
       ),
       elevation: 16,
       color: Colors.white),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    unselectedIconTheme: IconThemeData(
+      color: Colors.grey
+    ),
+    selectedItemColor: Colors.blue
+  )
 );
