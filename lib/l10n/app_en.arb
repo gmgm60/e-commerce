@@ -24,9 +24,15 @@
   "alreadyHaveAccount": "Already Have Account?",
   "unKnownError": "Something went wrong! try again.",
   "merchants": "Merchants",
+  "categories": "Categories",
   "description": "Description :",
   "off": " % Off",
   "currency": " EGP",
   "checkYourEmail": "Check Your Email",
-  "resetPassword": "Reset Your Password"
+  "resetPassword": "Reset Your Password",
+  "profile": "Profile",
+  "logout": "Logout",
+  "english": "English",
+  "arabic": "Arabic",
+  "cancel": "Cancel"
 }
