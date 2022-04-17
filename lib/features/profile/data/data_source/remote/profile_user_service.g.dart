@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'rest_api.dart';
+part of 'profile_user_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,9 +8,9 @@ part of 'rest_api.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _RestApiImpl implements RestApiImpl {
-  _RestApiImpl(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://my.api.mockaroo.com';
+class _ProfileUserService implements ProfileUserService {
+  _ProfileUserService(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
   }
 
   final Dio _dio;
@@ -18,21 +18,19 @@ class _RestApiImpl implements RestApiImpl {
   String? baseUrl;
 
   @override
-  Future<List<ProductModel>> getProducts({required token}) async {
+  Future<UserData> getCurrentUser({required token}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<ProductModel>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<UserData>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/products?key=e59c4330',
+                .compose(_dio.options, 'profile',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => ProductModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = UserData.fromJson(_result.data!);
     return value;
   }
 
