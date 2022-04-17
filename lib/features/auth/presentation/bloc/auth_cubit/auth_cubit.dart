@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/app_use_case/app_use_case.dart';
+import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/auth/domain/entities/login_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/register_param.dart';
 import 'package:ecommerce/features/auth/domain/use_case/get_token_use_case.dart';
@@ -31,21 +31,21 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(const AuthLoadingState());
 
     final result = await _getTokenUseCase(NoParams());
-    emit(result.fold((error) => AuthErrorState(error: error.message),
+    emit(result.fold((error) => AuthErrorState(error: error.error),
         (token) => const AuthLoadedState()));
   }
 
   Future<void> register({required RegisterParam registerParam}) async {
     emit(const AuthLoadingState());
     final result = await _registerUseCase(registerParam);
-    emit(result.fold((error) => AuthErrorState(error: error.message),
+    emit(result.fold((error) => AuthErrorState(error: error.error),
         (user) => const AuthLoadedState()));
   }
 
   Future<void> login({required LoginParam loginParam}) async {
     emit(const AuthLoadingState());
     final result = await _loginUseCase(loginParam);
-    emit(result.fold((error) => AuthErrorState(error: error.message),
+    emit(result.fold((error) => AuthErrorState(error: error.error),
         (user) => const AuthLoadedState()));
   }
 
@@ -53,8 +53,8 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(const AuthLoadingState());
     final result = await _logoutUseCase(NoParams());
     emit(result.fold((error) {
-      debugPrint(error.message);
-      return AuthErrorState(error: error.message);
+      debugPrint(error.error);
+      return AuthErrorState(error: error.error);
     }, (done) {
       return const AuthLogoutState();
     }));
@@ -63,7 +63,7 @@ class AuthCubit extends Cubit<AuthStates> {
   Future<void> resetPassword({required String email}) async {
     emit(const AuthLoadingState());
     final result = await _resetPassUseCase(email);
-    emit(result.fold((error) => AuthErrorState(error: error.message),
+    emit(result.fold((error) => AuthErrorState(error: error.error),
         (user) => const AuthLoadedState()));
   }
 }

@@ -20,14 +20,16 @@ class HomePage extends StatelessWidget {
       context.tr.categories,
       context.tr.merchants,
     ];
+
+    List<PageRouteInfo> routes = const [
+      Products(),
+      OrdersRoute(),
+      ViewCartRoute(),
+      CategoryRoute(),
+      Merchants(),
+    ];
     return AutoTabsScaffold(
-      routes: const [
-        Products(),
-        OrdersRoute(),
-        ViewCartRoute(),
-        CategoryRoute(),
-        Merchants(),
-      ],
+      routes: routes,
       appBarBuilder: (context, tabRouter) {
         return AppBar(
           title: Text(titles[tabRouter.activeIndex]),

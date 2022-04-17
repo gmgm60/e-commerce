@@ -1,17 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/merchants/data/models/merchant_model/merchants_model.dart';
+import 'package:ecommerce/features/merchants/domain/data_source/remote/merchants_api_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'merchants_api_service.g.dart';
+part 'merchants_api_service_impl.g.dart';
 
-@singleton
+@Singleton(as: MerchantsApiService)
 @RestApi(baseUrl: 'https://my.api.mockaroo.com')
-abstract class MerchantsApiService {
+abstract class MerchantsApiServiceImpl implements MerchantsApiService {
   @factoryMethod
-  factory MerchantsApiService(Dio dio) = _MerchantsApiService;
+  factory MerchantsApiServiceImpl(Dio dio) = _MerchantsApiServiceImpl;
 
+  @override
   @GET('/merchants?key=ec0ea640')
   Future<List<MerchantData>> getMerchants(
       {@Header(authorizationHeader) required String token});

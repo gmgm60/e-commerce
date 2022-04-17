@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/app_use_case/app_use_case.dart';
+import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/merchants/domain/use_case/get_merchants_use_case.dart';
 import 'package:ecommerce/features/merchants/presentation/bloc/merchants_cubit/merchants_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +14,7 @@ class MerchantsCubit extends Cubit<MerchantsStates> {
   void getMerchants() async {
     emit(const MerchantsLoadingState());
     final result = await _getMerchantsUseCase(NoParams());
-    emit(result.fold((error) => MerchantsErrorState(error: error.message),
+    emit(result.fold((error) => MerchantsErrorState(error: error.error),
         (merchants) => MerchantsLoadedState(merchants: merchants)));
   }
 }

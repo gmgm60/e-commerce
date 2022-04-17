@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce/core/constants/constants.dart';
-import 'package:ecommerce/core/failure/failure.dart';
-import 'package:ecommerce/features/auth/data/data_source/local/auth_local_service.dart';
-import 'package:ecommerce/features/auth/data/data_source/remote/auth_api_service.dart';
+import 'package:ecommerce/core/domain/error/failures.dart';
 import 'package:ecommerce/features/auth/data/mappers/login_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/register_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
+import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
+import 'package:ecommerce/features/auth/domain/data_source/remote/auth_api_service.dart';
 import 'package:ecommerce/features/auth/domain/entities/login_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/register_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
@@ -15,17 +15,17 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepository)
 class AuthRepoImpl extends AuthRepository {
-  final AuthApiService _service;
+  final AuthApiService _apiService;
   final AuthLocalService _localService;
 
-  AuthRepoImpl(this._service, this._localService);
+  AuthRepoImpl(this._apiService, this._localService);
 
   @override
-  Future<Either<Failure, User>> login({required LoginParam loginParam}) async {
+  Future<Either<Failures, User>> login({required LoginParam loginParam}) async {
     debugPrint('login start...');
 
     try {
-      final userModel = await _service.login(loginModel: loginParam.toModel);
+      final userModel = await _apiService.login(loginModel: loginParam.toModel);
 
       debugPrint('login user model: $userModel');
 
@@ -36,19 +36,18 @@ class AuthRepoImpl extends AuthRepository {
       return right(userModel.userData.fromModel);
     } catch (error) {
       debugPrint('Login Error: $error');
-      //todo handle error
-      return left(const Failure(message: 'Login Error'));
+      return left(Failures.serverError('Login Error'));
     }
   }
 
   @override
-  Future<Either<Failure, User>> register(
+  Future<Either<Failures, User>> register(
       {required RegisterParam registerParam}) async {
     debugPrint('register start...');
 
     try {
       final userModel =
-          await _service.register(registerModel: registerParam.toModel);
+          await _apiService.register(registerModel: registerParam.toModel);
       debugPrint('register user model: $userModel');
       _localService.saveToken(token: userModel.token).then((value) {
         debugPrint('register save token: $value');
@@ -57,18 +56,18 @@ class AuthRepoImpl extends AuthRepository {
       return right(userModel.userData.fromModel);
     } catch (error) {
       debugPrint('Register Error: $error');
-      return left(const Failure(message: 'Register Error'));
+      return left(Failures.serverError('Register Error'));
     }
   }
 
   @override
-  Future<Either<Failure, String>> logout() async {
+  Future<Either<Failures, String>> logout() async {
     debugPrint('start logout...');
     String? token = _localService.getToken();
     if (token != null) {
       try {
         final logoutResult =
-            await _service.logout(token: '$bearerToken $token');
+            await _apiService.logout(token: '$bearerToken $token');
 
         debugPrint('you have logged out...');
 
@@ -79,35 +78,35 @@ class AuthRepoImpl extends AuthRepository {
       } catch (error) {
         debugPrint('Logout Catch Error: $error');
 
-        return left(Failure(message: error.toString()));
+        return left(Failures.serverError(error.toString()));
       }
     } else {
       debugPrint('Logout Error: No Token');
-      //todo handle error
-      return left(const Failure(message: 'Logout Error'));
+      return left(Failures.noUser('No User'));
     }
   }
 
   @override
-  Future<Either<Failure, String>> getToken() async {
+  Future<Either<Failures, String>> getToken() async {
     String? token = _localService.getToken();
-    //if (token == null) return left(const Failure(message: 'Token Null'));
+    //if (token == null) return left(Failures.localStorageError('Token Null'));
     //return right(token); todo
     return right('token');
   }
 
   @override
-  Future<Either<Failure, String>> resetPassword({required String email}) async {
+  Future<Either<Failures, String>> resetPassword(
+      {required String email}) async {
     debugPrint('Reset Password start...');
 
     try {
-      final result = await _service.resetPassword(email: email);
+      final result = await _apiService.resetPassword(email: email);
       debugPrint('resetPassword $result');
 
       return right(result);
     } catch (error) {
       debugPrint('Reset Error: $error');
-      return left(const Failure(message: 'Reset Password Error'));
+      return left(Failures.serverError('Reset Password Error'));
     }
   }
 }

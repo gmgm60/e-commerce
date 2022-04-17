@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'profile_user_service.dart';
+part of 'merchants_api_service_impl.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,9 +8,9 @@ part of 'profile_user_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _ProfileUserService implements ProfileUserService {
-  _ProfileUserService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
+class _MerchantsApiServiceImpl implements MerchantsApiServiceImpl {
+  _MerchantsApiServiceImpl(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'https://my.api.mockaroo.com';
   }
 
   final Dio _dio;
@@ -18,19 +18,21 @@ class _ProfileUserService implements ProfileUserService {
   String? baseUrl;
 
   @override
-  Future<UserData> getCurrentUser({required token}) async {
+  Future<List<MerchantData>> getMerchants({required token}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<UserData>(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<MerchantData>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'profile',
+                .compose(_dio.options, '/merchants?key=ec0ea640',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = UserData.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => MerchantData.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

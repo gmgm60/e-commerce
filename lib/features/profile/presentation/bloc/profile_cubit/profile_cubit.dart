@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/app_use_case/app_use_case.dart';
+import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/profile/domain/use_case/get_user_use_case.dart';
 import 'package:ecommerce/features/profile/presentation/bloc/profile_cubit/profile_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +13,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
     emit(const ProfileLoadingState());
     final result = await _getUserUseCase.call(NoParams());
     emit(result.fold((error) {
-      return ProfileErrorState(error: error.message);
+      return ProfileErrorState(error: error.error);
     }, (user) {
       return ProfileLoadedState(user: user);
     }));
