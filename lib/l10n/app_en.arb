@@ -3,6 +3,7 @@
   "currentLanguage": "English",
   "appTitle": "E-Commerce App",
   "productsTitle": "New Products",
+  "ordersTitle": "Orders",
   "welcomeText": "Welcome To E-commerce",
   "signInToContinue": "Sign in to continue",
   "login": "Login",
@@ -36,8 +37,5 @@
   "english": "English",
   "arabic": "Arabic",
   "cancel": "Cancel",
-  "addToCart": "Add to cart",
-  "items": "items",
-  "shipping": "Shipping",
-  "totalPrice": "Total Price"
+  "update": "Update"
 }

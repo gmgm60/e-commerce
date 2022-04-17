@@ -7,12 +7,12 @@ import 'package:retrofit/http.dart';
 part 'orders_api_service.g.dart';
 
 @singleton
-@RestApi(baseUrl: 'https://api.mockaroo.com/api/a109e990?count=100&key=ec0ea640')
+@RestApi(baseUrl: 'https://my.api.mockaroo.com')
 abstract class OrdersApiService {
   @factoryMethod
   factory OrdersApiService(Dio dio) = _OrdersApiService;
 
-  @GET('')
+  @GET('/orders.json?key=ec0ea640')
   Future<OrdersModel> getOrders({
     @Header(authorizationHeader) required String token,
   });

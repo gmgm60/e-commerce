@@ -16,9 +16,7 @@ class ProductPage extends StatelessWidget {
     int count = 1;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(product.name),
-      ),
+
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(

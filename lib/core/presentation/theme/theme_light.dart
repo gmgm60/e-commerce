@@ -2,14 +2,30 @@ import 'package:ecommerce/core/presentation/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// NAME         SIZE  WEIGHT  SPACING
+/// headline1    96.0  light   -1.5
+/// headline2    60.0  light   -0.5
+/// headline3    48.0  regular  0.0
+/// headline4    34.0  regular  0.25
+/// headline5    24.0  regular  0.0
+/// headline6    20.0  medium   0.15
+/// subtitle1    16.0  regular  0.15
+/// subtitle2    14.0  medium   0.1
+/// body1        16.0  regular  0.5   (bodyText1)
+/// body2        14.0  regular  0.25  (bodyText2)
+/// button       14.0  medium   1.25
+/// caption      12.0  regular  0.4
+/// overline     10.0  regular  1.5
+///
 final themeLight = ThemeData(
   primarySwatch: appMainColor,
+  scaffoldBackgroundColor: Colors.white,
   appBarTheme: const AppBarTheme(
     centerTitle: true,
     elevation: 0,
     color: Colors.white,
     titleTextStyle: TextStyle(
-        fontSize: 18, color: Colors.black54, fontWeight: FontWeight.bold),
+        fontSize: 18, color: appDarkBlue, fontWeight: FontWeight.bold),
     iconTheme: IconThemeData(color: Colors.black54),
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -17,24 +33,23 @@ final themeLight = ThemeData(
     ),
   ),
   textTheme: TextTheme(
-      headline1: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w700,
-        color: appMainColor,
-      ),
-      headline5: const TextStyle(color: Colors.blue),
-      headline6: const TextStyle(color: Colors.blue),
-      subtitle1: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: appMainColor,
-      ),
-      bodyText1: const TextStyle(
-        color: Colors.black45,
-      ),
-      bodyText2: TextStyle(
-        color: appMainColor,
-      )),
+    // size 18, orange(login & register pages)
+    headline1: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w700,
+      color: appMainColor,
+    ),
+    // size 16, orange
+    subtitle1: TextStyle(color: appMainColor),
+    // size 24, blue
+    headline5: const TextStyle(color: appBlue),
+    // size 20, blue
+    headline6: const TextStyle(color: appBlue),
+    // size 16, darkBlue
+    bodyText1: const TextStyle(color: appDarkBlue),
+    // size 14 ,grey
+    bodyText2: const TextStyle(color: appGrey),
+  ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
@@ -79,10 +94,9 @@ final themeLight = ThemeData(
       ),
       elevation: 16,
       color: Colors.white),
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    unselectedIconTheme: IconThemeData(
-      color: Colors.grey
-    ),
-    selectedItemColor: Colors.blue
-  )
+  bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+      unselectedIconTheme: const IconThemeData(color: appGrey),
+      selectedItemColor: appDarkBlue,
+  elevation: 4,
+  backgroundColor: appGrey.withOpacity(.8),),
 );

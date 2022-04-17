@@ -1,7 +1,6 @@
-
 import 'package:ecommerce/core/constants/constants.dart';
-import 'package:ecommerce/core/presentation/bloc/locale_cubit/locale_cubit.dart';
-import 'package:ecommerce/core/presentation/bloc/locale_cubit/locale_states.dart';
+import 'package:ecommerce/core/features/locale/presentation/bloc/locale_cubit/locale_cubit.dart';
+import 'package:ecommerce/core/features/locale/presentation/bloc/locale_cubit/locale_states.dart';
 import 'package:ecommerce/core/presentation/colors/colors.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,7 @@ class AppLocale extends StatelessWidget {
               ListTile(
                 title: Text(
                   context.tr.english,
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
                 leading: Radio<Locale>(
                     activeColor: appMainColor,
@@ -32,19 +31,19 @@ class AppLocale extends StatelessWidget {
                     groupValue: cubit.locale,
                     onChanged: (newLocaleValue) {
                       Navigator.of(context, rootNavigator: true).pop();
-                      cubit.changeLocale(newLocale: newLocaleValue);
+                      cubit.changeLocalization(newLocale: newLocaleValue!);
                     }),
               ),
               ListTile(
                 title: Text(context.tr.arabic,
-                    style: Theme.of(context).textTheme.subtitle1),
+                    style: Theme.of(context).textTheme.bodyText1),
                 leading: Radio<Locale>(
                   activeColor: appMainColor,
                   value: const Locale(arLanguageCode),
                   groupValue: cubit.locale,
                   onChanged: (newLocalValue) {
                     Navigator.of(context, rootNavigator: true).pop();
-                    cubit.changeLocale(newLocale: newLocalValue);
+                    cubit.changeLocalization(newLocale: newLocalValue!);
                   },
                 ),
               ),

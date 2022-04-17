@@ -5,11 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({Key? key, required this.product, required this.onRemoved})
+  const OrderItem({Key? key, required this.product,})
       : super(key: key);
   final Product product;
-  final VoidCallback onRemoved;
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -52,13 +50,7 @@ class OrderItem extends StatelessWidget {
           const SizedBox(
             width: 16,
           ),
-          IconButton(
-            onPressed: onRemoved,
-            icon: const FaIcon(
-              FontAwesomeIcons.xmark,
-              color: appGrey,
-            ),
-          ),
+          const Text('Pending'), // todo
         ],
       ),
     );
