@@ -37,5 +37,9 @@
   "english": "English",
   "arabic": "Arabic",
   "cancel": "Cancel",
-  "update": "Update"
+  "update": "Update",
+  "addToCart": "Add to cart",
+  "items": "items",
+  "shipping": "Shipping",
+  "totalPrice": "Total Price"
 }
