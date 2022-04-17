@@ -51,135 +51,133 @@ class _LoginPageState extends State<LoginPage> {
       child: BlocListener<AuthCubit, AuthStates>(
         listener: (context, state) {
           state.whenOrNull(loaded: () {
-            // todo navigate home
             AutoRouter.of(context).replace(const HomeRoute());
           }, error: (error) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(error)));
           });
         },
-        child: SafeArea(
-          child: Scaffold(
-            appBar: AppBar(),
-            body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const AuthLogoDesign(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-                    child: Form(
-                      key: formKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          AppTextFormField(
-                            key: const ValueKey('email_text_field'),
-                            controller: emailController,
-                            icon: Icons.email_outlined,
-                            inputType: TextInputType.emailAddress,
-                            label: context.tr.email,
-                            validate: (value) {
-                              if (value != null) {
-                                bool validation = emailRegExp.hasMatch(value);
-                                if (!validation) {
-                                  return context.tr.emailFieldValidation;
-                                }
+        child: Scaffold(
+          appBar: AppBar(),
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.only(top: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const AuthLogoDesign(),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AppTextFormField(
+                          key: const ValueKey('email_text_field'),
+                          controller: emailController,
+                          icon: Icons.email_outlined,
+                          inputType: TextInputType.emailAddress,
+                          label: context.tr.email,
+                          validate: (value) {
+                            if (value != null) {
+                              bool validation = emailRegExp.hasMatch(value);
+                              if (!validation) {
+                                return context.tr.emailFieldValidation;
                               }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          AppTextFormField(
-                            key: const ValueKey('password_text_field'),
-                            controller: passwordController,
-                            validate: (value) {
-                              if (value == null || value.length < 8) {
-                                return context.tr.passwordFieldValidation;
-                              }
-                              return null;
-                            },
-                            inputType: TextInputType.visiblePassword,
-                            label: context.tr.password,
-                            icon: Icons.lock,
-                            isPassword: true,
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          BlocBuilder<AuthCubit, AuthStates>(
-                            builder: (context, state) {
-                              return state.maybeWhen(
-                                orElse: () => AppElevatedButton(
-                                    isLoading: state.maybeWhen(
-                                      orElse: () => false,
-                                      loading: () => true,
-                                      loaded: () => true,
-                                    ),
-                                    onPressed: () {
-                                      if (formKey.currentState!.validate()) {
-                                        FocusManager.instance.primaryFocus
-                                            ?.unfocus();
-                                        BlocProvider.of<AuthCubit>(context)
-                                            .login(
-                                                loginParam: LoginParam(
-                                                    email: emailController.text
-                                                        .trim(),
-                                                    password: passwordController
-                                                        .text));
-                                      }
-                                    },
-                                    text: context.tr.login),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        AppTextFormField(
+                          key: const ValueKey('password_text_field'),
+                          controller: passwordController,
+                          validate: (value) {
+                            if (value == null || value.length < 8) {
+                              return context.tr.passwordFieldValidation;
+                            }
+                            return null;
+                          },
+                          inputType: TextInputType.visiblePassword,
+                          label: context.tr.password,
+                          icon: Icons.lock,
+                          isPassword: true,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        BlocBuilder<AuthCubit, AuthStates>(
+                          builder: (context, state) {
+                            return state.maybeWhen(
+                              orElse: () => AppElevatedButton(
+                                  isLoading: state.maybeWhen(
+                                    orElse: () => false,
+                                    loading: () => true,
+                                    loaded: () => true,
+                                  ),
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                      BlocProvider.of<AuthCubit>(context)
+                                          .login(
+                                              loginParam: LoginParam(
+                                                  email: emailController.text
+                                                      .trim(),
+                                                  password: passwordController
+                                                      .text));
+                                    }
+                                  },
+                                  text: context.tr.login),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
-                  TextButton(
-                      onPressed: () {
-                        AutoRouter.of(context)
-                            .navigate(const ForgotPasswordRoute());
-                      },
-                      child: Text(
-                        context.tr.forgotPassword,
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle1!
-                            .copyWith(color: appBlue),
-                      )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        context.tr.haveNoAccountYet,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(color: appGrey),
-                      ),
-                      const SizedBox(
-                        width: 2,
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            AutoRouter.of(context)
-                                .replace(const RegisterRoute());
-                          },
-                          child: Text(
-                            context.tr.register,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle1!
-                                .copyWith(color: appBlue),
-                          )),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+                TextButton(
+                    onPressed: () {
+                      AutoRouter.of(context)
+                          .navigate(const ForgotPasswordRoute());
+                    },
+                    child: Text(
+                      context.tr.forgotPassword,
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1!
+                          .copyWith(color: appBlue),
+                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      context.tr.haveNoAccountYet,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .copyWith(color: appGrey),
+                    ),
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          AutoRouter.of(context)
+                              .replace(const RegisterRoute());
+                        },
+                        child: Text(
+                          context.tr.register,
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1!
+                              .copyWith(color: appBlue),
+                        )),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

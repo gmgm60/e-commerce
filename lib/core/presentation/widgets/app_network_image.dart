@@ -31,9 +31,16 @@ class AppNetworkImage extends StatelessWidget {
   }
 
   Widget _placeholder() {
-    return const Image(
-      image: AssetImage('assets/images/placeholder.png'),
-      fit: BoxFit.cover,
+    return  Container(
+     // clipBehavior: Clip.antiAliasWithSaveLayer,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.white,
+        image: const DecorationImage(
+          image: AssetImage('assets/images/placeholder.png')
+        )
+      ),
+
     );
   }
 }

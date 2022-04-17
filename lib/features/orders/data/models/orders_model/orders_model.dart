@@ -32,6 +32,12 @@ class OrderModelData {
   @JsonKey(name: 'address')
   String address;
 
+  @JsonKey(name: 'status')
+  String status;
+
+  @JsonKey(name: 'total_price')
+  String totalPrice;
+
   @JsonKey(name: 'products')
   List<ProductModel> products;
 
@@ -39,6 +45,8 @@ class OrderModelData {
     required this.id,
     required this.customerId,
     required this.address,
+    required this.status,
+    required this.totalPrice,
     required this.products,
   });
 

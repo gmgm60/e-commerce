@@ -55,6 +55,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           child: Scaffold(
             appBar: AppBar(
               title: Text(context.tr.resetPassword),
+              centerTitle: false,
             ),
             body: Padding(
               padding: const EdgeInsets.all(20),

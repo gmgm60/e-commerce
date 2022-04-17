@@ -76,6 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Scaffold(
             appBar: AppBar(),
             body: SingleChildScrollView(
+              padding: const EdgeInsets.only(top: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

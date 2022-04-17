@@ -13,9 +13,10 @@ const String bearerToken = 'Bearer';
 const String ordersEndPoint = 'orders';
 const String merchantsEndPoint = 'merchants';
 
-// locale code
+// local code
 const String enLanguageCode = 'en';
 const String arLanguageCode = 'ar';
 
 // keys
 const String tokenKey = 'token_key';
+const String localeCodeKey = 'locale_code_key';

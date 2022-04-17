@@ -28,13 +28,13 @@ class AuthLogoDesign extends StatelessWidget {
               .headline1,
         ),
         const SizedBox(
-          height: 10,
+          height: 4,
         ),
         Text(
           context.tr.signInToContinue,
           style: Theme.of(context)
               .textTheme
-              .bodyText1,
+              .bodyText1!.copyWith(color: appYellow),
         ),
       ],
     );

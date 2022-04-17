@@ -2,6 +2,7 @@
   "language": "اللغه",
   "currentLanguage": "العربية",
   "appTitle": "برنامج تجاره الكترونيه",
+  "ordersTitle": "الطلبات",
   "welcomeText": "مرحبا بك في متجرنا",
   "signInToContinue": "سجل الدخول للاستمرار",
   "login": "تسجيل دخول",
@@ -30,6 +31,7 @@
   "logout": "تسجيل خروج",
   "english": "الانجليزيه",
   "arabic": "العربيه",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "update": "تحديث"
 
 }

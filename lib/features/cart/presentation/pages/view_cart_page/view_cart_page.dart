@@ -23,9 +23,6 @@ class _ViewCartPageState extends State<ViewCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.tr.yourCart),
-      ),
       body: ListView(
         children: [
           ...List.generate(
