@@ -1,6 +1,9 @@
+import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductPage extends StatelessWidget {
   final Product product;
@@ -9,6 +12,9 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartCubit = context.read<CartCubit>();
+    int count = 1;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(product.name),
@@ -36,7 +42,8 @@ class ProductPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                    (product.price * (1-product.discount)).toStringAsFixed(2) +
+                    (product.price * (1 - product.discount))
+                            .toStringAsFixed(2) +
                         context.tr.currency,
                     style: Theme.of(context)
                         .textTheme
@@ -60,9 +67,11 @@ class ProductPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                IconButton(onPressed: (){
-                  //TODO add to favorite
-                }, icon: const Icon(Icons.favorite_border))
+                IconButton(
+                    onPressed: () {
+                      //TODO add to favorite
+                    },
+                    icon: const Icon(Icons.favorite_border))
               ],
             ),
             const SizedBox(
@@ -72,15 +81,28 @@ class ProductPage extends StatelessWidget {
               context.tr.description,
               style: Theme.of(context).textTheme.headline6,
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Text(
               product.description,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            const SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){
-              //TODO add to cart
-            }, child: const Text("Add to cart"))
+            const SizedBox(
+              height: 20,
+            ),
+            BlocBuilder<CartCubit, CartState>(
+              builder: (context, state) {
+                return ElevatedButton(
+                    onPressed: cartCubit.isInCart(productId: product.id) && state is! Loading
+                        ? () {
+                            //TODO add to cart
+                            cartCubit.addToCart(product: product, count: count);
+                          }
+                        : null,
+                    child: state is Loading ? const CircularProgressIndicator() : Text(context.tr.addToCart));
+              },
+            )
           ],
         ),
       ),
