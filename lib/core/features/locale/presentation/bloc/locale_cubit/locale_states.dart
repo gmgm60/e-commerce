@@ -9,4 +9,9 @@ class LocaleStates with _$LocaleStates {
 
   const factory LocaleStates.changed({required Locale locale}) =
       LocaleChangedState;
+
+  const factory LocaleStates.loadedFromShared({required Locale locale}) =
+      LocaleLoadedFromSharedState;
+
+  const factory LocaleStates.error({required String error}) = LocaleErrorState;
 }

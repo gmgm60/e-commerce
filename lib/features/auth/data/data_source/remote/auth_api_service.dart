@@ -1,8 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/auth/data/models/login/login_model.dart';
-import 'package:ecommerce/features/auth/data/models/register/register_error/register_error.dart';
 import 'package:ecommerce/features/auth/data/models/register/register_model.dart';
 import 'package:ecommerce/features/auth/data/models/user/user_model.dart';
 import 'package:injectable/injectable.dart';

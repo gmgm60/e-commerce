@@ -6,14 +6,13 @@ import 'package:ecommerce/features/products/domain/repository/product_repo.dart'
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetProducts extends UseCase<List<Product>,NoParams>{
+class GetProducts extends UseCase<List<Product>, NoParams> {
   final ProductRepo _productRepo;
 
   GetProducts(this._productRepo);
 
   @override
-  Future<Either<Failures, List<Product>>> call(NoParams params) async{
+  Future<Either<Failures, List<Product>>> call(NoParams params) async {
     return _productRepo.getProducts();
   }
-
 }

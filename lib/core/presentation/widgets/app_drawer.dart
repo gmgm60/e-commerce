@@ -1,6 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce/core/features/locale/presentation/widgets/app_locales.dart';
+import 'package:ecommerce/core/presentation/colors/colors.dart';
+import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
+import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
+import 'package:ecommerce/di/injectable.dart';
+import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_cubit.dart';
+import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_states.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -20,52 +28,72 @@ class AppDrawer extends StatelessWidget {
                 const Image(
                   image: AssetImage('assets/images/logo.png'),
                   fit: BoxFit.cover,
-                  width: 100,
-                  height: 100,
+                  width: 80,
+                  height: 80,
                 ),
                 const SizedBox(
-                  height: 8,
+                  height: 16,
                 ),
                 Text(
                   context.tr.appTitle,
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ],
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.person),
+            leading: const Icon(Icons.person,color: appGrey,),
             title: Text(
               context.tr.profile,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
             onTap: () {
               AutoRouter.of(context).pop();
-              //todo implement profile
+              AutoRouter.of(context).navigate(const ProfileRoute());
             },
           ),
           ListTile(
-            leading: const FaIcon(FontAwesomeIcons.language),
+            leading: const FaIcon(FontAwesomeIcons.language, color: appGrey,),
             title: Text(
               context.tr.language,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
             onTap: () {
-              AutoRouter.of(context).pop();
-              //todo implement language
+              AutoRouter.of(context).pop().then((_) {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AppLocale();
+                    });
+              });
             },
           ),
-          ListTile(
-            leading: const FaIcon(FontAwesomeIcons.arrowRightFromBracket),
-            title: Text(
-              context.tr.logout,
-              style: Theme.of(context).textTheme.subtitle1,
+          BlocProvider(
+            create: (context) => getIt<AuthCubit>(),
+            child: BlocConsumer<AuthCubit, AuthStates>(
+              listener: (context, state) {
+                state.whenOrNull(loggOut: () {
+                  AutoRouter.of(context).popUntilRoot();
+                  AutoRouter.of(context).replace(const StartupRoute());
+                });
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                    loading: () => const AppProgressIndicator(),
+                    orElse: () => ListTile(
+                          leading: const FaIcon(
+                              FontAwesomeIcons.arrowRightFromBracket, color: appGrey,),
+                          title: Text(
+                            context.tr.logout,
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                          onTap: () {
+                            BlocProvider.of<AuthCubit>(context).logout();
+                          },
+                        ));
+              },
             ),
-            onTap: () {
-              AutoRouter.of(context).pop();
-              //todo implement logout
-            },
-          ),
+          )
         ],
       ),
     );

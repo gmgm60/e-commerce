@@ -54,10 +54,9 @@ class AuthCubit extends Cubit<AuthStates> {
     final result = await _logoutUseCase(NoParams());
     emit(result.fold((error) {
       debugPrint(error.message);
-
       return AuthErrorState(error: error.message);
     }, (done) {
-      return const AuthLoadedState();
+      return const AuthLogoutState();
     }));
   }
 
@@ -67,5 +66,4 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(result.fold((error) => AuthErrorState(error: error.message),
         (user) => const AuthLoadedState()));
   }
-
 }

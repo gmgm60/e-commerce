@@ -14,9 +14,6 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.tr.categories),
-      ),
       body: BlocProvider(
         create: (context) => getIt<CategoryCubit>()..getCategories(),
         child: BlocBuilder<CategoryCubit, CategoryStates>(
@@ -35,7 +32,6 @@ class CategoryPage extends StatelessWidget {
               orElse: () => Container());
         }),
       ),
-      drawer: const AppDrawer(),
     );
   }
 }
