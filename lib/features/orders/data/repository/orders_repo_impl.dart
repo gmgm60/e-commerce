@@ -19,10 +19,10 @@ class OrdersRepoImpl extends OrdersRepository {
   Future<Either<Failure, Order>> getOrder() async {
     debugPrint('Get Orders start...');
     String? token = _localService.getToken();
-    if (token != null) {
+    // if (token != null) {
       try {
         final ordersModel = await _ordersApiService.getOrders(
-          token: token,
+          token: token??'',
         );
         debugPrint('Get Orders Model: ${ordersModel.toJson()}');
 
@@ -31,9 +31,9 @@ class OrdersRepoImpl extends OrdersRepository {
         debugPrint('Get Orders Error $error');
         return left(Failure(message: error.toString()));
       }
-    } else {
-      debugPrint('Get Orders Error No Token');
-      return left(const Failure(message: 'Un Known Error'));
-    }
+    // } else {
+    //   debugPrint('Get Orders Error No Token');
+    //   return left(const Failure(message: 'Un Known Error'));
+    // }
   }
 }

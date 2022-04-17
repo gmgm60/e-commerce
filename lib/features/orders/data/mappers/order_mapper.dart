@@ -11,6 +11,8 @@ extension OrdersMapper on OrderModelData {
       customerId: customerId,
       address: address,
       products: productEntities,
+      totalPrice: totalPrice,
+      orderStatus: status
     );
   }
 }

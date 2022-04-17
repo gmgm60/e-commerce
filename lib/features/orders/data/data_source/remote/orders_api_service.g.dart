@@ -10,7 +10,7 @@ part of 'orders_api_service.dart';
 
 class _OrdersApiService implements OrdersApiService {
   _OrdersApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api.mockaroo.com/api/a109e990?count=100&key=ec0ea640';
+    baseUrl ??= 'https://my.api.mockaroo.com';
   }
 
   final Dio _dio;
@@ -27,7 +27,7 @@ class _OrdersApiService implements OrdersApiService {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<OrdersModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '',
+                .compose(_dio.options, '/orders.json?key=ec0ea640',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = OrdersModel.fromJson(_result.data!);
