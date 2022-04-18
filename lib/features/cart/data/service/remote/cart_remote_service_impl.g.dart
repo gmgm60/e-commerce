@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cart_retrofit.dart';
+part of 'cart_remote_service_impl.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'cart_retrofit.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _CartRetrofit implements CartRetrofit {
-  _CartRetrofit(this._dio, {this.baseUrl}) {
+class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
+  _CartRemoteServiceImpl(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://my.api.mockaroo.com';
   }
 
@@ -37,22 +37,33 @@ class _CartRetrofit implements CartRetrofit {
   }
 
   @override
-  Future<List<CartItemModel>> editCart(
-      {required token, required cartModel}) async {
+  Future<dynamic> editCart({required token, required cart}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'cart': cartModel};
+    final queryParameters = <String, dynamic>{r'cart': cart};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<CartItemModel>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/cart?key=e59c4330',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => CartItemModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'POST', headers: _headers, extra: _extra)
+            .compose(_dio.options, '/cart?key=e59c4330',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
+  Future<dynamic> confirmOrder({required token}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'POST', headers: _headers, extra: _extra)
+            .compose(_dio.options, 'path',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
     return value;
   }
 

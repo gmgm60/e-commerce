@@ -44,5 +44,7 @@
   "totalPrice": "Total Price",
   "products": "Products",
   "cart": "Cart",
-  "orders": "Orders"
+  "orders": "Orders",
+  "thisProductISInTheCart": "This Product is in the Cart",
+  "productNotAvailable": "This Product Is Not Available at This Moment"
 }
