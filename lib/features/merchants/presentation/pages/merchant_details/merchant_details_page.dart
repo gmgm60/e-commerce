@@ -144,6 +144,15 @@ class ProductItem extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      '${product.price}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ],
                 ),
               )

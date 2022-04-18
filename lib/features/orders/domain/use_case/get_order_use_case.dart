@@ -6,13 +6,13 @@ import 'package:ecommerce/features/orders/domain/repository/order_repository.dar
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetOrderUseCase extends UseCase<Order, NoParams> {
+class GetOrderUseCase extends UseCase<List<Order>, NoParams> {
   final OrdersRepository _ordersRepository;
 
   GetOrderUseCase(this._ordersRepository);
 
   @override
-  Future<Either<Failures, Order>> call(NoParams params) {
+  Future<Either<Failures, List<Order>>> call(NoParams params) {
     return _ordersRepository.getOrder();
   }
 }

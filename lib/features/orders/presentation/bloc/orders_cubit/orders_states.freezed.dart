@@ -26,7 +26,7 @@ class _$OrdersStatesTearOff {
     return const OrdersLoadingState();
   }
 
-  OrdersLoadedState loaded({required Order order}) {
+  OrdersLoadedState loaded({required List<Order> order}) {
     return OrdersLoadedState(
       order: order,
     );
@@ -48,7 +48,7 @@ mixin _$OrdersStates {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Order order) loaded,
+    required TResult Function(List<Order> order) loaded,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ mixin _$OrdersStates {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ mixin _$OrdersStates {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -155,7 +155,7 @@ class _$OrdersInitialState implements OrdersInitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Order order) loaded,
+    required TResult Function(List<Order> order) loaded,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -166,7 +166,7 @@ class _$OrdersInitialState implements OrdersInitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
   }) {
     return initial?.call();
@@ -177,7 +177,7 @@ class _$OrdersInitialState implements OrdersInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -272,7 +272,7 @@ class _$OrdersLoadingState implements OrdersLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Order order) loaded,
+    required TResult Function(List<Order> order) loaded,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -283,7 +283,7 @@ class _$OrdersLoadingState implements OrdersLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
   }) {
     return loading?.call();
@@ -294,7 +294,7 @@ class _$OrdersLoadingState implements OrdersLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -351,7 +351,7 @@ abstract class $OrdersLoadedStateCopyWith<$Res> {
   factory $OrdersLoadedStateCopyWith(
           OrdersLoadedState value, $Res Function(OrdersLoadedState) then) =
       _$OrdersLoadedStateCopyWithImpl<$Res>;
-  $Res call({Order order});
+  $Res call({List<Order> order});
 }
 
 /// @nodoc
@@ -373,7 +373,7 @@ class _$OrdersLoadedStateCopyWithImpl<$Res>
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as Order,
+              as List<Order>,
     ));
   }
 }
@@ -384,7 +384,7 @@ class _$OrdersLoadedState implements OrdersLoadedState {
   const _$OrdersLoadedState({required this.order});
 
   @override
-  final Order order;
+  final List<Order> order;
 
   @override
   String toString() {
@@ -413,7 +413,7 @@ class _$OrdersLoadedState implements OrdersLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Order order) loaded,
+    required TResult Function(List<Order> order) loaded,
     required TResult Function(String error) error,
   }) {
     return loaded(order);
@@ -424,7 +424,7 @@ class _$OrdersLoadedState implements OrdersLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
   }) {
     return loaded?.call(order);
@@ -435,7 +435,7 @@ class _$OrdersLoadedState implements OrdersLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -484,9 +484,10 @@ class _$OrdersLoadedState implements OrdersLoadedState {
 }
 
 abstract class OrdersLoadedState implements OrdersStates {
-  const factory OrdersLoadedState({required Order order}) = _$OrdersLoadedState;
+  const factory OrdersLoadedState({required List<Order> order}) =
+      _$OrdersLoadedState;
 
-  Order get order;
+  List<Order> get order;
   @JsonKey(ignore: true)
   $OrdersLoadedStateCopyWith<OrdersLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -559,7 +560,7 @@ class _$OrdersErrorState implements OrdersErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Order order) loaded,
+    required TResult Function(List<Order> order) loaded,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -570,7 +571,7 @@ class _$OrdersErrorState implements OrdersErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -581,7 +582,7 @@ class _$OrdersErrorState implements OrdersErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Order order)? loaded,
+    TResult Function(List<Order> order)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

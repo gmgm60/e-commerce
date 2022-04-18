@@ -17,7 +17,7 @@ const {
 MaterialColor appMainColor = MaterialColor(0xFFF77F00, _color);
 
 const Color appBlue = Color(0xFF40BFFF);
-const Color appGrey = Color(0xFF9098B1);
+const Color appGrey = Color(0xFF373739);
 const Color appRed = Color(0xFFD62828);
 const Color appDarkBlue = Color(0xFF003049);
 const Color appYellow = Color(0xFFFCBF49);

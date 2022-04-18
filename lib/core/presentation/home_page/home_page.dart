@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
 
     List<PageRouteInfo> routes = const [
       Products(),
-      OrdersRoute(),
+      Orders(),
       ViewCartRoute(),
       CategoryRoute(),
       Merchants(),

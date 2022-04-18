@@ -9,7 +9,7 @@ class OrdersStates with _$OrdersStates {
 
   const factory OrdersStates.loading() = OrdersLoadingState;
 
-  const factory OrdersStates.loaded({required Order order}) = OrdersLoadedState;
+  const factory OrdersStates.loaded({required List<Order> order}) = OrdersLoadedState;
 
   const factory OrdersStates.error({required String error}) = OrdersErrorState;
 }

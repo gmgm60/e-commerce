@@ -15,7 +15,7 @@ abstract class OrdersApiServiceImpl implements OrdersApiService {
 
   @override
   @GET('/orders.json?key=ec0ea640')
-  Future<OrdersModel> getOrders({
+  Future<List<OrdersModel>> getOrders({
     @Header(authorizationHeader) required String token,
   });
 }

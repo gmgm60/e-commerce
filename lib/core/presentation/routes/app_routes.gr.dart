@@ -11,7 +11,7 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i15;
+import 'package:flutter/material.dart' as _i16;
 
 import '../../../features/auth/presentation/pages/forgot_password_page.dart'
     as _i5;
@@ -21,25 +21,28 @@ import '../../../features/auth/presentation/pages/startup_page.dart' as _i1;
 import '../../../features/cart/presentation/pages/view_cart_page/view_cart_page.dart'
     as _i8;
 import '../../../features/categories/presentation/pages/category_page.dart'
-    as _i10;
-import '../../../features/merchants/domain/entities/merchant.dart' as _i17;
+    as _i9;
+import '../../../features/merchants/domain/entities/merchant.dart' as _i19;
 import '../../../features/merchants/presentation/pages/merchant_details/merchant_details_page.dart'
-    as _i14;
+    as _i15;
 import '../../../features/merchants/presentation/pages/merchants_page/merchants_page.dart'
     as _i13;
+import '../../../features/orders/domain/entities/order.dart' as _i18;
+import '../../../features/orders/presentation/pages/orders_page/order_details_page.dart'
+    as _i14;
 import '../../../features/orders/presentation/pages/orders_page/orders_page.dart'
-    as _i9;
-import '../../../features/products/domain/entities/product/product.dart'
-    as _i16;
-import '../../../features/products/presentation/pages/product_page/product_page.dart'
     as _i12;
-import '../../../features/products/presentation/pages/products_page/products_page.dart'
+import '../../../features/products/domain/entities/product/product.dart'
+    as _i17;
+import '../../../features/products/presentation/pages/product_page/product_page.dart'
     as _i11;
+import '../../../features/products/presentation/pages/products_page/products_page.dart'
+    as _i10;
 import '../../../features/profile/presentation/pages/profile_page.dart' as _i6;
 import '../home_page/home_page.dart' as _i4;
 
 class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i15.GlobalKey<_i15.NavigatorState>? navigatorKey])
+  AppRouter([_i16.GlobalKey<_i16.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -76,9 +79,9 @@ class AppRouter extends _i7.RootStackRouter {
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i8.ViewCartPage());
     },
-    OrdersRoute.name: (routeData) {
+    Orders.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.OrdersPage());
+          routeData: routeData, child: const _i7.EmptyRouterPage());
     },
     Merchants.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
@@ -86,28 +89,38 @@ class AppRouter extends _i7.RootStackRouter {
     },
     CategoryRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.CategoryPage());
+          routeData: routeData, child: const _i9.CategoryPage());
     },
     ProductsRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.ProductsPage());
+          routeData: routeData, child: const _i10.ProductsPage());
     },
     ProductRoute.name: (routeData) {
       final args = routeData.argsAs<ProductRouteArgs>();
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i12.ProductPage(key: args.key, product: args.product));
+          child: _i11.ProductPage(key: args.key, product: args.product));
+    },
+    OrdersRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i12.OrdersPage());
     },
     MerchantsRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i13.MerchantsPage());
+    },
+    OrderDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<OrderDetailsRouteArgs>();
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i14.OrderDetailsPage(key: args.key, order: args.order));
     },
     MerchantDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<MerchantDetailsRouteArgs>();
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData,
           child:
-              _i14.MerchantDetailsPage(key: args.key, merchant: args.merchant));
+              _i15.MerchantDetailsPage(key: args.key, merchant: args.merchant));
     }
   };
 
@@ -130,8 +143,17 @@ class AppRouter extends _i7.RootStackRouter {
               ]),
           _i7.RouteConfig(ViewCartRoute.name,
               path: 'ViewCartPage', parent: HomeRoute.name),
-          _i7.RouteConfig(OrdersRoute.name,
-              path: 'OrdersPage', parent: HomeRoute.name),
+          _i7.RouteConfig(Orders.name,
+              path: 'Orders',
+              parent: HomeRoute.name,
+              children: [
+                _i7.RouteConfig(OrdersRoute.name,
+                    path: '', parent: Orders.name),
+                _i7.RouteConfig(MerchantsRoute.name,
+                    path: '', parent: Orders.name),
+                _i7.RouteConfig(OrderDetailsRoute.name,
+                    path: 'OrderDetailsPage', parent: Orders.name)
+              ]),
           _i7.RouteConfig(Merchants.name,
               path: 'Merchants',
               parent: HomeRoute.name,
@@ -217,11 +239,12 @@ class ViewCartRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.OrdersPage]
-class OrdersRoute extends _i7.PageRouteInfo<void> {
-  const OrdersRoute() : super(OrdersRoute.name, path: 'OrdersPage');
+/// [_i7.EmptyRouterPage]
+class Orders extends _i7.PageRouteInfo<void> {
+  const Orders({List<_i7.PageRouteInfo>? children})
+      : super(Orders.name, path: 'Orders', initialChildren: children);
 
-  static const String name = 'OrdersRoute';
+  static const String name = 'Orders';
 }
 
 /// generated route for
@@ -234,7 +257,7 @@ class Merchants extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.CategoryPage]
+/// [_i9.CategoryPage]
 class CategoryRoute extends _i7.PageRouteInfo<void> {
   const CategoryRoute() : super(CategoryRoute.name, path: 'CategoryPage');
 
@@ -242,7 +265,7 @@ class CategoryRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.ProductsPage]
+/// [_i10.ProductsPage]
 class ProductsRoute extends _i7.PageRouteInfo<void> {
   const ProductsRoute() : super(ProductsRoute.name, path: '');
 
@@ -250,9 +273,9 @@ class ProductsRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.ProductPage]
+/// [_i11.ProductPage]
 class ProductRoute extends _i7.PageRouteInfo<ProductRouteArgs> {
-  ProductRoute({_i15.Key? key, required _i16.Product product})
+  ProductRoute({_i16.Key? key, required _i17.Product product})
       : super(ProductRoute.name,
             path: 'ProductPage',
             args: ProductRouteArgs(key: key, product: product));
@@ -263,14 +286,22 @@ class ProductRoute extends _i7.PageRouteInfo<ProductRouteArgs> {
 class ProductRouteArgs {
   const ProductRouteArgs({this.key, required this.product});
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
-  final _i16.Product product;
+  final _i17.Product product;
 
   @override
   String toString() {
     return 'ProductRouteArgs{key: $key, product: $product}';
   }
+}
+
+/// generated route for
+/// [_i12.OrdersPage]
+class OrdersRoute extends _i7.PageRouteInfo<void> {
+  const OrdersRoute() : super(OrdersRoute.name, path: '');
+
+  static const String name = 'OrdersRoute';
 }
 
 /// generated route for
@@ -282,9 +313,33 @@ class MerchantsRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.MerchantDetailsPage]
+/// [_i14.OrderDetailsPage]
+class OrderDetailsRoute extends _i7.PageRouteInfo<OrderDetailsRouteArgs> {
+  OrderDetailsRoute({_i16.Key? key, required _i18.Order order})
+      : super(OrderDetailsRoute.name,
+            path: 'OrderDetailsPage',
+            args: OrderDetailsRouteArgs(key: key, order: order));
+
+  static const String name = 'OrderDetailsRoute';
+}
+
+class OrderDetailsRouteArgs {
+  const OrderDetailsRouteArgs({this.key, required this.order});
+
+  final _i16.Key? key;
+
+  final _i18.Order order;
+
+  @override
+  String toString() {
+    return 'OrderDetailsRouteArgs{key: $key, order: $order}';
+  }
+}
+
+/// generated route for
+/// [_i15.MerchantDetailsPage]
 class MerchantDetailsRoute extends _i7.PageRouteInfo<MerchantDetailsRouteArgs> {
-  MerchantDetailsRoute({_i15.Key? key, required _i17.Merchant merchant})
+  MerchantDetailsRoute({_i16.Key? key, required _i19.Merchant merchant})
       : super(MerchantDetailsRoute.name,
             path: 'MerchantDetailsPage',
             args: MerchantDetailsRouteArgs(key: key, merchant: merchant));
@@ -295,9 +350,9 @@ class MerchantDetailsRoute extends _i7.PageRouteInfo<MerchantDetailsRouteArgs> {
 class MerchantDetailsRouteArgs {
   const MerchantDetailsRouteArgs({this.key, required this.merchant});
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
-  final _i17.Merchant merchant;
+  final _i19.Merchant merchant;
 
   @override
   String toString() {

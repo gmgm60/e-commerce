@@ -18,19 +18,21 @@ class _OrdersApiServiceImpl implements OrdersApiServiceImpl {
   String? baseUrl;
 
   @override
-  Future<OrdersModel> getOrders({required token}) async {
+  Future<List<OrdersModel>> getOrders({required token}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<OrdersModel>(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<OrdersModel>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/orders.json?key=ec0ea640',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = OrdersModel.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => OrdersModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 
