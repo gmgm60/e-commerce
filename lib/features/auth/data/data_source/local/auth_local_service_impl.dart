@@ -1,7 +1,14 @@
 import 'package:ecommerce/core/constants/constants.dart';
-import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+abstract class AuthLocalService {
+  Future<bool> saveToken({required String token});
+
+  String? getToken();
+
+  Future<bool> deleteToken();
+}
 
 @Singleton(as: AuthLocalService)
 class AuthLocalServiceImpl extends AuthLocalService {
@@ -16,8 +23,8 @@ class AuthLocalServiceImpl extends AuthLocalService {
 
   @override
   String? getToken() {
-    //return _preferences.getString(tokenKey);
-    return '_preferences.getString(tokenKey)';
+    return "";
+    return _preferences.getString(tokenKey);
   }
 
   @override

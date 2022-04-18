@@ -31,8 +31,15 @@ class HomePage extends StatelessWidget {
     return AutoTabsScaffold(
       routes: routes,
       appBarBuilder: (context, tabRouter) {
+        final scope = RouterScope.of(context, watch: true);
         return AppBar(
           title: Text(titles[tabRouter.activeIndex]),
+          actions: [
+            if (AutoRouter.of(context).canPopSelfOrChildren)
+              IconButton(
+                  onPressed: scope.controller.popTop,
+                  icon: const Icon(Icons.arrow_forward_ios)),
+          ],
         );
       },
       drawer: const AppDrawer(),
@@ -41,12 +48,13 @@ class HomePage extends StatelessWidget {
           onTap: tabRoute.setActiveIndex,
           currentIndex: tabRoute.activeIndex,
           items: [
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: "Home"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.list), label: "Orders"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart), label: "Cart"),
+             BottomNavigationBarItem(
+                icon:const Icon(Icons.home), label:context.tr.products),
+             BottomNavigationBarItem(
+                icon:const Icon(Icons.list), label: context.tr.orders),
+             BottomNavigationBarItem(
+                icon:const Icon(Icons.shopping_cart), label: context.tr.cart),
+
             BottomNavigationBarItem(
                 icon: const Icon(Icons.category), label: context.tr.categories),
             BottomNavigationBarItem(

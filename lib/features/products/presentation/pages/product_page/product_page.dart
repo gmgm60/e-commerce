@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
@@ -5,32 +6,37 @@ import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   final Product product;
 
   const ProductPage({Key? key, required this.product}) : super(key: key);
 
   @override
+  State<ProductPage> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  int count = 1;
+
+  @override
   Widget build(BuildContext context) {
     final cartCubit = context.read<CartCubit>();
-    int count = 1;
 
     return Scaffold(
-
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: [
             Image.network(
-              product.image,
+              widget.product.image,
               fit: BoxFit.cover,
             ),
             const SizedBox(
               height: 20,
             ),
             Text(
-              product.name,
+              widget.product.name,
               style: Theme.of(context).textTheme.headline5,
             ),
             const SizedBox(
@@ -40,7 +46,7 @@ class ProductPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                    (product.price * (1 - product.discount))
+                    (widget.product.price * (1 - widget.product.discount))
                             .toStringAsFixed(2) +
                         context.tr.currency,
                     style: Theme.of(context)
@@ -48,7 +54,7 @@ class ProductPage extends StatelessWidget {
                         .headline6), //Expanded(child: Text("")),
                 Row(
                   children: [
-                    Text(product.price.toString() + context.tr.currency,
+                    Text(widget.product.price.toString() + context.tr.currency,
                         style: Theme.of(context).textTheme.subtitle2!.copyWith(
                               decoration: TextDecoration.lineThrough,
                             )),
@@ -56,7 +62,7 @@ class ProductPage extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      (product.discount * 100).toInt().toString() +
+                      (widget.product.discount * 100).toInt().toString() +
                           context.tr.off,
                       style: Theme.of(context)
                           .textTheme
@@ -83,23 +89,78 @@ class ProductPage extends StatelessWidget {
               height: 10,
             ),
             Text(
-              product.description,
+              widget.product.description,
               style: Theme.of(context).textTheme.bodyText2,
             ),
             const SizedBox(
               height: 20,
             ),
-            BlocBuilder<CartCubit, CartState>(
-              builder: (context, state) {
-                return ElevatedButton(
-                    onPressed: cartCubit.isInCart(productId: product.id) && state is! Loading
-                        ? () {
-                            //TODO add to cart
-                            cartCubit.addToCart(product: product, count: count);
-                          }
-                        : null,
-                    child: state is Loading ? const CircularProgressIndicator() : Text(context.tr.addToCart));
-              },
+
+
+            Center(
+              child:
+              widget.product.isAvailable ?
+              BlocBuilder<CartCubit, CartState>(
+                builder: (context, state) {
+                  if(cartCubit.isInCart(productId: widget.product.id)){
+                    return state is Loading ? const CircularProgressIndicator() : Text(context.tr.thisProductISInTheCart);
+                  }else{
+                    return Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                width: 40,
+                                height: 30,
+                                color: Colors.black12,
+                                child: TextButton(
+                                    onPressed: () {
+                                      count -= 1;
+                                      setState(() {});
+                                    },
+                                    child: const Text("-"),
+                                    style: const ButtonStyle())),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: BlocBuilder<CartCubit, CartState>(
+                                buildWhen: (_, __) =>
+                                widget.product.id == cartCubit.editedProductId,
+                                builder: (context, state) {
+                                  return Text(count.toString());
+                                },
+                              ),
+                            ),
+                            Container(
+                                width: 40,
+                                height: 30,
+                                color: Colors.black12,
+                                child: TextButton(
+                                    onPressed: () {
+                                      count += 1;
+                                      setState(() {});
+                                    },
+                                    child: const Text("+"),
+                                    style: const ButtonStyle())),
+                          ],
+                        ),
+                        const SizedBox(height: 10,),
+                        AppElevatedButton(text: context.tr.addToCart, onPressed: !cartCubit.isInCart(productId: widget.product.id) &&
+                            state is! Loading
+                            ? () {
+                          //TODO add to cart
+                          cartCubit.addToCart(
+                              product: widget.product, count: count);
+                        }
+                            : null,isLoading: state is Loading,),
+                      ],
+                    );
+                  }
+
+
+                },
+              )
+                  : Text(context.tr.productNotAvailable),
             )
           ],
         ),

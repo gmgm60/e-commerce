@@ -41,8 +41,12 @@
   "addToCart": "Add to cart",
   "items": "items",
   "shipping": "Shipping",
-  "totalPrice": "Total Price",
   "customerId": "Customer Id",
   "orderStatus": "Order Status",
-  "products": "Products"
+  "totalPrice": "Total Price",
+  "products": "Products",
+  "cart": "Cart",
+  "orders": "Orders",
+  "thisProductISInTheCart": "This Product is in the Cart",
+  "productNotAvailable": "This Product Is Not Available at This Moment"
 }

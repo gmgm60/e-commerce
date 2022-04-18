@@ -90,9 +90,7 @@ class ProductRow extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               decoration: TextDecoration.lineThrough,
                             )),
-                    const SizedBox(
-                      width: 10,
-                    ),
+                    const SizedBox(width: 10),
                     Text(
                       (product.discount * 100).toInt().toString() +
                           context.tr.off,
@@ -103,9 +101,7 @@ class ProductRow extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
-                )
+                const SizedBox(height: 15)
               ],
             ),
           ),

@@ -30,7 +30,7 @@ dependencies:
   image_cropper: ^1.5.1
   shared_preferences: ^2.0.13
   font_awesome_flutter: ^10.1.0
-  flutter_native_splash: ^2.1.5
+  flutter_native_splash: ^2.1.6
   cached_network_image: ^3.2.0
   flutter_lorem: ^2.0.0
 
@@ -43,9 +43,9 @@ dev_dependencies:
 #  mocktail: ^0.3.0
   mockito: ^5.1.0
 
-  build_runner: ^2.1.8
+  build_runner: ^2.1.10
   freezed: ^1.1.1
-  json_serializable: ^6.1.5
+  json_serializable: ^6.1.6
   auto_route_generator: ^3.2.3
   retrofit_generator: ^4.0.1
   injectable_generator: ^1.5.3

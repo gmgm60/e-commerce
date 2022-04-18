@@ -7,6 +7,7 @@ import 'package:ecommerce/features/products/domain/entities/product/product.dart
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'cart_state.dart';
+//TODO add discount price after get real api
 
 @injectable
 class CartCubit extends Cubit<CartState> {

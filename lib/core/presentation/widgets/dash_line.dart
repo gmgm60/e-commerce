@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DashLine extends StatelessWidget {
-  const DashLine({Key? key, this.height = 1, this.color = Colors.black})
+  const DashLine({Key? key, this.height = 1, this.color = Colors.black12})
       : super(key: key);
   final double height;
   final Color color;

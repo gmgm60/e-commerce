@@ -35,5 +35,18 @@
   "update": "تحديث",
   "customerId": "رقم العميل",
   "orderStatus": "حاله الطلب",
-  "products": "المنتجات"
+  "products": "المنتجات",
+  "productsTitle": "آخر المنتجات",
+  "description": "التفاصيل :",
+  "off": " % خصم",
+  "currency": " جم",
+  "yourCart" : "عربة التسوق",
+  "addToCart": "أضف الى العربة",
+  "items": "المنتجات",
+  "shipping": "الشحن",
+  "totalPrice": "اجمالى السعر",
+  "cart": "العربه",
+  "orders": "الطلبات",
+  "thisProductISInTheCart": "تمت اضافة هذا المنتج للعربه"
+
 }
