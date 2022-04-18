@@ -25,9 +25,9 @@ class _ViewCartPageState extends State<ViewCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.tr.yourCart),
-      ),
+      // appBar: AppBar(
+      //   title: Text(context.tr.yourCart),
+      // ),
       body: Center(
         child: BlocBuilder<CartCubit, CartState>(buildWhen:(_,__) => cartCubit.editedProductId==-1,
           builder: (context, state) {

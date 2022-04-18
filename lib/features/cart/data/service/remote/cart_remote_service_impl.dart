@@ -17,9 +17,10 @@ class CartRemoteServiceImpl extends CartRemoteService {
   }
 
   @override
-  Future editCart({required List<CartItemModel> cart, required String token}) {
+  Future editCart({required List<CartItemModel> cart, required String token})async {
     // TODO: implement editCart
-    throw UnimplementedError();
+   // throw UnimplementedError();
+    await Future.delayed(const Duration(seconds: 2));
   }
 
   @override

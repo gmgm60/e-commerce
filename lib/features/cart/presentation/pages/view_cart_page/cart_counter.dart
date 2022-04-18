@@ -16,6 +16,7 @@ class CartCounter extends StatelessWidget {
     final cartCubit = context.read<CartCubit>();
 
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
             width: 40,

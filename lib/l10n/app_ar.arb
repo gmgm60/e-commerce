@@ -32,6 +32,18 @@
   "english": "الانجليزيه",
   "arabic": "العربيه",
   "cancel": "إلغاء",
-  "update": "تحديث"
+  "update": "تحديث",
+  "productsTitle": "آخر المنتجات",
+  "description": "التفاصيل :",
+  "off": " % خصم",
+  "currency": " جم",
+  "yourCart" : "عربة التسوق",
+  "addToCart": "أضف الى العربة",
+  "items": "المنتجات",
+  "shipping": "الشحن",
+  "totalPrice": "اجمالى السعر",
+  "products": "المنتجات",
+  "cart": "العربه",
+  "orders": "الطلبات"
 
 }
