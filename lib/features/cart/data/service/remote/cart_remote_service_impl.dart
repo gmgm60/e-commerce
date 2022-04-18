@@ -1,31 +1,30 @@
-
+import 'package:dio/dio.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
-import 'package:ecommerce/features/cart/data/service/remote/cart_retrofit.dart';
 import 'package:ecommerce/features/cart/domain/data/service/cart_remote_service.dart';
 import 'package:injectable/injectable.dart';
+import 'package:retrofit/http.dart';
+
+part 'cart_remote_service_impl.g.dart';
 
 @Injectable(as: CartRemoteService)
-class CartRemoteServiceImpl extends CartRemoteService {
-  final CartRetrofit _cartRetrofit;
-
-  CartRemoteServiceImpl(this._cartRetrofit);
-
-  @override
-  Future confirmOrder({required String token}) {
-    // TODO: implement confirmOrder
-    throw UnimplementedError();
-  }
+@RestApi(baseUrl: "https://my.api.mockaroo.com")
+abstract class CartRemoteServiceImpl implements CartRemoteService {
+  @factoryMethod
+  factory CartRemoteServiceImpl(Dio dio) = _CartRemoteServiceImpl;
 
   @override
-  Future editCart({required List<CartItemModel> cart, required String token})async {
-    // TODO: implement editCart
-   // throw UnimplementedError();
-    await Future.delayed(const Duration(seconds: 2));
-  }
+  @GET('/cart?key=e59c4330')
+  Future<List<CartItemModel>> getCart({
+    @Header("Authorization") required String token,
+  });
 
   @override
-  Future<List<CartItemModel>> getCart({required String token}) async{
-    return await _cartRetrofit.getCart(token: token);
-  }
+  @POST("/cart?key=e59c4330")
+  Future<dynamic> editCart(
+      {@Header("Authorization") required String token,
+      @Query("cart") required List<CartItemModel> cart});
 
+  @override
+  @POST("path")
+  Future confirmOrder({required String token});
 }

@@ -44,6 +44,7 @@
   "totalPrice": "اجمالى السعر",
   "products": "المنتجات",
   "cart": "العربه",
-  "orders": "الطلبات"
+  "orders": "الطلبات",
+  "thisProductISInTheCart": "تمت اضافة هذا المنتج للعربه"
 
 }
