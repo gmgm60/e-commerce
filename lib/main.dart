@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'di/injectable.dart';
+import 'features/favorites/presentation/cubit/favorites_cubit/favorites_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<LocaleCubit>()..getLocalization(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<FavoritesCubit>()..getFavorites(),
         ),
       ],
       child: BlocBuilder<LocaleCubit, LocaleStates>(

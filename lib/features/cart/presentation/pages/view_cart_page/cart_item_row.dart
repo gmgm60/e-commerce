@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
@@ -56,14 +57,9 @@ class CartItemRow extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          FavoriteButton(product: cartItem.product),
                           IconButton(
                               onPressed: () {
-                                //TODO add to favorite
-                              },
-                              icon: const Icon(Icons.favorite_border)),
-                          IconButton(
-                              onPressed: () {
-                                //TODO remove from cart
                                 context.read<CartCubit>().deleteProduct(productId: cartItem.product.id);
                               },
                               icon: const Icon(Icons.delete_outline)),

@@ -26,7 +26,7 @@ class _FavoriteRemoteServiceImpl implements FavoriteRemoteServiceImpl {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/favorites',
+            .compose(_dio.options, '/favorites?key=e59c4330',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;
@@ -43,7 +43,7 @@ class _FavoriteRemoteServiceImpl implements FavoriteRemoteServiceImpl {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<FavoriteModel>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/favorites',
+                .compose(_dio.options, '/favorites?key=e59c4330',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -62,7 +62,7 @@ class _FavoriteRemoteServiceImpl implements FavoriteRemoteServiceImpl {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/favorites',
+            .compose(_dio.options, '/favorites?key=e59c4330',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;

@@ -91,9 +91,8 @@ class AuthRepoImpl extends AuthRepository {
   @override
   Future<Either<Failure, String>> getToken() async {
     String? token = _localService.getToken();
-    //if (token == null) return left(const Failure(message: 'Token Null'));
-    //return right(token); todo
-    return right('token');
+    if (token == null) return left(const Failure(message: 'Token Null'));
+    return right(token);
   }
 
   @override

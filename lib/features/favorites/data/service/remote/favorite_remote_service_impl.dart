@@ -13,20 +13,20 @@ abstract class FavoriteRemoteServiceImpl implements FavoriteRemoteService {
   factory FavoriteRemoteServiceImpl(Dio dio) = _FavoriteRemoteServiceImpl;
 
   @override
-  @POST('/favorites')
+  @POST('/favorites?key=e59c4330')
   Future addToFavorites({
     required int productId,
     @Header("Authorization") required String token,
   });
 
   @override
-  @POST('/favorites')
+  @POST('/favorites?key=e59c4330')
   Future<List<FavoriteModel>> getFavorites({
     @Header("Authorization") required String token,
   });
 
   @override
-  @POST('/favorites')
+  @POST('/favorites?key=e59c4330')
   Future removeFromFavorites({
     required int productId,
     @Header("Authorization") required String token,
