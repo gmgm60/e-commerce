@@ -41,5 +41,8 @@
   "addToCart": "Add to cart",
   "items": "items",
   "shipping": "Shipping",
-  "totalPrice": "Total Price"
+  "totalPrice": "Total Price",
+  "products": "Products",
+  "cart": "Cart",
+  "orders": "Orders"
 }
