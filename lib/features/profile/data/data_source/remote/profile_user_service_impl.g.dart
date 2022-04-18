@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'profile_user_service.dart';
+part of 'profile_user_service_impl.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'profile_user_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _ProfileUserService implements ProfileUserService {
-  _ProfileUserService(this._dio, {this.baseUrl}) {
+class _ProfileUserServiceImpl implements ProfileUserServiceImpl {
+  _ProfileUserServiceImpl(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
   }
 

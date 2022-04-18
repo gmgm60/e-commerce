@@ -6,8 +6,10 @@ import 'package:ecommerce/features/auth/presentation/pages/register_page.dart';
 import 'package:ecommerce/features/auth/presentation/pages/startup_page.dart';
 import 'package:ecommerce/features/cart/presentation/pages/view_cart_page/view_cart_page.dart';
 import 'package:ecommerce/features/categories/presentation/pages/category_page.dart';
+import 'package:ecommerce/features/categories/presentation/pages/category_products_page.dart';
 import 'package:ecommerce/features/merchants/presentation/pages/merchant_details/merchant_details_page.dart';
 import 'package:ecommerce/features/merchants/presentation/pages/merchants_page/merchants_page.dart';
+import 'package:ecommerce/features/orders/presentation/pages/orders_page/order_details_page.dart';
 import 'package:ecommerce/features/orders/presentation/pages/orders_page/orders_page.dart';
 import 'package:ecommerce/features/products/presentation/pages/product_page/product_page.dart';
 import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
@@ -47,8 +49,14 @@ import 'package:ecommerce/features/profile/presentation/pages/profile_page.dart'
         AutoRoute(page: ViewCartPage, path: "ViewCartPage"),
         //order
         AutoRoute(
-          page: OrdersPage,
-          path: 'OrdersPage',
+          page: EmptyRouterPage,
+          path: 'Orders',
+          name: 'Orders',
+          children: [
+            AutoRoute(page: OrdersPage, path: ''),
+            AutoRoute(page: OrderDetailsPage, path: 'OrderDetailsPage'),
+            AutoRoute(page: ProductPage, path: 'ProductPage'),
+          ],
         ),
         // merchants
         AutoRoute(
@@ -62,8 +70,14 @@ import 'package:ecommerce/features/profile/presentation/pages/profile_page.dart'
         ),
         // categories
         AutoRoute(
-          page: CategoryPage,
-          path: 'CategoryPage',
+          page: EmptyRouterPage,
+          path: 'category',
+          name: 'category',
+          children: [
+            AutoRoute(page: CategoryPage, path: ''),
+            AutoRoute(page: CategoryProductsPage, path: 'CategoryProductsPage'),
+            AutoRoute(page: ProductPage, path: 'ProductPage'),
+          ],
         ),
       ],
     ),

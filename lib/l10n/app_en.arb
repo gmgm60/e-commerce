@@ -41,6 +41,8 @@
   "addToCart": "Add to cart",
   "items": "items",
   "shipping": "Shipping",
+  "customerId": "Customer Id",
+  "orderStatus": "Order Status",
   "totalPrice": "Total Price",
   "products": "Products",
   "cart": "Cart",

@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/failure/failure.dart';
-import 'package:ecommerce/features/auth/data/data_source/local/auth_local_service.dart';
+import 'package:ecommerce/core/domain/error/failures.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
+import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
-import 'package:ecommerce/features/profile/data/data_source/remote/profile_user_service.dart';
+import 'package:ecommerce/features/profile/domain/data_source/remote/profile_user_service.dart';
 import 'package:ecommerce/features/profile/domain/repository/profile_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,7 +16,7 @@ class ProfileRepoImpl extends ProfileRepository {
   ProfileRepoImpl(this._localService, this._profileUserService);
 
   @override
-  Future<Either<Failure, User>> getUser() async {
+  Future<Either<Failures, User>> getUser() async {
     try {
       final token = _localService.getToken();
       if (kDebugMode) {
@@ -30,10 +30,10 @@ class ProfileRepoImpl extends ProfileRepository {
         }
         return right(userData.fromModel);
       } else {
-        return left(const Failure(message: 'No Token'));
+        return left(Failures.noUser('No Token'));
       }
     } catch (error) {
-      return left(const Failure(message: 'Get User Error'));
+      return left(Failures.serverError('Get User Error'));
     }
   }
 }

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'orders_api_service.dart';
+part of 'categories_api_service_impl.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'orders_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _OrdersApiService implements OrdersApiService {
-  _OrdersApiService(this._dio, {this.baseUrl}) {
+class _CategoriesApiServiceImpl implements CategoriesApiServiceImpl {
+  _CategoriesApiServiceImpl(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://my.api.mockaroo.com';
   }
 
@@ -18,19 +18,38 @@ class _OrdersApiService implements OrdersApiService {
   String? baseUrl;
 
   @override
-  Future<OrdersModel> getOrders({required token}) async {
+  Future<CategoryModel> getCategories({required token}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<OrdersModel>(
+        _setStreamType<CategoryModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/orders.json?key=ec0ea640',
+                .compose(_dio.options, '/category.json?key=ec0ea640',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = OrdersModel.fromJson(_result.data!);
+    final value = CategoryModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<ProductModel>> getProductsByCatId(
+      {required token, required catId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<ProductModel>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/productsbycatid?key=ec0ea640',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => ProductModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

@@ -1,5 +1,5 @@
-import 'package:ecommerce/core/app_use_case/app_use_case.dart';
 import 'package:ecommerce/core/constants/constants.dart';
+import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/core/features/locale/domain/use_case/change_locale_use_case.dart';
 import 'package:ecommerce/core/features/locale/domain/use_case/get_locale_use_case.dart';
 import 'package:ecommerce/core/features/locale/presentation/bloc/locale_cubit/locale_states.dart';
@@ -26,7 +26,7 @@ class LocaleCubit extends Cubit<LocaleStates> {
     final res = await _getLocaleUseCase(NoParams());
     emit(res.fold((error) {
       locale = const Locale(enLanguageCode);
-      return LocaleErrorState(error: error.message);
+      return LocaleErrorState(error: error.error);
     }, (localeCode) {
       locale = Locale(localeCode);
       return LocaleLoadedFromSharedState(locale: Locale(localeCode));
@@ -37,7 +37,7 @@ class LocaleCubit extends Cubit<LocaleStates> {
     final res = await _changeLocaleUseCase(newLocale.languageCode);
     emit(res.fold((error) {
       locale = const Locale(enLanguageCode);
-      return LocaleErrorState(error: error.message);
+      return LocaleErrorState(error: error.error);
     }, (changed) {
       locale = newLocale;
       return LocaleChangedState(locale: locale!);

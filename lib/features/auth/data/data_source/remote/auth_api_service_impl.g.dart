@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_api_service.dart';
+part of 'auth_api_service_impl.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'auth_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _AuthApiService implements AuthApiService {
-  _AuthApiService(this._dio, {this.baseUrl}) {
+class _AuthApiServiceImpl implements AuthApiServiceImpl {
+  _AuthApiServiceImpl(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
   }
 
