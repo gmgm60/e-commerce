@@ -1,21 +1,21 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_cubit.dart';
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_states.dart';
-import 'package:ecommerce/features/categories/presentation/widgets/category_item.dart';
+import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CategoryPage extends StatelessWidget {
-  const CategoryPage({Key? key}) : super(key: key);
+class CategoryProductsPage extends StatelessWidget {
+  const CategoryProductsPage({Key? key, required this.catId}) : super(key: key);
+  final int catId;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => getIt<CategoryCubit>()..getCategories(),
+        create: (context) =>
+            getIt<CategoryCubit>()..getCategoryProducts(catId: catId),
         child: BlocBuilder<CategoryCubit, CategoryStates>(
             builder: (context, state) {
           return state.maybeWhen(
@@ -23,15 +23,15 @@ class CategoryPage extends StatelessWidget {
               error: (error) => Center(
                     child: Text(error),
                   ),
-              categoryLoaded: (categories) => ListView.builder(
-                    padding: const EdgeInsets.all(16),
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) => CategoryItem(
-                      category: categories[index],
-                      onTap: () {
-                        AutoRouter.of(context).navigate(
-                            CategoryProductsRoute(catId: categories[index].id));
-                      },
+              productsLoaded: (products) => GridView.count(
+                    crossAxisCount: 2,
+                    physics: const BouncingScrollPhysics(),
+                    childAspectRatio: .6,
+                    children: List.generate(
+                      products.length,
+                      (index) => ProductRow(
+                        product: products[index],
+                      ),
                     ),
                   ),
               orElse: () => Container());

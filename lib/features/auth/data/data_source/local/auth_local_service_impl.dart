@@ -16,7 +16,8 @@ class AuthLocalServiceImpl extends AuthLocalService {
 
   @override
   String? getToken() {
-    return _preferences.getString(tokenKey);
+    //return _preferences.getString(tokenKey);
+    return '_preferences.getString(tokenKey)';
   }
 
   @override

@@ -1,5 +1,5 @@
-import 'package:ecommerce/features/merchants/presentation/pages/merchant_details/merchant_details_page.dart';
 import 'package:ecommerce/features/orders/domain/entities/order.dart';
+import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -81,15 +81,19 @@ class OrderDetailsPage extends StatelessWidget {
               height: 10,
             ),
             Expanded(
-                flex: 1,
-                child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: order.products.length,
-                    itemBuilder: (context, index) => ProductItem(
-                          product: order.products[index],
-                          onTap: () {},
-                        )))
+              flex: 1,
+              child: GridView.count(
+                crossAxisCount: 2,
+                physics: const BouncingScrollPhysics(),
+                childAspectRatio: .6,
+                children: List.generate(
+                  order.products.length,
+                  (index) => ProductRow(
+                    product: order.products[index],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

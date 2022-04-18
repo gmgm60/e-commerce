@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
       Products(),
       Orders(),
       ViewCartRoute(),
-      CategoryRoute(),
+      Category(),
       Merchants(),
     ];
     return AutoTabsScaffold(

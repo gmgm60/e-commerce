@@ -26,7 +26,7 @@ class _$CategoryStatesTearOff {
     return const CategoryLoadingState();
   }
 
-  CategoryLoadedState loaded({required List<Category> categories}) {
+  CategoryLoadedState categoryLoaded({required List<Category> categories}) {
     return CategoryLoadedState(
       categories: categories,
     );
@@ -35,6 +35,12 @@ class _$CategoryStatesTearOff {
   CategoryErrorState error({required String error}) {
     return CategoryErrorState(
       error: error,
+    );
+  }
+
+  ProductsLoadedState productsLoaded({required List<Product> products}) {
+    return ProductsLoadedState(
+      products: products,
     );
   }
 }
@@ -48,24 +54,27 @@ mixin _$CategoryStates {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category> categories) loaded,
+    required TResult Function(List<Category> categories) categoryLoaded,
     required TResult Function(String error) error,
+    required TResult Function(List<Product> products) productsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,24 +82,27 @@ mixin _$CategoryStates {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryInitialState value) initial,
     required TResult Function(CategoryLoadingState value) loading,
-    required TResult Function(CategoryLoadedState value) loaded,
+    required TResult Function(CategoryLoadedState value) categoryLoaded,
     required TResult Function(CategoryErrorState value) error,
+    required TResult Function(ProductsLoadedState value) productsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,8 +168,9 @@ class _$CategoryInitialState implements CategoryInitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category> categories) loaded,
+    required TResult Function(List<Category> categories) categoryLoaded,
     required TResult Function(String error) error,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return initial();
   }
@@ -167,8 +180,9 @@ class _$CategoryInitialState implements CategoryInitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return initial?.call();
   }
@@ -178,8 +192,9 @@ class _$CategoryInitialState implements CategoryInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -193,8 +208,9 @@ class _$CategoryInitialState implements CategoryInitialState {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryInitialState value) initial,
     required TResult Function(CategoryLoadingState value) loading,
-    required TResult Function(CategoryLoadedState value) loaded,
+    required TResult Function(CategoryLoadedState value) categoryLoaded,
     required TResult Function(CategoryErrorState value) error,
+    required TResult Function(ProductsLoadedState value) productsLoaded,
   }) {
     return initial(this);
   }
@@ -204,8 +220,9 @@ class _$CategoryInitialState implements CategoryInitialState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
   }) {
     return initial?.call(this);
   }
@@ -215,8 +232,9 @@ class _$CategoryInitialState implements CategoryInitialState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -273,8 +291,9 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category> categories) loaded,
+    required TResult Function(List<Category> categories) categoryLoaded,
     required TResult Function(String error) error,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return loading();
   }
@@ -284,8 +303,9 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return loading?.call();
   }
@@ -295,8 +315,9 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,8 +331,9 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryInitialState value) initial,
     required TResult Function(CategoryLoadingState value) loading,
-    required TResult Function(CategoryLoadedState value) loaded,
+    required TResult Function(CategoryLoadedState value) categoryLoaded,
     required TResult Function(CategoryErrorState value) error,
+    required TResult Function(ProductsLoadedState value) productsLoaded,
   }) {
     return loading(this);
   }
@@ -321,8 +343,9 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
   }) {
     return loading?.call(this);
   }
@@ -332,8 +355,9 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -389,7 +413,7 @@ class _$CategoryLoadedState implements CategoryLoadedState {
 
   @override
   String toString() {
-    return 'CategoryStates.loaded(categories: $categories)';
+    return 'CategoryStates.categoryLoaded(categories: $categories)';
   }
 
   @override
@@ -415,10 +439,11 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category> categories) loaded,
+    required TResult Function(List<Category> categories) categoryLoaded,
     required TResult Function(String error) error,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
-    return loaded(categories);
+    return categoryLoaded(categories);
   }
 
   @override
@@ -426,10 +451,11 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
-    return loaded?.call(categories);
+    return categoryLoaded?.call(categories);
   }
 
   @override
@@ -437,12 +463,13 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(categories);
+    if (categoryLoaded != null) {
+      return categoryLoaded(categories);
     }
     return orElse();
   }
@@ -452,10 +479,11 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryInitialState value) initial,
     required TResult Function(CategoryLoadingState value) loading,
-    required TResult Function(CategoryLoadedState value) loaded,
+    required TResult Function(CategoryLoadedState value) categoryLoaded,
     required TResult Function(CategoryErrorState value) error,
+    required TResult Function(ProductsLoadedState value) productsLoaded,
   }) {
-    return loaded(this);
+    return categoryLoaded(this);
   }
 
   @override
@@ -463,10 +491,11 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
   }) {
-    return loaded?.call(this);
+    return categoryLoaded?.call(this);
   }
 
   @override
@@ -474,12 +503,13 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (categoryLoaded != null) {
+      return categoryLoaded(this);
     }
     return orElse();
   }
@@ -562,8 +592,9 @@ class _$CategoryErrorState implements CategoryErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category> categories) loaded,
+    required TResult Function(List<Category> categories) categoryLoaded,
     required TResult Function(String error) error,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return error(this.error);
   }
@@ -573,8 +604,9 @@ class _$CategoryErrorState implements CategoryErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return error?.call(this.error);
   }
@@ -584,8 +616,9 @@ class _$CategoryErrorState implements CategoryErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category> categories)? loaded,
+    TResult Function(List<Category> categories)? categoryLoaded,
     TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -599,8 +632,9 @@ class _$CategoryErrorState implements CategoryErrorState {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryInitialState value) initial,
     required TResult Function(CategoryLoadingState value) loading,
-    required TResult Function(CategoryLoadedState value) loaded,
+    required TResult Function(CategoryLoadedState value) categoryLoaded,
     required TResult Function(CategoryErrorState value) error,
+    required TResult Function(ProductsLoadedState value) productsLoaded,
   }) {
     return error(this);
   }
@@ -610,8 +644,9 @@ class _$CategoryErrorState implements CategoryErrorState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
   }) {
     return error?.call(this);
   }
@@ -621,8 +656,9 @@ class _$CategoryErrorState implements CategoryErrorState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryInitialState value)? initial,
     TResult Function(CategoryLoadingState value)? loading,
-    TResult Function(CategoryLoadedState value)? loaded,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
     TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -639,5 +675,158 @@ abstract class CategoryErrorState implements CategoryStates {
   String get error;
   @JsonKey(ignore: true)
   $CategoryErrorStateCopyWith<CategoryErrorState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProductsLoadedStateCopyWith<$Res> {
+  factory $ProductsLoadedStateCopyWith(
+          ProductsLoadedState value, $Res Function(ProductsLoadedState) then) =
+      _$ProductsLoadedStateCopyWithImpl<$Res>;
+  $Res call({List<Product> products});
+}
+
+/// @nodoc
+class _$ProductsLoadedStateCopyWithImpl<$Res>
+    extends _$CategoryStatesCopyWithImpl<$Res>
+    implements $ProductsLoadedStateCopyWith<$Res> {
+  _$ProductsLoadedStateCopyWithImpl(
+      ProductsLoadedState _value, $Res Function(ProductsLoadedState) _then)
+      : super(_value, (v) => _then(v as ProductsLoadedState));
+
+  @override
+  ProductsLoadedState get _value => super._value as ProductsLoadedState;
+
+  @override
+  $Res call({
+    Object? products = freezed,
+  }) {
+    return _then(ProductsLoadedState(
+      products: products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProductsLoadedState implements ProductsLoadedState {
+  const _$ProductsLoadedState({required this.products});
+
+  @override
+  final List<Product> products;
+
+  @override
+  String toString() {
+    return 'CategoryStates.productsLoaded(products: $products)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProductsLoadedState &&
+            const DeepCollectionEquality().equals(other.products, products));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(products));
+
+  @JsonKey(ignore: true)
+  @override
+  $ProductsLoadedStateCopyWith<ProductsLoadedState> get copyWith =>
+      _$ProductsLoadedStateCopyWithImpl<ProductsLoadedState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Category> categories) categoryLoaded,
+    required TResult Function(String error) error,
+    required TResult Function(List<Product> products) productsLoaded,
+  }) {
+    return productsLoaded(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Category> categories)? categoryLoaded,
+    TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
+  }) {
+    return productsLoaded?.call(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Category> categories)? categoryLoaded,
+    TResult Function(String error)? error,
+    TResult Function(List<Product> products)? productsLoaded,
+    required TResult orElse(),
+  }) {
+    if (productsLoaded != null) {
+      return productsLoaded(products);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryInitialState value) initial,
+    required TResult Function(CategoryLoadingState value) loading,
+    required TResult Function(CategoryLoadedState value) categoryLoaded,
+    required TResult Function(CategoryErrorState value) error,
+    required TResult Function(ProductsLoadedState value) productsLoaded,
+  }) {
+    return productsLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CategoryInitialState value)? initial,
+    TResult Function(CategoryLoadingState value)? loading,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
+    TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
+  }) {
+    return productsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryInitialState value)? initial,
+    TResult Function(CategoryLoadingState value)? loading,
+    TResult Function(CategoryLoadedState value)? categoryLoaded,
+    TResult Function(CategoryErrorState value)? error,
+    TResult Function(ProductsLoadedState value)? productsLoaded,
+    required TResult orElse(),
+  }) {
+    if (productsLoaded != null) {
+      return productsLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProductsLoadedState implements CategoryStates {
+  const factory ProductsLoadedState({required List<Product> products}) =
+      _$ProductsLoadedState;
+
+  List<Product> get products;
+  @JsonKey(ignore: true)
+  $ProductsLoadedStateCopyWith<ProductsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
