@@ -14,6 +14,7 @@ import 'package:ecommerce/features/orders/presentation/pages/orders_page/orders_
 import 'package:ecommerce/features/products/presentation/pages/product_page/product_page.dart';
 import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
 import 'package:ecommerce/features/profile/presentation/pages/profile_page.dart';
+import 'package:ecommerce/features/profile/presentation/pages/update_profile_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -90,6 +91,10 @@ import 'package:ecommerce/features/profile/presentation/pages/profile_page.dart'
     AutoRoute(
       page: ProfilePage,
       path: 'ProfilePage',
+    ),
+    AutoRoute(
+      page: UpdateProfilePage,
+      path: 'UpdateProfilePage',
     ),
   ],
 )
