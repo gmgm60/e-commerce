@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
+import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
@@ -32,16 +33,12 @@ class _ProductPageState extends State<ProductPage> {
               widget.product.image,
               fit: BoxFit.cover,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Text(
               widget.product.name,
               style: Theme.of(context).textTheme.headline5,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -71,95 +68,94 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ],
                 ),
-                IconButton(
-                    onPressed: () {
-                      //TODO add to favorite
-                    },
-                    icon: const Icon(Icons.favorite_border))
+                FavoriteButton(product: widget.product),
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Text(
               context.tr.description,
               style: Theme.of(context).textTheme.headline6,
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Text(
               widget.product.description,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-
-
+            const SizedBox(height: 20),
             Center(
-              child:
-              widget.product.isAvailable ?
-              BlocBuilder<CartCubit, CartState>(
-                builder: (context, state) {
-                  if(cartCubit.isInCart(productId: widget.product.id)){
-                    return state is Loading ? const CircularProgressIndicator() : Text(context.tr.thisProductISInTheCart);
-                  }else{
-                    return Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                                width: 40,
-                                height: 30,
-                                color: Colors.black12,
-                                child: TextButton(
-                                    onPressed: () {
-                                      count -= 1;
-                                      setState(() {});
-                                    },
-                                    child: const Text("-"),
-                                    style: const ButtonStyle())),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: BlocBuilder<CartCubit, CartState>(
-                                buildWhen: (_, __) =>
-                                widget.product.id == cartCubit.editedProductId,
-                                builder: (context, state) {
-                                  return Text(count.toString());
-                                },
+              child: widget.product.isAvailable
+                  ? BlocBuilder<CartCubit, CartState>(
+                      builder: (context, state) {
+                        if (cartCubit.isInCart(productId: widget.product.id)) {
+                          return state is Loading
+                              ? const CircularProgressIndicator()
+                              : Text(context.tr.thisProductISInTheCart);
+                        } else {
+                          return Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                      width: 40,
+                                      height: 30,
+                                      color: Colors.black12,
+                                      child: TextButton(
+                                          onPressed: () {
+                                            if (count >1) {
+                                              count -= 1;
+                                              setState(() {});
+                                            }
+                                          },
+                                          child: const Text("-"),
+                                          style: const ButtonStyle())),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: BlocBuilder<CartCubit, CartState>(
+                                      buildWhen: (_, __) =>
+                                          widget.product.id ==
+                                          cartCubit.editedProductId,
+                                      builder: (context, state) {
+                                        return Text(count.toString());
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                      width: 40,
+                                      height: 30,
+                                      color: Colors.black12,
+                                      child: TextButton(
+                                          onPressed: () {
+                                            count += 1;
+                                            setState(() {});
+                                          },
+                                          child: const Text("+"),
+                                          style: const ButtonStyle())),
+                                ],
                               ),
-                            ),
-                            Container(
-                                width: 40,
-                                height: 30,
-                                color: Colors.black12,
-                                child: TextButton(
-                                    onPressed: () {
-                                      count += 1;
-                                      setState(() {});
-                                    },
-                                    child: const Text("+"),
-                                    style: const ButtonStyle())),
-                          ],
-                        ),
-                        const SizedBox(height: 10,),
-                        AppElevatedButton(text: context.tr.addToCart, onPressed: !cartCubit.isInCart(productId: widget.product.id) &&
-                            state is! Loading
-                            ? () {
-                          //TODO add to cart
-                          cartCubit.addToCart(
-                              product: widget.product, count: count);
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              AppElevatedButton(
+                                text: context.tr.addToCart,
+                                onPressed: !cartCubit.isInCart(
+                                            productId: widget.product.id) &&
+                                        state is! Loading
+                                    ? () {
+                                        //TODO add to cart
+                                        cartCubit.addToCart(
+                                            product: widget.product,
+                                            count: count);
+                                      }
+                                    : null,
+                                isLoading: state is Loading,
+                              ),
+                            ],
+                          );
                         }
-                            : null,isLoading: state is Loading,),
-                      ],
-                    );
-                  }
-
-
-                },
-              )
+                      },
+                    )
                   : Text(context.tr.productNotAvailable),
             )
           ],

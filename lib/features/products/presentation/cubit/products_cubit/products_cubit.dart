@@ -14,6 +14,10 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   Future<void> getProducts() async {
     emit(ProductsState.loading());
+
+    //TODO remove after test loading state
+    await Future.delayed(const Duration(seconds: 4));
+
     final result = await _getProducts(NoParams());
     result.fold(
       (failed) => emit(ProductsState.error(error: failed.error)),

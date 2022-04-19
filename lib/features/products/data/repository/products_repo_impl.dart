@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:ecommerce/core/domain/error/failures.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_mapper.dart';
@@ -25,6 +26,9 @@ class ProductsRepoImpl extends ProductRepo {
           response.map((productModel) => productModel.toDomain()).toList();
       return right(products);
     } catch (e) {
+      if( e is DioError){
+        return left(Failures.serverError(e.response?.data.toString() ?? "server Error Please contact the support"));
+      }
       print("error is $e");
       return left(Failures.serverError("error"));
     }
