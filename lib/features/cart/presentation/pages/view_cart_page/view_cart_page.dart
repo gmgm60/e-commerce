@@ -26,18 +26,24 @@ class _ViewCartPageState extends State<ViewCartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: BlocBuilder<CartCubit, CartState>(buildWhen:(_,__) => cartCubit.editedProductId==-1,
+        child: BlocBuilder<CartCubit, CartState>(
+          buildWhen: (_, __) => cartCubit.editedProductId == -1,
           builder: (context, state) {
-           return state.map(
+            return state.map(
               init: (_) => const CircularProgressIndicator(),
               loading: (_) => const CircularProgressIndicator(),
               error: (error) => Text(error.errMsg),
-              done:(_)=> ListView(
+              done: (_) => ListView(
                 children: [
-                  ...List.generate(
-                      cartCubit.cart.length,
-                          (index) => CartItemRow(
-                          cartItem: cartCubit.cart.values.elementAt(index))),
+                  AnimatedList(
+                      primary: false,
+                      shrinkWrap: true,
+                      initialItemCount: cartCubit.cart.length,
+                      itemBuilder: (context, index, animation) =>
+                          AnimatedCartRow(
+                            cartItem: cartCubit.cart.values.elementAt(index),
+                            index: index, animation: animation,
+                          )),
                   const CartDetails(),
                 ],
               ),
@@ -48,8 +54,3 @@ class _ViewCartPageState extends State<ViewCartPage> {
     );
   }
 }
-
-
-
-
-

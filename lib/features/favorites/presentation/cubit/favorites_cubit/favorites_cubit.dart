@@ -26,36 +26,40 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       : super(FavoritesState.init());
 
   Future<void> addToFavorites({required Product product}) async {
-    favorites[product.id] = FavoriteItem(product: product);
-    currentId = product.id;
-    emit(FavoritesState.loading());
-    final result = await _addToFavorite(product.id);
-    result.fold(
-      (error) {
-        print(error.error);
-        favorites.remove(product.id);
-        emit(FavoritesState.error());
-      },
-      (unit) => emit(FavoritesState.done()),
-    );
-    await Future.delayed(const Duration(seconds: 1));
-    currentId = -1;
+    if (currentId ==-1) {
+      favorites[product.id] = FavoriteItem(product: product);
+      currentId = product.id;
+      emit(FavoritesState.loading());
+      final result = await _addToFavorite(product.id);
+      result.fold(
+        (error) {
+          print(error.error);
+          favorites.remove(product.id);
+          emit(FavoritesState.error());
+        },
+        (unit) => emit(FavoritesState.done()),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+      currentId = -1;
+    }
   }
 
   Future<void> removeFromFavorites({required int productId}) async {
-    final FavoriteItem favoriteItem = favorites[productId]!;
-    favorites.remove(productId);
-    currentId = productId;
-    emit(FavoritesState.loading());
-    final result = await _removeFromFavorite(productId);
-    result.fold(
-      (error) {
-        favorites[productId] = favoriteItem;
-        emit(FavoritesState.error());
-      },
-      (unit) => emit(FavoritesState.done()),
-    );
-    currentId = -1;
+    if (currentId ==-1) {
+      final FavoriteItem favoriteItem = favorites[productId]!;
+      favorites.remove(productId);
+      currentId = productId;
+      emit(FavoritesState.loading());
+      final result = await _removeFromFavorite(productId);
+      result.fold(
+        (error) {
+          favorites[productId] = favoriteItem;
+          emit(FavoritesState.error());
+        },
+        (unit) => emit(FavoritesState.done()),
+      );
+      currentId = -1;
+    }
   }
 
   Future<void> getFavorites() async {

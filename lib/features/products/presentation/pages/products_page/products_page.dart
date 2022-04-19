@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
+import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:ecommerce/features/products/presentation/cubit/products_cubit/products_cubit.dart';
@@ -19,15 +20,21 @@ class ProductsPage extends StatelessWidget {
         return Scaffold(
           body: BlocBuilder<ProductsCubit, ProductsState>(
             builder: (context, state) {
-              return GridView.count(
-                physics: const BouncingScrollPhysics(),
-                crossAxisCount: 2,
-                childAspectRatio: .6,
-                children: context
-                    .read<ProductsCubit>()
-                    .products
-                    .map((product) => ProductRow(product: product))
-                    .toList(),
+             return state.map(
+                init: (_) => const Center(child: CircularProgressIndicator()),
+                loading: (_) =>
+                    const Center(child: CircularProgressIndicator()),
+                done: (_) => GridView.count(
+                  physics: const BouncingScrollPhysics(),
+                  crossAxisCount: 2,
+                  childAspectRatio: .6,
+                  children: context
+                      .read<ProductsCubit>()
+                      .products
+                      .map((product) => ProductRow(product: product))
+                      .toList(),
+                ),
+                error: (error) => Center(child: Text(error.error)),
               );
             },
           ),
@@ -75,14 +82,16 @@ class ProductRow extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2),
                 const Expanded(child: Text("")),
-                Text(
-                    (product.price * (1 - product.discount))
-                            .toStringAsFixed(2) +
-                        " " +
-                        "EGP",
-                    style: Theme.of(context).textTheme.headline6),
-                const SizedBox(
-                  height: 10,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                        (product.price * (1 - product.discount))
+                                .toStringAsFixed(2) +
+                            context.tr.currency,
+                        style: Theme.of(context).textTheme.headline6),
+                    FavoriteButton(product: product),
+                  ],
                 ),
                 Row(
                   children: [
@@ -101,7 +110,6 @@ class ProductRow extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 15)
               ],
             ),
           ),
