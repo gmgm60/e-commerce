@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/colors/colors.dart';
+import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
 import 'package:ecommerce/core/presentation/widgets/app_network_image.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
@@ -33,12 +35,14 @@ class ProfilePage extends StatelessWidget {
               //       child: Text(error),
               //     ),
               orElse: () => const ProfileBody(
-                  user: User(
-                      name: 'Taha Elkholy',
-                      email: 'taha@gmail.com',
-                      address: 'Damanhour, Bhera, Egypt',
-                      phone: '012012012365',
-                      image: 'image')),
+                user: User(
+                  name: 'Taha Elkholy',
+                  email: 'taha@gmail.com',
+                  address: 'Damanhour, Bhera, Egypt',
+                  phone: '012012012365',
+                  image: 'image',
+                ),
+              ),
             );
           },
         ),
@@ -78,7 +82,10 @@ class ProfileBody extends StatelessWidget {
                     user.name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(color: appDarkBlue),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6!
+                        .copyWith(color: appDarkBlue),
                   ),
                 ),
               ],
@@ -128,10 +135,8 @@ class ProfileBody extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const SizedBox(
-                width: 20,
-                height: 20,
-                child: Icon(Icons.email)),
+            leading:
+                const SizedBox(width: 20, height: 20, child: Icon(Icons.email)),
             title: Row(
               children: [
                 Text(
@@ -155,7 +160,11 @@ class ProfileBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: AppElevatedButton(
                 onPressed: () {
-                  // todo update
+                  AutoRouter.of(context)
+                      .navigate(UpdateProfileRoute(user: user))
+                      .then((value) {
+                    BlocProvider.of<ProfileCubit>(context).getUser();
+                  });
                 },
                 text: context.tr.update),
           )

@@ -11,6 +11,9 @@ class ProfileStates with _$ProfileStates {
 
   const factory ProfileStates.loaded({required User user}) = ProfileLoadedState;
 
+  const factory ProfileStates.updated({required User user}) =
+      ProfileUpdatedState;
+
   const factory ProfileStates.error({required String error}) =
       ProfileErrorState;
 }
