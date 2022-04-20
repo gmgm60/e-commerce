@@ -12,6 +12,7 @@ Future<void> configureInjection({String? environment})async{
 abstract class InjectInv {
   static const dev = "dev";
   static const test = "test";
+  static const localMock = "localMock";
   static const prod = "prod";
 
 }

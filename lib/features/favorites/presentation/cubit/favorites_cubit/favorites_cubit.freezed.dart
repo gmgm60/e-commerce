@@ -12,31 +12,7 @@ part of 'favorites_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FavoritesStateTearOff {
-  const _$FavoritesStateTearOff();
-
-  _init init() {
-    return _init();
-  }
-
-  _loading loading() {
-    return _loading();
-  }
-
-  _error error() {
-    return _error();
-  }
-
-  _done done() {
-    return _done();
-  }
-}
-
-/// @nodoc
-const $FavoritesState = _$FavoritesStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$FavoritesState {

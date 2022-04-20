@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce/core/presentation/cubit/back_button_cubit/back_button_cubit.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:ecommerce/features/products/presentation/cubit/products_cubit/products_cubit.dart';
 import 'package:ecommerce/features/products/presentation/cubit/products_cubit/products_state.dart';
+import 'package:ecommerce/features/products/presentation/pages/product_page/product_page.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,7 +59,20 @@ class ProductRow extends StatelessWidget {
       // print(constrain.maxHeight.toString() +"," +constrain.maxWidth.toString());
       return GestureDetector(
         onTap: () {
-          AutoRouter.of(context).navigate(ProductRoute(product: product));
+          // AutoRouter.of(context).navigate(ProductRoute(product: product));
+          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ProductPage(product: product,)));
+          Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) {
+            const begin = Offset(-1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: ProductPage(product: product),
+            );
+           // return ProductPage(product: product);
+          }),);
+          context.read<BackButtonCubit>().refresh();
         },
         child: Card(
           child: Padding(
@@ -69,11 +84,14 @@ class ProductRow extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Image.network(
-                      product.image,
-                      // width: width * 0.8,
-                      height: height * 0.5,
-                      fit: BoxFit.cover,
+                    child: Hero(
+                      tag: product.image,
+                      child: Image.network(
+                        product.image,
+                        // width: width * 0.8,
+                        height: height * 0.5,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

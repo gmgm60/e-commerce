@@ -29,9 +29,12 @@ class _ProductPageState extends State<ProductPage> {
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: [
-            Image.network(
-              widget.product.image,
-              fit: BoxFit.cover,
+            Hero(
+              tag: widget.product.image,
+              child: Image.network(
+                widget.product.image,
+                fit: BoxFit.cover,
+              ),
             ),
             const SizedBox(height: 20),
             Text(

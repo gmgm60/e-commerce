@@ -16,7 +16,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     emit(ProductsState.loading());
 
     //TODO remove after test loading state
-    await Future.delayed(const Duration(seconds: 4));
+   // await Future.delayed(const Duration(seconds: 4));
 
     final result = await _getProducts(NoParams());
     result.fold(
