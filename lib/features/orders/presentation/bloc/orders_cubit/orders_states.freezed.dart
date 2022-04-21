@@ -12,35 +12,7 @@ part of 'orders_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$OrdersStatesTearOff {
-  const _$OrdersStatesTearOff();
-
-  OrdersInitialState initial() {
-    return const OrdersInitialState();
-  }
-
-  OrdersLoadingState loading() {
-    return const OrdersLoadingState();
-  }
-
-  OrdersLoadedState loaded({required List<Order> order}) {
-    return OrdersLoadedState(
-      order: order,
-    );
-  }
-
-  OrdersErrorState error({required String error}) {
-    return OrdersErrorState(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $OrdersStates = _$OrdersStatesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$OrdersStates {
@@ -381,10 +353,15 @@ class _$OrdersLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OrdersLoadedState implements OrdersLoadedState {
-  const _$OrdersLoadedState({required this.order});
+  const _$OrdersLoadedState({required final List<Order> order})
+      : _order = order;
 
+  final List<Order> _order;
   @override
-  final List<Order> order;
+  List<Order> get order {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_order);
+  }
 
   @override
   String toString() {
@@ -484,10 +461,10 @@ class _$OrdersLoadedState implements OrdersLoadedState {
 }
 
 abstract class OrdersLoadedState implements OrdersStates {
-  const factory OrdersLoadedState({required List<Order> order}) =
+  const factory OrdersLoadedState({required final List<Order> order}) =
       _$OrdersLoadedState;
 
-  List<Order> get order;
+  List<Order> get order => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $OrdersLoadedStateCopyWith<OrdersLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -631,9 +608,10 @@ class _$OrdersErrorState implements OrdersErrorState {
 }
 
 abstract class OrdersErrorState implements OrdersStates {
-  const factory OrdersErrorState({required String error}) = _$OrdersErrorState;
+  const factory OrdersErrorState({required final String error}) =
+      _$OrdersErrorState;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $OrdersErrorStateCopyWith<OrdersErrorState> get copyWith =>
       throw _privateConstructorUsedError;

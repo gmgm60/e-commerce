@@ -12,35 +12,7 @@ part of 'merchants_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$MerchantsStatesTearOff {
-  const _$MerchantsStatesTearOff();
-
-  MerchantsInitialState initial() {
-    return const MerchantsInitialState();
-  }
-
-  MerchantsLoadingState loading() {
-    return const MerchantsLoadingState();
-  }
-
-  MerchantsLoadedState loaded({required List<Merchant> merchants}) {
-    return MerchantsLoadedState(
-      merchants: merchants,
-    );
-  }
-
-  MerchantsErrorState error({required String error}) {
-    return MerchantsErrorState(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $MerchantsStates = _$MerchantsStatesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$MerchantsStates {
@@ -382,10 +354,15 @@ class _$MerchantsLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MerchantsLoadedState implements MerchantsLoadedState {
-  const _$MerchantsLoadedState({required this.merchants});
+  const _$MerchantsLoadedState({required final List<Merchant> merchants})
+      : _merchants = merchants;
 
+  final List<Merchant> _merchants;
   @override
-  final List<Merchant> merchants;
+  List<Merchant> get merchants {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_merchants);
+  }
 
   @override
   String toString() {
@@ -486,10 +463,10 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
 }
 
 abstract class MerchantsLoadedState implements MerchantsStates {
-  const factory MerchantsLoadedState({required List<Merchant> merchants}) =
-      _$MerchantsLoadedState;
+  const factory MerchantsLoadedState(
+      {required final List<Merchant> merchants}) = _$MerchantsLoadedState;
 
-  List<Merchant> get merchants;
+  List<Merchant> get merchants => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MerchantsLoadedStateCopyWith<MerchantsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -633,10 +610,10 @@ class _$MerchantsErrorState implements MerchantsErrorState {
 }
 
 abstract class MerchantsErrorState implements MerchantsStates {
-  const factory MerchantsErrorState({required String error}) =
+  const factory MerchantsErrorState({required final String error}) =
       _$MerchantsErrorState;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MerchantsErrorStateCopyWith<MerchantsErrorState> get copyWith =>
       throw _privateConstructorUsedError;

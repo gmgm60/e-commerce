@@ -48,6 +48,8 @@
   "totalPrice": "اجمالى السعر",
   "cart": "العربه",
   "orders": "الطلبات",
-  "thisProductISInTheCart": "تمت اضافة هذا المنتج للعربه"
+  "thisProductISInTheCart": "تمت اضافة هذا المنتج للعربه",
+  "productNotAvailable": "This Product Is Not Available at This Moment"
+
 
 }

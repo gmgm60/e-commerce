@@ -12,35 +12,7 @@ part of 'cart_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CartStateTearOff {
-  const _$CartStateTearOff();
-
-  _Init init() {
-    return _Init();
-  }
-
-  Loading loading() {
-    return Loading();
-  }
-
-  _Done done({int? refresh}) {
-    return _Done(
-      refresh: refresh,
-    );
-  }
-
-  _Error error({required String errMsg}) {
-    return _Error(
-      errMsg: errMsg,
-    );
-  }
-}
-
-/// @nodoc
-const $CartState = _$CartStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CartState {
@@ -474,9 +446,9 @@ class _$_Done implements _Done {
 }
 
 abstract class _Done implements CartState {
-  factory _Done({int? refresh}) = _$_Done;
+  factory _Done({final int? refresh}) = _$_Done;
 
-  int? get refresh;
+  int? get refresh => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DoneCopyWith<_Done> get copyWith => throw _privateConstructorUsedError;
 }
@@ -616,9 +588,9 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements CartState {
-  factory _Error({required String errMsg}) = _$_Error;
+  factory _Error({required final String errMsg}) = _$_Error;
 
-  String get errMsg;
+  String get errMsg => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
 }

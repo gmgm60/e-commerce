@@ -12,36 +12,7 @@ part of 'product.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProductTearOff {
-  const _$ProductTearOff();
-
-  _Product call(
-      {required int id,
-      required int catId,
-      required String name,
-      required String description,
-      required String image,
-      required double price,
-      required double discount,
-      required bool isAvailable}) {
-    return _Product(
-      id: id,
-      catId: catId,
-      name: name,
-      description: description,
-      image: image,
-      price: price,
-      discount: discount,
-      isAvailable: isAvailable,
-    );
-  }
-}
-
-/// @nodoc
-const $Product = _$ProductTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Product {
@@ -274,31 +245,31 @@ class _$_Product implements _Product {
 
 abstract class _Product implements Product {
   factory _Product(
-      {required int id,
-      required int catId,
-      required String name,
-      required String description,
-      required String image,
-      required double price,
-      required double discount,
-      required bool isAvailable}) = _$_Product;
+      {required final int id,
+      required final int catId,
+      required final String name,
+      required final String description,
+      required final String image,
+      required final double price,
+      required final double discount,
+      required final bool isAvailable}) = _$_Product;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
-  int get catId;
+  int get catId => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get image;
+  String get image => throw _privateConstructorUsedError;
   @override
-  double get price;
+  double get price => throw _privateConstructorUsedError;
   @override
-  double get discount;
+  double get discount => throw _privateConstructorUsedError;
   @override
-  bool get isAvailable;
+  bool get isAvailable => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProductCopyWith<_Product> get copyWith =>

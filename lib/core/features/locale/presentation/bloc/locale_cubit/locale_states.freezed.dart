@@ -12,37 +12,7 @@ part of 'locale_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LocaleStatesTearOff {
-  const _$LocaleStatesTearOff();
-
-  LocaleInitialState initial() {
-    return const LocaleInitialState();
-  }
-
-  LocaleChangedState changed({required Locale locale}) {
-    return LocaleChangedState(
-      locale: locale,
-    );
-  }
-
-  LocaleLoadedFromSharedState loadedFromShared({required Locale locale}) {
-    return LocaleLoadedFromSharedState(
-      locale: locale,
-    );
-  }
-
-  LocaleErrorState error({required String error}) {
-    return LocaleErrorState(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $LocaleStates = _$LocaleStatesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$LocaleStates {
@@ -372,10 +342,10 @@ class _$LocaleChangedState implements LocaleChangedState {
 }
 
 abstract class LocaleChangedState implements LocaleStates {
-  const factory LocaleChangedState({required Locale locale}) =
+  const factory LocaleChangedState({required final Locale locale}) =
       _$LocaleChangedState;
 
-  Locale get locale;
+  Locale get locale => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LocaleChangedStateCopyWith<LocaleChangedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -523,10 +493,10 @@ class _$LocaleLoadedFromSharedState implements LocaleLoadedFromSharedState {
 }
 
 abstract class LocaleLoadedFromSharedState implements LocaleStates {
-  const factory LocaleLoadedFromSharedState({required Locale locale}) =
+  const factory LocaleLoadedFromSharedState({required final Locale locale}) =
       _$LocaleLoadedFromSharedState;
 
-  Locale get locale;
+  Locale get locale => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LocaleLoadedFromSharedStateCopyWith<LocaleLoadedFromSharedState>
       get copyWith => throw _privateConstructorUsedError;
@@ -671,9 +641,10 @@ class _$LocaleErrorState implements LocaleErrorState {
 }
 
 abstract class LocaleErrorState implements LocaleStates {
-  const factory LocaleErrorState({required String error}) = _$LocaleErrorState;
+  const factory LocaleErrorState({required final String error}) =
+      _$LocaleErrorState;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LocaleErrorStateCopyWith<LocaleErrorState> get copyWith =>
       throw _privateConstructorUsedError;

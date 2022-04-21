@@ -12,33 +12,7 @@ part of 'products_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProductsStateTearOff {
-  const _$ProductsStateTearOff();
-
-  _Init init() {
-    return _Init();
-  }
-
-  Loading loading() {
-    return Loading();
-  }
-
-  _Done done() {
-    return _Done();
-  }
-
-  _Error error({required String error}) {
-    return _Error(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $ProductsState = _$ProductsStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProductsState {
@@ -588,9 +562,9 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements ProductsState {
-  factory _Error({required String error}) = _$_Error;
+  factory _Error({required final String error}) = _$_Error;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
 }

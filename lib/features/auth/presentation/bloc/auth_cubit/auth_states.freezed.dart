@@ -12,37 +12,7 @@ part of 'auth_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AuthStatesTearOff {
-  const _$AuthStatesTearOff();
-
-  AuthInitialState initial() {
-    return const AuthInitialState();
-  }
-
-  AuthLoadingState loading() {
-    return const AuthLoadingState();
-  }
-
-  AuthLoadedState loaded() {
-    return const AuthLoadedState();
-  }
-
-  AuthErrorState error({required String error}) {
-    return AuthErrorState(
-      error: error,
-    );
-  }
-
-  AuthLogoutState loggOut() {
-    return const AuthLogoutState();
-  }
-}
-
-/// @nodoc
-const $AuthStates = _$AuthStatesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AuthStates {
@@ -631,9 +601,10 @@ class _$AuthErrorState implements AuthErrorState {
 }
 
 abstract class AuthErrorState implements AuthStates {
-  const factory AuthErrorState({required String error}) = _$AuthErrorState;
+  const factory AuthErrorState({required final String error}) =
+      _$AuthErrorState;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AuthErrorStateCopyWith<AuthErrorState> get copyWith =>
       throw _privateConstructorUsedError;

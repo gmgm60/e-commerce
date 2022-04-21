@@ -12,32 +12,11 @@ part of 'cart_item_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CartItemModel _$CartItemModelFromJson(Map<String, dynamic> json) {
   return _CartItemModel.fromJson(json);
 }
-
-/// @nodoc
-class _$CartItemModelTearOff {
-  const _$CartItemModelTearOff();
-
-  _CartItemModel call(
-      {@JsonKey(name: "product") required ProductModel productModel,
-      required int count}) {
-    return _CartItemModel(
-      productModel: productModel,
-      count: count,
-    );
-  }
-
-  CartItemModel fromJson(Map<String, Object?> json) {
-    return CartItemModel.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CartItemModel = _$CartItemModelTearOff();
 
 /// @nodoc
 mixin _$CartItemModel {
@@ -168,6 +147,7 @@ class _$_CartItemModel implements _CartItemModel {
             const DeepCollectionEquality().equals(other.count, count));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -187,17 +167,17 @@ class _$_CartItemModel implements _CartItemModel {
 
 abstract class _CartItemModel implements CartItemModel {
   factory _CartItemModel(
-      {@JsonKey(name: "product") required ProductModel productModel,
-      required int count}) = _$_CartItemModel;
+      {@JsonKey(name: "product") required final ProductModel productModel,
+      required final int count}) = _$_CartItemModel;
 
   factory _CartItemModel.fromJson(Map<String, dynamic> json) =
       _$_CartItemModel.fromJson;
 
   @override
   @JsonKey(name: "product")
-  ProductModel get productModel;
+  ProductModel get productModel => throw _privateConstructorUsedError;
   @override
-  int get count;
+  int get count => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CartItemModelCopyWith<_CartItemModel> get copyWith =>
