@@ -59,9 +59,7 @@ class ProductRow extends StatelessWidget {
       // print(constrain.maxHeight.toString() +"," +constrain.maxWidth.toString());
       return GestureDetector(
         onTap: () {
-          // AutoRouter.of(context).navigate(ProductRoute(product: product));
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ProductPage(product: product,)));
-          Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) {
+           Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) {
             const begin = Offset(-1.0, 0.0);
             const end = Offset.zero;
             const curve = Curves.ease;
@@ -70,7 +68,6 @@ class ProductRow extends StatelessWidget {
               position: animation.drive(tween),
               child: ProductPage(product: product),
             );
-           // return ProductPage(product: product);
           }),);
           context.read<BackButtonCubit>().refresh();
         },

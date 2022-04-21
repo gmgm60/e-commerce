@@ -133,16 +133,19 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i3.BackButtonCubit>(() => _i3.BackButtonCubit());
   gh.factory<_i4.Dio>(() => myDioInject.dio);
   gh.factory<_i5.FavoriteRemoteService>(
-      () => _i6.FavoriteRemoteServiceImpl(get<_i4.Dio>()));
+      () => _i6.FavoriteRemoteServiceImpl(get<_i4.Dio>()),
+      registerFor: {_test});
+  gh.factory<_i5.FavoriteRemoteService>(() => _i6.FavoriteRemoteServiceLocal(),
+      registerFor: {_localMock});
   gh.factory<_i7.Logger>(() => myLoggerInject.logger);
   gh.singleton<_i8.MerchantsApiService>(
       _i9.MerchantsApiServiceImpl(get<_i4.Dio>()));
   gh.singleton<_i10.OrdersApiService>(
       _i11.OrdersApiServiceImpl(get<_i4.Dio>()));
-  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
-      registerFor: {_test});
   gh.factory<_i12.ProductService>(() => _i13.ProductServiceImplLocal(),
       registerFor: {_localMock});
+  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
+      registerFor: {_test});
   gh.singleton<_i14.ProfileUserService>(
       _i15.ProfileUserServiceImpl(get<_i4.Dio>()));
   await gh.factoryAsync<_i16.SharedPreferences>(() => injectionModule.prefs,

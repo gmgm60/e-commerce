@@ -30,16 +30,16 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       favorites[product.id] = FavoriteItem(product: product);
       currentId = product.id;
       emit(FavoritesState.loading());
-      final result = await _addToFavorite(product.id);
-      result.fold(
-        (error) {
-          print(error.error);
-          favorites.remove(product.id);
-          emit(FavoritesState.error());
-        },
-        (unit) => emit(FavoritesState.done()),
-      );
-      await Future.delayed(const Duration(seconds: 1));
+      // final result = await _addToFavorite(product.id);
+      // result.fold(
+      //   (error) {
+      //     print(error.error);
+      //     favorites.remove(product.id);
+      //     emit(FavoritesState.error());
+      //   },
+      //   (unit) => emit(FavoritesState.done()),
+      // );
+     // await Future.delayed(const Duration(seconds: 1));
       currentId = -1;
     }
   }
