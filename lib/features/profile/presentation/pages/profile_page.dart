@@ -40,7 +40,8 @@ class ProfilePage extends StatelessWidget {
                   email: 'taha@gmail.com',
                   address: 'Damanhour, Bhera, Egypt',
                   phone: '012012012365',
-                  image: 'image',
+                  image:
+                      'https://images.pexels.com/photos/3371492/pexels-photo-3371492.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
                 ),
               ),
             );
@@ -70,22 +71,35 @@ class ProfileBody extends StatelessWidget {
                 SizedBox(
                   width: 80,
                   height: 80,
-                  child: AppNetworkImage(
-                    url: user.image,
+                  child: Hero(
+                    tag: 'USER_IMAGE_TAG',
+                    child: AppNetworkImage(
+                      url: user.image,
+                    ),
                   ),
                 ),
                 const SizedBox(
                   width: 16,
                 ),
                 Expanded(
-                  child: Text(
-                    user.name,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6!
-                        .copyWith(color: appDarkBlue),
+                  child: TweenAnimationBuilder(
+                    duration: const Duration(milliseconds: 500),
+                    child: Text(
+                      user.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .copyWith(color: appDarkBlue),
+                    ),
+                    tween: Tween<double>(begin: 0, end: 1),
+                    builder: (context, double value, child) {
+                      return Opacity(
+                        opacity: value,
+                        child: child,
+                      );
+                    },
                   ),
                 ),
               ],

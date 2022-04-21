@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
 import 'package:ecommerce/di/injectable.dart';
+import 'package:ecommerce/features/orders/domain/entities/order.dart';
 import 'package:ecommerce/features/orders/presentation/bloc/orders_cubit/orders_cubit.dart';
 import 'package:ecommerce/features/orders/presentation/bloc/orders_cubit/orders_states.dart';
 import 'package:ecommerce/features/orders/presentation/widgets/order_item.dart';
@@ -20,17 +21,7 @@ class OrdersPage extends StatelessWidget {
             BlocBuilder<OrdersCubit, OrdersStates>(builder: (context, state) {
           return state.maybeWhen(
             loading: () => const AppProgressIndicator(),
-            loaded: (orders) => ListView.builder(
-                padding: const EdgeInsets.all(20),
-                itemCount: orders.length,
-                itemBuilder: (context, index) {
-                  return OrderItem(
-                    order: orders[index],
-                    onTap: (){
-                      AutoRouter.of(context).navigate(OrderDetailsRoute(order: orders[index]));
-                    },
-                  );
-                }),
+            loaded: (orders) => OrdersList(orders: orders),
             error: (error) => Center(
               child: Text(
                 error,
@@ -42,5 +33,55 @@ class OrdersPage extends StatelessWidget {
         }),
       ),
     );
+  }
+}
+
+class OrdersList extends StatefulWidget {
+  const OrdersList({Key? key, required this.orders}) : super(key: key);
+
+  final List<Order> orders;
+
+  @override
+  State<OrdersList> createState() => _OrdersListState();
+}
+
+class _OrdersListState extends State<OrdersList> {
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      _addOrders();
+    });
+  }
+
+  Future _addOrders() async {
+    for(var _ in widget.orders){
+      await Future.delayed(const Duration(milliseconds: 200));
+      _counter++;
+      _listKey.currentState!.insertItem(_counter-1);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedList(
+      key: _listKey,
+        initialItemCount: _counter,
+        itemBuilder: (context, index, animation) {
+          return SlideTransition(
+            child: OrderItem(
+              order: widget.orders[index],
+              onTap: () {
+                AutoRouter.of(context)
+                    .navigate(OrderDetailsRoute(order: widget.orders[index]));
+              },
+            ),
+            position: animation.drive(Tween<Offset>(
+                begin: const Offset(1, 0), end: const Offset(0, 0))),
+          );
+        });
   }
 }
