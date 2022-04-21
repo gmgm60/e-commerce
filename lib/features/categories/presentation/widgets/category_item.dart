@@ -9,7 +9,7 @@ class CategoryItem extends StatelessWidget {
     required this.onTap,
   }) : super(key: key);
 
-  final Category category;
+  final ProductsCategory category;
   final VoidCallback onTap;
 
   @override

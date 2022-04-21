@@ -96,8 +96,11 @@ class _UpdateProfileBodyState extends State<UpdateProfileBody> {
                                   fit: BoxFit.cover,
                                   image: Image.file(userImage!).image)),
                         )
-                      : AppNetworkImage(
-                          url: widget.user.image,
+                      : Hero(
+                          tag: 'USER_IMAGE_TAG',
+                          child: AppNetworkImage(
+                            url: widget.user.image,
+                          ),
                         ),
                 ),
                 Padding(

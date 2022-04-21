@@ -6,13 +6,13 @@ import 'package:ecommerce/features/categories/domain/repository/category_reposit
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetCategoriesUseCase extends UseCase<List<Category>, NoParams> {
+class GetCategoriesUseCase extends UseCase<List<ProductsCategory>, NoParams> {
   final CategoryRepository _categoryRepository;
 
   GetCategoriesUseCase(this._categoryRepository);
 
   @override
-  Future<Either<Failures, List<Category>>> call(NoParams params) {
+  Future<Either<Failures, List<ProductsCategory>>> call(NoParams params) {
     return _categoryRepository.getCategories();
   }
 }

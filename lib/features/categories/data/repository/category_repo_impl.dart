@@ -19,7 +19,7 @@ class CategoryRepoImpl extends CategoryRepository {
   CategoryRepoImpl(this._categoriesApiService, this._localService);
 
   @override
-  Future<Either<Failures, List<Category>>> getCategories() async {
+  Future<Either<Failures, List<ProductsCategory>>> getCategories() async {
     debugPrint('Get Categories start');
     String? token = _localService.getToken();
     if (token != null) {

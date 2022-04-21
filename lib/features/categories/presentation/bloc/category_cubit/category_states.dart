@@ -11,7 +11,7 @@ class CategoryStates with _$CategoryStates {
   const factory CategoryStates.loading() = CategoryLoadingState;
 
   const factory CategoryStates.categoryLoaded(
-      {required List<Category> categories}) = CategoryLoadedState;
+      {required List<ProductsCategory> categories}) = CategoryLoadedState;
 
   const factory CategoryStates.error({required String error}) =
       CategoryErrorState;
