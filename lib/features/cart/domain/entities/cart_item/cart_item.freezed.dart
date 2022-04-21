@@ -12,22 +12,7 @@ part of 'cart_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CartItemTearOff {
-  const _$CartItemTearOff();
-
-  _CartItem call({required Product product, required int count}) {
-    return _CartItem(
-      product: product,
-      count: count,
-    );
-  }
-}
-
-/// @nodoc
-const $CartItem = _$CartItemTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CartItem {
@@ -156,13 +141,13 @@ class _$_CartItem implements _CartItem {
 }
 
 abstract class _CartItem implements CartItem {
-  factory _CartItem({required Product product, required int count}) =
-      _$_CartItem;
+  factory _CartItem(
+      {required final Product product, required final int count}) = _$_CartItem;
 
   @override
-  Product get product;
+  Product get product => throw _privateConstructorUsedError;
   @override
-  int get count;
+  int get count => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CartItemCopyWith<_CartItem> get copyWith =>

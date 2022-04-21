@@ -12,41 +12,7 @@ part of 'profile_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProfileStatesTearOff {
-  const _$ProfileStatesTearOff();
-
-  ProfileInitialState initial() {
-    return const ProfileInitialState();
-  }
-
-  ProfileLoadingState loading() {
-    return const ProfileLoadingState();
-  }
-
-  ProfileLoadedState loaded({required User user}) {
-    return ProfileLoadedState(
-      user: user,
-    );
-  }
-
-  ProfileUpdatedState updated({required User user}) {
-    return ProfileUpdatedState(
-      user: user,
-    );
-  }
-
-  ProfileErrorState error({required String error}) {
-    return ProfileErrorState(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $ProfileStates = _$ProfileStatesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProfileStates {
@@ -515,9 +481,10 @@ class _$ProfileLoadedState implements ProfileLoadedState {
 }
 
 abstract class ProfileLoadedState implements ProfileStates {
-  const factory ProfileLoadedState({required User user}) = _$ProfileLoadedState;
+  const factory ProfileLoadedState({required final User user}) =
+      _$ProfileLoadedState;
 
-  User get user;
+  User get user => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileLoadedStateCopyWith<ProfileLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -667,10 +634,10 @@ class _$ProfileUpdatedState implements ProfileUpdatedState {
 }
 
 abstract class ProfileUpdatedState implements ProfileStates {
-  const factory ProfileUpdatedState({required User user}) =
+  const factory ProfileUpdatedState({required final User user}) =
       _$ProfileUpdatedState;
 
-  User get user;
+  User get user => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileUpdatedStateCopyWith<ProfileUpdatedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -820,10 +787,10 @@ class _$ProfileErrorState implements ProfileErrorState {
 }
 
 abstract class ProfileErrorState implements ProfileStates {
-  const factory ProfileErrorState({required String error}) =
+  const factory ProfileErrorState({required final String error}) =
       _$ProfileErrorState;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileErrorStateCopyWith<ProfileErrorState> get copyWith =>
       throw _privateConstructorUsedError;

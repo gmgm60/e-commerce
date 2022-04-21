@@ -12,44 +12,11 @@ part of 'product_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
   return _ProductModel.fromJson(json);
 }
-
-/// @nodoc
-class _$ProductModelTearOff {
-  const _$ProductModelTearOff();
-
-  _ProductModel call(
-      {required int id,
-      @JsonKey(name: "cat_id") required int catId,
-      required String name,
-      required String description,
-      required String image,
-      required double price,
-      required double discount,
-      @JsonKey(name: "is_available") required bool isAvailable}) {
-    return _ProductModel(
-      id: id,
-      catId: catId,
-      name: name,
-      description: description,
-      image: image,
-      price: price,
-      discount: discount,
-      isAvailable: isAvailable,
-    );
-  }
-
-  ProductModel fromJson(Map<String, Object?> json) {
-    return ProductModel.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ProductModel = _$ProductModelTearOff();
 
 /// @nodoc
 mixin _$ProductModel {
@@ -275,6 +242,7 @@ class _$_ProductModel implements _ProductModel {
                 .equals(other.isAvailable, isAvailable));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -300,37 +268,37 @@ class _$_ProductModel implements _ProductModel {
 
 abstract class _ProductModel implements ProductModel {
   factory _ProductModel(
-          {required int id,
-          @JsonKey(name: "cat_id") required int catId,
-          required String name,
-          required String description,
-          required String image,
-          required double price,
-          required double discount,
-          @JsonKey(name: "is_available") required bool isAvailable}) =
+          {required final int id,
+          @JsonKey(name: "cat_id") required final int catId,
+          required final String name,
+          required final String description,
+          required final String image,
+          required final double price,
+          required final double discount,
+          @JsonKey(name: "is_available") required final bool isAvailable}) =
       _$_ProductModel;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$_ProductModel.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "cat_id")
-  int get catId;
+  int get catId => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get image;
+  String get image => throw _privateConstructorUsedError;
   @override
-  double get price;
+  double get price => throw _privateConstructorUsedError;
   @override
-  double get discount;
+  double get discount => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "is_available")
-  bool get isAvailable;
+  bool get isAvailable => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProductModelCopyWith<_ProductModel> get copyWith =>

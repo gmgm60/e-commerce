@@ -12,38 +12,11 @@ part of 'failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FailuresTearOff {
-  const _$FailuresTearOff();
-
-  _noUser noUser(String error) {
-    return _noUser(
-      error,
-    );
-  }
-
-  _serverError serverError(String error) {
-    return _serverError(
-      error,
-    );
-  }
-
-  _localStorageError localStorageError(String error) {
-    return _localStorageError(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $Failures = _$FailuresTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Failures {
   String get error => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String error) noUser,
@@ -252,10 +225,10 @@ class _$_noUser implements _noUser {
 }
 
 abstract class _noUser implements Failures {
-  factory _noUser(String error) = _$_noUser;
+  factory _noUser(final String error) = _$_noUser;
 
   @override
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$noUserCopyWith<_noUser> get copyWith => throw _privateConstructorUsedError;
@@ -393,10 +366,10 @@ class _$_serverError implements _serverError {
 }
 
 abstract class _serverError implements Failures {
-  factory _serverError(String error) = _$_serverError;
+  factory _serverError(final String error) = _$_serverError;
 
   @override
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$serverErrorCopyWith<_serverError> get copyWith =>
@@ -537,10 +510,10 @@ class _$_localStorageError implements _localStorageError {
 }
 
 abstract class _localStorageError implements Failures {
-  factory _localStorageError(String error) = _$_localStorageError;
+  factory _localStorageError(final String error) = _$_localStorageError;
 
   @override
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$localStorageErrorCopyWith<_localStorageError> get copyWith =>

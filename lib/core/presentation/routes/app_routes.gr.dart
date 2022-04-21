@@ -13,7 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i8;
 import 'package:flutter/material.dart' as _i18;
 
-import '../../../features/auth/domain/entities/user.dart' as _i19;
+import '../../../features/auth/domain/entities/user.dart' as _i20;
 import '../../../features/auth/presentation/pages/forgot_password_page.dart'
     as _i5;
 import '../../../features/auth/presentation/pages/login_page.dart' as _i2;
@@ -25,18 +25,18 @@ import '../../../features/categories/presentation/pages/category_page.dart'
     as _i16;
 import '../../../features/categories/presentation/pages/category_products_page.dart'
     as _i17;
-import '../../../features/merchants/domain/entities/merchant.dart' as _i22;
+import '../../../features/merchants/domain/entities/merchant.dart' as _i23;
 import '../../../features/merchants/presentation/pages/merchant_details/merchant_details_page.dart'
     as _i15;
 import '../../../features/merchants/presentation/pages/merchants_page/merchants_page.dart'
     as _i14;
-import '../../../features/orders/domain/entities/order.dart' as _i21;
+import '../../../features/orders/domain/entities/order.dart' as _i22;
 import '../../../features/orders/presentation/pages/orders_page/order_details_page.dart'
     as _i13;
 import '../../../features/orders/presentation/pages/orders_page/orders_page.dart'
     as _i12;
 import '../../../features/products/domain/entities/product/product.dart'
-    as _i20;
+    as _i21;
 import '../../../features/products/presentation/pages/product_page/product_page.dart'
     as _i11;
 import '../../../features/products/presentation/pages/products_page/products_page.dart'
@@ -45,6 +45,7 @@ import '../../../features/profile/presentation/pages/profile_page.dart' as _i6;
 import '../../../features/profile/presentation/pages/update_profile_page.dart'
     as _i7;
 import '../home_page/home_page.dart' as _i4;
+import 'app_routes.dart' as _i19;
 
 class AppRouter extends _i8.RootStackRouter {
   AppRouter([_i18.GlobalKey<_i18.NavigatorState>? navigatorKey])
@@ -53,95 +54,188 @@ class AppRouter extends _i8.RootStackRouter {
   @override
   final Map<String, _i8.PageFactory> pagesMap = {
     StartupRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.StartupPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i1.StartupPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     LoginRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.LoginPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i2.LoginPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     RegisterRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.RegisterPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i3.RegisterPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     HomeRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.HomePage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i4.HomePage(),
+          transitionsBuilder: _i8.TransitionsBuilders.slideLeftWithFade,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     ForgotPasswordRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.ForgotPasswordPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i5.ForgotPasswordPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     ProfileRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i6.ProfilePage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i6.ProfilePage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     UpdateProfileRoute.name: (routeData) {
       final args = routeData.argsAs<UpdateProfileRouteArgs>();
-      return _i8.MaterialPageX<dynamic>(
+      return _i8.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i7.UpdateProfilePage(key: args.key, user: args.user));
+          child: _i7.UpdateProfilePage(key: args.key, user: args.user),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     Products.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.EmptyRouterPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i8.EmptyRouterPage(),
+          transitionsBuilder: _i8.TransitionsBuilders.slideLeftWithFade,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     ViewCartRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.ViewCartPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i9.ViewCartPage(),
+          opaque: true,
+          barrierDismissible: false);
     },
     Orders.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.EmptyRouterPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i8.EmptyRouterPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     Merchants.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.EmptyRouterPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i8.EmptyRouterPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     Category.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.EmptyRouterPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i8.EmptyRouterPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     ProductsRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.ProductsPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i10.ProductsPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     ProductRoute.name: (routeData) {
       final args = routeData.argsAs<ProductRouteArgs>();
-      return _i8.MaterialPageX<dynamic>(
+      return _i8.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i11.ProductPage(key: args.key, product: args.product));
+          child: _i11.ProductPage(key: args.key, product: args.product),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     OrdersRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.OrdersPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i12.OrdersPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     OrderDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<OrderDetailsRouteArgs>();
-      return _i8.MaterialPageX<dynamic>(
+      return _i8.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i13.OrderDetailsPage(key: args.key, order: args.order));
+          child: _i13.OrderDetailsPage(key: args.key, order: args.order),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     MerchantsRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i14.MerchantsPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i14.MerchantsPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     MerchantDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<MerchantDetailsRouteArgs>();
-      return _i8.MaterialPageX<dynamic>(
+      return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child:
-              _i15.MerchantDetailsPage(key: args.key, merchant: args.merchant));
+              _i15.MerchantDetailsPage(key: args.key, merchant: args.merchant),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     CategoryRoute.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i16.CategoryPage());
+      return _i8.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i16.CategoryPage(),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     },
     CategoryProductsRoute.name: (routeData) {
       final args = routeData.argsAs<CategoryProductsRouteArgs>();
-      return _i8.MaterialPageX<dynamic>(
+      return _i8.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i17.CategoryProductsPage(key: args.key, catId: args.catId));
+          child: _i17.CategoryProductsPage(key: args.key, catId: args.catId),
+          transitionsBuilder: _i19.viewCartAnimation,
+          durationInMilliseconds: 500,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -162,6 +256,8 @@ class AppRouter extends _i8.RootStackRouter {
                 _i8.RouteConfig(ProductRoute.name,
                     path: 'ProductPage', parent: Products.name)
               ]),
+          _i8.RouteConfig(ViewCartRoute.name,
+              path: 'ViewCartPage', parent: HomeRoute.name),
           _i8.RouteConfig(ViewCartRoute.name,
               path: 'ViewCartPage', parent: HomeRoute.name),
           _i8.RouteConfig(Orders.name,
@@ -255,7 +351,7 @@ class ProfileRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i7.UpdateProfilePage]
 class UpdateProfileRoute extends _i8.PageRouteInfo<UpdateProfileRouteArgs> {
-  UpdateProfileRoute({_i18.Key? key, required _i19.User user})
+  UpdateProfileRoute({_i18.Key? key, required _i20.User user})
       : super(UpdateProfileRoute.name,
             path: 'UpdateProfilePage',
             args: UpdateProfileRouteArgs(key: key, user: user));
@@ -268,7 +364,7 @@ class UpdateProfileRouteArgs {
 
   final _i18.Key? key;
 
-  final _i19.User user;
+  final _i20.User user;
 
   @override
   String toString() {
@@ -331,7 +427,7 @@ class ProductsRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i11.ProductPage]
 class ProductRoute extends _i8.PageRouteInfo<ProductRouteArgs> {
-  ProductRoute({_i18.Key? key, required _i20.Product product})
+  ProductRoute({_i18.Key? key, required _i21.Product product})
       : super(ProductRoute.name,
             path: 'ProductPage',
             args: ProductRouteArgs(key: key, product: product));
@@ -344,7 +440,7 @@ class ProductRouteArgs {
 
   final _i18.Key? key;
 
-  final _i20.Product product;
+  final _i21.Product product;
 
   @override
   String toString() {
@@ -363,7 +459,7 @@ class OrdersRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i13.OrderDetailsPage]
 class OrderDetailsRoute extends _i8.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({_i18.Key? key, required _i21.Order order})
+  OrderDetailsRoute({_i18.Key? key, required _i22.Order order})
       : super(OrderDetailsRoute.name,
             path: 'OrderDetailsPage',
             args: OrderDetailsRouteArgs(key: key, order: order));
@@ -376,7 +472,7 @@ class OrderDetailsRouteArgs {
 
   final _i18.Key? key;
 
-  final _i21.Order order;
+  final _i22.Order order;
 
   @override
   String toString() {
@@ -395,7 +491,7 @@ class MerchantsRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i15.MerchantDetailsPage]
 class MerchantDetailsRoute extends _i8.PageRouteInfo<MerchantDetailsRouteArgs> {
-  MerchantDetailsRoute({_i18.Key? key, required _i22.Merchant merchant})
+  MerchantDetailsRoute({_i18.Key? key, required _i23.Merchant merchant})
       : super(MerchantDetailsRoute.name,
             path: 'MerchantDetailsPage',
             args: MerchantDetailsRouteArgs(key: key, merchant: merchant));
@@ -408,7 +504,7 @@ class MerchantDetailsRouteArgs {
 
   final _i18.Key? key;
 
-  final _i22.Merchant merchant;
+  final _i23.Merchant merchant;
 
   @override
   String toString() {

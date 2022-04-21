@@ -12,29 +12,11 @@ part of 'favorite_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 FavoriteModel _$FavoriteModelFromJson(Map<String, dynamic> json) {
   return _FavoriteModel.fromJson(json);
 }
-
-/// @nodoc
-class _$FavoriteModelTearOff {
-  const _$FavoriteModelTearOff();
-
-  _FavoriteModel call({required ProductModel productModel}) {
-    return _FavoriteModel(
-      productModel: productModel,
-    );
-  }
-
-  FavoriteModel fromJson(Map<String, Object?> json) {
-    return FavoriteModel.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FavoriteModel = _$FavoriteModelTearOff();
 
 /// @nodoc
 mixin _$FavoriteModel {
@@ -147,6 +129,7 @@ class _$_FavoriteModel implements _FavoriteModel {
                 .equals(other.productModel, productModel));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(productModel));
@@ -163,14 +146,14 @@ class _$_FavoriteModel implements _FavoriteModel {
 }
 
 abstract class _FavoriteModel implements FavoriteModel {
-  factory _FavoriteModel({required ProductModel productModel}) =
+  factory _FavoriteModel({required final ProductModel productModel}) =
       _$_FavoriteModel;
 
   factory _FavoriteModel.fromJson(Map<String, dynamic> json) =
       _$_FavoriteModel.fromJson;
 
   @override
-  ProductModel get productModel;
+  ProductModel get productModel => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$FavoriteModelCopyWith<_FavoriteModel> get copyWith =>

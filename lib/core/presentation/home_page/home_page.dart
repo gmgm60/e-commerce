@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce/core/presentation/cubit/back_button_cubit/back_button_cubit.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_drawer.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
 class HomePage extends StatelessWidget {
@@ -35,10 +37,23 @@ class HomePage extends StatelessWidget {
         return AppBar(
           title: Text(titles[tabRouter.activeIndex]),
           actions: [
-            if (AutoRouter.of(context).canPopSelfOrChildren)
-              IconButton(
-                  onPressed: scope.controller.popTop,
-                  icon: const Icon(Icons.arrow_forward_ios)),
+
+              BlocBuilder<BackButtonCubit, BackButtonState>(
+                builder: (context, state) {
+                  if (AutoRouter
+                      .of(context)
+                      .canPopSelfOrChildren) {
+                    return IconButton(
+                      onPressed: (){
+                        scope.controller.popTop();
+                        context.read<BackButtonCubit>().refresh();
+                      },
+                      icon: const Icon(Icons.arrow_forward_ios));
+                  }else {
+                    return const SizedBox.shrink();
+                  }
+                },
+              ),
           ],
         );
       },
@@ -48,12 +63,12 @@ class HomePage extends StatelessWidget {
           onTap: tabRoute.setActiveIndex,
           currentIndex: tabRoute.activeIndex,
           items: [
-             BottomNavigationBarItem(
-                icon:const Icon(Icons.home), label:context.tr.products),
-             BottomNavigationBarItem(
-                icon:const Icon(Icons.list), label: context.tr.orders),
-             BottomNavigationBarItem(
-                icon:const Icon(Icons.shopping_cart), label: context.tr.cart),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.home), label: context.tr.products),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.list), label: context.tr.orders),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.shopping_cart), label: context.tr.cart),
 
             BottomNavigationBarItem(
                 icon: const Icon(Icons.category), label: context.tr.categories),

@@ -12,21 +12,7 @@ part of 'favorite_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FavoriteItemTearOff {
-  const _$FavoriteItemTearOff();
-
-  _FavoriteItem call({required Product product}) {
-    return _FavoriteItem(
-      product: product,
-    );
-  }
-}
-
-/// @nodoc
-const $FavoriteItem = _$FavoriteItemTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$FavoriteItem {
@@ -143,10 +129,10 @@ class _$_FavoriteItem implements _FavoriteItem {
 }
 
 abstract class _FavoriteItem implements FavoriteItem {
-  factory _FavoriteItem({required Product product}) = _$_FavoriteItem;
+  factory _FavoriteItem({required final Product product}) = _$_FavoriteItem;
 
   @override
-  Product get product;
+  Product get product => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$FavoriteItemCopyWith<_FavoriteItem> get copyWith =>
