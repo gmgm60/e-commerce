@@ -67,7 +67,7 @@ class _ProductPageState extends State<ProductPage> {
                         .headline6), //Expanded(child: Text("")),
                 Row(
                   children: [
-                    Text(widget.product.price.toString() + context.tr.currency,
+                    Text(widget.product.price.toStringAsFixed(2) + context.tr.currency,
                         style: Theme.of(context).textTheme.subtitle2!.copyWith(
                               decoration: TextDecoration.lineThrough,
                             )),

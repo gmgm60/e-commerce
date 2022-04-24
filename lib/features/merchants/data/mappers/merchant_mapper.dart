@@ -12,6 +12,7 @@ extension MerchantMapper on MerchantData {
       merchantName: merchantName ?? '',
       phone: phone ?? '',
       address: address ?? '',
+      rating: rating ?? 0.0,
       products: productEntities as List<Product>,
     );
   }

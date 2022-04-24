@@ -142,10 +142,10 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i9.MerchantsApiServiceImpl(get<_i4.Dio>()));
   gh.singleton<_i10.OrdersApiService>(
       _i11.OrdersApiServiceImpl(get<_i4.Dio>()));
-  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
-      registerFor: {_test});
   gh.factory<_i12.ProductService>(() => _i13.ProductServiceImplLocal(),
       registerFor: {_localMock});
+  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
+      registerFor: {_test});
   gh.singleton<_i14.ProfileUserService>(
       _i15.ProfileUserServiceImpl(get<_i4.Dio>()));
   await gh.factoryAsync<_i16.SharedPreferences>(() => injectionModule.prefs,

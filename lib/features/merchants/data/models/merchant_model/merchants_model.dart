@@ -5,11 +5,9 @@ part 'merchants_model.g.dart';
 
 @JsonSerializable()
 class MerchantModel {
- List<MerchantData> data;
+  final List<MerchantData> data;
 
-  MerchantModel({
-    required this.data
-  });
+  MerchantModel({required this.data});
 
   factory MerchantModel.fromJson(Map<String, dynamic> json) =>
       _$MerchantModelFromJson(json);
@@ -17,19 +15,20 @@ class MerchantModel {
   Map<String, dynamic> toJson() => _$MerchantModelToJson(this);
 }
 
-
 @JsonSerializable()
 class MerchantData {
   @JsonKey(name: 'id')
-  int? id;
+  final int? id;
   @JsonKey(name: 'merchant_name')
-  String? merchantName;
+  final String? merchantName;
   @JsonKey(name: 'phone')
-  String? phone;
+  final String? phone;
   @JsonKey(name: 'address')
-  String? address;
+  final String? address;
   @JsonKey(name: 'products')
-  List<ProductModel>? products;
+  final List<ProductModel>? products;
+  @JsonKey(name: 'rating')
+  final double? rating;
 
   MerchantData({
     required this.id,
@@ -37,6 +36,7 @@ class MerchantData {
     required this.phone,
     required this.address,
     required this.products,
+    required this.rating,
   });
 
   factory MerchantData.fromJson(Map<String, dynamic> json) =>

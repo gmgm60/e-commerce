@@ -50,6 +50,7 @@ class MerchantsRepoImpl extends MerchantsRepository {
   }
 
   MerchantModel getFakeData() {
+    List<double> rates=[1,1.5,2,2.5,3,3.5,4,4.5,5,5.5];
     return MerchantModel(
         data: List.generate(
             30,
@@ -58,7 +59,9 @@ class MerchantsRepoImpl extends MerchantsRepository {
                 merchantName: lorem(paragraphs: 1, words: 2),
                 phone: '01236548',
                 address: lorem(paragraphs: 1, words: 15),
-                products: generateProducts())));
+                products: generateProducts(),
+              rating: rates[Random().nextInt(rates.length)]
+            )));
   }
 
   List<ProductModel> generateProducts() {

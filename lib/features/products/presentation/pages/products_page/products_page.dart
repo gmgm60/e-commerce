@@ -1,5 +1,6 @@
 
 import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
+import 'package:ecommerce/core/presentation/widgets/product_shimmer.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/products/presentation/cubit/products_cubit/products_cubit.dart';
 import 'package:ecommerce/features/products/presentation/cubit/products_cubit/products_state.dart';
@@ -20,7 +21,7 @@ class ProductsPage extends StatelessWidget {
              return state.map(
                 init: (_) => const Center(child: CircularProgressIndicator()),
                 loading: (_) =>
-                    const Center(child: CircularProgressIndicator()),
+                    const ProductShimmer(),
                 done: (_) => GridView.count(
                   physics: const BouncingScrollPhysics(),
                   crossAxisCount: 2,
