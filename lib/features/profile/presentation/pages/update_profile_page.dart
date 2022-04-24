@@ -175,6 +175,7 @@ class _UpdateProfileBodyState extends State<UpdateProfileBody> {
                   listener: (context, state) {
                     state.whenOrNull(updated: (user) {
                       AutoRouter.of(context).pop();
+                      BlocProvider.of<ProfileCubit>(context).getUser();
                     }, error: (error) {
                       ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(content: Text(error)));
@@ -207,6 +208,7 @@ class _UpdateProfileBodyState extends State<UpdateProfileBody> {
                               );
                               BlocProvider.of<ProfileCubit>(context)
                                   .updateUser(updateUser: updateUser);
+
                             }
                           },
                           text: context.tr.update);

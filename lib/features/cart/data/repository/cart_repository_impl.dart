@@ -36,7 +36,7 @@ class CartRepositoryImpl extends CartRepository{
       final List<CartItemModel> cartModel = cart.map((cartItem) => cartItem.toModel()).toList();
       final token = _authLocalService.getToken() as String;
       final response = await _cartRemoteService.editCart(cart: cartModel, token: token);
-      _logger.v(response);
+      //_logger.v(response);
       return right(unit);
     } on Exception catch (e) {
       // TODO

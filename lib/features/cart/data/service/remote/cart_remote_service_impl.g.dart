@@ -39,7 +39,7 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
   @override
   Future<dynamic> editCart({required token, required cart}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'cart': cart};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};

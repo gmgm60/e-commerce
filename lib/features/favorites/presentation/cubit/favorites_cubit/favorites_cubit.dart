@@ -39,7 +39,8 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       //   },
       //   (unit) => emit(FavoritesState.done()),
       // );
-     // await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 500));
+      emit(FavoritesState.done());
       currentId = -1;
     }
   }
@@ -50,14 +51,16 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       favorites.remove(productId);
       currentId = productId;
       emit(FavoritesState.loading());
-      final result = await _removeFromFavorite(productId);
-      result.fold(
-        (error) {
-          favorites[productId] = favoriteItem;
-          emit(FavoritesState.error());
-        },
-        (unit) => emit(FavoritesState.done()),
-      );
+     // final result = await _removeFromFavorite(productId);
+      // result.fold(
+      //   (error) {
+      //     favorites[productId] = favoriteItem;
+      //     emit(FavoritesState.error());
+      //   },
+      //   (unit) => emit(FavoritesState.done()),
+      // );
+     await Future.delayed(const Duration(milliseconds: 500));
+      emit(FavoritesState.done());
       currentId = -1;
     }
   }

@@ -14,90 +14,26 @@ class FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<FavoriteButton>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<Color?> _colorAnimation;
-  late final Animation<double> _sizeAnimation;
-  late final CurvedAnimation _curve;
-  late final FavoritesCubit favoritesCubit;
 
-  @override
-  void initState() {
-    _controller = AnimationController(
-        duration: const Duration(microseconds: 1000), vsync: this);
-
-    _curve = CurvedAnimation(parent: _controller, curve: Curves.slowMiddle);
-
-    favoritesCubit = context.read<FavoritesCubit>();
-
-    if (favoritesCubit.favorites[widget.product.id] != null) {
-      _colorAnimation = ColorTween(begin: Colors.red, end: Colors.black26)
-          .animate(_controller);
-    } else {
-      _colorAnimation = ColorTween(begin: Colors.black26, end: Colors.red)
-          .animate(_controller);
-    }
-
-    _sizeAnimation = TweenSequence<double>([
-      TweenSequenceItem<double>(
-          tween: Tween<double>(begin: 30, end: 50), weight: 50),
-      TweenSequenceItem<double>(
-          tween: Tween<double>(begin: 50, end: 30), weight: 50),
-    ]).animate(_controller);
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        BlocBuilder<FavoritesCubit, FavoritesState>(
-          buildWhen: (_, __) => widget.product.id == favoritesCubit.currentId,
-          builder: (context, state) {
-            return Row(
-              children: [
-                 Heart(product: widget.product,),
-                IconButton(
-                    onPressed: () {
-                      if (favoritesCubit.favorites[widget.product.id] != null) {
-                        _controller.reverse();
-                        favoritesCubit.removeFromFavorites(
-                            productId: widget.product.id);
-                      } else {
-                        _controller.forward();
-                        favoritesCubit.addToFavorites(product: widget.product);
-                      }
-                    },
-                    icon: AnimatedBuilder(
-                      builder: (BuildContext context, _) {
-                        return Icon(Icons.favorite,
-                            color: _colorAnimation.value,
-                            size: _sizeAnimation.value);
-                      },
-                      animation: _controller,
-                    )),
-              ],
-            );
-          },
-        ),
-      ],
+    return BlocBuilder<FavoritesCubit, FavoritesState>(
+      buildWhen: (_, __) => widget.product.id == context.read<FavoritesCubit>().currentId,
+      builder: (context, state) {
+        return Heart(
+          product: widget.product,
+        );
+      },
     );
   }
 }
 
 class Heart extends StatefulWidget {
   final Product product;
-
   const Heart({
     Key? key,
-     required this.product,
+    required this.product,
   }) : super(key: key);
 
   @override
@@ -121,14 +57,10 @@ class _HeartState extends State<Heart> with TickerProviderStateMixin {
 
     _curve = CurvedAnimation(parent: _controller, curve: Curves.slowMiddle);
 
-    isFavorite = favoritesCubit.favorites[widget.product.id] != null ? true : false;
-    if (isFavorite) {
-      _colorAnimation =
-          ColorTween(begin: Colors.red, end: Colors.black26).animate(_curve);
-    } else {
+    isFavorite = favoritesCubit.favorites[widget.product.id] != null;
       _colorAnimation =
           ColorTween(begin: Colors.black26, end: Colors.red).animate(_curve);
-    }
+
 
     _sizeAnimation = TweenSequence<double>([
       TweenSequenceItem<double>(
@@ -146,6 +78,8 @@ class _HeartState extends State<Heart> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    isFavorite = favoritesCubit.favorites[widget.product.id] != null;
+    isFavorite == true ? _controller.forward() : _controller.reverse();
     return IconButton(
       icon: AnimatedBuilder(
         animation: _controller,
@@ -159,16 +93,15 @@ class _HeartState extends State<Heart> with TickerProviderStateMixin {
       ),
       onPressed: () {
         if (isFavorite) {
-          isFavorite = false;
-          favoritesCubit.removeFromFavorites(productId: widget.product.id).then((_) {
-            isFavorite = favoritesCubit.favorites[widget.product.id] != null ? true : false;
-          });
+          // remove from favorites
+          // isFavorite = false;
+          favoritesCubit
+              .removeFromFavorites(productId: widget.product.id);
           _controller.reverse();
         } else {
-          isFavorite = true;
-          favoritesCubit.addToFavorites(product: widget.product).then((_) {
-            isFavorite = favoritesCubit.favorites[widget.product.id] != null ? true : false;
-          });
+          // add to favorite
+          // isFavorite = true;
+          favoritesCubit.addToFavorites(product: widget.product);
           _controller.forward();
         }
       },

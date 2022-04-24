@@ -1,6 +1,8 @@
 import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
+import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cart_counter.dart';
 
@@ -21,17 +23,18 @@ class AnimatedCartRow extends StatelessWidget {
     return SlideTransition(
         key: UniqueKey(),
         position: Tween<Offset>(
-          begin: const Offset(-1, -0.5),
+          begin: const Offset(-1, 0.0),
           end: const Offset(0, 0),
         ).animate(animation),
         child: RotationTransition(
             turns: animation,
             child: SizeTransition(
-                axis: Axis.vertical,
+              //  axis: Axis.vertical,
                 sizeFactor: animation,
                 child: CartItemRow(
                   cartItem: cartItem,
                   delete: () {
+                    context.read<CartCubit>().deleteProduct(productId: cartItem.product.id);
                     _removeItem(index, context, cartItem);
                   },
                 ))));
