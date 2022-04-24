@@ -11,45 +11,47 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i9;
-import 'package:flutter/material.dart' as _i19;
+import 'package:flutter/material.dart' as _i20;
 
-import '../../../features/auth/domain/entities/user.dart' as _i20;
+import '../../../features/auth/domain/entities/user.dart' as _i21;
 import '../../../features/auth/presentation/pages/forgot_password_page.dart'
     as _i6;
 import '../../../features/auth/presentation/pages/login_page.dart' as _i2;
 import '../../../features/auth/presentation/pages/register_page.dart' as _i3;
 import '../../../features/auth/presentation/pages/startup_page.dart' as _i1;
+import '../../../features/cart/presentation/pages/confirm_order_page/confirm_order_page.dart'
+    as _i13;
 import '../../../features/cart/presentation/pages/view_cart_page/view_cart_page.dart'
-    as _i10;
+    as _i12;
 import '../../../features/categories/presentation/pages/category_page.dart'
-    as _i17;
-import '../../../features/categories/presentation/pages/category_products_page.dart'
     as _i18;
+import '../../../features/categories/presentation/pages/category_products_page.dart'
+    as _i19;
 import '../../../features/favorites/presentation/pages/favorites_page/favorites_page.dart'
     as _i5;
-import '../../../features/merchants/domain/entities/merchant.dart' as _i23;
+import '../../../features/merchants/domain/entities/merchant.dart' as _i24;
 import '../../../features/merchants/presentation/pages/merchant_details/merchant_details_page.dart'
-    as _i16;
+    as _i17;
 import '../../../features/merchants/presentation/pages/merchants_page/merchants_page.dart'
-    as _i15;
-import '../../../features/orders/domain/entities/order.dart' as _i22;
+    as _i16;
+import '../../../features/orders/domain/entities/order.dart' as _i23;
 import '../../../features/orders/presentation/pages/orders_page/order_details_page.dart'
-    as _i14;
+    as _i15;
 import '../../../features/orders/presentation/pages/orders_page/orders_page.dart'
-    as _i13;
+    as _i14;
 import '../../../features/products/domain/entities/product/product.dart'
-    as _i21;
+    as _i22;
 import '../../../features/products/presentation/pages/product_page/product_page.dart'
-    as _i12;
-import '../../../features/products/presentation/pages/products_page/products_page.dart'
     as _i11;
+import '../../../features/products/presentation/pages/products_page/products_page.dart'
+    as _i10;
 import '../../../features/profile/presentation/pages/profile_page.dart' as _i7;
 import '../../../features/profile/presentation/pages/update_profile_page.dart'
     as _i8;
 import '../home_page/home_page.dart' as _i4;
 
 class AppRouter extends _i9.RootStackRouter {
-  AppRouter([_i19.GlobalKey<_i19.NavigatorState>? navigatorKey])
+  AppRouter([_i20.GlobalKey<_i20.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -122,10 +124,10 @@ class AppRouter extends _i9.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    ViewCartRoute.name: (routeData) {
+    ViewCart.name: (routeData) {
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i10.ViewCartPage(),
+          child: const _i9.EmptyRouterPage(),
           opaque: true,
           barrierDismissible: false);
     },
@@ -153,7 +155,7 @@ class AppRouter extends _i9.RootStackRouter {
     ProductsRoute.name: (routeData) {
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i11.ProductsPage(),
+          child: const _i10.ProductsPage(),
           opaque: true,
           barrierDismissible: false);
     },
@@ -161,17 +163,31 @@ class AppRouter extends _i9.RootStackRouter {
       final args = routeData.argsAs<ProductRouteArgs>();
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i12.ProductPage(
+          child: _i11.ProductPage(
               key: args.key,
               product: args.product,
               showAppBar: args.showAppBar),
           opaque: true,
           barrierDismissible: false);
     },
+    ViewCartRoute.name: (routeData) {
+      return _i9.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i12.ViewCartPage(),
+          opaque: true,
+          barrierDismissible: false);
+    },
+    ConfirmOrderRoute.name: (routeData) {
+      return _i9.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i13.ConfirmOrderPage(),
+          opaque: true,
+          barrierDismissible: false);
+    },
     OrdersRoute.name: (routeData) {
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i13.OrdersPage(),
+          child: const _i14.OrdersPage(),
           opaque: true,
           barrierDismissible: false);
     },
@@ -179,14 +195,14 @@ class AppRouter extends _i9.RootStackRouter {
       final args = routeData.argsAs<OrderDetailsRouteArgs>();
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i14.OrderDetailsPage(key: args.key, order: args.order),
+          child: _i15.OrderDetailsPage(key: args.key, order: args.order),
           opaque: true,
           barrierDismissible: false);
     },
     MerchantsRoute.name: (routeData) {
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i15.MerchantsPage(),
+          child: const _i16.MerchantsPage(),
           opaque: true,
           barrierDismissible: false);
     },
@@ -195,14 +211,14 @@ class AppRouter extends _i9.RootStackRouter {
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
           child:
-              _i16.MerchantDetailsPage(key: args.key, merchant: args.merchant),
+              _i17.MerchantDetailsPage(key: args.key, merchant: args.merchant),
           opaque: true,
           barrierDismissible: false);
     },
     CategoryRoute.name: (routeData) {
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i17.CategoryPage(),
+          child: const _i18.CategoryPage(),
           opaque: true,
           barrierDismissible: false);
     },
@@ -210,7 +226,7 @@ class AppRouter extends _i9.RootStackRouter {
       final args = routeData.argsAs<CategoryProductsRouteArgs>();
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i18.CategoryProductsPage(key: args.key, catId: args.catId),
+          child: _i19.CategoryProductsPage(key: args.key, catId: args.catId),
           opaque: true,
           barrierDismissible: false);
     }
@@ -233,10 +249,15 @@ class AppRouter extends _i9.RootStackRouter {
                 _i9.RouteConfig(ProductRoute.name,
                     path: 'ProductPage', parent: Products.name)
               ]),
-          _i9.RouteConfig(ViewCartRoute.name,
-              path: 'ViewCartPage', parent: HomeRoute.name),
-          _i9.RouteConfig(ViewCartRoute.name,
-              path: 'ViewCartPage', parent: HomeRoute.name),
+          _i9.RouteConfig(ViewCart.name,
+              path: 'ViewCart',
+              parent: HomeRoute.name,
+              children: [
+                _i9.RouteConfig(ViewCartRoute.name,
+                    path: '', parent: ViewCart.name),
+                _i9.RouteConfig(ConfirmOrderRoute.name,
+                    path: 'ConfirmOrderPage', parent: ViewCart.name)
+              ]),
           _i9.RouteConfig(Orders.name,
               path: 'Orders',
               parent: HomeRoute.name,
@@ -337,7 +358,7 @@ class ProfileRoute extends _i9.PageRouteInfo<void> {
 /// generated route for
 /// [_i8.UpdateProfilePage]
 class UpdateProfileRoute extends _i9.PageRouteInfo<UpdateProfileRouteArgs> {
-  UpdateProfileRoute({_i19.Key? key, required _i20.User user})
+  UpdateProfileRoute({_i20.Key? key, required _i21.User user})
       : super(UpdateProfileRoute.name,
             path: 'UpdateProfilePage',
             args: UpdateProfileRouteArgs(key: key, user: user));
@@ -348,9 +369,9 @@ class UpdateProfileRoute extends _i9.PageRouteInfo<UpdateProfileRouteArgs> {
 class UpdateProfileRouteArgs {
   const UpdateProfileRouteArgs({this.key, required this.user});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final _i20.User user;
+  final _i21.User user;
 
   @override
   String toString() {
@@ -368,11 +389,12 @@ class Products extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.ViewCartPage]
-class ViewCartRoute extends _i9.PageRouteInfo<void> {
-  const ViewCartRoute() : super(ViewCartRoute.name, path: 'ViewCartPage');
+/// [_i9.EmptyRouterPage]
+class ViewCart extends _i9.PageRouteInfo<void> {
+  const ViewCart({List<_i9.PageRouteInfo>? children})
+      : super(ViewCart.name, path: 'ViewCart', initialChildren: children);
 
-  static const String name = 'ViewCartRoute';
+  static const String name = 'ViewCart';
 }
 
 /// generated route for
@@ -403,7 +425,7 @@ class Category extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.ProductsPage]
+/// [_i10.ProductsPage]
 class ProductsRoute extends _i9.PageRouteInfo<void> {
   const ProductsRoute() : super(ProductsRoute.name, path: '');
 
@@ -411,10 +433,10 @@ class ProductsRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.ProductPage]
+/// [_i11.ProductPage]
 class ProductRoute extends _i9.PageRouteInfo<ProductRouteArgs> {
   ProductRoute(
-      {_i19.Key? key, required _i21.Product product, bool showAppBar = false})
+      {_i20.Key? key, required _i22.Product product, bool showAppBar = false})
       : super(ProductRoute.name,
             path: 'ProductPage',
             args: ProductRouteArgs(
@@ -427,9 +449,9 @@ class ProductRouteArgs {
   const ProductRouteArgs(
       {this.key, required this.product, this.showAppBar = false});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final _i21.Product product;
+  final _i22.Product product;
 
   final bool showAppBar;
 
@@ -440,7 +462,24 @@ class ProductRouteArgs {
 }
 
 /// generated route for
-/// [_i13.OrdersPage]
+/// [_i12.ViewCartPage]
+class ViewCartRoute extends _i9.PageRouteInfo<void> {
+  const ViewCartRoute() : super(ViewCartRoute.name, path: '');
+
+  static const String name = 'ViewCartRoute';
+}
+
+/// generated route for
+/// [_i13.ConfirmOrderPage]
+class ConfirmOrderRoute extends _i9.PageRouteInfo<void> {
+  const ConfirmOrderRoute()
+      : super(ConfirmOrderRoute.name, path: 'ConfirmOrderPage');
+
+  static const String name = 'ConfirmOrderRoute';
+}
+
+/// generated route for
+/// [_i14.OrdersPage]
 class OrdersRoute extends _i9.PageRouteInfo<void> {
   const OrdersRoute() : super(OrdersRoute.name, path: '');
 
@@ -448,9 +487,9 @@ class OrdersRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.OrderDetailsPage]
+/// [_i15.OrderDetailsPage]
 class OrderDetailsRoute extends _i9.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({_i19.Key? key, required _i22.Order order})
+  OrderDetailsRoute({_i20.Key? key, required _i23.Order order})
       : super(OrderDetailsRoute.name,
             path: 'OrderDetailsPage',
             args: OrderDetailsRouteArgs(key: key, order: order));
@@ -461,9 +500,9 @@ class OrderDetailsRoute extends _i9.PageRouteInfo<OrderDetailsRouteArgs> {
 class OrderDetailsRouteArgs {
   const OrderDetailsRouteArgs({this.key, required this.order});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final _i22.Order order;
+  final _i23.Order order;
 
   @override
   String toString() {
@@ -472,7 +511,7 @@ class OrderDetailsRouteArgs {
 }
 
 /// generated route for
-/// [_i15.MerchantsPage]
+/// [_i16.MerchantsPage]
 class MerchantsRoute extends _i9.PageRouteInfo<void> {
   const MerchantsRoute() : super(MerchantsRoute.name, path: '');
 
@@ -480,9 +519,9 @@ class MerchantsRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.MerchantDetailsPage]
+/// [_i17.MerchantDetailsPage]
 class MerchantDetailsRoute extends _i9.PageRouteInfo<MerchantDetailsRouteArgs> {
-  MerchantDetailsRoute({_i19.Key? key, required _i23.Merchant merchant})
+  MerchantDetailsRoute({_i20.Key? key, required _i24.Merchant merchant})
       : super(MerchantDetailsRoute.name,
             path: 'MerchantDetailsPage',
             args: MerchantDetailsRouteArgs(key: key, merchant: merchant));
@@ -493,9 +532,9 @@ class MerchantDetailsRoute extends _i9.PageRouteInfo<MerchantDetailsRouteArgs> {
 class MerchantDetailsRouteArgs {
   const MerchantDetailsRouteArgs({this.key, required this.merchant});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final _i23.Merchant merchant;
+  final _i24.Merchant merchant;
 
   @override
   String toString() {
@@ -504,7 +543,7 @@ class MerchantDetailsRouteArgs {
 }
 
 /// generated route for
-/// [_i17.CategoryPage]
+/// [_i18.CategoryPage]
 class CategoryRoute extends _i9.PageRouteInfo<void> {
   const CategoryRoute() : super(CategoryRoute.name, path: '');
 
@@ -512,10 +551,10 @@ class CategoryRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i18.CategoryProductsPage]
+/// [_i19.CategoryProductsPage]
 class CategoryProductsRoute
     extends _i9.PageRouteInfo<CategoryProductsRouteArgs> {
-  CategoryProductsRoute({_i19.Key? key, required int catId})
+  CategoryProductsRoute({_i20.Key? key, required int catId})
       : super(CategoryProductsRoute.name,
             path: 'CategoryProductsPage',
             args: CategoryProductsRouteArgs(key: key, catId: catId));
@@ -526,7 +565,7 @@ class CategoryProductsRoute
 class CategoryProductsRouteArgs {
   const CategoryProductsRouteArgs({this.key, required this.catId});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
   final int catId;
 

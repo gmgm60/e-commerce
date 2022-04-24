@@ -29,12 +29,14 @@ class AnimatedCartRow extends StatelessWidget {
         child: RotationTransition(
             turns: animation,
             child: SizeTransition(
-              //  axis: Axis.vertical,
+                //  axis: Axis.vertical,
                 sizeFactor: animation,
                 child: CartItemRow(
                   cartItem: cartItem,
                   delete: () {
-                    context.read<CartCubit>().deleteProduct(productId: cartItem.product.id);
+                    context
+                        .read<CartCubit>()
+                        .deleteProduct(productId: cartItem.product.id);
                     _removeItem(index, context, cartItem);
                   },
                 ))));
@@ -90,7 +92,7 @@ class CartItemRow extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           FavoriteButton(product: cartItem.product),
                           if (delete != null)

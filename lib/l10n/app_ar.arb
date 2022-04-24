@@ -49,7 +49,16 @@
   "cart": "العربه",
   "orders": "الطلبات",
   "thisProductISInTheCart": "تمت اضافة هذا المنتج للعربه",
-  "productNotAvailable": "This Product Is Not Available at This Moment"
+  "productNotAvailable": "هذا المنتج غير متاح حاليا",
+  "productName": "أسم المنتج",
+  "price" : "السعر",
+  "count": "العدد",
+  "total": "الاجمالى",
+  "checkout": "طلب الشراء",
+  "confirm": "تأكيد الطلب",
+  "ok": "حسنا",
+  "orderSuccess": "تم اضافه الطلب بنجاح",
+  "orderFailed": "خطأ, لم بتم تسجيل الطلب!"
 
 
 }

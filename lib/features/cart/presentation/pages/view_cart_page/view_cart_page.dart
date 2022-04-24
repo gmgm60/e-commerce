@@ -1,3 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
+import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
 import 'package:ecommerce/l10n/l10n.dart';
@@ -24,10 +27,10 @@ class _ViewCartPageState extends State<ViewCartPage> {
   }
 
   Future _addCartItem() async {
-    for(int i =cartCubit.animatedListCount; i < cartCubit.cart.length; i ++){
+    for (int i = cartCubit.animatedListCount; i < cartCubit.cart.length; i++) {
       await Future.delayed(const Duration(milliseconds: 400));
       cartCubit.animatedListCount++;
-      _listKey.currentState!.insertItem(cartCubit.animatedListCount-1);
+      _listKey.currentState!.insertItem(cartCubit.animatedListCount - 1);
     }
   }
 
@@ -38,7 +41,6 @@ class _ViewCartPageState extends State<ViewCartPage> {
         child: BlocBuilder<CartCubit, CartState>(
           buildWhen: (_, __) => cartCubit.editedProductId == -1,
           builder: (context, state) {
-
             _addCartItem();
             return state.map(
               init: (_) => const CircularProgressIndicator(),
@@ -47,16 +49,24 @@ class _ViewCartPageState extends State<ViewCartPage> {
               done: (_) => ListView(
                 children: [
                   AnimatedList(
-                    key: _listKey,
+                      key: _listKey,
                       primary: false,
                       shrinkWrap: true,
                       initialItemCount: cartCubit.animatedListCount,
                       itemBuilder: (context, index, animation) =>
                           AnimatedCartRow(
                             cartItem: cartCubit.cart.values.elementAt(index),
-                            index: index, animation: animation,
+                            index: index,
+                            animation: animation,
                           )),
                   const CartDetails(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: AppElevatedButton(onPressed: () {
+                      AutoRouter.of(context).push(const ConfirmOrderRoute());
+                    }, text: context.tr.checkout),
+                  ),
+                  const SizedBox(height: 20,)
                 ],
               ),
             );

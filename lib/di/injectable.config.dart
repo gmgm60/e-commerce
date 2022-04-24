@@ -210,8 +210,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       get<_i52.RegisterUseCase>(),
       get<_i40.GetTokenUseCase>(),
       get<_i54.ResetPassUseCase>()));
-  gh.factory<_i58.CartCubit>(() => _i58.CartCubit(
-      get<_i36.GetCart>(), get<_i33.EditCart>(), get<_i7.Logger>()));
+  gh.factory<_i58.CartCubit>(() => _i58.CartCubit(get<_i36.GetCart>(),
+      get<_i33.EditCart>(), get<_i7.Logger>(), get<_i32.ConfirmOrder>()));
   gh.factory<_i59.CategoryCubit>(() => _i59.CategoryCubit(
       get<_i37.GetCategoriesUseCase>(), get<_i39.GetProductsByCatIdUseCase>()));
   gh.factory<_i60.FavoritesCubit>(() => _i60.FavoritesCubit(

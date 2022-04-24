@@ -19,6 +19,8 @@ import 'package:ecommerce/features/profile/presentation/pages/profile_page.dart'
 import 'package:ecommerce/features/profile/presentation/pages/update_profile_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../../features/cart/presentation/pages/confirm_order_page/confirm_order_page.dart';
+
 @CustomAutoRouter(
   // transitionsBuilder: viewCartAnimation,
   // durationInMilliseconds: 500,
@@ -57,15 +59,19 @@ import 'package:flutter/material.dart';
             CustomRoute(
               page: ProductPage,
               path: 'ProductPage',
-             // transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+              // transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
               customRouteBuilder: productAnimation,
-             // durationInMilliseconds: 500,
+              // durationInMilliseconds: 500,
             ),
           ],
         ),
         // cart
-        AutoRoute(page: ViewCartPage, path: "ViewCartPage"),
-        CustomRoute(page: ViewCartPage, path: "ViewCartPage"),
+        AutoRoute(page: EmptyRouterPage,name: 'ViewCart', path: 'ViewCart', children: [
+          AutoRoute(page: ViewCartPage, path: ""),
+          AutoRoute(page: ConfirmOrderPage, path: "ConfirmOrderPage"),
+        ]),
+
+        // CustomRoute(page: ViewCartPage, path: "ViewCartPage"),
         //order
         AutoRoute(
           page: EmptyRouterPage,

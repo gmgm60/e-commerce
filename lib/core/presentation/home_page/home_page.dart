@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
     List<PageRouteInfo> routes = const [
       Products(),
       Orders(),
-      ViewCartRoute(),
+      ViewCart(),
       Category(),
       Merchants(),
     ];
@@ -116,13 +116,12 @@ class HomePage extends StatelessWidget {
                     return Stack(
                       alignment: AlignmentDirectional.bottomEnd,
                       children: [
-                        const SizedBox(width: 40,child: Icon(Icons.shopping_cart)),
+                        const SizedBox(
+                            width: 40, child: Icon(Icons.shopping_cart)),
                         CircleAvatar(
                             backgroundColor: Colors.black26,
                             maxRadius: 10,
-                            child: Text(
-                                cartCubit.totalCount()
-                                    .toString(),
+                            child: Text(cartCubit.totalCount().toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2
