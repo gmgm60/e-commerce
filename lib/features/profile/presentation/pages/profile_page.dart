@@ -8,6 +8,7 @@ import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
 import 'package:ecommerce/features/profile/presentation/bloc/profile_cubit/profile_cubit.dart';
 import 'package:ecommerce/features/profile/presentation/bloc/profile_cubit/profile_states.dart';
+import 'package:ecommerce/features/profile/presentation/pages/update_profile_page.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -174,11 +175,11 @@ class ProfileBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: AppElevatedButton(
                 onPressed: () {
-                  AutoRouter.of(context)
-                      .navigate(UpdateProfileRoute(user: user))
-                      .then((value) {
-                    BlocProvider.of<ProfileCubit>(context).getUser();
-                  });
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                          builder: (context) => UpdateProfilePage(
+                                user: user,
+                              )));
                 },
                 text: context.tr.update),
           )

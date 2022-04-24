@@ -14,9 +14,9 @@ class MerchantDetailsPage extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+         // mainAxisSize: MainAxisSize.min,
+         // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               merchant.merchantName,
@@ -88,7 +88,9 @@ class MerchantDetailsPage extends StatelessWidget {
             Flexible(
               flex: 1,
               child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                  primary: false,
+                 // physics: const BouncingScrollPhysics(),
                   itemCount: merchant.products.length,
                   itemBuilder: (context, index) {
                     return ProductItem(

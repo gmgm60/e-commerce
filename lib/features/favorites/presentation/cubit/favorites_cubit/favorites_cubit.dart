@@ -26,12 +26,10 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       : super(FavoritesState.init());
 
   Future<void> addToFavorites({required Product product}) async {
-    if (currentId == -1) {
+    if (currentId ==-1) {
       favorites[product.id] = FavoriteItem(product: product);
       currentId = product.id;
       emit(FavoritesState.loading());
-      await Future.delayed(Duration(seconds: 1));
-      emit(FavoritesState.done());
       // final result = await _addToFavorite(product.id);
       // result.fold(
       //   (error) {
@@ -41,20 +39,19 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       //   },
       //   (unit) => emit(FavoritesState.done()),
       // );
-      // await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 500));
+      emit(FavoritesState.done());
       currentId = -1;
     }
   }
 
   Future<void> removeFromFavorites({required int productId}) async {
-    if (currentId == -1) {
+    if (currentId ==-1) {
       final FavoriteItem favoriteItem = favorites[productId]!;
       favorites.remove(productId);
       currentId = productId;
       emit(FavoritesState.loading());
-      await Future.delayed(Duration(seconds: 1));
-      emit(FavoritesState.done());
-      // final result = await _removeFromFavorite(productId);
+     // final result = await _removeFromFavorite(productId);
       // result.fold(
       //   (error) {
       //     favorites[productId] = favoriteItem;
@@ -62,7 +59,8 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       //   },
       //   (unit) => emit(FavoritesState.done()),
       // );
-
+     await Future.delayed(const Duration(milliseconds: 500));
+      emit(FavoritesState.done());
       currentId = -1;
     }
   }
@@ -82,5 +80,4 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       },
     );
   }
-
 }

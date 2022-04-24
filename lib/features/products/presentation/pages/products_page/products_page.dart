@@ -81,14 +81,11 @@ class ProductRow extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Hero(
-                      tag: product.image,
-                      child: Image.network(
-                        product.image,
-                        // width: width * 0.8,
-                        height: height * 0.5,
-                        fit: BoxFit.cover,
-                      ),
+                    child: Image.network(
+                      product.image,
+                      // width: width * 0.8,
+                      height: height * 0.5,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -102,7 +99,7 @@ class ProductRow extends StatelessWidget {
                   children: [
                     Text(
                         (product.price * (1 - product.discount))
-                                .toStringAsFixed(2) +
+                                .toStringAsFixed(1) +
                             context.tr.currency,
                         style: Theme.of(context).textTheme.headline6),
                     FavoriteButton(product: product),
@@ -110,7 +107,7 @@ class ProductRow extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(product.price.toString() + context.tr.currency,
+                    Text(product.price.toStringAsFixed(1) + context.tr.currency,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               decoration: TextDecoration.lineThrough,
                             )),
