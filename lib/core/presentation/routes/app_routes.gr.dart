@@ -13,7 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i8;
 import 'package:flutter/material.dart' as _i18;
 
-import '../../../features/auth/domain/entities/user.dart' as _i20;
+import '../../../features/auth/domain/entities/user.dart' as _i19;
 import '../../../features/auth/presentation/pages/forgot_password_page.dart'
     as _i5;
 import '../../../features/auth/presentation/pages/login_page.dart' as _i2;
@@ -25,18 +25,18 @@ import '../../../features/categories/presentation/pages/category_page.dart'
     as _i16;
 import '../../../features/categories/presentation/pages/category_products_page.dart'
     as _i17;
-import '../../../features/merchants/domain/entities/merchant.dart' as _i23;
+import '../../../features/merchants/domain/entities/merchant.dart' as _i22;
 import '../../../features/merchants/presentation/pages/merchant_details/merchant_details_page.dart'
     as _i15;
 import '../../../features/merchants/presentation/pages/merchants_page/merchants_page.dart'
     as _i14;
-import '../../../features/orders/domain/entities/order.dart' as _i22;
+import '../../../features/orders/domain/entities/order.dart' as _i21;
 import '../../../features/orders/presentation/pages/orders_page/order_details_page.dart'
     as _i13;
 import '../../../features/orders/presentation/pages/orders_page/orders_page.dart'
     as _i12;
 import '../../../features/products/domain/entities/product/product.dart'
-    as _i21;
+    as _i20;
 import '../../../features/products/presentation/pages/product_page/product_page.dart'
     as _i11;
 import '../../../features/products/presentation/pages/products_page/products_page.dart'
@@ -45,7 +45,6 @@ import '../../../features/profile/presentation/pages/profile_page.dart' as _i6;
 import '../../../features/profile/presentation/pages/update_profile_page.dart'
     as _i7;
 import '../home_page/home_page.dart' as _i4;
-import 'app_routes.dart' as _i19;
 
 class AppRouter extends _i8.RootStackRouter {
   AppRouter([_i18.GlobalKey<_i18.NavigatorState>? navigatorKey])
@@ -57,8 +56,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i1.StartupPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -66,8 +63,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i2.LoginPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -75,8 +70,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i3.RegisterPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -93,8 +86,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i5.ForgotPasswordPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -102,8 +93,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i6.ProfilePage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -112,8 +101,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: _i7.UpdateProfilePage(key: args.key, user: args.user),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -137,8 +124,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i8.EmptyRouterPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -146,8 +131,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i8.EmptyRouterPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -155,8 +138,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i8.EmptyRouterPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -164,8 +145,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i10.ProductsPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -174,8 +153,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: _i11.ProductPage(key: args.key, product: args.product),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -183,8 +160,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i12.OrdersPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -193,8 +168,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: _i13.OrderDetailsPage(key: args.key, order: args.order),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -202,8 +175,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i14.MerchantsPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -213,8 +184,6 @@ class AppRouter extends _i8.RootStackRouter {
           routeData: routeData,
           child:
               _i15.MerchantDetailsPage(key: args.key, merchant: args.merchant),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -222,8 +191,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i16.CategoryPage(),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },
@@ -232,8 +199,6 @@ class AppRouter extends _i8.RootStackRouter {
       return _i8.CustomPage<dynamic>(
           routeData: routeData,
           child: _i17.CategoryProductsPage(key: args.key, catId: args.catId),
-          transitionsBuilder: _i19.viewCartAnimation,
-          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     }
@@ -351,7 +316,7 @@ class ProfileRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i7.UpdateProfilePage]
 class UpdateProfileRoute extends _i8.PageRouteInfo<UpdateProfileRouteArgs> {
-  UpdateProfileRoute({_i18.Key? key, required _i20.User user})
+  UpdateProfileRoute({_i18.Key? key, required _i19.User user})
       : super(UpdateProfileRoute.name,
             path: 'UpdateProfilePage',
             args: UpdateProfileRouteArgs(key: key, user: user));
@@ -364,7 +329,7 @@ class UpdateProfileRouteArgs {
 
   final _i18.Key? key;
 
-  final _i20.User user;
+  final _i19.User user;
 
   @override
   String toString() {
@@ -427,7 +392,7 @@ class ProductsRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i11.ProductPage]
 class ProductRoute extends _i8.PageRouteInfo<ProductRouteArgs> {
-  ProductRoute({_i18.Key? key, required _i21.Product product})
+  ProductRoute({_i18.Key? key, required _i20.Product product})
       : super(ProductRoute.name,
             path: 'ProductPage',
             args: ProductRouteArgs(key: key, product: product));
@@ -440,7 +405,7 @@ class ProductRouteArgs {
 
   final _i18.Key? key;
 
-  final _i21.Product product;
+  final _i20.Product product;
 
   @override
   String toString() {
@@ -459,7 +424,7 @@ class OrdersRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i13.OrderDetailsPage]
 class OrderDetailsRoute extends _i8.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({_i18.Key? key, required _i22.Order order})
+  OrderDetailsRoute({_i18.Key? key, required _i21.Order order})
       : super(OrderDetailsRoute.name,
             path: 'OrderDetailsPage',
             args: OrderDetailsRouteArgs(key: key, order: order));
@@ -472,7 +437,7 @@ class OrderDetailsRouteArgs {
 
   final _i18.Key? key;
 
-  final _i22.Order order;
+  final _i21.Order order;
 
   @override
   String toString() {
@@ -491,7 +456,7 @@ class MerchantsRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i15.MerchantDetailsPage]
 class MerchantDetailsRoute extends _i8.PageRouteInfo<MerchantDetailsRouteArgs> {
-  MerchantDetailsRoute({_i18.Key? key, required _i23.Merchant merchant})
+  MerchantDetailsRoute({_i18.Key? key, required _i22.Merchant merchant})
       : super(MerchantDetailsRoute.name,
             path: 'MerchantDetailsPage',
             args: MerchantDetailsRouteArgs(key: key, merchant: merchant));
@@ -504,7 +469,7 @@ class MerchantDetailsRouteArgs {
 
   final _i18.Key? key;
 
-  final _i23.Merchant merchant;
+  final _i22.Merchant merchant;
 
   @override
   String toString() {

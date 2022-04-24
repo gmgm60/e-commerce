@@ -25,9 +25,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => getIt<CartCubit>()//..getCart(),
-        ),
+        BlocProvider(create: (context) => getIt<CartCubit>() //..getCart(),
+            ),
         BlocProvider(
           create: (context) => getIt<LocaleCubit>()..getLocalization(),
         ),
@@ -41,7 +40,6 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<LocaleCubit, LocaleStates>(
         builder: (context, state) => MaterialApp.router(
           debugShowCheckedModeBanner: false,
-
           locale: BlocProvider.of<LocaleCubit>(context).locale,
           supportedLocales: AppLocalizations.supportedLocales,
           title: "E-Commerce App",
@@ -49,7 +47,6 @@ class MyApp extends StatelessWidget {
           theme: themeLight,
           routerDelegate: _appRouter.delegate(),
           routeInformationParser: _appRouter.defaultRouteParser(),
-
         ),
       ),
     );
