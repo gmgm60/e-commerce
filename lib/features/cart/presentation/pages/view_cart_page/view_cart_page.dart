@@ -16,7 +16,6 @@ class ViewCartPage extends StatefulWidget {
 class _ViewCartPageState extends State<ViewCartPage> {
   late final CartCubit cartCubit;
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
-  int _counter = 0;
 
   @override
   void initState() {
@@ -25,10 +24,10 @@ class _ViewCartPageState extends State<ViewCartPage> {
   }
 
   Future _addCartItem() async {
-    for(int i =0; i < cartCubit.cart.length; i ++){
+    for(int i =cartCubit.animatedListCount; i < cartCubit.cart.length; i ++){
       await Future.delayed(const Duration(milliseconds: 400));
-      _counter++;
-      _listKey.currentState!.insertItem(_counter-1);
+      cartCubit.animatedListCount++;
+      _listKey.currentState!.insertItem(cartCubit.animatedListCount-1);
     }
   }
 
@@ -39,6 +38,7 @@ class _ViewCartPageState extends State<ViewCartPage> {
         child: BlocBuilder<CartCubit, CartState>(
           buildWhen: (_, __) => cartCubit.editedProductId == -1,
           builder: (context, state) {
+
             _addCartItem();
             return state.map(
               init: (_) => const CircularProgressIndicator(),
@@ -50,7 +50,7 @@ class _ViewCartPageState extends State<ViewCartPage> {
                     key: _listKey,
                       primary: false,
                       shrinkWrap: true,
-                      initialItemCount: _counter,
+                      initialItemCount: cartCubit.animatedListCount,
                       itemBuilder: (context, index, animation) =>
                           AnimatedCartRow(
                             cartItem: cartCubit.cart.values.elementAt(index),
