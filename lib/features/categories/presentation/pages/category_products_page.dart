@@ -3,7 +3,7 @@ import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/c
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_states.dart';
 import 'package:ecommerce/features/categories/presentation/widgets/product_shimmer.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
-import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
+import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,7 +44,7 @@ class ProductsGrid extends StatelessWidget {
       childAspectRatio: .6,
       children: List.generate(
         products.length,
-        (index) => ProductRow(
+        (index) => ProductGridItem(
           product: products[index],
         ),
       ),

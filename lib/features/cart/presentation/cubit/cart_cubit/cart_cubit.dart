@@ -18,6 +18,7 @@ class CartCubit extends Cubit<CartState> {
   // using cart as Map to don't make duplicate values
   final Map<int, CartItem> cart = {};
   int editedProductId = -1;
+  int animatedListCount = 0;
 
   CartCubit(this._getCart, this._editCart, this._logger)
       : super(CartState.init());
@@ -85,6 +86,7 @@ class CartCubit extends Cubit<CartState> {
   void deleteProduct({required int productId}) {
     emit(CartState.done(refresh: null));
     cart.remove(productId);
+    animatedListCount--;
     emit(CartState.done(refresh: 1));
   }
 

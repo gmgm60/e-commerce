@@ -7,6 +7,7 @@ import 'package:ecommerce/features/auth/presentation/pages/startup_page.dart';
 import 'package:ecommerce/features/cart/presentation/pages/view_cart_page/view_cart_page.dart';
 import 'package:ecommerce/features/categories/presentation/pages/category_page.dart';
 import 'package:ecommerce/features/categories/presentation/pages/category_products_page.dart';
+import 'package:ecommerce/features/favorites/presentation/pages/favorites_page/favorites_page.dart';
 import 'package:ecommerce/features/merchants/presentation/pages/merchant_details/merchant_details_page.dart';
 import 'package:ecommerce/features/merchants/presentation/pages/merchants_page/merchants_page.dart';
 import 'package:ecommerce/features/orders/presentation/pages/orders_page/order_details_page.dart';
@@ -23,6 +24,7 @@ import 'package:flutter/material.dart';
   // durationInMilliseconds: 500,
   replaceInRouteName: 'Page,Route',
   routes: [
+    // auth
     AutoRoute(
       page: StartupPage,
       initial: true,
@@ -97,6 +99,12 @@ import 'package:flutter/material.dart';
           ],
         ),
       ],
+    ),
+    // favorites
+
+    AutoRoute(
+      page: FavoritesPage,
+      path: 'FavoritesPage',
     ),
     // forgot password
     AutoRoute(
