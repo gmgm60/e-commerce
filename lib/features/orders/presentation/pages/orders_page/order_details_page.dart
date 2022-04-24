@@ -1,5 +1,5 @@
 import 'package:ecommerce/features/orders/domain/entities/order.dart';
-import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
+import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -97,7 +97,7 @@ class OrderDetailsPage extends StatelessWidget {
                 childAspectRatio: .6,
                 children: List.generate(
                   order.products.length,
-                  (index) => ProductRow(
+                  (index) => ProductGridItem(
                     product: order.products[index],
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
 import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
@@ -9,8 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
+  final bool showAppBar;
 
-  const ProductPage({Key? key, required this.product}) : super(key: key);
+  const ProductPage({Key? key, required this.product, this.showAppBar = false}) : super(key: key);
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -24,6 +26,17 @@ class _ProductPageState extends State<ProductPage> {
     final cartCubit = context.read<CartCubit>();
 
     return Scaffold(
+      appBar: widget.showAppBar ? AppBar(
+        title: Text(widget.product.name,maxLines: 1,overflow: TextOverflow.clip,
+        ),
+          leading: const SizedBox.shrink(),
+          actions: [
+            IconButton(onPressed: (){
+              AutoRouter.of(context).pop();
+            }, icon: const Icon(Icons.arrow_forward_ios))
+
+          ],
+      ): null,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
