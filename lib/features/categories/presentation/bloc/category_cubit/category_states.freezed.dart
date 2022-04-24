@@ -12,41 +12,7 @@ part of 'category_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CategoryStatesTearOff {
-  const _$CategoryStatesTearOff();
-
-  CategoryInitialState initial() {
-    return const CategoryInitialState();
-  }
-
-  CategoryLoadingState loading() {
-    return const CategoryLoadingState();
-  }
-
-  CategoryLoadedState categoryLoaded({required List<ProductsCategory> categories}) {
-    return CategoryLoadedState(
-      categories: categories,
-    );
-  }
-
-  CategoryErrorState error({required String error}) {
-    return CategoryErrorState(
-      error: error,
-    );
-  }
-
-  ProductsLoadedState productsLoaded({required List<Product> products}) {
-    return ProductsLoadedState(
-      products: products,
-    );
-  }
-}
-
-/// @nodoc
-const $CategoryStates = _$CategoryStatesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CategoryStates {
@@ -406,10 +372,16 @@ class _$CategoryLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CategoryLoadedState implements CategoryLoadedState {
-  const _$CategoryLoadedState({required this.categories});
+  const _$CategoryLoadedState(
+      {required final List<ProductsCategory> categories})
+      : _categories = categories;
 
+  final List<ProductsCategory> _categories;
   @override
-  final List<ProductsCategory> categories;
+  List<ProductsCategory> get categories {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
 
   @override
   String toString() {
@@ -516,10 +488,11 @@ class _$CategoryLoadedState implements CategoryLoadedState {
 }
 
 abstract class CategoryLoadedState implements CategoryStates {
-  const factory CategoryLoadedState({required List<ProductsCategory> categories}) =
+  const factory CategoryLoadedState(
+          {required final List<ProductsCategory> categories}) =
       _$CategoryLoadedState;
 
-  List<ProductsCategory> get categories;
+  List<ProductsCategory> get categories => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CategoryLoadedStateCopyWith<CategoryLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -669,10 +642,10 @@ class _$CategoryErrorState implements CategoryErrorState {
 }
 
 abstract class CategoryErrorState implements CategoryStates {
-  const factory CategoryErrorState({required String error}) =
+  const factory CategoryErrorState({required final String error}) =
       _$CategoryErrorState;
 
-  String get error;
+  String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CategoryErrorStateCopyWith<CategoryErrorState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -713,10 +686,15 @@ class _$ProductsLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProductsLoadedState implements ProductsLoadedState {
-  const _$ProductsLoadedState({required this.products});
+  const _$ProductsLoadedState({required final List<Product> products})
+      : _products = products;
 
+  final List<Product> _products;
   @override
-  final List<Product> products;
+  List<Product> get products {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
   String toString() {
@@ -822,10 +800,10 @@ class _$ProductsLoadedState implements ProductsLoadedState {
 }
 
 abstract class ProductsLoadedState implements CategoryStates {
-  const factory ProductsLoadedState({required List<Product> products}) =
+  const factory ProductsLoadedState({required final List<Product> products}) =
       _$ProductsLoadedState;
 
-  List<Product> get products;
+  List<Product> get products => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProductsLoadedStateCopyWith<ProductsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;

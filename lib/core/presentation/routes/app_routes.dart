@@ -19,8 +19,8 @@ import 'package:ecommerce/features/profile/presentation/pages/update_profile_pag
 import 'package:flutter/material.dart';
 
 @CustomAutoRouter(
-  transitionsBuilder: viewCartAnimation,
-  durationInMilliseconds: 500,
+  // transitionsBuilder: viewCartAnimation,
+  // durationInMilliseconds: 500,
   replaceInRouteName: 'Page,Route',
   routes: [
     AutoRoute(
