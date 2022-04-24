@@ -26,6 +26,7 @@ MerchantData _$MerchantDataFromJson(Map<String, dynamic> json) => MerchantData(
       products: (json['products'] as List<dynamic>?)
           ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$MerchantDataToJson(MerchantData instance) =>
@@ -35,4 +36,5 @@ Map<String, dynamic> _$MerchantDataToJson(MerchantData instance) =>
       'phone': instance.phone,
       'address': instance.address,
       'products': instance.products,
+      'rating': instance.rating,
     };
