@@ -8,6 +8,6 @@ abstract class CartRepository{
 
   Future<Either<Failures,List<CartItem>>> getCart();
 
-  Future<Either<Failures,Unit>> confirmOrder();
+  Future<Either<Failures,Unit>> confirmOrder({required List<CartItem> cart});
 
 }

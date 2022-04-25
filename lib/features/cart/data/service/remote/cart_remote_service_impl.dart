@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/domain/data/service/cart_remote_service.dart';
+import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
@@ -27,5 +28,5 @@ abstract class CartRemoteServiceImpl implements CartRemoteService {
 
   @override
   @POST("path")
-  Future confirmOrder({required String token});
+  Future confirmOrder({required String token,required List<CartItem> cart});
 }

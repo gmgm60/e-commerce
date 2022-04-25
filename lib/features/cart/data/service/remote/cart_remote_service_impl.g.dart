@@ -53,7 +53,7 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
   }
 
   @override
-  Future<dynamic> confirmOrder({required token}) async {
+  Future<dynamic> confirmOrder({required token, required cart}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

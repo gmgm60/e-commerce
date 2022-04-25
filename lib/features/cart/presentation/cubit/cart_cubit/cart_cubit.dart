@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
+import 'package:ecommerce/core/presentation/widgets/dash_line.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
+import 'package:ecommerce/features/cart/domain/use_cases/confirm_order.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/edit_cart.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/get_cart.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
@@ -14,13 +16,14 @@ class CartCubit extends Cubit<CartState> {
   final Logger _logger;
   final GetCart _getCart;
   final EditCart _editCart;
+  final ConfirmOrder _confirmOrder;
 
   // using cart as Map to don't make duplicate values
   final Map<int, CartItem> cart = {};
   int editedProductId = -1;
   int animatedListCount = 0;
 
-  CartCubit(this._getCart, this._editCart, this._logger)
+  CartCubit(this._getCart, this._editCart, this._logger, this._confirmOrder)
       : super(CartState.init());
 
   Future<void> addToCart({required Product product, required int count}) async {
@@ -115,5 +118,20 @@ class CartCubit extends Cubit<CartState> {
       count += cartItem.count;
     }
     return count;
+  }
+
+  Future<void> confirmOrder() async {
+    emit(CartState.loading());
+    final result = await _confirmOrder(cart.values.toList());
+
+   await result.fold((error)async {
+
+      emit(CartState.error(errMsg: error.error));
+    }, (unit)async {
+      emit(CartState.done(refresh: -100));
+      await Future.delayed(const Duration(milliseconds: 50));
+      cart.clear();
+      animatedListCount=0;
+    });
   }
 }

@@ -17,10 +17,10 @@ class CartRepositoryImpl extends CartRepository{
   CartRepositoryImpl(this._cartRemoteService, this._logger, this._authLocalService);
 
   @override
-  Future<Either<Failures, Unit>> confirmOrder() async{
+  Future<Either<Failures, Unit>> confirmOrder({required List<CartItem> cart}) async{
     try {
       final token = _authLocalService.getToken() as String;
-      final response = await _cartRemoteService.confirmOrder(token: token);
+      final response = await _cartRemoteService.confirmOrder(token: token,cart: cart);
       _logger.v(response);
       return right(unit);
     } on Exception catch (e) {
