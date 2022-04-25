@@ -121,13 +121,12 @@ class _LoginPageState extends State<LoginPage> {
                                     if (formKey.currentState!.validate()) {
                                       FocusManager.instance.primaryFocus
                                           ?.unfocus();
-                                      BlocProvider.of<AuthCubit>(context)
-                                          .login(
-                                              loginParam: LoginParam(
-                                                  email: emailController.text
-                                                      .trim(),
-                                                  password: passwordController
-                                                      .text));
+                                      BlocProvider.of<AuthCubit>(context).login(
+                                          loginParam: LoginParam(
+                                              email:
+                                                  emailController.text.trim(),
+                                              password:
+                                                  passwordController.text));
                                     }
                                   },
                                   text: context.tr.login),
@@ -165,8 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextButton(
                         onPressed: () {
-                          AutoRouter.of(context)
-                              .replace(const RegisterRoute());
+                          AutoRouter.of(context).replace(const RegisterRoute());
                         },
                         child: Text(
                           context.tr.register,

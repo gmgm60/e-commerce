@@ -109,7 +109,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           email: emailController.text);
                                 }
                               },
-                              text: context.tr.login),
+                              text: context.tr.resetPassword),
                         );
                       },
                     ),

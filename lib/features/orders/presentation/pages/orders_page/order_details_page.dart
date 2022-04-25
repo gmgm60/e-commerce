@@ -1,5 +1,5 @@
-import 'package:ecommerce/features/orders/domain/entities/order.dart';
 import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
+import 'package:ecommerce/features/orders/domain/entities/order.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -87,19 +87,16 @@ class OrderDetailsPage extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: GridView.count(
-                shrinkWrap: true,
-                primary: false,
-                crossAxisCount: 2,
-                physics: const BouncingScrollPhysics(),
-                childAspectRatio: .6,
-                children: List.generate(
-                  order.products.length,
-                  (index) => ProductGridItem(
-                    product: order.products[index],
-                  ),
+            GridView.count(
+              shrinkWrap: true,
+              primary: false,
+              crossAxisCount: 2,
+              physics: const BouncingScrollPhysics(),
+              childAspectRatio: .6,
+              children: List.generate(
+                order.products.length,
+                (index) => ProductGridItem(
+                  product: order.products[index],
                 ),
               ),
             ),

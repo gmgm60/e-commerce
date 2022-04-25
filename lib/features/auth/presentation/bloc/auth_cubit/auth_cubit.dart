@@ -27,7 +27,7 @@ class AuthCubit extends Cubit<AuthStates> {
   final GetTokenUseCase _getTokenUseCase;
   final ResetPassUseCase _resetPassUseCase;
 
-  Future<void> getHomeScreen() async {
+  Future<void> getToken() async {
     emit(const AuthLoadingState());
 
     final result = await _getTokenUseCase(NoParams());

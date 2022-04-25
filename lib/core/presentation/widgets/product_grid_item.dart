@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/presentation/cubit/back_button_cubit/back_button_cubit.dart';
+import 'package:ecommerce/core/presentation/widgets/app_network_image.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:ecommerce/features/products/presentation/pages/product_page/product_page.dart';
 import 'package:ecommerce/l10n/l10n.dart';
@@ -43,12 +44,7 @@ class ProductGridItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Image.network(
-                      product.image,
-                      // width: width * 0.8,
-                      height: height * 0.5,
-                      fit: BoxFit.cover,
-                    ),
+                    child: AppNetworkImage(url: product.image,width: width ,height: height *.5,),
                   ),
                 ),
                 Text(product.name,

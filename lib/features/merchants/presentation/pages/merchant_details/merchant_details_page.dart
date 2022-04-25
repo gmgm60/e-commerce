@@ -68,19 +68,16 @@ class MerchantDetailsPage extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: GridView.count(
-              shrinkWrap: true,
-              primary: false,
-              crossAxisCount: 2,
-              physics: const BouncingScrollPhysics(),
-              childAspectRatio: .6,
-              children: List.generate(
-                merchant.products.length,
-                (index) => ProductGridItem(
-                  product: merchant.products[index],
-                ),
+          GridView.count(
+            shrinkWrap: true,
+            primary: false,
+            crossAxisCount: 2,
+            physics: const BouncingScrollPhysics(),
+            childAspectRatio: .6,
+            children: List.generate(
+              merchant.products.length,
+              (index) => ProductGridItem(
+                product: merchant.products[index],
               ),
             ),
           ),

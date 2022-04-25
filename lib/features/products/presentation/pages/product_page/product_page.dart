@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
+import 'package:ecommerce/core/presentation/widgets/app_network_image.dart';
 import 'package:ecommerce/core/presentation/widgets/favorite_button.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
@@ -44,10 +45,7 @@ class _ProductPageState extends State<ProductPage> {
           children: [
             Hero(
               tag: widget.product.image,
-              child: Image.network(
-                widget.product.image,
-                fit: BoxFit.cover,
-              ),
+              child: AppNetworkImage(url: widget.product.image,height: 450,),
             ),
             const SizedBox(height: 20),
             Text(
