@@ -5,13 +5,18 @@ import 'package:flutter/material.dart';
 class AppNetworkImage extends StatelessWidget {
   const AppNetworkImage({
     Key? key,
-    required this.url,
+    required this.url, this.width = double.infinity, this.height = double.infinity,
   }) : super(key: key);
   final String url;
 
+  final double width;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
+      height: height,
+      margin: const EdgeInsets.all(2),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
