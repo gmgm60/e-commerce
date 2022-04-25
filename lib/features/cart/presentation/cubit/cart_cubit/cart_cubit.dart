@@ -128,10 +128,11 @@ class CartCubit extends Cubit<CartState> {
 
       emit(CartState.error(errMsg: error.error));
     }, (unit)async {
+     cart.clear();
+     animatedListCount=0;
       emit(CartState.done(refresh: -100));
       await Future.delayed(const Duration(milliseconds: 50));
-      cart.clear();
-      animatedListCount=0;
+
     });
   }
 }

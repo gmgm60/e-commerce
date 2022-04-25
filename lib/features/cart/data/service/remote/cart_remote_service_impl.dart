@@ -20,13 +20,13 @@ abstract class CartRemoteServiceImpl implements CartRemoteService {
   });
 
   @override
-  @POST("/cart?key=e59c4330")
-  Future<dynamic> editCart(
-      {@Header("Authorization") required String token,
-      required List<CartItemModel> cart,
-      });
+  @GET('/cart?key=e59c4330')
+  Future<dynamic> editCart({
+    @Header("Authorization") required String token,
+    required List<CartItemModel> cart,
+  });
 
   @override
-  @POST("path")
-  Future confirmOrder({required String token,required List<CartItem> cart});
+  @GET('/cart?key=e59c4330')
+  Future confirmOrder({required String token, required List<CartItem> cart});
 }
