@@ -44,7 +44,7 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
+        Options(method: 'GET', headers: _headers, extra: _extra)
             .compose(_dio.options, '/cart?key=e59c4330',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
@@ -59,8 +59,8 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, 'path',
+        Options(method: 'GET', headers: _headers, extra: _extra)
+            .compose(_dio.options, '/cart?key=e59c4330',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;
