@@ -1,7 +1,7 @@
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_cubit.dart';
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_states.dart';
-import 'package:ecommerce/features/categories/presentation/widgets/product_shimmer.dart';
+import 'package:ecommerce/core/presentation/widgets/product_shimmer.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
 import 'package:flutter/material.dart';
