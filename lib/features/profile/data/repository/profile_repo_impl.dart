@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
@@ -54,12 +54,12 @@ class ProfileRepoImpl extends ProfileRepository {
 
         return right(userData.fromModel);
       } else {
-        debugPrint('update error: No Token');
+        debugPrint('update failures: No Token');
 
         return left(Failures.noUser('No Token'));
       }
     } catch (error) {
-      debugPrint('update error: $error');
+      debugPrint('update failures: $error');
 
       return left(Failures.serverError('Update User Error'));
     }

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/auth/domain/entities/login_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';

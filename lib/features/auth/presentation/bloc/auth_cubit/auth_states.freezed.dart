@@ -499,7 +499,7 @@ class _$AuthErrorState implements AuthErrorState {
 
   @override
   String toString() {
-    return 'AuthStates.error(error: $error)';
+    return 'AuthStates.failures(failures: $error)';
   }
 
   @override

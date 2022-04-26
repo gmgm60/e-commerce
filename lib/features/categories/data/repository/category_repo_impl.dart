@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/categories/data/mappers/category_mapper.dart';
 import 'package:ecommerce/features/categories/domain/data_source/remote/categories_api_service.dart';

@@ -540,7 +540,7 @@ class _$CategoryErrorState implements CategoryErrorState {
 
   @override
   String toString() {
-    return 'CategoryStates.error(error: $error)';
+    return 'CategoryStates.failures(failures: $error)';
   }
 
   @override
