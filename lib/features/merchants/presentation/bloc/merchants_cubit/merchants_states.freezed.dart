@@ -514,7 +514,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
 
   @override
   String toString() {
-    return 'MerchantsStates.error(error: $error)';
+    return 'MerchantsStates.failures(failures: $error)';
   }
 
   @override

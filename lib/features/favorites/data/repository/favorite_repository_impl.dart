@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/favorites/domain/data/repository/favorite_repository.dart';
 import 'package:ecommerce/features/favorites/domain/data/service/favorite_remote_service.dart';

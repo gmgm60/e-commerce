@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:dartz/dartz.dart' hide Order;
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/orders/data/mappers/order_mapper.dart';
 import 'package:ecommerce/features/orders/domain/data_source/remote/orders_api_service.dart';

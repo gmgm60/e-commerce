@@ -32,8 +32,8 @@ class ProfilePage extends StatelessWidget {
             return state.maybeWhen(
               loading: () => const AppProgressIndicator(),
               loaded: (user) => ProfileBody(user: user),
-              // error: (error) => Center(
-              //       child: Text(error),
+              // failures: (failures) => Center(
+              //       child: Text(failures),
               //     ),
               orElse: () => const ProfileBody(
                 user: User(

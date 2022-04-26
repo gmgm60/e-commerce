@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce/core/constants/constants.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
+import 'package:ecommerce/core/domain/app_exception/auth_exception/auth_exception.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/features/auth/data/mappers/login_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/register_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
@@ -34,10 +36,24 @@ class AuthRepoImpl extends AuthRepository {
       });
 
       return right(userModel.userData.fromModel);
-    } catch (error) {
-      debugPrint('Login Error: $error');
-      return left(Failures.serverError('Login Error'));
+    }on AppException catch(exception){
+      if(exception is AuthException){
+       return exception.map(
+            login: (exception)=>  left(Failures.serverError(exception.message)),
+            register: (exception)=>  left(Failures.serverError(exception.message)),
+            logout: (exception)=>  left(Failures.serverError(exception.message)),
+            resetPassword: (exception)=>  left(Failures.serverError(exception.message)),
+        );
+
+      }else{
+        return left(Failures.serverError('failures'));
+      }
+
     }
+    // } catch (failures) {
+    //   debugPrint('Login Error: $failures');
+    //   return left(Failures.serverError('Login Error'));
+    // }
   }
 
   @override

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/error/app_failure.dart';
 import 'package:ecommerce/core/features/locale/data/data_source/local/localization_service.dart';
 import 'package:ecommerce/core/features/locale/domain/repository/localization_repository.dart';
 import 'package:injectable/injectable.dart';
