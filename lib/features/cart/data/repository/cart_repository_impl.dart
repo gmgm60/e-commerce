@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_mapper.dart';
@@ -17,7 +17,7 @@ class CartRepositoryImpl extends CartRepository{
   CartRepositoryImpl(this._cartRemoteService, this._logger, this._authLocalService);
 
   @override
-  Future<Either<Failures, Unit>> confirmOrder({required List<CartItem> cart}) async{
+  Future<Either<AppFailure, Unit>> confirmOrder({required List<CartItem> cart}) async{
     try {
       final token = _authLocalService.getToken() as String;
       final response = await _cartRemoteService.confirmOrder(token: token,cart: cart);
