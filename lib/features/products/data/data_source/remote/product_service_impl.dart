@@ -3,19 +3,17 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
-import 'package:ecommerce/features/products/domain/service/product_service.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 part 'product_service_impl.g.dart';
 
-@Injectable(as: ProductService)
 @Environment(InjectInv.localMock)
-class ProductServiceImplLocal extends ProductService {
+class ProductServiceImplLocal {
 
   ProductServiceImplLocal();
 
-  @override
+
   Future<List<ProductModel>> getProducts({required String token}) async {
     await Future.delayed(const Duration(seconds: 1));
     return List.generate(
@@ -33,18 +31,17 @@ class ProductServiceImplLocal extends ProductService {
   }
 }
 
-@Injectable(as: ProductService)
-@Environment(InjectInv.test)
+
+@Environment(InjectInv.localMock)
 @RestApi(baseUrl: "https://my.api.mockaroo.com")
-abstract class ProductServiceImpl implements ProductService{
+@injectable
+abstract class ProductServiceImpl {
 
   @factoryMethod
   factory ProductServiceImpl(Dio dio) = _ProductServiceImpl;
 
-  @override
+
   @GET("/products?key=e59c4330")
-  Future<List<ProductModel>> getProducts({
-    @Header("Authorization") required String token,
-  });
+  Future<List<ProductModel>> getProducts();
 
 }
