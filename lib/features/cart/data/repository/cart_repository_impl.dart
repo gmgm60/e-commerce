@@ -5,7 +5,7 @@ import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_serv
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_mapper.dart';
 import 'package:ecommerce/features/cart/domain/data/repository/cart_repository.dart';
-import 'package:ecommerce/features/cart/domain/data/service/cart_remote_service.dart';
+import 'package:ecommerce/features/cart/domain/data/data_source/cart_remote_data_source.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -13,7 +13,7 @@ import 'package:logger/logger.dart';
 @Injectable(as: CartRepository,)
 class CartRepositoryImpl extends CartRepository{
   final Logger _logger;
-  final CartRemoteService _cartRemoteService;
+  final CartRemoteDataSource _cartRemoteService;
   final AuthLocalService _authLocalService;
   CartRepositoryImpl(this._cartRemoteService, this._logger, this._authLocalService);
 

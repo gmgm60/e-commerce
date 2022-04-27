@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cart_remote_service_impl.dart';
+part of 'cart_remote_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'cart_remote_service_impl.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
-  _CartRemoteServiceImpl(this._dio, {this.baseUrl}) {
+class _CartRemoteService implements CartRemoteService {
+  _CartRemoteService(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://my.api.mockaroo.com';
   }
 
