@@ -33,7 +33,7 @@ class CartCubit extends Cubit<CartState> {
     final List<CartItem> cartList = cart.values.toList();
     final result = await _editCart(cartList);
     result.fold(
-      (failure) => emit(CartState.error(errMsg: failure.error)),
+      (failure) => emit(CartState.error(errMsg: failure.message)),
       (unit) => emit(CartState.done()),
     );
     editedProductId = -1;
@@ -43,7 +43,7 @@ class CartCubit extends Cubit<CartState> {
     emit(CartState.loading());
     final result = await _getCart(NoParams());
     result.fold(
-      (failure) => emit(CartState.error(errMsg: failure.error)),
+      (failure) => emit(CartState.error(errMsg: failure.message)),
       (cart) {
         this.cart.clear();
         for (var cartItem in cart) {
@@ -63,7 +63,7 @@ class CartCubit extends Cubit<CartState> {
     final List<CartItem> cartList = cart.values.toList();
     final result = await _editCart(cartList);
     result.fold(
-      (failure) => emit(CartState.error(errMsg: failure.error)),
+      (failure) => emit(CartState.error(errMsg: failure.message)),
       (unit) {
         this.cart.clear();
         this.cart.addAll(cart);
@@ -124,9 +124,9 @@ class CartCubit extends Cubit<CartState> {
     emit(CartState.loading());
     final result = await _confirmOrder(cart.values.toList());
 
-   await result.fold((error)async {
+   await result.fold((failure)async {
 
-      emit(CartState.error(errMsg: error.error));
+      emit(CartState.error(errMsg: failure.message));
     }, (unit)async {
      cart.clear();
      animatedListCount=0;

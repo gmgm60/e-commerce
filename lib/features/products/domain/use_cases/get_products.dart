@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:ecommerce/features/products/domain/repository/product_repo.dart';
@@ -12,7 +12,7 @@ class GetProducts extends UseCase<List<Product>, NoParams> {
   GetProducts(this._productRepo);
 
   @override
-  Future<Either<Failures, List<Product>>> call(NoParams params) async {
+  Future<Either<AppFailure, List<Product>>> call(NoParams params) async {
     return _productRepo.getProducts();
   }
 }

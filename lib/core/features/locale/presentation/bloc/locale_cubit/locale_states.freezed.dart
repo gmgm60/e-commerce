@@ -544,7 +544,7 @@ class _$LocaleErrorState implements LocaleErrorState {
 
   @override
   String toString() {
-    return 'LocaleStates.failures(failures: $error)';
+    return 'LocaleStates.error(error: $error)';
   }
 
   @override
