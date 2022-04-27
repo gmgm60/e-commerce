@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_mapper.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
@@ -17,7 +17,7 @@ class ProductsRepoImpl extends ProductRepo {
   ProductsRepoImpl(this._productService, this._authLocalService);
 
   @override
-  Future<Either<Failures, List<Product>>> getProducts() async {
+  Future<Either<AppFailure, List<Product>>> getProducts() async {
     try {
       final token = _authLocalService.getToken() as String;
       final List<ProductModel> response =
@@ -25,12 +25,8 @@ class ProductsRepoImpl extends ProductRepo {
       final List<Product> products =
           response.map((productModel) => productModel.toDomain()).toList();
       return right(products);
-    } catch (e) {
-      if( e is DioError){
-        return left(Failures.serverError(e.response?.data.toString() ?? "server Error Please contact the support"));
-      }
-      print("failures is $e");
-      return left(Failures.serverError("failures"));
+    } on AppException catch (e) {
+      return left(GeneralRemoteAppFailure.unKnown(message: e.message));
     }
   }
 }

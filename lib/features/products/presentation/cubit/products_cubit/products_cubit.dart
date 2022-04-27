@@ -20,7 +20,7 @@ class ProductsCubit extends Cubit<ProductsState> {
 
     final result = await _getProducts(NoParams());
     result.fold(
-      (failed) => emit(ProductsState.error(error: failed.error)),
+      (failure) => emit(ProductsState.error(error: failure.message)),
       (products) {
         this.products.addAll(products);
         emit(ProductsState.done());

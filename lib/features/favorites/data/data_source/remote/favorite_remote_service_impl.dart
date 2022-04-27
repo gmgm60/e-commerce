@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/favorites/data/models/favorite_model/favorite_model.dart';
-import 'package:ecommerce/features/favorites/domain/data/service/favorite_remote_service.dart';
+import 'package:ecommerce/features/favorites/domain/data/data_source/favorite_remote_source.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
 part 'favorite_remote_service_impl.g.dart';
 
 @Environment(InjectInv.test)
-@Injectable(as: FavoriteRemoteService)
+@Injectable(as: FavoriteRemoteSource)
 @RestApi(baseUrl: "https://my.api.mockaroo.com")
-abstract class FavoriteRemoteServiceImpl implements FavoriteRemoteService {
+abstract class FavoriteRemoteServiceImpl implements FavoriteRemoteSource {
   @factoryMethod
   factory FavoriteRemoteServiceImpl(Dio dio) = _FavoriteRemoteServiceImpl;
 
@@ -36,8 +36,8 @@ abstract class FavoriteRemoteServiceImpl implements FavoriteRemoteService {
 }
 
 @Environment(InjectInv.localMock)
-@Injectable(as: FavoriteRemoteService)
-class FavoriteRemoteServiceLocal implements FavoriteRemoteService {
+@Injectable(as: FavoriteRemoteSource)
+class FavoriteRemoteServiceLocal implements FavoriteRemoteSource {
   @override
   Future addToFavorites({
     required int productId,

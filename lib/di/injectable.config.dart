@@ -63,14 +63,14 @@ import '../features/categories/domain/use_case/get_products_by_cat_id_use_case.d
     as _i39;
 import '../features/categories/presentation/bloc/category_cubit/category_cubit.dart'
     as _i59;
+import '../features/favorites/data/data_source/remote/favorite_remote_service_impl.dart'
+    as _i6;
 import '../features/favorites/data/repository/favorite_repository_impl.dart'
     as _i35;
-import '../features/favorites/data/service/remote/favorite_remote_service_impl.dart'
-    as _i6;
+import '../features/favorites/domain/data/data_source/favorite_remote_source.dart'
+    as _i5;
 import '../features/favorites/domain/data/repository/favorite_repository.dart'
     as _i34;
-import '../features/favorites/domain/data/service/favorite_remote_service.dart'
-    as _i5;
 import '../features/favorites/domain/use_cases/add_to_favorite.dart' as _i56;
 import '../features/favorites/domain/use_cases/get_favorites.dart' as _i38;
 import '../features/favorites/domain/use_cases/remove_from_favorite.dart'
@@ -119,8 +119,8 @@ import 'module/dio.dart' as _i74;
 import 'module/logger.dart' as _i75;
 import 'module/shared_preferences.dart' as _i76;
 
-const String _localMock = 'localMock';
 const String _test = 'test';
+const String _localMock = 'localMock';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -132,20 +132,20 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   final injectionModule = _$InjectionModule();
   gh.factory<_i3.BackButtonCubit>(() => _i3.BackButtonCubit());
   gh.factory<_i4.Dio>(() => myDioInject.dio);
-  gh.factory<_i5.FavoriteRemoteService>(() => _i6.FavoriteRemoteServiceLocal(),
-      registerFor: {_localMock});
-  gh.factory<_i5.FavoriteRemoteService>(
+  gh.factory<_i5.FavoriteRemoteSource>(
       () => _i6.FavoriteRemoteServiceImpl(get<_i4.Dio>()),
       registerFor: {_test});
+  gh.factory<_i5.FavoriteRemoteSource>(() => _i6.FavoriteRemoteServiceLocal(),
+      registerFor: {_localMock});
   gh.factory<_i7.Logger>(() => myLoggerInject.logger);
   gh.singleton<_i8.MerchantsApiService>(
       _i9.MerchantsApiServiceImpl(get<_i4.Dio>()));
   gh.singleton<_i10.OrdersApiService>(
       _i11.OrdersApiServiceImpl(get<_i4.Dio>()));
-  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImplLocal(),
-      registerFor: {_localMock});
   gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
       registerFor: {_test});
+  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImplLocal(),
+      registerFor: {_localMock});
   gh.singleton<_i14.ProfileUserService>(
       _i15.ProfileUserServiceImpl(get<_i4.Dio>()));
   await gh.factoryAsync<_i16.SharedPreferences>(() => injectionModule.prefs,
@@ -170,7 +170,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i32.ConfirmOrder(get<_i25.CartRepository>()));
   gh.factory<_i33.EditCart>(() => _i33.EditCart(get<_i25.CartRepository>()));
   gh.factory<_i34.FavoriteRepository>(() => _i35.FavoriteRepositoryImpl(
-      get<_i5.FavoriteRemoteService>(), get<_i19.AuthLocalService>()));
+      get<_i5.FavoriteRemoteSource>(), get<_i19.AuthLocalService>()));
   gh.factory<_i36.GetCart>(() => _i36.GetCart(get<_i25.CartRepository>()));
   gh.factory<_i37.GetCategoriesUseCase>(
       () => _i37.GetCategoriesUseCase(get<_i30.CategoryRepository>()));

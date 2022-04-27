@@ -492,7 +492,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'CartState.failures(errMsg: $errMsg)';
+    return 'CartState.error(errMsg: $errMsg)';
   }
 
   @override

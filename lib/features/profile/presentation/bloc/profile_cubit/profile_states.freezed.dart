@@ -685,7 +685,7 @@ class _$ProfileErrorState implements ProfileErrorState {
 
   @override
   String toString() {
-    return 'ProfileStates.failures(failures: $error)';
+    return 'ProfileStates.error(error: $error)';
   }
 
   @override

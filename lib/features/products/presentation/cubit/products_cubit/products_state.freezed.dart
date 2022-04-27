@@ -466,7 +466,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'ProductsState.failures(failures: $error)';
+    return 'ProductsState.error(error: $error)';
   }
 
   @override
