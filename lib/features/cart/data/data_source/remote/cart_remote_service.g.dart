@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cart_remote_service_impl.dart';
+part of 'cart_remote_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'cart_remote_service_impl.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
-  _CartRemoteServiceImpl(this._dio, {this.baseUrl}) {
+class _CartRemoteService implements CartRemoteService {
+  _CartRemoteService(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://my.api.mockaroo.com';
   }
 
@@ -18,11 +18,10 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
   String? baseUrl;
 
   @override
-  Future<List<CartItemModel>> getCart({required token}) async {
+  Future<List<CartItemModel>> getCart() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<CartItemModel>>(
@@ -37,11 +36,10 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
   }
 
   @override
-  Future<dynamic> editCart({required token, required cart}) async {
+  Future<dynamic> editCart({required cart}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'GET', headers: _headers, extra: _extra)
@@ -53,7 +51,7 @@ class _CartRemoteServiceImpl implements CartRemoteServiceImpl {
   }
 
   @override
-  Future<dynamic> confirmOrder({required token, required cart}) async {
+  Future<dynamic> confirmOrder({required cart}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

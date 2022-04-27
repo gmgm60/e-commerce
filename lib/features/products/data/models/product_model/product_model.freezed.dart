@@ -27,7 +27,7 @@ mixin _$ProductModel {
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
-  double get discount => throw _privateConstructorUsedError;
+  double get discount => throw _privateConstructorUsedError; // int
   @JsonKey(name: "is_available")
   bool get isAvailable => throw _privateConstructorUsedError;
 
@@ -216,6 +216,7 @@ class _$_ProductModel implements _ProductModel {
   final double price;
   @override
   final double discount;
+// int
   @override
   @JsonKey(name: "is_available")
   final bool isAvailable;
@@ -296,7 +297,7 @@ abstract class _ProductModel implements ProductModel {
   double get price => throw _privateConstructorUsedError;
   @override
   double get discount => throw _privateConstructorUsedError;
-  @override
+  @override // int
   @JsonKey(name: "is_available")
   bool get isAvailable => throw _privateConstructorUsedError;
   @override

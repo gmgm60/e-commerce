@@ -24,6 +24,7 @@ mixin _$GeneralRemoteAppFailure {
     required TResult Function(String message) noConnection,
     required TResult Function(String message) serverError,
     required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +34,7 @@ mixin _$GeneralRemoteAppFailure {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +44,7 @@ mixin _$GeneralRemoteAppFailure {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +55,7 @@ mixin _$GeneralRemoteAppFailure {
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$GeneralRemoteAppFailure {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +75,7 @@ mixin _$GeneralRemoteAppFailure {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,6 +185,7 @@ class _$_UnAuth implements _UnAuth {
     required TResult Function(String message) noConnection,
     required TResult Function(String message) serverError,
     required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
   }) {
     return unAuth(message);
   }
@@ -191,6 +198,7 @@ class _$_UnAuth implements _UnAuth {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
   }) {
     return unAuth?.call(message);
   }
@@ -203,6 +211,7 @@ class _$_UnAuth implements _UnAuth {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
     required TResult orElse(),
   }) {
     if (unAuth != null) {
@@ -219,6 +228,7 @@ class _$_UnAuth implements _UnAuth {
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return unAuth(this);
   }
@@ -231,6 +241,7 @@ class _$_UnAuth implements _UnAuth {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return unAuth?.call(this);
   }
@@ -243,6 +254,7 @@ class _$_UnAuth implements _UnAuth {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (unAuth != null) {
@@ -332,6 +344,7 @@ class _$_NoData implements _NoData {
     required TResult Function(String message) noConnection,
     required TResult Function(String message) serverError,
     required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
   }) {
     return noData(message);
   }
@@ -344,6 +357,7 @@ class _$_NoData implements _NoData {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
   }) {
     return noData?.call(message);
   }
@@ -356,6 +370,7 @@ class _$_NoData implements _NoData {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
     required TResult orElse(),
   }) {
     if (noData != null) {
@@ -372,6 +387,7 @@ class _$_NoData implements _NoData {
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return noData(this);
   }
@@ -384,6 +400,7 @@ class _$_NoData implements _NoData {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return noData?.call(this);
   }
@@ -396,6 +413,7 @@ class _$_NoData implements _NoData {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (noData != null) {
@@ -487,6 +505,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function(String message) noConnection,
     required TResult Function(String message) serverError,
     required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
   }) {
     return noConnection(message);
   }
@@ -499,6 +518,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
   }) {
     return noConnection?.call(message);
   }
@@ -511,6 +531,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -527,6 +548,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return noConnection(this);
   }
@@ -539,6 +561,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return noConnection?.call(this);
   }
@@ -551,6 +574,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -643,6 +667,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(String message) noConnection,
     required TResult Function(String message) serverError,
     required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
   }) {
     return serverError(message);
   }
@@ -655,6 +680,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
   }) {
     return serverError?.call(message);
   }
@@ -667,6 +693,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -683,6 +710,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return serverError(this);
   }
@@ -695,6 +723,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return serverError?.call(this);
   }
@@ -707,6 +736,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -797,6 +827,7 @@ class _$_UnKnown implements _UnKnown {
     required TResult Function(String message) noConnection,
     required TResult Function(String message) serverError,
     required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
   }) {
     return unKnown(message);
   }
@@ -809,6 +840,7 @@ class _$_UnKnown implements _UnKnown {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
   }) {
     return unKnown?.call(message);
   }
@@ -821,6 +853,7 @@ class _$_UnKnown implements _UnKnown {
     TResult Function(String message)? noConnection,
     TResult Function(String message)? serverError,
     TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
     required TResult orElse(),
   }) {
     if (unKnown != null) {
@@ -837,6 +870,7 @@ class _$_UnKnown implements _UnKnown {
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return unKnown(this);
   }
@@ -849,6 +883,7 @@ class _$_UnKnown implements _UnKnown {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return unKnown?.call(this);
   }
@@ -861,6 +896,7 @@ class _$_UnKnown implements _UnKnown {
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (unKnown != null) {
@@ -878,6 +914,166 @@ abstract class _UnKnown implements GeneralRemoteAppFailure {
   @override
   @JsonKey(ignore: true)
   _$UnKnownCopyWith<_UnKnown> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$NotFoundCopyWith<$Res>
+    implements $GeneralRemoteAppFailureCopyWith<$Res> {
+  factory _$NotFoundCopyWith(_NotFound value, $Res Function(_NotFound) then) =
+      __$NotFoundCopyWithImpl<$Res>;
+  @override
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$NotFoundCopyWithImpl<$Res>
+    extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
+    implements _$NotFoundCopyWith<$Res> {
+  __$NotFoundCopyWithImpl(_NotFound _value, $Res Function(_NotFound) _then)
+      : super(_value, (v) => _then(v as _NotFound));
+
+  @override
+  _NotFound get _value => super._value as _NotFound;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_NotFound(
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NotFound implements _NotFound {
+  _$_NotFound({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'GeneralRemoteAppFailure.notFound(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _NotFound &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$NotFoundCopyWith<_NotFound> get copyWith =>
+      __$NotFoundCopyWithImpl<_NotFound>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) unAuth,
+    required TResult Function(String message) noData,
+    required TResult Function(String message) noConnection,
+    required TResult Function(String message) serverError,
+    required TResult Function(String message) unKnown,
+    required TResult Function(String message) notFound,
+  }) {
+    return notFound(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? unAuth,
+    TResult Function(String message)? noData,
+    TResult Function(String message)? noConnection,
+    TResult Function(String message)? serverError,
+    TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
+  }) {
+    return notFound?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? unAuth,
+    TResult Function(String message)? noData,
+    TResult Function(String message)? noConnection,
+    TResult Function(String message)? serverError,
+    TResult Function(String message)? unKnown,
+    TResult Function(String message)? notFound,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UnAuth value) unAuth,
+    required TResult Function(_NoData value) noData,
+    required TResult Function(_NoConnection value) noConnection,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnKnown value) unKnown,
+    required TResult Function(_NotFound value) notFound,
+  }) {
+    return notFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_UnAuth value)? unAuth,
+    TResult Function(_NoData value)? noData,
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
+  }) {
+    return notFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnAuth value)? unAuth,
+    TResult Function(_NoData value)? noData,
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnKnown value)? unKnown,
+    TResult Function(_NotFound value)? notFound,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotFound implements GeneralRemoteAppFailure {
+  factory _NotFound({required final String message}) = _$_NotFound;
+
+  @override
+  String get message => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$NotFoundCopyWith<_NotFound> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/favorites/data/models/favorite_model/favorite_model.dart';
-import 'package:ecommerce/features/favorites/domain/data/data_source/favorite_remote_source.dart';
+import 'package:ecommerce/features/favorites/domain/data/data_source/favorite_remote_data_source.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
 part 'favorite_remote_service_impl.g.dart';
 
 @Environment(InjectInv.test)
-@Injectable(as: FavoriteRemoteSource)
 @RestApi(baseUrl: "https://my.api.mockaroo.com")
-abstract class FavoriteRemoteServiceImpl implements FavoriteRemoteSource {
+@Injectable(as: FavoriteRemoteService)
+abstract class FavoriteRemoteServiceImpl extends FavoriteRemoteService{
   @factoryMethod
   factory FavoriteRemoteServiceImpl(Dio dio) = _FavoriteRemoteServiceImpl;
 
@@ -18,38 +18,31 @@ abstract class FavoriteRemoteServiceImpl implements FavoriteRemoteSource {
   @POST('/favorites?key=e59c4330')
   Future addToFavorites({
     required int productId,
-    @Header("Authorization") required String token,
   });
 
   @override
   @POST('/favorites?key=e59c4330')
-  Future<List<FavoriteModel>> getFavorites({
-    @Header("Authorization") required String token,
-  });
+  Future<List<FavoriteModel>> getFavorites();
 
   @override
   @POST('/favorites?key=e59c4330')
   Future removeFromFavorites({
     required int productId,
-    @Header("Authorization") required String token,
   });
 }
 
 @Environment(InjectInv.localMock)
-@Injectable(as: FavoriteRemoteSource)
-class FavoriteRemoteServiceLocal implements FavoriteRemoteSource {
+@Injectable(as: FavoriteRemoteService)
+class FavoriteRemoteServiceLocal extends FavoriteRemoteService{
   @override
   Future addToFavorites({
     required int productId,
-    required String token,
   }) async {
     await Future.delayed(const Duration(seconds: 1));
   }
 
   @override
-  Future<List<FavoriteModel>> getFavorites({
-    required String token,
-  }) async {
+  Future<List<FavoriteModel>> getFavorites() async {
     await Future.delayed(const Duration(seconds: 1));
     return [];
   }
@@ -57,8 +50,21 @@ class FavoriteRemoteServiceLocal implements FavoriteRemoteSource {
   @override
   Future removeFromFavorites({
     required int productId,
-    required String token,
   }) async {
     await Future.delayed(const Duration(seconds: 1));
   }
+}
+
+abstract class FavoriteRemoteService {
+
+  @POST('/favorites?key=e59c4330')
+  Future addToFavorites({
+    required int productId,});
+
+  @POST('/favorites?key=e59c4330')
+  Future<List<FavoriteModel>> getFavorites();
+
+  @POST('/favorites?key=e59c4330')
+  Future removeFromFavorites({
+    required int productId,});
 }

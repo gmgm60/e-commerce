@@ -18,11 +18,10 @@ class _FavoriteRemoteServiceImpl implements FavoriteRemoteServiceImpl {
   String? baseUrl;
 
   @override
-  Future<dynamic> addToFavorites({required productId, required token}) async {
+  Future<dynamic> addToFavorites({required productId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'POST', headers: _headers, extra: _extra)
@@ -34,11 +33,10 @@ class _FavoriteRemoteServiceImpl implements FavoriteRemoteServiceImpl {
   }
 
   @override
-  Future<List<FavoriteModel>> getFavorites({required token}) async {
+  Future<List<FavoriteModel>> getFavorites() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<FavoriteModel>>(
@@ -53,12 +51,10 @@ class _FavoriteRemoteServiceImpl implements FavoriteRemoteServiceImpl {
   }
 
   @override
-  Future<dynamic> removeFromFavorites(
-      {required productId, required token}) async {
+  Future<dynamic> removeFromFavorites({required productId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'POST', headers: _headers, extra: _extra)
