@@ -16,14 +16,14 @@ class CategoryCubit extends Cubit<CategoryStates> {
   Future<void> getCategories() async {
     emit(const CategoryLoadingState());
     final result = await _getCategoriesUseCase(NoParams());
-    emit(result.fold((error) => CategoryErrorState(error: error.error),
+    emit(result.fold((error) => CategoryErrorState(error: error.message),
         (categories) => CategoryLoadedState(categories: categories)));
   }
 
   Future<void> getCategoryProducts({required int catId}) async {
     emit(const CategoryLoadingState());
     final result = await _getProductsByCatIdUseCase(catId);
-    emit(result.fold((error) => CategoryErrorState(error: error.error),
+    emit(result.fold((error) => CategoryErrorState(error: error.message),
         (products) => ProductsLoadedState(products: products)));
   }
 }

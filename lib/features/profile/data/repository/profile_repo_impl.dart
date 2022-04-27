@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
@@ -18,7 +19,7 @@ class ProfileRepoImpl extends ProfileRepository {
   ProfileRepoImpl(this._localService, this._profileUserService);
 
   @override
-  Future<Either<Failures, User>> getUser() async {
+  Future<Either<AppFailure, User>> getUser() async {
     try {
       final token = _localService.getToken();
 
@@ -32,15 +33,15 @@ class ProfileRepoImpl extends ProfileRepository {
 
         return right(userData.fromModel);
       } else {
-        return left(Failures.noUser('No Token'));
+        return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
       }
-    } catch (error) {
-      return left(Failures.serverError('Get User Error'));
+    } on AppException catch (exception) {
+      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
     }
   }
 
   @override
-  Future<Either<Failures, User>> updateProfile(
+  Future<Either<AppFailure, User>> updateProfile(
       {required UpdateUser updateUser}) async {
     try {
       final token = _localService.getToken();
@@ -56,12 +57,12 @@ class ProfileRepoImpl extends ProfileRepository {
       } else {
         debugPrint('update failures: No Token');
 
-        return left(Failures.noUser('No Token'));
+        return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
       }
-    } catch (error) {
-      debugPrint('update failures: $error');
+    } on AppException catch (exception) {
+      debugPrint('update failures: ${exception.message}');
 
-      return left(Failures.serverError('Update User Error'));
+      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
     }
   }
 }

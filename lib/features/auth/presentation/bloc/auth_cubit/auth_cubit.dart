@@ -31,21 +31,21 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(const AuthLoadingState());
 
     final result = await _getTokenUseCase(NoParams());
-    emit(result.fold((error) => AuthErrorState(error: error.error),
+    emit(result.fold((error) => AuthErrorState(error: error.message),
         (token) => const AuthLoadedState()));
   }
 
   Future<void> register({required RegisterParam registerParam}) async {
     emit(const AuthLoadingState());
     final result = await _registerUseCase(registerParam);
-    emit(result.fold((error) => AuthErrorState(error: error.error),
+    emit(result.fold((error) => AuthErrorState(error: error.message),
         (user) => const AuthLoadedState()));
   }
 
   Future<void> login({required LoginParam loginParam}) async {
     emit(const AuthLoadingState());
     final result = await _loginUseCase(loginParam);
-    emit(result.fold((error) => AuthErrorState(error: error.error),
+    emit(result.fold((error) => AuthErrorState(error: error.message),
         (user) => const AuthLoadedState()));
   }
 
@@ -53,8 +53,8 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(const AuthLoadingState());
     final result = await _logoutUseCase(NoParams());
     emit(result.fold((error) {
-      debugPrint(error.error);
-      return AuthErrorState(error: error.error);
+      debugPrint(error.message);
+      return AuthErrorState(error: error.message);
     }, (done) {
       return const AuthLogoutState();
     }));
@@ -63,7 +63,7 @@ class AuthCubit extends Cubit<AuthStates> {
   Future<void> resetPassword({required String email}) async {
     emit(const AuthLoadingState());
     final result = await _resetPassUseCase(email);
-    emit(result.fold((error) => AuthErrorState(error: error.error),
+    emit(result.fold((error) => AuthErrorState(error: error.message),
         (user) => const AuthLoadedState()));
   }
 }

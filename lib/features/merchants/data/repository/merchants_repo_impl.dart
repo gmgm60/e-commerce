@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:ecommerce/core/domain/error/failures.dart';
+import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/merchants/data/mappers/merchant_mapper.dart';
 import 'package:ecommerce/features/merchants/data/models/merchant_model/merchants_model.dart';
@@ -22,11 +22,10 @@ class MerchantsRepoImpl extends MerchantsRepository {
   MerchantsRepoImpl(this._merchantsApiService, this._localService);
 
   @override
-  Future<Either<Failures, List<Merchant>>> getMerchants() async {
+  Future<Either<AppFailure, List<Merchant>>> getMerchants() async {
     debugPrint('start get merchants');
     String? token = _localService.getToken();
-    final merchantModel = getFakeData();
-    return right(merchantModel.data.map((e) => e.fromModel).toList());
+
     if (token != null) {
       try {
         //todo
@@ -35,22 +34,19 @@ class MerchantsRepoImpl extends MerchantsRepository {
         // debugPrint('get merchants: $merchantModel');
         final merchantModel = getFakeData();
         return right(merchantModel.data.map((e) => e.fromModel).toList());
-      } on DioError catch (e) {
-        debugPrint('get merchants error: $e');
-        final errorMessage = await e.response!.data['message'];
-        return left(Failures.serverError(errorMessage));
-      } catch (error) {
-        debugPrint('get merchants error: $error');
-        return left(Failures.serverError('something went wrong'));
+      } on AppException catch (exception) {
+        debugPrint('get merchants error: ${exception.message}');
+        return left(
+            GeneralRemoteAppFailure.unKnown(message: exception.message));
       }
     } else {
       debugPrint('get merchants error: no token');
-      return left(Failures.noUser('no user token'));
+      return left(GeneralRemoteAppFailure.unAuth(message: 'no User'));
     }
   }
 
   MerchantModel getFakeData() {
-    List<double> rates=[1,1.5,2,2.5,3,3.5,4,4.5,5,5.5];
+    List<double> rates = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5];
     return MerchantModel(
         data: List.generate(
             30,
@@ -60,8 +56,7 @@ class MerchantsRepoImpl extends MerchantsRepository {
                 phone: '01236548',
                 address: lorem(paragraphs: 1, words: 15),
                 products: generateProducts(),
-              rating: rates[Random().nextInt(rates.length)]
-            )));
+                rating: rates[Random().nextInt(rates.length)])));
   }
 
   List<ProductModel> generateProducts() {

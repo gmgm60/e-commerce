@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/auth/domain/entities/login_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
@@ -13,7 +13,7 @@ class LoginUseCase extends UseCase<User, LoginParam> {
   LoginUseCase(this._repository);
 
   @override
-  Future<Either<Failures, User>> call(LoginParam params) {
+  Future<Either<AppFailure, User>> call(LoginParam params) {
     return _repository.login(loginParam: params);
   }
 }

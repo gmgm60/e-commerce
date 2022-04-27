@@ -14,7 +14,7 @@ class MerchantsCubit extends Cubit<MerchantsStates> {
   void getMerchants() async {
     emit(const MerchantsLoadingState());
     final result = await _getMerchantsUseCase(NoParams());
-    emit(result.fold((error) => MerchantsErrorState(error: error.error),
+    emit(result.fold((error) => MerchantsErrorState(error: error.message),
         (merchants) => MerchantsLoadedState(merchants: merchants)));
   }
 }
