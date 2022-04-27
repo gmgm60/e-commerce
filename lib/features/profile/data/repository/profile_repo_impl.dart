@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
-import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
 import 'package:ecommerce/features/profile/data/mappers/update_profile_mapper.dart';
 import 'package:ecommerce/features/profile/domain/data_source/remote/profile_user_service.dart';
@@ -13,28 +12,18 @@ import 'package:injectable/injectable.dart';
 
 @Singleton(as: ProfileRepository)
 class ProfileRepoImpl extends ProfileRepository {
-  final AuthLocalService _localService;
   final ProfileUserService _profileUserService;
 
-  ProfileRepoImpl(this._localService, this._profileUserService);
+  ProfileRepoImpl(this._profileUserService);
 
   @override
   Future<Either<AppFailure, User>> getUser() async {
     try {
-      final token = _localService.getToken();
+      final userData = await _profileUserService.getCurrentUser();
 
-      debugPrint(token ?? 'No token in cash');
+      debugPrint('get user data: ${userData.name}');
 
-      if (token != null) {
-        final userData =
-            await _profileUserService.getCurrentUser(token: 'Bearer $token');
-
-        debugPrint('get user data: ${userData.name}');
-
-        return right(userData.fromModel);
-      } else {
-        return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
-      }
+      return right(userData.fromModel);
     } on AppException catch (exception) {
       return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
     }
@@ -44,21 +33,12 @@ class ProfileRepoImpl extends ProfileRepository {
   Future<Either<AppFailure, User>> updateProfile(
       {required UpdateUser updateUser}) async {
     try {
-      final token = _localService.getToken();
-      debugPrint(token ?? 'No token in cash');
+      final userData = await _profileUserService.updateProfile(
+          updateUserModel: updateUser.fromDomain);
 
-      if (token != null) {
-        final userData = await _profileUserService.updateProfile(
-            token: 'Bearer $token', updateUserModel: updateUser.fromDomain);
+      debugPrint('update user data: ${userData.toJson()}');
 
-        debugPrint('update user data: ${userData.toJson()}');
-
-        return right(userData.fromModel);
-      } else {
-        debugPrint('update failures: No Token');
-
-        return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
-      }
+      return right(userData.fromModel);
     } on AppException catch (exception) {
       debugPrint('update failures: ${exception.message}');
 

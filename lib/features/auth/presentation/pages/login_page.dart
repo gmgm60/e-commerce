@@ -32,8 +32,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController(text: 'taha@gmail.com');
-    passwordController = TextEditingController(text: '12345678');
+    emailController = TextEditingController(text: 'taha1@email.com');
+    passwordController = TextEditingController(text: '123456');
     _authCubit = getIt<AuthCubit>();
   }
 
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                           key: const ValueKey('password_text_field'),
                           controller: passwordController,
                           validate: (value) {
-                            if (value == null || value.length < 8) {
+                            if (value == null || value.length < 6) {
                               return context.tr.passwordFieldValidation;
                             }
                             return null;

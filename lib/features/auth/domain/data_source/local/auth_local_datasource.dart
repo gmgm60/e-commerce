@@ -1,4 +1,4 @@
-abstract class AuthLocalService {
+abstract class AuthLocalDatasource {
   Future<bool> saveToken({required String token});
 
   String? getToken();

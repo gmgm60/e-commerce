@@ -15,14 +15,12 @@ abstract class ProfileUserServiceImpl implements ProfileUserService {
   factory ProfileUserServiceImpl(Dio dio) = _ProfileUserServiceImpl;
 
   @override
-  @GET('profile') // todo
-  Future<UserData> getCurrentUser(
-      {@Header(authorizationHeader) required String token});
+  @GET('profile')
+  Future<UserData> getCurrentUser();
 
   @override
   @POST('update_profile')
   @MultiPart()
   Future<UserData> updateProfile(
-      {@Part(name: 'Authorization') required String token,
-      @Part() @Body() required UpdateUserModel updateUserModel});
+      {@Part() @Body() required UpdateUserModel updateUserModel});
 }

@@ -5,8 +5,8 @@ extension UserMapper on UserData {
   User get fromModel => User(
         name: name,
         email: email,
-        address: address?? '',
-        phone: phone,
+        address: address ?? '',
+        phone: phone ?? '',
         image: image ?? '',
       );
 }

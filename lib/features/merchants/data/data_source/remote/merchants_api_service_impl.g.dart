@@ -18,11 +18,10 @@ class _MerchantsApiServiceImpl implements MerchantsApiServiceImpl {
   String? baseUrl;
 
   @override
-  Future<List<MerchantData>> getMerchants({required token}) async {
+  Future<List<MerchantData>> getMerchants() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<MerchantData>>(

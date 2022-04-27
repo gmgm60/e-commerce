@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_api_service_impl.dart';
+part of 'auth_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,9 +8,9 @@ part of 'auth_api_service_impl.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _AuthApiServiceImpl implements AuthApiServiceImpl {
-  _AuthApiServiceImpl(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
+class _AuthApiService implements AuthApiService {
+  _AuthApiService(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'https://shrouded-tor-51047.herokuapp.com/api/';
   }
 
   final Dio _dio;
@@ -52,11 +52,10 @@ class _AuthApiServiceImpl implements AuthApiServiceImpl {
   }
 
   @override
-  Future<String> logout({required token}) async {
+  Future<String> logout() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<String>(_setStreamType<String>(
         Options(method: 'GET', headers: _headers, extra: _extra)

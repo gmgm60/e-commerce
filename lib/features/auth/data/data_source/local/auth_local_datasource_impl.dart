@@ -1,14 +1,13 @@
 import 'package:ecommerce/core/constants/constants.dart';
-import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
+import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_datasource.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-@Singleton(as: AuthLocalService)
-class AuthLocalServiceImpl extends AuthLocalService {
+@Singleton(as: AuthLocalDatasource)
+class AuthLocalDatasourceImpl extends AuthLocalDatasource {
   final SharedPreferences _preferences;
 
-  AuthLocalServiceImpl(this._preferences);
+  AuthLocalDatasourceImpl(this._preferences);
 
   @override
   Future<bool> deleteToken() async {
@@ -17,7 +16,6 @@ class AuthLocalServiceImpl extends AuthLocalService {
 
   @override
   String? getToken() {
-    return "";
     return _preferences.getString(tokenKey);
   }
 

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/categories/data/models/category_model.dart';
 import 'package:ecommerce/features/categories/domain/data_source/remote/categories_api_service.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
@@ -16,11 +15,9 @@ abstract class CategoriesApiServiceImpl implements CategoriesApiService {
 
   @override
   @GET('/category.json?key=ec0ea640')
-  Future<CategoryModel> getCategories(
-      {@Header(authorizationHeader) required String token});
+  Future<CategoryModel> getCategories();
 
   @override
   @GET('/productsbycatid?key=ec0ea640')
-  Future<List<ProductModel>> getProductsByCatId(
-      {required String token, required int catId});
+  Future<List<ProductModel>> getProductsByCatId({required int catId});
 }

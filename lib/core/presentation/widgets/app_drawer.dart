@@ -72,12 +72,7 @@ class AppDrawer extends StatelessWidget {
             create: (context) => getIt<AuthCubit>(),
             child: BlocConsumer<AuthCubit, AuthStates>(
               listener: (context, state) {
-                // state.whenOrNull(loggOut: () {
-                //   AutoRouter.of(context).popUntilRoot();
-                //   AutoRouter.of(context).replace(const StartupRoute());
-                // });
-
-                state.maybeWhen(orElse: (){
+                state.whenOrNull(loggOut: () {
                   AutoRouter.of(context).popUntilRoot();
                   AutoRouter.of(context).replace(const StartupRoute());
                 });

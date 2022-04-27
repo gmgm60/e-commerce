@@ -1,12 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/data/mappers/login_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/register_mapper.dart';
 import 'package:ecommerce/features/auth/data/mappers/user_mapper.dart';
-import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
-import 'package:ecommerce/features/auth/domain/data_source/remote/auth_api_service.dart';
+import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_datasource.dart';
+import 'package:ecommerce/features/auth/domain/data_source/remote/auth_remote_datasource.dart';
 import 'package:ecommerce/features/auth/domain/entities/login_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/register_param.dart';
 import 'package:ecommerce/features/auth/domain/entities/user.dart';
@@ -16,10 +15,10 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepository)
 class AuthRepoImpl extends AuthRepository {
-  final AuthApiService _apiService;
-  final AuthLocalService _localService;
+  final AuthRemoteDatasource _authRemoteDatasource;
+  final AuthLocalDatasource _localDatasource;
 
-  AuthRepoImpl(this._apiService, this._localService);
+  AuthRepoImpl(this._authRemoteDatasource, this._localDatasource);
 
   @override
   Future<Either<AppFailure, User>> login(
@@ -27,11 +26,12 @@ class AuthRepoImpl extends AuthRepository {
     debugPrint('login start...');
 
     try {
-      final userModel = await _apiService.login(loginModel: loginParam.toModel);
+      final userModel =
+          await _authRemoteDatasource.login(loginModel: loginParam.toModel);
 
       debugPrint('login user model: $userModel');
 
-      _localService.saveToken(token: userModel.token).then((value) {
+      _localDatasource.saveToken(token: userModel.token).then((value) {
         debugPrint('login save token: $value');
       });
 
@@ -47,10 +47,10 @@ class AuthRepoImpl extends AuthRepository {
     debugPrint('register start...');
 
     try {
-      final userModel =
-          await _apiService.register(registerModel: registerParam.toModel);
+      final userModel = await _authRemoteDatasource.register(
+          registerModel: registerParam.toModel);
       debugPrint('register user model: $userModel');
-      _localService.saveToken(token: userModel.token).then((value) {
+      _localDatasource.saveToken(token: userModel.token).then((value) {
         debugPrint('register save token: $value');
       });
 
@@ -64,35 +64,28 @@ class AuthRepoImpl extends AuthRepository {
   @override
   Future<Either<AppFailure, String>> logout() async {
     debugPrint('start logout...');
-    String? token = _localService.getToken();
-    if (token != null) {
-      try {
-        final logoutResult =
-            await _apiService.logout(token: '$bearerToken $token');
+    try {
+      final logoutResult = await _authRemoteDatasource.logout();
 
-        debugPrint('you have logged out...');
+      debugPrint('you have logged out...');
 
-        // remove token from local
-        await _localService.deleteToken();
+      // remove token from local
+      await _localDatasource.deleteToken();
 
-        return right(logoutResult);
-      } on AppException catch (exception) {
-        debugPrint('Logout Catch Error: ${exception.message}');
+      return right(logoutResult);
+    } on AppException catch (exception) {
+      debugPrint('Logout Catch Error: ${exception.message}');
 
-        return left(
-            GeneralRemoteAppFailure.unKnown(message: exception.message));
-      }
-    } else {
-      debugPrint('Logout Error: No Token');
-      return left(GeneralRemoteAppFailure.unKnown(message: 'un Auth'));
+      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
     }
   }
 
   @override
   Future<Either<AppFailure, String>> getToken() async {
-    String? token = _localService.getToken();
-    if (token == null)
+    String? token = _localDatasource.getToken();
+    if (token == null) {
       return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
+    }
 
     return right(token);
   }
@@ -103,7 +96,7 @@ class AuthRepoImpl extends AuthRepository {
     debugPrint('Reset Password start...');
 
     try {
-      final result = await _apiService.resetPassword(email: email);
+      final result = await _authRemoteDatasource.resetPassword(email: email);
       debugPrint('resetPassword $result');
 
       return right(result);
