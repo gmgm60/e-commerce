@@ -21,7 +21,7 @@ class CartRepositoryImpl extends CartRepository{
   Future<Either<AppFailure, Unit>> confirmOrder({required List<CartItem> cart}) async{
     try {
       final token = _authLocalService.getToken() as String;
-      final response = await _cartRemoteService.confirmOrder(token: token,cart: cart);
+      final response = await _cartRemoteService.confirmOrder(cart: cart);
       _logger.v(response);
       return right(unit);
     } on AppException catch (e) {
@@ -36,7 +36,7 @@ class CartRepositoryImpl extends CartRepository{
     try {
       final List<CartItemModel> cartModel = cart.map((cartItem) => cartItem.toModel()).toList();
       final token = _authLocalService.getToken() as String;
-      final response = await _cartRemoteService.editCart(cart: cartModel, token: token);
+      final response = await _cartRemoteService.editCart(cart: cartModel);
       //_logger.v(response);
       return right(unit);
     } on AppException catch (e) {
@@ -50,7 +50,7 @@ class CartRepositoryImpl extends CartRepository{
   Future<Either<AppFailure, List<CartItem>>> getCart()async {
     try {
       final token = _authLocalService.getToken() as String;
-      final response = await _cartRemoteService.getCart(token: token);
+      final response = await _cartRemoteService.getCart();
       _logger.v(response);
       final List<CartItem> cart = response.map((cartItemModel) => cartItemModel.toDomain()).toList();
       return right(cart);

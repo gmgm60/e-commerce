@@ -18,7 +18,7 @@ class FavoriteRepositoryImpl extends FavoriteRepository {
     try {
       final token = _authLocalService.getToken() as String;
       final response =await  _favoriteRemoteService.addToFavorites(
-          productId: productId, token: token);
+          productId: productId);
 
       return right(unit);
     }on AppException catch (e) {
@@ -30,7 +30,7 @@ class FavoriteRepositoryImpl extends FavoriteRepository {
   Future<Either<AppFailure, List<FavoriteItem>>> getFavorites() async {
     try {
       final token = _authLocalService.getToken() as String;
-      final response = await _favoriteRemoteService.getFavorites(token: token);
+      final response = await _favoriteRemoteService.getFavorites();
 
       return right([]);
     } on AppException catch (e) {
@@ -44,7 +44,7 @@ class FavoriteRepositoryImpl extends FavoriteRepository {
     try {
       final token = _authLocalService.getToken() as String;
       final response = await _favoriteRemoteService.removeFromFavorites(
-          productId: productId, token: token);
+          productId: productId);
 
       return right(unit);
     }on AppException catch (e) {

@@ -15,10 +15,10 @@ class ProductRemoteDataSourceImpl extends ProductRemoteDataSource{
   ProductRemoteDataSourceImpl(this._productServiceImpl);
 
   @override
-  Future<List<ProductModel>> getProducts({required String token}) async{
+  Future<List<ProductModel>> getProducts() async{
     try {
       final response =
-          await _productServiceImpl.getProducts(token: token);
+          await _productServiceImpl.getProducts();
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;

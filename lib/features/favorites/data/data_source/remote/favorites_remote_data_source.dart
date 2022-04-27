@@ -14,10 +14,10 @@ class FavoriteRemoteDataSourceImpl extends FavoriteRemoteDataSource {
 
   FavoriteRemoteDataSourceImpl(this._favoriteRemoteService);
   @override
-  Future addToFavorites({required int productId, required String token}) async{
+  Future addToFavorites({required int productId}) async{
     try {
       final response =
-          await _favoriteRemoteService.addToFavorites(productId: productId, token: token);
+          await _favoriteRemoteService.addToFavorites(productId: productId);
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;
@@ -49,10 +49,10 @@ class FavoriteRemoteDataSourceImpl extends FavoriteRemoteDataSource {
   }
 
   @override
-  Future<List<FavoriteModel>> getFavorites({required String token})async {
+  Future<List<FavoriteModel>> getFavorites()async {
     try {
       final response =
-          await _favoriteRemoteService.getFavorites(token: token);
+          await _favoriteRemoteService.getFavorites();
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;
@@ -84,10 +84,10 @@ class FavoriteRemoteDataSourceImpl extends FavoriteRemoteDataSource {
   }
 
   @override
-  Future removeFromFavorites({required int productId, required String token}) async{
+  Future removeFromFavorites({required int productId}) async{
     try {
       final response =
-          await _favoriteRemoteService.removeFromFavorites(productId: productId, token: token);
+          await _favoriteRemoteService.removeFromFavorites(productId: productId);
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;

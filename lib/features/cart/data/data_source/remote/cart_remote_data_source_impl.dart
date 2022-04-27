@@ -16,10 +16,10 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
 
   @override
   Future confirmOrder(
-      {required String token, required List<CartItem> cart}) async {
+      {required List<CartItem> cart}) async {
     try {
       final response =
-          await _cartRemoteService.confirmOrder(token: token, cart: cart);
+          await _cartRemoteService.confirmOrder(cart: cart);
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;
@@ -52,10 +52,10 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
 
   @override
   Future editCart(
-      {required List<CartItemModel> cart, required String token}) async {
+      {required List<CartItemModel> cart,}) async {
     try {
       final response =
-          await _cartRemoteService.editCart(token: token, cart: cart);
+          await _cartRemoteService.editCart( cart: cart);
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;
@@ -87,18 +87,19 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
   }
 
   @override
-  Future<List<CartItemModel>> getCart({required String token}) async {
+  Future<List<CartItemModel>> getCart() async {
     try {
-      final response = await _cartRemoteService.getCart(token: token);
+      final response = await _cartRemoteService.getCart();
       return response;
     } on DioError catch (dioError) {
       int code = dioError.response?.statusCode ?? 0;
-      final message = dioError.response?.data['message'];
+      String? message;
+     if( dioError.response?.data['message'] != null) message = dioError.response?.data['message'];
 
       switch (code) {
         case HttpStatus.notFound:
           {
-            throw GeneralRemoteAppFailure.notFound(message: message ?? "un auth");
+            throw GeneralRemoteAppFailure.notFound(message: message ?? "Not Found");
           }
         case HttpStatus.internalServerError:
           {

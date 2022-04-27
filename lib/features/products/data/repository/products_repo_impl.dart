@@ -21,7 +21,7 @@ class ProductsRepoImpl extends ProductRepo {
     try {
       final token = _authLocalService.getToken() as String;
       final List<ProductModel> response =
-          await _productDataSource.getProducts(token: token);
+          await _productDataSource.getProducts();
       final List<Product> products =
           response.map((productModel) => productModel.toDomain()).toList();
       return right(products);

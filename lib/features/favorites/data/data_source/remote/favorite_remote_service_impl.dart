@@ -14,44 +14,42 @@ abstract class FavoriteRemoteServiceImpl extends FavoriteRemoteService{
   @factoryMethod
   factory FavoriteRemoteServiceImpl(Dio dio) = _FavoriteRemoteServiceImpl;
 
+  @override
   @POST('/favorites?key=e59c4330')
   Future addToFavorites({
     required int productId,
-    @Header("Authorization") required String token,
   });
 
+  @override
   @POST('/favorites?key=e59c4330')
-  Future<List<FavoriteModel>> getFavorites({
-    @Header("Authorization") required String token,
-  });
+  Future<List<FavoriteModel>> getFavorites();
 
+  @override
   @POST('/favorites?key=e59c4330')
   Future removeFromFavorites({
     required int productId,
-    @Header("Authorization") required String token,
   });
 }
 
 @Environment(InjectInv.localMock)
 @Injectable(as: FavoriteRemoteService)
 class FavoriteRemoteServiceLocal extends FavoriteRemoteService{
+  @override
   Future addToFavorites({
     required int productId,
-    required String token,
   }) async {
     await Future.delayed(const Duration(seconds: 1));
   }
 
-  Future<List<FavoriteModel>> getFavorites({
-    required String token,
-  }) async {
+  @override
+  Future<List<FavoriteModel>> getFavorites() async {
     await Future.delayed(const Duration(seconds: 1));
     return [];
   }
 
+  @override
   Future removeFromFavorites({
     required int productId,
-    required String token,
   }) async {
     await Future.delayed(const Duration(seconds: 1));
   }
@@ -61,18 +59,12 @@ abstract class FavoriteRemoteService {
 
   @POST('/favorites?key=e59c4330')
   Future addToFavorites({
-    required int productId,
-    @Header("Authorization") required String token,
-  });
+    required int productId,});
 
   @POST('/favorites?key=e59c4330')
-  Future<List<FavoriteModel>> getFavorites({
-    @Header("Authorization") required String token,
-  });
+  Future<List<FavoriteModel>> getFavorites();
 
   @POST('/favorites?key=e59c4330')
   Future removeFromFavorites({
-    required int productId,
-    @Header("Authorization") required String token,
-  });
+    required int productId,});
 }

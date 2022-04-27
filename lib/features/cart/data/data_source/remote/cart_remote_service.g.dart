@@ -18,11 +18,10 @@ class _CartRemoteService implements CartRemoteService {
   String? baseUrl;
 
   @override
-  Future<List<CartItemModel>> getCart({required token}) async {
+  Future<List<CartItemModel>> getCart() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<CartItemModel>>(
@@ -37,11 +36,10 @@ class _CartRemoteService implements CartRemoteService {
   }
 
   @override
-  Future<dynamic> editCart({required token, required cart}) async {
+  Future<dynamic> editCart({required cart}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'GET', headers: _headers, extra: _extra)
@@ -53,7 +51,7 @@ class _CartRemoteService implements CartRemoteService {
   }
 
   @override
-  Future<dynamic> confirmOrder({required token, required cart}) async {
+  Future<dynamic> confirmOrder({required cart}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

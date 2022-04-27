@@ -14,17 +14,14 @@ abstract class CartRemoteService{
 
 
   @GET('/cart?key=e59c4330')
-  Future<List<CartItemModel>> getCart({
-    @Header("Authorization") required String token,
-  });
+  Future<List<CartItemModel>> getCart();
 
   @GET('/cart?key=e59c4330')
   Future<dynamic> editCart({
-    @Header("Authorization") required String token,
     required List<CartItemModel> cart,
   });
 
 
   @GET('/cart?key=e59c4330')
-  Future confirmOrder({required String token, required List<CartItem> cart});
+  Future confirmOrder({required List<CartItem> cart});
 }

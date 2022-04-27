@@ -42,8 +42,6 @@ abstract class ProductServiceImpl {
 
 
   @GET("/products?key=e59c4330")
-  Future<List<ProductModel>> getProducts({
-    @Header("Authorization") required String token,
-  });
+  Future<List<ProductModel>> getProducts();
 
 }
