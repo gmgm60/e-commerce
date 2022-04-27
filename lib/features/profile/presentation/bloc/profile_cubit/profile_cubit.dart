@@ -17,7 +17,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
     emit(const ProfileLoadingState());
     final result = await _getUserUseCase.call(NoParams());
     emit(result.fold((error) {
-      return ProfileErrorState(error: error.error);
+      return ProfileErrorState(error: error.message);
     }, (user) {
       return ProfileLoadedState(user: user);
     }));
@@ -28,7 +28,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
 
     final result = await _updateUserUseCase(updateUser);
     emit(result.fold((error) {
-      return ProfileErrorState(error: error.error);
+      return ProfileErrorState(error: error.message);
     }, (user) {
       return ProfileUpdatedState(user: user);
     }));

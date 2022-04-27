@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/merchants/domain/entities/merchant.dart';
 import 'package:ecommerce/features/merchants/domain/repository/merchants_repository.dart';
@@ -12,7 +12,7 @@ class GetMerchantsUseCase extends UseCase<List<Merchant>, NoParams> {
   GetMerchantsUseCase(this._repository);
 
   @override
-  Future<Either<Failures, List<Merchant>>> call(NoParams params) {
+  Future<Either<AppFailure, List<Merchant>>> call(NoParams params) {
     return _repository.getMerchants();
   }
 }

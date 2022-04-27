@@ -26,10 +26,10 @@ class LocaleCubit extends Cubit<LocaleStates> {
     final res = await _getLocaleUseCase(NoParams());
     emit(res.fold((error) {
       locale = const Locale(enLanguageCode);
-      return LocaleErrorState(error: error.error);
+      return LocaleErrorState(error: error.message);
     }, (localeCode) {
-      locale = Locale(localeCode);
-      return LocaleLoadedFromSharedState(locale: Locale(localeCode));
+      locale = Locale(localeCode ?? enLanguageCode);
+      return LocaleLoadedFromSharedState(locale: locale!);
     }));
   }
 
@@ -37,7 +37,7 @@ class LocaleCubit extends Cubit<LocaleStates> {
     final res = await _changeLocaleUseCase(newLocale.languageCode);
     emit(res.fold((error) {
       locale = const Locale(enLanguageCode);
-      return LocaleErrorState(error: error.error);
+      return LocaleErrorState(error: error.message);
     }, (changed) {
       locale = newLocale;
       return LocaleChangedState(locale: locale!);

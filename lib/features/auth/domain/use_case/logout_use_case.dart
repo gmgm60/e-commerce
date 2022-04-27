@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/auth/domain/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -11,7 +11,7 @@ class LogoutUseCase extends UseCase<String, NoParams> {
   LogoutUseCase(this._repository);
 
   @override
-  Future<Either<Failures, String>> call(NoParams params) {
+  Future<Either<AppFailure, String>> call(NoParams params) {
     return _repository.logout();
   }
 }

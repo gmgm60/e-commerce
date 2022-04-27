@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
 import 'package:ecommerce/features/categories/data/mappers/category_mapper.dart';
 import 'package:ecommerce/features/categories/domain/data_source/remote/categories_api_service.dart';
@@ -19,7 +19,7 @@ class CategoryRepoImpl extends CategoryRepository {
   CategoryRepoImpl(this._categoriesApiService, this._localService);
 
   @override
-  Future<Either<Failures, List<ProductsCategory>>> getCategories() async {
+  Future<Either<AppFailure, List<ProductsCategory>>> getCategories() async {
     debugPrint('Get Categories start');
     String? token = _localService.getToken();
     if (token != null) {
@@ -33,25 +33,21 @@ class CategoryRepoImpl extends CategoryRepository {
               .toList());
         } else {
           debugPrint('Get Categories Error No Data Received');
-          return left(Failures.serverError('No Data Received'));
+          return left(GeneralRemoteAppFailure.unKnown(message: 'no data'));
         }
-      } on DioError catch (dioError) {
-        debugPrint('Get Categories Dio Error: $dioError');
-        String errorMessage = dioError.message;
-        debugPrint('Get Categories Dio Error: $errorMessage');
-        return left(Failures.serverError(errorMessage));
-      } catch (unKnownError) {
-        debugPrint('Get Categories UnKnown Error: $unKnownError');
-        return left(Failures.serverError(' Un Known Error'));
+      } on AppException catch (exception) {
+        debugPrint('Get Categories Dio Error: ${exception.message}');
+        return left(
+            GeneralRemoteAppFailure.unKnown(message: exception.message));
       }
     } else {
       debugPrint('Get Categories: No User Token');
-      return left(Failures.noUser('No User'));
+      return left(GeneralRemoteAppFailure.unKnown(message: 'No User'));
     }
   }
 
   @override
-  Future<Either<Failures, List<Product>>> getProductsByCatId(
+  Future<Either<AppFailure, List<Product>>> getProductsByCatId(
       {required int catId}) async {
     debugPrint('Get Category Products start');
     String? token = _localService.getToken();
@@ -63,18 +59,15 @@ class CategoryRepoImpl extends CategoryRepository {
 
         return right(
             productModel.map((product) => product.toDomain()).toList());
-      } on DioError catch (dioError) {
-        debugPrint('Get Category Products Dio Error: $dioError');
-        String errorMessage = dioError.message;
-        debugPrint('Get Category Products Dio Error: $errorMessage');
-        return left(Failures.serverError(errorMessage));
-      } catch (unKnownError) {
-        debugPrint('Get Category Products UnKnown Error: $unKnownError');
-        return left(Failures.serverError(' Un Known Error'));
+      } on AppException catch (exception) {
+        debugPrint('Get Category Products Dio Error: ${exception.message}');
+
+        return left(
+            GeneralRemoteAppFailure.unKnown(message: exception.message));
       }
     } else {
       debugPrint('Get Categories: No User Token');
-      return left(Failures.noUser('No User'));
+      return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
     }
   }
 }

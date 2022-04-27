@@ -119,8 +119,8 @@ import 'module/dio.dart' as _i74;
 import 'module/logger.dart' as _i75;
 import 'module/shared_preferences.dart' as _i76;
 
-const String _test = 'test';
 const String _localMock = 'localMock';
+const String _test = 'test';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -132,20 +132,20 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   final injectionModule = _$InjectionModule();
   gh.factory<_i3.BackButtonCubit>(() => _i3.BackButtonCubit());
   gh.factory<_i4.Dio>(() => myDioInject.dio);
+  gh.factory<_i5.FavoriteRemoteService>(() => _i6.FavoriteRemoteServiceLocal(),
+      registerFor: {_localMock});
   gh.factory<_i5.FavoriteRemoteService>(
       () => _i6.FavoriteRemoteServiceImpl(get<_i4.Dio>()),
       registerFor: {_test});
-  gh.factory<_i5.FavoriteRemoteService>(() => _i6.FavoriteRemoteServiceLocal(),
-      registerFor: {_localMock});
   gh.factory<_i7.Logger>(() => myLoggerInject.logger);
   gh.singleton<_i8.MerchantsApiService>(
       _i9.MerchantsApiServiceImpl(get<_i4.Dio>()));
   gh.singleton<_i10.OrdersApiService>(
       _i11.OrdersApiServiceImpl(get<_i4.Dio>()));
-  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
-      registerFor: {_test});
   gh.factory<_i12.ProductService>(() => _i13.ProductServiceImplLocal(),
       registerFor: {_localMock});
+  gh.factory<_i12.ProductService>(() => _i13.ProductServiceImpl(get<_i4.Dio>()),
+      registerFor: {_test});
   gh.singleton<_i14.ProfileUserService>(
       _i15.ProfileUserServiceImpl(get<_i4.Dio>()));
   await gh.factoryAsync<_i16.SharedPreferences>(() => injectionModule.prefs,

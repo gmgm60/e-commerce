@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/domain/error/app_failure.dart';
+import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/categories/domain/repository/category_repository.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
@@ -12,7 +12,7 @@ class GetProductsByCatIdUseCase extends UseCase<List<Product>, int> {
   GetProductsByCatIdUseCase(this._categoryRepository);
 
   @override
-  Future<Either<Failures, List<Product>>> call(int params) {
+  Future<Either<AppFailure, List<Product>>> call(int params) {
     return _categoryRepository.getProductsByCatId(catId: params);
   }
 }
