@@ -4,18 +4,13 @@ part 'register_model.g.dart';
 
 @JsonSerializable()
 class RegisterModel {
-  @JsonKey(name: 'name')
-  String name;
-  @JsonKey(name: 'email')
-  String email;
-  @JsonKey(name: 'password')
-  String password;
+  final String name;
+  final String email;
+  final String password;
   @JsonKey(name: 'password_confirmation')
-  String passwordConfirmation;
-  @JsonKey(name: 'address')
-  String address;
-  @JsonKey(name: 'phone')
-  String phone;
+  final String passwordConfirmation;
+  final String address;
+  final String phone;
 
   RegisterModel({
     required this.name,

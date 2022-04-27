@@ -3,7 +3,7 @@ RegExp emailRegExp = RegExp(
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
 //remote
-const String baseUrl = 'https://mega-e-commerce.herokuapp.com/api/';
+const String baseUrl = 'https://shrouded-tor-51047.herokuapp.com/api/';
 const String loginEndPoint = 'login';
 const String registerEndPoint = 'register';
 const String logoutEndPoint = 'logout';

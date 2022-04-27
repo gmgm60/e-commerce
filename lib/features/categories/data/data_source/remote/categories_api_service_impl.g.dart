@@ -18,11 +18,10 @@ class _CategoriesApiServiceImpl implements CategoriesApiServiceImpl {
   String? baseUrl;
 
   @override
-  Future<CategoryModel> getCategories({required token}) async {
+  Future<CategoryModel> getCategories() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<CategoryModel>(
@@ -35,8 +34,7 @@ class _CategoriesApiServiceImpl implements CategoriesApiServiceImpl {
   }
 
   @override
-  Future<List<ProductModel>> getProductsByCatId(
-      {required token, required catId}) async {
+  Future<List<ProductModel>> getProductsByCatId({required catId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

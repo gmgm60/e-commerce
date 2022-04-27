@@ -26,9 +26,9 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       role: json['role'] as String?,
       image: json['image'] as String?,
       address: json['address'] as String?,
-      phone: json['phone'] as String,
-      updatedAt: json['updated_at'] as String?,
-      createdAt: json['created_at'] as String?,
+      phone: json['phone'] as String?,
+      updatedAt: json['updated_at'] as String,
+      createdAt: json['created_at'] as String,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{

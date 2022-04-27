@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
-import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_service.dart';
+import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_datasource.dart';
 import 'package:ecommerce/features/merchants/data/mappers/merchant_mapper.dart';
 import 'package:ecommerce/features/merchants/data/models/merchant_model/merchants_model.dart';
 import 'package:ecommerce/features/merchants/domain/data_source/remote/merchants_api_service.dart';
@@ -17,20 +17,16 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: MerchantsRepository)
 class MerchantsRepoImpl extends MerchantsRepository {
   final MerchantsApiService _merchantsApiService;
-  final AuthLocalService _localService;
-
-  MerchantsRepoImpl(this._merchantsApiService, this._localService);
+  MerchantsRepoImpl(this._merchantsApiService);
 
   @override
   Future<Either<AppFailure, List<Merchant>>> getMerchants() async {
     debugPrint('start get merchants');
-    String? token = _localService.getToken();
 
-    if (token != null) {
       try {
         //todo
         // final merchantModel =
-        //     await _merchantsApiService.getMerchants(token: token);
+        //     await _merchantsApiService.getMerchants();
         // debugPrint('get merchants: $merchantModel');
         final merchantModel = getFakeData();
         return right(merchantModel.data.map((e) => e.fromModel).toList());
@@ -39,10 +35,6 @@ class MerchantsRepoImpl extends MerchantsRepository {
         return left(
             GeneralRemoteAppFailure.unKnown(message: exception.message));
       }
-    } else {
-      debugPrint('get merchants error: no token');
-      return left(GeneralRemoteAppFailure.unAuth(message: 'no User'));
-    }
   }
 
   MerchantModel getFakeData() {

@@ -10,7 +10,7 @@ part of 'profile_user_service_impl.dart';
 
 class _ProfileUserServiceImpl implements ProfileUserServiceImpl {
   _ProfileUserServiceImpl(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://mega-e-commerce.herokuapp.com/api/';
+    baseUrl ??= 'https://shrouded-tor-51047.herokuapp.com/api/';
   }
 
   final Dio _dio;
@@ -18,11 +18,10 @@ class _ProfileUserServiceImpl implements ProfileUserServiceImpl {
   String? baseUrl;
 
   @override
-  Future<UserData> getCurrentUser({required token}) async {
+  Future<UserData> getCurrentUser() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<UserData>(
@@ -35,8 +34,7 @@ class _ProfileUserServiceImpl implements ProfileUserServiceImpl {
   }
 
   @override
-  Future<UserData> updateProfile(
-      {required token, required updateUserModel}) async {
+  Future<UserData> updateProfile({required updateUserModel}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

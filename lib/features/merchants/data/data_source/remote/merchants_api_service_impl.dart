@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/merchants/data/models/merchant_model/merchants_model.dart';
 import 'package:ecommerce/features/merchants/domain/data_source/remote/merchants_api_service.dart';
 import 'package:injectable/injectable.dart';
@@ -15,6 +14,5 @@ abstract class MerchantsApiServiceImpl implements MerchantsApiService {
 
   @override
   @GET('/merchants?key=ec0ea640')
-  Future<List<MerchantData>> getMerchants(
-      {@Header(authorizationHeader) required String token});
+  Future<List<MerchantData>> getMerchants();
 }
