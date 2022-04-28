@@ -6,8 +6,14 @@ part 'merchants_model.g.dart';
 @JsonSerializable()
 class MerchantModel {
   final List<MerchantData> data;
+  final String message;
+  final int status;
 
-  MerchantModel({required this.data});
+  MerchantModel({
+    required this.data,
+    required this.message,
+    required this.status,
+  });
 
   factory MerchantModel.fromJson(Map<String, dynamic> json) =>
       _$MerchantModelFromJson(json);

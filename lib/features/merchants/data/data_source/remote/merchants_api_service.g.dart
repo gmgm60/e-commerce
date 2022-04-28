@@ -10,7 +10,7 @@ part of 'merchants_api_service.dart';
 
 class _MerchantsApiService implements MerchantsApiService {
   _MerchantsApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://my.api.mockaroo.com';
+    baseUrl ??= 'https://0326-41-38-218-115.ngrok.io/api/';
   }
 
   final Dio _dio;
@@ -26,7 +26,7 @@ class _MerchantsApiService implements MerchantsApiService {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<MerchantData>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/merchants?key=ec0ea640',
+                .compose(_dio.options, 'seller/index',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!

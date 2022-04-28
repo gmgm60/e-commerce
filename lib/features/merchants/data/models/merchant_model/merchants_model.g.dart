@@ -11,11 +11,15 @@ MerchantModel _$MerchantModelFromJson(Map<String, dynamic> json) =>
       data: (json['data'] as List<dynamic>)
           .map((e) => MerchantData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      message: json['message'] as String,
+      status: json['status'] as int,
     );
 
 Map<String, dynamic> _$MerchantModelToJson(MerchantModel instance) =>
     <String, dynamic>{
       'data': instance.data,
+      'message': instance.message,
+      'status': instance.status,
     };
 
 MerchantData _$MerchantDataFromJson(Map<String, dynamic> json) => MerchantData(
