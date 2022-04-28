@@ -136,8 +136,8 @@ import 'module/dio.dart' as _i82;
 import 'module/logger.dart' as _i83;
 import 'module/shared_preferences.dart' as _i84;
 
-const String _localMock = 'localMock';
 const String _test = 'test';
+const String _localMock = 'localMock';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -149,11 +149,11 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   final injectionModule = _$InjectionModule();
   gh.factory<_i3.BackButtonCubit>(() => _i3.BackButtonCubit());
   gh.factory<_i4.Dio>(() => appDioInject.dio);
-  gh.factory<_i5.FavoriteRemoteService>(() => _i5.FavoriteRemoteServiceLocal(),
-      registerFor: {_localMock});
   gh.factory<_i5.FavoriteRemoteService>(
       () => _i5.FavoriteRemoteServiceImpl(get<_i4.Dio>()),
       registerFor: {_test});
+  gh.factory<_i5.FavoriteRemoteService>(() => _i5.FavoriteRemoteServiceLocal(),
+      registerFor: {_localMock});
   gh.factory<_i6.Logger>(() => myLoggerInject.logger);
   gh.singleton<_i7.MerchantsApiService>(
       _i7.MerchantsApiService(get<_i4.Dio>()));
@@ -167,8 +167,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i15.OrdersRepository>(
       () => _i16.OrdersRepoImpl(get<_i13.OrdersRemoteDatasource>()));
   gh.factory<_i17.ProductServiceImpl>(
-      () => _i17.ProductServiceImpl(get<_i4.Dio>()),
-      registerFor: {_localMock});
+      () => _i17.ProductServiceImpl(get<_i4.Dio>()));
   gh.singleton<_i18.ProfileUserService>(
       _i18.ProfileUserService(get<_i4.Dio>()));
   await gh.factoryAsync<_i19.SharedPreferences>(() => injectionModule.prefs,
@@ -258,8 +257,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i73.GetUserUseCase(get<_i54.ProfileRepository>()));
   gh.factory<_i74.LocalizationRepository>(
       () => _i75.LocalizationRepoImpl(get<_i43.LocalizationService>()));
-  gh.factory<_i76.ProductsCubit>(
-      () => _i76.ProductsCubit(get<_i72.GetProducts>()));
+  gh.factory<_i76.ProductsCubit>(() =>
+      _i76.ProductsCubit(get<_i72.GetProducts>(), get<_i71.GetProduct>()));
   gh.factory<_i77.ProfileCubit>(() => _i77.ProfileCubit(
       get<_i73.GetUserUseCase>(), get<_i59.UpdateUserUseCase>()));
   gh.factory<_i78.CartCubit>(() => _i78.CartCubit(get<_i70.GetCart>(),
