@@ -9,23 +9,23 @@ part of 'product_model.dart';
 _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
     _$_ProductModel(
       id: json['id'] as int,
-      catId: json['cat_id'] as int,
+      catId: json['category_id'] as int,
       name: json['name'] as String,
       description: json['description'] as String,
       image: json['image'] as String,
       price: (json['price'] as num).toDouble(),
       discount: (json['discount'] as num).toDouble(),
-      isAvailable: json['is_available'] as bool,
+      quantity: json['quantity'] as int,
     );
 
 Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'cat_id': instance.catId,
+      'category_id': instance.catId,
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,
       'price': instance.price,
       'discount': instance.discount,
-      'is_available': instance.isAvailable,
+      'quantity': instance.quantity,
     };

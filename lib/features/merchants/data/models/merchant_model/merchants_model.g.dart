@@ -31,7 +31,7 @@ MerchantData _$MerchantDataFromJson(Map<String, dynamic> json) => MerchantData(
       products: (json['products'] as List<dynamic>?)
           ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      rating: (json['rating'] as num?)?.toDouble() ?? 0.25,
+      rating: (json['rating'] as num?)?.toDouble() ?? .25,
     );
 
 Map<String, dynamic> _$MerchantDataToJson(MerchantData instance) =>

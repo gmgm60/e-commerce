@@ -13,6 +13,9 @@ const String ordersEndPoint = 'orders';
 const String categoriesEndPoint = 'category/index';
 const String merchantsEndPoint = 'seller/index';
 
+const String productsEndPoint = 'product/index';
+const String productEndPoint = 'product';
+
 // local code
 const String enLanguageCode = 'en';
 const String arLanguageCode = 'ar';

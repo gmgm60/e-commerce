@@ -32,7 +32,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   flutter_native_splash: ^2.1.6
   cached_network_image: ^3.2.0
-  flutter_lorem: ^2.0.0
+#  flutter_lorem: ^2.0.0
   shimmer: ^2.0.0
   flutter_rating_bar: ^4.0.0
 

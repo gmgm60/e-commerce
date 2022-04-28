@@ -11,7 +11,7 @@ extension ProductModelMapper on ProductModel {
         image: image,
         price: price,
         discount: discount,
-        isAvailable: isAvailable);
+        quantity: quantity);
   }
 }
 
@@ -25,6 +25,6 @@ extension ProductMapper on Product {
         image: image,
         price: price,
         discount: discount,
-        isAvailable: isAvailable);
+        quantity: quantity);
   }
 }

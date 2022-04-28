@@ -1,8 +1,11 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'product.freezed.dart';
+
 @Freezed()
 class Product with _$Product {
+  Product._();
+
   factory Product({
     required int id,
     required int catId,
@@ -11,6 +14,14 @@ class Product with _$Product {
     required String image,
     required double price,
     required double discount,
-    required bool isAvailable,
-}) = _Product ;
+    required int quantity,
+  }) = _Product;
+
+  double get newPrice {
+    return price - discount;
+  }
+
+  int get percentage {
+    return ((1-(newPrice / price)) * 100).toInt();
+  }
 }

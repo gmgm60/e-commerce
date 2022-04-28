@@ -21,15 +21,15 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductModel {
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "cat_id")
+  @JsonKey(name: "category_id")
   int get catId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
-  double get discount => throw _privateConstructorUsedError; // int
-  @JsonKey(name: "is_available")
-  bool get isAvailable => throw _privateConstructorUsedError;
+  double get discount => throw _privateConstructorUsedError;
+  @JsonKey(name: "quantity")
+  int get quantity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,13 +44,13 @@ abstract class $ProductModelCopyWith<$Res> {
       _$ProductModelCopyWithImpl<$Res>;
   $Res call(
       {int id,
-      @JsonKey(name: "cat_id") int catId,
+      @JsonKey(name: "category_id") int catId,
       String name,
       String description,
       String image,
       double price,
       double discount,
-      @JsonKey(name: "is_available") bool isAvailable});
+      @JsonKey(name: "quantity") int quantity});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$ProductModelCopyWithImpl<$Res> implements $ProductModelCopyWith<$Res> {
     Object? image = freezed,
     Object? price = freezed,
     Object? discount = freezed,
-    Object? isAvailable = freezed,
+    Object? quantity = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -101,10 +101,10 @@ class _$ProductModelCopyWithImpl<$Res> implements $ProductModelCopyWith<$Res> {
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
-      isAvailable: isAvailable == freezed
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -118,13 +118,13 @@ abstract class _$ProductModelCopyWith<$Res>
   @override
   $Res call(
       {int id,
-      @JsonKey(name: "cat_id") int catId,
+      @JsonKey(name: "category_id") int catId,
       String name,
       String description,
       String image,
       double price,
       double discount,
-      @JsonKey(name: "is_available") bool isAvailable});
+      @JsonKey(name: "quantity") int quantity});
 }
 
 /// @nodoc
@@ -146,7 +146,7 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
     Object? image = freezed,
     Object? price = freezed,
     Object? discount = freezed,
-    Object? isAvailable = freezed,
+    Object? quantity = freezed,
   }) {
     return _then(_ProductModel(
       id: id == freezed
@@ -177,10 +177,10 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
-      isAvailable: isAvailable == freezed
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -190,13 +190,13 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
 class _$_ProductModel implements _ProductModel {
   _$_ProductModel(
       {required this.id,
-      @JsonKey(name: "cat_id") required this.catId,
+      @JsonKey(name: "category_id") required this.catId,
       required this.name,
       required this.description,
       required this.image,
       required this.price,
       required this.discount,
-      @JsonKey(name: "is_available") required this.isAvailable});
+      @JsonKey(name: "quantity") required this.quantity});
 
   factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProductModelFromJson(json);
@@ -204,7 +204,7 @@ class _$_ProductModel implements _ProductModel {
   @override
   final int id;
   @override
-  @JsonKey(name: "cat_id")
+  @JsonKey(name: "category_id")
   final int catId;
   @override
   final String name;
@@ -216,14 +216,13 @@ class _$_ProductModel implements _ProductModel {
   final double price;
   @override
   final double discount;
-// int
   @override
-  @JsonKey(name: "is_available")
-  final bool isAvailable;
+  @JsonKey(name: "quantity")
+  final int quantity;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, catId: $catId, name: $name, description: $description, image: $image, price: $price, discount: $discount, isAvailable: $isAvailable)';
+    return 'ProductModel(id: $id, catId: $catId, name: $name, description: $description, image: $image, price: $price, discount: $discount, quantity: $quantity)';
   }
 
   @override
@@ -239,8 +238,7 @@ class _$_ProductModel implements _ProductModel {
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.discount, discount) &&
-            const DeepCollectionEquality()
-                .equals(other.isAvailable, isAvailable));
+            const DeepCollectionEquality().equals(other.quantity, quantity));
   }
 
   @JsonKey(ignore: true)
@@ -254,7 +252,7 @@ class _$_ProductModel implements _ProductModel {
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(discount),
-      const DeepCollectionEquality().hash(isAvailable));
+      const DeepCollectionEquality().hash(quantity));
 
   @JsonKey(ignore: true)
   @override
@@ -270,13 +268,13 @@ class _$_ProductModel implements _ProductModel {
 abstract class _ProductModel implements ProductModel {
   factory _ProductModel(
           {required final int id,
-          @JsonKey(name: "cat_id") required final int catId,
+          @JsonKey(name: "category_id") required final int catId,
           required final String name,
           required final String description,
           required final String image,
           required final double price,
           required final double discount,
-          @JsonKey(name: "is_available") required final bool isAvailable}) =
+          @JsonKey(name: "quantity") required final int quantity}) =
       _$_ProductModel;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
@@ -285,7 +283,7 @@ abstract class _ProductModel implements ProductModel {
   @override
   int get id => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: "cat_id")
+  @JsonKey(name: "category_id")
   int get catId => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
@@ -297,9 +295,9 @@ abstract class _ProductModel implements ProductModel {
   double get price => throw _privateConstructorUsedError;
   @override
   double get discount => throw _privateConstructorUsedError;
-  @override // int
-  @JsonKey(name: "is_available")
-  bool get isAvailable => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "quantity")
+  int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProductModelCopyWith<_ProductModel> get copyWith =>
