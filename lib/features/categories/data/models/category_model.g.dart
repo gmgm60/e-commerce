@@ -24,8 +24,7 @@ CategoryData _$CategoryDataFromJson(Map<String, dynamic> json) => CategoryData(
       id: json['id'] as int,
       name: json['name'] as String,
       description: json['description'] as String,
-      createdAt: json['created_at'] as String,
-      updatedAtAt: json['updated_at'] as String,
+      image: json['image'] as String,
     );
 
 Map<String, dynamic> _$CategoryDataToJson(CategoryData instance) =>
@@ -33,6 +32,5 @@ Map<String, dynamic> _$CategoryDataToJson(CategoryData instance) =>
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
-      'created_at': instance.createdAt,
-      'updated_at': instance.updatedAtAt,
+      'image': instance.image,
     };
