@@ -44,7 +44,7 @@ class _ProductServiceImpl implements ProductServiceImpl {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ProductModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'product/{productId}',
+                .compose(_dio.options, 'product/${productId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ProductModel.fromJson(_result.data!);

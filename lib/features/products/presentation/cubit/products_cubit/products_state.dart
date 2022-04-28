@@ -10,5 +10,6 @@ class ProductsState with _$ProductsState {
   factory ProductsState.done() = _Done ;
   factory ProductsState.productDone({required Product product}) = _productDone ;
   factory ProductsState.error({required String error}) = _Error ;
+  factory ProductsState.productError({required String error}) = _ProductError ;
 }
 

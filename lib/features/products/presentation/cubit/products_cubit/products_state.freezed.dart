@@ -23,6 +23,7 @@ mixin _$ProductsState {
     required TResult Function() done,
     required TResult Function(Product product) productDone,
     required TResult Function(String error) error,
+    required TResult Function(String error) productError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$ProductsState {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$ProductsState {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$ProductsState {
     required TResult Function(_Done value) done,
     required TResult Function(_productDone value) productDone,
     required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$ProductsState {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$ProductsState {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +140,7 @@ class _$_Init implements _Init {
     required TResult Function() done,
     required TResult Function(Product product) productDone,
     required TResult Function(String error) error,
+    required TResult Function(String error) productError,
   }) {
     return init();
   }
@@ -146,6 +153,7 @@ class _$_Init implements _Init {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
   }) {
     return init?.call();
   }
@@ -158,6 +166,7 @@ class _$_Init implements _Init {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -174,6 +183,7 @@ class _$_Init implements _Init {
     required TResult Function(_Done value) done,
     required TResult Function(_productDone value) productDone,
     required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
   }) {
     return init(this);
   }
@@ -186,6 +196,7 @@ class _$_Init implements _Init {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
   }) {
     return init?.call(this);
   }
@@ -198,6 +209,7 @@ class _$_Init implements _Init {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -257,6 +269,7 @@ class _$ProductsLoading implements ProductsLoading {
     required TResult Function() done,
     required TResult Function(Product product) productDone,
     required TResult Function(String error) error,
+    required TResult Function(String error) productError,
   }) {
     return loading();
   }
@@ -269,6 +282,7 @@ class _$ProductsLoading implements ProductsLoading {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
   }) {
     return loading?.call();
   }
@@ -281,6 +295,7 @@ class _$ProductsLoading implements ProductsLoading {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -297,6 +312,7 @@ class _$ProductsLoading implements ProductsLoading {
     required TResult Function(_Done value) done,
     required TResult Function(_productDone value) productDone,
     required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
   }) {
     return loading(this);
   }
@@ -309,6 +325,7 @@ class _$ProductsLoading implements ProductsLoading {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
   }) {
     return loading?.call(this);
   }
@@ -321,6 +338,7 @@ class _$ProductsLoading implements ProductsLoading {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -377,6 +395,7 @@ class _$_Done implements _Done {
     required TResult Function() done,
     required TResult Function(Product product) productDone,
     required TResult Function(String error) error,
+    required TResult Function(String error) productError,
   }) {
     return done();
   }
@@ -389,6 +408,7 @@ class _$_Done implements _Done {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
   }) {
     return done?.call();
   }
@@ -401,6 +421,7 @@ class _$_Done implements _Done {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
     required TResult orElse(),
   }) {
     if (done != null) {
@@ -417,6 +438,7 @@ class _$_Done implements _Done {
     required TResult Function(_Done value) done,
     required TResult Function(_productDone value) productDone,
     required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
   }) {
     return done(this);
   }
@@ -429,6 +451,7 @@ class _$_Done implements _Done {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
   }) {
     return done?.call(this);
   }
@@ -441,6 +464,7 @@ class _$_Done implements _Done {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
     required TResult orElse(),
   }) {
     if (done != null) {
@@ -532,6 +556,7 @@ class _$_productDone implements _productDone {
     required TResult Function() done,
     required TResult Function(Product product) productDone,
     required TResult Function(String error) error,
+    required TResult Function(String error) productError,
   }) {
     return productDone(product);
   }
@@ -544,6 +569,7 @@ class _$_productDone implements _productDone {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
   }) {
     return productDone?.call(product);
   }
@@ -556,6 +582,7 @@ class _$_productDone implements _productDone {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
     required TResult orElse(),
   }) {
     if (productDone != null) {
@@ -572,6 +599,7 @@ class _$_productDone implements _productDone {
     required TResult Function(_Done value) done,
     required TResult Function(_productDone value) productDone,
     required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
   }) {
     return productDone(this);
   }
@@ -584,6 +612,7 @@ class _$_productDone implements _productDone {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
   }) {
     return productDone?.call(this);
   }
@@ -596,6 +625,7 @@ class _$_productDone implements _productDone {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
     required TResult orElse(),
   }) {
     if (productDone != null) {
@@ -681,6 +711,7 @@ class _$_Error implements _Error {
     required TResult Function() done,
     required TResult Function(Product product) productDone,
     required TResult Function(String error) error,
+    required TResult Function(String error) productError,
   }) {
     return error(this.error);
   }
@@ -693,6 +724,7 @@ class _$_Error implements _Error {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
   }) {
     return error?.call(this.error);
   }
@@ -705,6 +737,7 @@ class _$_Error implements _Error {
     TResult Function()? done,
     TResult Function(Product product)? productDone,
     TResult Function(String error)? error,
+    TResult Function(String error)? productError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -721,6 +754,7 @@ class _$_Error implements _Error {
     required TResult Function(_Done value) done,
     required TResult Function(_productDone value) productDone,
     required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
   }) {
     return error(this);
   }
@@ -733,6 +767,7 @@ class _$_Error implements _Error {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
   }) {
     return error?.call(this);
   }
@@ -745,6 +780,7 @@ class _$_Error implements _Error {
     TResult Function(_Done value)? done,
     TResult Function(_productDone value)? productDone,
     TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -760,4 +796,162 @@ abstract class _Error implements ProductsState {
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ProductErrorCopyWith<$Res> {
+  factory _$ProductErrorCopyWith(
+          _ProductError value, $Res Function(_ProductError) then) =
+      __$ProductErrorCopyWithImpl<$Res>;
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$ProductErrorCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$ProductErrorCopyWith<$Res> {
+  __$ProductErrorCopyWithImpl(
+      _ProductError _value, $Res Function(_ProductError) _then)
+      : super(_value, (v) => _then(v as _ProductError));
+
+  @override
+  _ProductError get _value => super._value as _ProductError;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_ProductError(
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ProductError implements _ProductError {
+  _$_ProductError({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'ProductsState.productError(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProductError &&
+            const DeepCollectionEquality().equals(other.error, error));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ProductErrorCopyWith<_ProductError> get copyWith =>
+      __$ProductErrorCopyWithImpl<_ProductError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function() done,
+    required TResult Function(Product product) productDone,
+    required TResult Function(String error) error,
+    required TResult Function(String error) productError,
+  }) {
+    return productError(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function()? done,
+    TResult Function(Product product)? productDone,
+    TResult Function(String error)? error,
+    TResult Function(String error)? productError,
+  }) {
+    return productError?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function()? done,
+    TResult Function(Product product)? productDone,
+    TResult Function(String error)? error,
+    TResult Function(String error)? productError,
+    required TResult orElse(),
+  }) {
+    if (productError != null) {
+      return productError(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(ProductsLoading value) loading,
+    required TResult Function(_Done value) done,
+    required TResult Function(_productDone value) productDone,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ProductError value) productError,
+  }) {
+    return productError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(ProductsLoading value)? loading,
+    TResult Function(_Done value)? done,
+    TResult Function(_productDone value)? productDone,
+    TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
+  }) {
+    return productError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(ProductsLoading value)? loading,
+    TResult Function(_Done value)? done,
+    TResult Function(_productDone value)? productDone,
+    TResult Function(_Error value)? error,
+    TResult Function(_ProductError value)? productError,
+    required TResult orElse(),
+  }) {
+    if (productError != null) {
+      return productError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProductError implements ProductsState {
+  factory _ProductError({required final String error}) = _$_ProductError;
+
+  String get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ProductErrorCopyWith<_ProductError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

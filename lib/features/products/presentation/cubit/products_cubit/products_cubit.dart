@@ -33,7 +33,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     emit(ProductsState.loading());
     final result = await _getProduct(productId);
     result.fold(
-          (failure) => emit(ProductsState.error(error: failure.message)),
+          (failure) => emit(ProductsState.productError(error: failure.message)),
           (product) {
         emit(ProductsState.productDone(product: product));
       },
