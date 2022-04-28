@@ -39,5 +39,5 @@ abstract class ProductServiceImpl {
   Future<List<ProductModel>> getProducts();
 
   @GET("$productEndPoint/{productId}")
-  Future<ProductModel> getProduct({required int productId});
+  Future<ProductModel> getProduct({@Path() required int productId});
 }

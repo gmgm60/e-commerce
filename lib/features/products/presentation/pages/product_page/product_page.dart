@@ -25,11 +25,13 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   int count = 1;
-@override
+
+  @override
   void initState() {
     context.read<ProductsCubit>().getProduct(productId: widget.productId);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     final cartCubit = context.read<CartCubit>();
@@ -207,7 +209,7 @@ class _ProductPageState extends State<ProductPage> {
               ),
             );
           },
-          error: (error) => Center(child: Text(error.error)),
+          productError: (error) => Center(child: Text(error.error)),
           orElse: () {
             return const Center(child: CircularProgressIndicator());
           },
