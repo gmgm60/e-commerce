@@ -19,7 +19,7 @@ class MerchantItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                merchant.merchantName,
+                merchant.name,
                 style: Theme.of(context).textTheme.headline6,
               ),
               const SizedBox(

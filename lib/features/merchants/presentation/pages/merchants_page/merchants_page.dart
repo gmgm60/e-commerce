@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
 import 'package:ecommerce/di/injectable.dart';
+import 'package:ecommerce/features/categories/presentation/widgets/category_shimmer.dart';
 import 'package:ecommerce/features/merchants/domain/entities/merchant.dart';
 import 'package:ecommerce/features/merchants/presentation/bloc/merchants_cubit/merchants_cubit.dart';
 import 'package:ecommerce/features/merchants/presentation/bloc/merchants_cubit/merchants_states.dart';
@@ -23,7 +24,7 @@ class MerchantsPage extends StatelessWidget {
                 loaded: (merchants) {
                   return MerchantsList(merchants: merchants);
                 },
-                loading: () => const AppProgressIndicator(),
+                loading: () => const CategoryShimmer(),
                 error: (error) => Center(
                       child: Text(error),
                     ),

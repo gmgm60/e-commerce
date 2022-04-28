@@ -22,7 +22,7 @@ class MerchantsRepoImpl extends MerchantsRepository {
     try {
       final merchantModel = await _merchantsRemoteDatasource.getMerchants();
       debugPrint('get merchants: $merchantModel');
-      return right(merchantModel.map((e) => e.fromModel).toList());
+      return right(merchantModel.data.map((e) => e.fromModel).toList());
     } on AppException catch (exception) {
       debugPrint('get merchants error: ${exception.message}');
       return left(returnAppFailure(exception));
