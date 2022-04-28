@@ -18,20 +18,18 @@ class _MerchantsApiService implements MerchantsApiService {
   String? baseUrl;
 
   @override
-  Future<List<MerchantData>> getMerchants() async {
+  Future<MerchantModel> getMerchants() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<MerchantData>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<MerchantModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'seller/index',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => MerchantData.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = MerchantModel.fromJson(_result.data!);
     return value;
   }
 

@@ -13,5 +13,5 @@ abstract class MerchantsApiService {
   factory MerchantsApiService(Dio dio) = _MerchantsApiService;
 
   @GET(merchantsEndPoint)
-  Future<List<MerchantData>> getMerchants();
+  Future<MerchantModel> getMerchants();
 }

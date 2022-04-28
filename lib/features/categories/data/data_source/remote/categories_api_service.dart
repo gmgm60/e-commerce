@@ -16,6 +16,6 @@ abstract class CategoriesApiService {
   @GET(categoriesEndPoint)
   Future<CategoryModel> getCategories();
 
-  @GET('/productsbycatid?key=ec0ea640')
-  Future<List<ProductModel>> getProductsByCatId({required int catId});
+  @GET('$categoryByIDEndPoint/{catId}')
+  Future<List<ProductModel>> getProductsByCatId({@Path() required int catId});
 }

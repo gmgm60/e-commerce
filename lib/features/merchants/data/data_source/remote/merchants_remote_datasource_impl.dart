@@ -11,7 +11,7 @@ class MerchantsRemoteDatasourceImpl extends MerchantsRemoteDatasource {
   MerchantsRemoteDatasourceImpl(this._merchantsApiService);
 
   @override
-  Future<List<MerchantData>> getMerchants() async {
+  Future<MerchantModel> getMerchants() async {
     try {
       return await _merchantsApiService.getMerchants();
     } catch (e) {
