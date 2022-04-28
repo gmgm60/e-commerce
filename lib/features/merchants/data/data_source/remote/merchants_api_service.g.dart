@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'merchants_api_service_impl.dart';
+part of 'merchants_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'merchants_api_service_impl.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _MerchantsApiServiceImpl implements MerchantsApiServiceImpl {
-  _MerchantsApiServiceImpl(this._dio, {this.baseUrl}) {
+class _MerchantsApiService implements MerchantsApiService {
+  _MerchantsApiService(this._dio, {this.baseUrl}) {
     baseUrl ??= 'https://my.api.mockaroo.com';
   }
 

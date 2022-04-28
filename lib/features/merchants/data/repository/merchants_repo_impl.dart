@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce/core/data/return_app_failure.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
-import 'package:ecommerce/features/auth/domain/data_source/local/auth_local_datasource.dart';
 import 'package:ecommerce/features/merchants/data/mappers/merchant_mapper.dart';
 import 'package:ecommerce/features/merchants/data/models/merchant_model/merchants_model.dart';
-import 'package:ecommerce/features/merchants/domain/data_source/remote/merchants_api_service.dart';
+import 'package:ecommerce/features/merchants/domain/data_source/remote/merchants_remote_datasource.dart';
 import 'package:ecommerce/features/merchants/domain/entities/merchant.dart';
 import 'package:ecommerce/features/merchants/domain/repository/merchants_repository.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
@@ -16,25 +16,25 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: MerchantsRepository)
 class MerchantsRepoImpl extends MerchantsRepository {
-  final MerchantsApiService _merchantsApiService;
-  MerchantsRepoImpl(this._merchantsApiService);
+  final MerchantsRemoteDatasource _merchantsRemoteDatasource;
+
+  MerchantsRepoImpl(this._merchantsRemoteDatasource);
 
   @override
   Future<Either<AppFailure, List<Merchant>>> getMerchants() async {
     debugPrint('start get merchants');
 
-      try {
-        //todo
-        // final merchantModel =
-        //     await _merchantsApiService.getMerchants();
-        // debugPrint('get merchants: $merchantModel');
-        final merchantModel = getFakeData();
-        return right(merchantModel.data.map((e) => e.fromModel).toList());
-      } on AppException catch (exception) {
-        debugPrint('get merchants error: ${exception.message}');
-        return left(
-            GeneralRemoteAppFailure.unKnown(message: exception.message));
-      }
+    try {
+      //todo
+      // final merchantModel =
+      //     await _merchantsRemoteDatasource.getMerchants();
+      // debugPrint('get merchants: $merchantModel');
+      final merchantModel = getFakeData();
+      return right(merchantModel.data.map((e) => e.fromModel).toList());
+    } on AppException catch (exception) {
+      debugPrint('get merchants error: ${exception.message}');
+      return left(returnAppFailure(exception));
+    }
   }
 
   MerchantModel getFakeData() {
