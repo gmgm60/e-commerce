@@ -10,6 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/presentation/cubit/back_button_cubit/back_button_cubit.dart';
 import 'di/injectable.dart';
 import 'features/favorites/presentation/cubit/favorites_cubit/favorites_cubit.dart';
+import 'features/products/presentation/cubit/products_cubit/products_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +36,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<BackButtonCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ProductsCubit>(),
         ),
       ],
       child: BlocBuilder<LocaleCubit, LocaleStates>(

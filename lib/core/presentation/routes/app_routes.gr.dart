@@ -29,18 +29,16 @@ import '../../../features/categories/presentation/pages/category_products_page.d
     as _i19;
 import '../../../features/favorites/presentation/pages/favorites_page/favorites_page.dart'
     as _i5;
-import '../../../features/merchants/domain/entities/merchant.dart' as _i24;
+import '../../../features/merchants/domain/entities/merchant.dart' as _i23;
 import '../../../features/merchants/presentation/pages/merchant_details/merchant_details_page.dart'
     as _i17;
 import '../../../features/merchants/presentation/pages/merchants_page/merchants_page.dart'
     as _i16;
-import '../../../features/orders/domain/entities/order.dart' as _i23;
+import '../../../features/orders/domain/entities/order.dart' as _i22;
 import '../../../features/orders/presentation/pages/orders_page/order_details_page.dart'
     as _i15;
 import '../../../features/orders/presentation/pages/orders_page/orders_page.dart'
     as _i14;
-import '../../../features/products/domain/entities/product/product.dart'
-    as _i22;
 import '../../../features/products/presentation/pages/product_page/product_page.dart'
     as _i11;
 import '../../../features/products/presentation/pages/products_page/products_page.dart'
@@ -165,7 +163,7 @@ class AppRouter extends _i9.RootStackRouter {
           routeData: routeData,
           child: _i11.ProductPage(
               key: args.key,
-              product: args.product,
+              productId: args.productId,
               showAppBar: args.showAppBar),
           opaque: true,
           barrierDismissible: false);
@@ -435,29 +433,28 @@ class ProductsRoute extends _i9.PageRouteInfo<void> {
 /// generated route for
 /// [_i11.ProductPage]
 class ProductRoute extends _i9.PageRouteInfo<ProductRouteArgs> {
-  ProductRoute(
-      {_i20.Key? key, required _i22.Product product, bool showAppBar = false})
+  ProductRoute({_i20.Key? key, required int productId, bool showAppBar = false})
       : super(ProductRoute.name,
             path: 'ProductPage',
             args: ProductRouteArgs(
-                key: key, product: product, showAppBar: showAppBar));
+                key: key, productId: productId, showAppBar: showAppBar));
 
   static const String name = 'ProductRoute';
 }
 
 class ProductRouteArgs {
   const ProductRouteArgs(
-      {this.key, required this.product, this.showAppBar = false});
+      {this.key, required this.productId, this.showAppBar = false});
 
   final _i20.Key? key;
 
-  final _i22.Product product;
+  final int productId;
 
   final bool showAppBar;
 
   @override
   String toString() {
-    return 'ProductRouteArgs{key: $key, product: $product, showAppBar: $showAppBar}';
+    return 'ProductRouteArgs{key: $key, productId: $productId, showAppBar: $showAppBar}';
   }
 }
 
@@ -489,7 +486,7 @@ class OrdersRoute extends _i9.PageRouteInfo<void> {
 /// generated route for
 /// [_i15.OrderDetailsPage]
 class OrderDetailsRoute extends _i9.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({_i20.Key? key, required _i23.Order order})
+  OrderDetailsRoute({_i20.Key? key, required _i22.Order order})
       : super(OrderDetailsRoute.name,
             path: 'OrderDetailsPage',
             args: OrderDetailsRouteArgs(key: key, order: order));
@@ -502,7 +499,7 @@ class OrderDetailsRouteArgs {
 
   final _i20.Key? key;
 
-  final _i23.Order order;
+  final _i22.Order order;
 
   @override
   String toString() {
@@ -521,7 +518,7 @@ class MerchantsRoute extends _i9.PageRouteInfo<void> {
 /// generated route for
 /// [_i17.MerchantDetailsPage]
 class MerchantDetailsRoute extends _i9.PageRouteInfo<MerchantDetailsRouteArgs> {
-  MerchantDetailsRoute({_i20.Key? key, required _i24.Merchant merchant})
+  MerchantDetailsRoute({_i20.Key? key, required _i23.Merchant merchant})
       : super(MerchantDetailsRoute.name,
             path: 'MerchantDetailsPage',
             args: MerchantDetailsRouteArgs(key: key, merchant: merchant));
@@ -534,7 +531,7 @@ class MerchantDetailsRouteArgs {
 
   final _i20.Key? key;
 
-  final _i24.Merchant merchant;
+  final _i23.Merchant merchant;
 
   @override
   String toString() {

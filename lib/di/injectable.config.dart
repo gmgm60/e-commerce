@@ -137,8 +137,8 @@ import 'module/dio.dart' as _i83;
 import 'module/logger.dart' as _i84;
 import 'module/shared_preferences.dart' as _i85;
 
-const String _localMock = 'localMock';
 const String _test = 'test';
+const String _localMock = 'localMock';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -151,11 +151,11 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i3.AppInterceptor>(() => _i3.AppInterceptor());
   gh.factory<_i4.BackButtonCubit>(() => _i4.BackButtonCubit());
   gh.factory<_i5.Dio>(() => appDioInject.dio);
-  gh.factory<_i6.FavoriteRemoteService>(() => _i6.FavoriteRemoteServiceLocal(),
-      registerFor: {_localMock});
   gh.factory<_i6.FavoriteRemoteService>(
       () => _i6.FavoriteRemoteServiceImpl(get<_i5.Dio>()),
       registerFor: {_test});
+  gh.factory<_i6.FavoriteRemoteService>(() => _i6.FavoriteRemoteServiceLocal(),
+      registerFor: {_localMock});
   gh.factory<_i7.Logger>(() => myLoggerInject.logger);
   gh.singleton<_i8.MerchantsApiService>(
       _i8.MerchantsApiService(get<_i5.Dio>()));
@@ -169,8 +169,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i16.OrdersRepository>(
       () => _i17.OrdersRepoImpl(get<_i14.OrdersRemoteDatasource>()));
   gh.factory<_i18.ProductServiceImpl>(
-      () => _i18.ProductServiceImpl(get<_i5.Dio>()),
-      registerFor: {_localMock});
+      () => _i18.ProductServiceImpl(get<_i5.Dio>()));
   gh.singleton<_i19.ProfileUserService>(
       _i19.ProfileUserService(get<_i5.Dio>()));
   await gh.factoryAsync<_i20.SharedPreferences>(() => injectionModule.prefs,
@@ -260,8 +259,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i74.GetUserUseCase(get<_i55.ProfileRepository>()));
   gh.factory<_i75.LocalizationRepository>(
       () => _i76.LocalizationRepoImpl(get<_i44.LocalizationService>()));
-  gh.factory<_i77.ProductsCubit>(
-      () => _i77.ProductsCubit(get<_i73.GetProducts>()));
+  gh.factory<_i77.ProductsCubit>(() =>
+      _i77.ProductsCubit(get<_i73.GetProducts>(), get<_i72.GetProduct>()));
   gh.factory<_i78.ProfileCubit>(() => _i78.ProfileCubit(
       get<_i74.GetUserUseCase>(), get<_i60.UpdateUserUseCase>()));
   gh.factory<_i79.CartCubit>(() => _i79.CartCubit(get<_i71.GetCart>(),

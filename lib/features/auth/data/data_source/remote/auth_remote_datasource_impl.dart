@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/data/throw_app_exception.dart';
-import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/features/auth/data/data_source/remote/auth_api_service.dart';
 import 'package:ecommerce/features/auth/data/models/login/login_model.dart';
 import 'package:ecommerce/features/auth/data/models/register/register_model.dart';

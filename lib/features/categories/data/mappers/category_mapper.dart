@@ -5,7 +5,7 @@ extension CategoryMapper on CategoryData {
   ProductsCategory get fromModel => ProductsCategory(
         id: id,
         name: name ?? '',
-        description: description ?? '',
-        image: image ?? '',
+        description: description,
+        image: image ,
       );
 }

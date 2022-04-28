@@ -10,7 +10,7 @@ part of 'product_service_impl.dart';
 
 class _ProductServiceImpl implements ProductServiceImpl {
   _ProductServiceImpl(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://my.api.mockaroo.com';
+    baseUrl ??= 'https://0326-41-38-218-115.ngrok.io/api/';
   }
 
   final Dio _dio;
@@ -26,7 +26,7 @@ class _ProductServiceImpl implements ProductServiceImpl {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<ProductModel>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/products?key=e59c4330',
+                .compose(_dio.options, 'product/index',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -44,7 +44,7 @@ class _ProductServiceImpl implements ProductServiceImpl {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ProductModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/products?key=e59c4330',
+                .compose(_dio.options, 'product/{productId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ProductModel.fromJson(_result.data!);
