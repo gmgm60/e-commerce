@@ -23,17 +23,13 @@ class CategoryData {
   final int id;
   final String name;
   final String description;
-  @JsonKey(name: 'created_at')
-  final String createdAt;
-  @JsonKey(name: 'updated_at')
-  final String updatedAtAt;
+  final String image;
 
   CategoryData({
     required this.id,
     required this.name,
     required this.description,
-    required this.createdAt,
-    required this.updatedAtAt,
+    required this.image,
   });
 
   factory CategoryData.fromJson(Map<String, dynamic> json) =>

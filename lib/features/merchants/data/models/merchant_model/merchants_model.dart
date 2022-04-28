@@ -23,26 +23,24 @@ class MerchantModel {
 
 @JsonSerializable()
 class MerchantData {
-  @JsonKey(name: 'id')
   final int? id;
-  @JsonKey(name: 'merchant_name')
+  @JsonKey(name: 'name')
   final String? merchantName;
-  @JsonKey(name: 'phone')
+  final String? description;
   final String? phone;
-  @JsonKey(name: 'address')
   final String? address;
   @JsonKey(name: 'products')
   final List<ProductModel>? products;
-  @JsonKey(name: 'rating')
   final double? rating;
 
   MerchantData({
     required this.id,
     required this.merchantName,
-    required this.phone,
-    required this.address,
+    required this.description,
+    this.phone = '20125415',
+    this.address = 'merchant address',
     required this.products,
-    required this.rating,
+    this.rating = .25,
   });
 
   factory MerchantData.fromJson(Map<String, dynamic> json) =>
