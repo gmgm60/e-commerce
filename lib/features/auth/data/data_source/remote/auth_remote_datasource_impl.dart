@@ -18,10 +18,8 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
   Future<UserModel> login({required LoginModel loginModel}) async {
     try {
       return await _authApiService.login(loginModel: loginModel);
-    } on DioError catch (dioError) {
-      throw throwAppException(dioError.response);
     } catch (e) {
-      throw GeneralRemoteAppException.unKnown(message: 'Something went wrong');
+     throw throwAppException(e);
     }
   }
 
@@ -29,10 +27,8 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
   Future<String> logout() async {
     try {
       return await _authApiService.logout();
-    } on DioError catch (dioError) {
-      throw throwAppException(dioError.response);
     } catch (e) {
-      throw GeneralRemoteAppException.unKnown(message: 'Something went wrong');
+      throw throwAppException(e);
     }
   }
 
@@ -40,10 +36,8 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
   Future<UserModel> register({required RegisterModel registerModel}) async {
     try {
       return await _authApiService.register(registerModel: registerModel);
-    } on DioError catch (dioError) {
-      throw throwAppException(dioError.response);
     } catch (e) {
-      throw GeneralRemoteAppException.unKnown(message: 'Something went wrong');
+      throw throwAppException(e);
     }
   }
 
@@ -51,10 +45,8 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
   Future<String> resetPassword({required String email}) async {
     try {
       return await _authApiService.resetPassword(email: email);
-    } on DioError catch (dioError) {
-      throw throwAppException(dioError.response);
     } catch (e) {
-      throw GeneralRemoteAppException.unKnown(message: 'Something went wrong');
+      throw throwAppException(e);
     }
   }
 }

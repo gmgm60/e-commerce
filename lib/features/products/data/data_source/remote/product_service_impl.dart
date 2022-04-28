@@ -44,4 +44,7 @@ abstract class ProductServiceImpl {
   @GET("/products?key=e59c4330")
   Future<List<ProductModel>> getProducts();
 
+  @GET("/products?key=e59c4330")
+  Future<ProductModel> getProduct({required int productId});
+
 }

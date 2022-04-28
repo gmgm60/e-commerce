@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce/core/data/return_app_failure.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
-import 'package:ecommerce/features/products/data/models/product_model/product_mapper.dart';
+import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
 import 'package:ecommerce/features/products/domain/data_source/product_remote_data_source.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
@@ -23,7 +24,19 @@ class ProductsRepoImpl extends ProductRepo {
           response.map((productModel) => productModel.toDomain()).toList();
       return right(products);
     } on AppException catch (e) {
-      return left(GeneralRemoteAppFailure.unKnown(message: e.message));
+      return left(returnAppFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<AppFailure, Product>> getProduct({required int productId}) async{
+    try {
+      final ProductModel response =
+          await _productDataSource.getProduct(productId: productId);
+
+      return right(response.toDomain());
+    } on AppException catch (e) {
+      return left(returnAppFailure(e));
     }
   }
 }

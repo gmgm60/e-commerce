@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce/core/data/return_app_failure.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
-import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_mapper.dart';
+import 'package:ecommerce/features/cart/data/mappers/cart_item_mapper.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/domain/data/data_source/cart_remote_data_source.dart';
 import 'package:ecommerce/features/cart/domain/data/repository/cart_repository.dart';
@@ -28,7 +29,7 @@ class CartRepositoryImpl extends CartRepository {
     } on AppException catch (e) {
       // TODO
       _logger.v(e.toString());
-      return left((GeneralRemoteAppFailure.unKnown(message: e.message)));
+      return left(returnAppFailure(e));
     }
   }
 
@@ -38,13 +39,12 @@ class CartRepositoryImpl extends CartRepository {
     try {
       final List<CartItemModel> cartModel =
           cart.map((cartItem) => cartItem.toModel()).toList();
-      final response = await _cartRemoteService.editCart(cart: cartModel);
-      //_logger.v(response);
+      await _cartRemoteService.editCart(cart: cartModel);
       return right(unit);
     } on AppException catch (e) {
       // TODO
       _logger.v(e.toString());
-      return left((GeneralRemoteAppFailure.unKnown(message: e.message)));
+      return left(returnAppFailure(e));
     }
   }
 
@@ -59,7 +59,7 @@ class CartRepositoryImpl extends CartRepository {
     } on AppException catch (e) {
       // TODO
       _logger.v(e.toString());
-      return left((GeneralRemoteAppFailure.unKnown(message: e.message)));
+      return left(returnAppFailure(e));
     }
   }
 }
