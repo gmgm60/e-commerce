@@ -1,6 +1,6 @@
 import 'package:ecommerce/features/orders/data/models/orders_model/orders_model.dart';
 import 'package:ecommerce/features/orders/domain/entities/order.dart';
-import 'package:ecommerce/features/products/data/models/product_model/product_mapper.dart';
+import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
 
 extension OrdersMapper on OrdersModel {
   Order get fromModel {

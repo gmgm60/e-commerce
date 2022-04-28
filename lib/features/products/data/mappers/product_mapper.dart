@@ -3,7 +3,8 @@ import 'package:ecommerce/features/products/domain/entities/product/product.dart
 
 extension ProductModelMapper on ProductModel {
   Product toDomain() {
-    return Product(id: id,
+    return Product(
+        id: id,
         catId: catId,
         name: name,
         description: description,
@@ -13,9 +14,11 @@ extension ProductModelMapper on ProductModel {
         isAvailable: isAvailable);
   }
 }
+
 extension ProductMapper on Product {
   ProductModel toModel() {
-    return ProductModel(id: id,
+    return ProductModel(
+        id: id,
         catId: catId,
         name: name,
         description: description,

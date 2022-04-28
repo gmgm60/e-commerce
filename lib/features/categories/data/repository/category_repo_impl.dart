@@ -5,7 +5,7 @@ import 'package:ecommerce/features/categories/data/mappers/category_mapper.dart'
 import 'package:ecommerce/features/categories/domain/data_source/remote/categories_api_service.dart';
 import 'package:ecommerce/features/categories/domain/entities/category.dart';
 import 'package:ecommerce/features/categories/domain/repository/category_repository.dart';
-import 'package:ecommerce/features/products/data/models/product_model/product_mapper.dart';
+import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';

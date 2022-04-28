@@ -1,6 +1,6 @@
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
-import 'package:ecommerce/features/products/data/models/product_model/product_mapper.dart';
+import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
 
 extension ModelToDomain on CartItemModel{
   CartItem toDomain(){
