@@ -101,7 +101,7 @@ class AuthRepoImpl extends AuthRepository {
 
       return right(result);
     } on AppException catch (exception) {
-      debugPrint('Reset Error: ${exception.message}');
+      debugPrint('Reset Password22222 Error: ${exception.message}');
       return left(returnAppFailure(exception));
     }
   }

@@ -45,7 +45,11 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
   Future<String> resetPassword({required String email}) async {
     try {
       return await _authApiService.resetPassword(email: email);
-    } catch (e) {
+    }on DioError catch(dioError){
+      throw throwAppException(dioError);
+    }
+
+    catch (e) {
       throw throwAppException(e);
     }
   }

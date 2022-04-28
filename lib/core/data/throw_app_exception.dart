@@ -5,13 +5,15 @@ import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:flutter/material.dart';
 
 AppException throwAppException(exception) {
+  String errorMessage = 'Something went wrong';
+
   if (exception is DioError) {
     debugPrint('Dio Error with code: ${exception.response?.statusCode}');
-    String errorMessage = 'Something went wrong';
 
-    if (exception.response?.data['message'] != null &&
-        exception.response?.data['message'].toString() != '') {
-      errorMessage = exception.response?.data['message'];
+    try {
+      errorMessage = exception.response?.data['message'] as String;
+    } catch (e) {
+      return GeneralRemoteAppException.unKnown(message: errorMessage);
     }
 
     switch (exception.response?.statusCode) {
@@ -25,10 +27,9 @@ AppException throwAppException(exception) {
         return GeneralRemoteAppException.noConnection(message: errorMessage);
 
       default:
-        return GeneralRemoteAppException.unKnown(
-            message: 'Something went wrong');
+        return GeneralRemoteAppException.unKnown(message: errorMessage);
     }
   } else {
-    return GeneralRemoteAppException.unKnown(message: 'Something went wrong');
+    return GeneralRemoteAppException.unKnown(message: errorMessage);
   }
 }

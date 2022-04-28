@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/auth/data/models/login/login_model.dart';
@@ -24,5 +25,5 @@ abstract class AuthApiService {
   Future<String> logout();
 
   @POST(resetPassEndPoint)
-  Future<String> resetPassword({@Body() required String email});
+  Future<String> resetPassword({@QueryParam('email') required String email});
 }
