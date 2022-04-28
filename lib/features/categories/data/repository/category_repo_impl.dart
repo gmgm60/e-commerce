@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce/core/data/return_app_failure.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/categories/data/mappers/category_mapper.dart';
-import 'package:ecommerce/features/categories/domain/data_source/remote/categories_api_service.dart';
+import 'package:ecommerce/features/categories/domain/data_source/remote/categories_remote_datasource.dart';
 import 'package:ecommerce/features/categories/domain/entities/category.dart';
 import 'package:ecommerce/features/categories/domain/repository/category_repository.dart';
 import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
@@ -12,15 +13,15 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)
 class CategoryRepoImpl extends CategoryRepository {
-  final CategoriesApiService _categoriesApiService;
+  final CategoriesRemoteDatasource _categoriesRemoteDatasource;
 
-  CategoryRepoImpl(this._categoriesApiService);
+  CategoryRepoImpl(this._categoriesRemoteDatasource);
 
   @override
   Future<Either<AppFailure, List<ProductsCategory>>> getCategories() async {
     debugPrint('Get Categories start');
     try {
-      final categoryModel = await _categoriesApiService.getCategories();
+      final categoryModel = await _categoriesRemoteDatasource.getCategories();
       debugPrint('Get Categories Done:');
       if (categoryModel.data != null) {
         return right(categoryModel.data!
@@ -32,7 +33,7 @@ class CategoryRepoImpl extends CategoryRepository {
       }
     } on AppException catch (exception) {
       debugPrint('Get Categories Dio Error: ${exception.message}');
-      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
+      return left(returnAppFailure(exception));
     }
   }
 
@@ -43,14 +44,14 @@ class CategoryRepoImpl extends CategoryRepository {
 
     try {
       final productModel =
-          await _categoriesApiService.getProductsByCatId(catId: 0);
+          await _categoriesRemoteDatasource.getProductsByCatId(catId: 0);
       debugPrint('Get Category Products Done:');
 
       return right(productModel.map((product) => product.toDomain()).toList());
     } on AppException catch (exception) {
       debugPrint('Get Category Products Dio Error: ${exception.message}');
 
-      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
+      return left(returnAppFailure(exception));
     }
   }
 }

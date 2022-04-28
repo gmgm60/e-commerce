@@ -7,9 +7,13 @@ import 'package:flutter/material.dart';
 AppException throwAppException(exception) {
   if (exception is DioError) {
     debugPrint('Dio Error with code: ${exception.response?.statusCode}');
+    String errorMessage = 'Something went wrong';
 
-    String? errorMessage = exception.response?.data['message'];
-    errorMessage ??= 'Something went wrong';
+    if (exception.response?.data['message'] != null &&
+        exception.response?.data['message'].toString() != '') {
+      errorMessage = exception.response?.data['message'];
+    }
+
     switch (exception.response?.statusCode) {
       case HttpStatus.unauthorized:
         return GeneralRemoteAppException.unAuth(message: errorMessage);
@@ -21,9 +25,10 @@ AppException throwAppException(exception) {
         return GeneralRemoteAppException.noConnection(message: errorMessage);
 
       default:
-        return GeneralRemoteAppException.unKnown(message: 'Something went wrong');
+        return GeneralRemoteAppException.unKnown(
+            message: 'Something went wrong');
     }
-  }else {
+  } else {
     return GeneralRemoteAppException.unKnown(message: 'Something went wrong');
   }
 }

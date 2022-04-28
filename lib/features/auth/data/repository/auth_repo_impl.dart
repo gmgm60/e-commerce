@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce/core/data/return_app_failure.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/auth/data/mappers/login_mapper.dart';
@@ -37,7 +38,7 @@ class AuthRepoImpl extends AuthRepository {
 
       return right(userModel.userData.fromModel);
     } on AppException catch (exception) {
-      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
+      return left(returnAppFailure(exception));
     }
   }
 
@@ -57,7 +58,7 @@ class AuthRepoImpl extends AuthRepository {
       return right(userModel.userData.fromModel);
     } on AppException catch (exception) {
       debugPrint('Register Error: ${exception.message}');
-      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
+      return left(returnAppFailure(exception));
     }
   }
 
@@ -76,7 +77,7 @@ class AuthRepoImpl extends AuthRepository {
     } on AppException catch (exception) {
       debugPrint('Logout Catch Error: ${exception.message}');
 
-      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
+      return left(returnAppFailure(exception));
     }
   }
 
@@ -86,7 +87,6 @@ class AuthRepoImpl extends AuthRepository {
     if (token == null) {
       return left(GeneralRemoteAppFailure.unKnown(message: 'no token'));
     }
-
     return right(token);
   }
 
@@ -102,7 +102,7 @@ class AuthRepoImpl extends AuthRepository {
       return right(result);
     } on AppException catch (exception) {
       debugPrint('Reset Error: ${exception.message}');
-      return left(GeneralRemoteAppFailure.unKnown(message: exception.message));
+      return left(returnAppFailure(exception));
     }
   }
 }

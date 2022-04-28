@@ -1,18 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/features/orders/data/models/orders_model/orders_model.dart';
-import 'package:ecommerce/features/orders/domain/data_source/remote/orders_api_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
-part 'orders_api_service_impl.g.dart';
+part 'orders_api_service.g.dart';
 
-@Singleton(as: OrdersApiService)
+@singleton
 @RestApi(baseUrl: 'https://my.api.mockaroo.com')
-abstract class OrdersApiServiceImpl implements OrdersApiService {
+abstract class OrdersApiService  {
   @factoryMethod
-  factory OrdersApiServiceImpl(Dio dio) = _OrdersApiServiceImpl;
+  factory OrdersApiService(Dio dio) = _OrdersApiService;
 
-  @override
   @GET('/orders.json?key=ec0ea640')
   Future<List<OrdersModel>> getOrders();
 }

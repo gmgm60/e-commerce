@@ -1,6 +1,4 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/colors/colors.dart';
-import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
 import 'package:ecommerce/core/presentation/widgets/app_network_image.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
@@ -32,19 +30,10 @@ class ProfilePage extends StatelessWidget {
             return state.maybeWhen(
               loading: () => const AppProgressIndicator(),
               loaded: (user) => ProfileBody(user: user),
-              // failures: (failures) => Center(
-              //       child: Text(failures),
-              //     ),
-              orElse: () => const ProfileBody(
-                user: User(
-                  name: 'Taha Elkholy',
-                  email: 'taha@gmail.com',
-                  address: 'Damanhour, Bhera, Egypt',
-                  phone: '012012012365',
-                  image:
-                      'https://images.pexels.com/photos/3371492/pexels-photo-3371492.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                ),
+              error: (failures) => Center(
+                child: Text(failures),
               ),
+              orElse: () => Container(),
             );
           },
         ),
@@ -175,11 +164,10 @@ class ProfileBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: AppElevatedButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(
-                          builder: (context) => UpdateProfilePage(
-                                user: user,
-                              )));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => UpdateProfilePage(
+                            user: user,
+                          )));
                 },
                 text: context.tr.update),
           )
