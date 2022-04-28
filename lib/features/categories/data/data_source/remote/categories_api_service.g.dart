@@ -10,7 +10,7 @@ part of 'categories_api_service.dart';
 
 class _CategoriesApiService implements CategoriesApiService {
   _CategoriesApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://my.api.mockaroo.com';
+    baseUrl ??= 'https://0326-41-38-218-115.ngrok.io/api/';
   }
 
   final Dio _dio;
@@ -26,7 +26,7 @@ class _CategoriesApiService implements CategoriesApiService {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<CategoryModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/category.json?key=ec0ea640',
+                .compose(_dio.options, 'category/index',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = CategoryModel.fromJson(_result.data!);

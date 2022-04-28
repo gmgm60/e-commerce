@@ -4,14 +4,12 @@ part 'category_model.g.dart';
 
 @JsonSerializable()
 class CategoryModel {
-  List<CategoryData>? data;
-  String? message;
-  int? status;
+  final List<CategoryData> data;
+  final String message;
 
   CategoryModel({
-    this.data,
-    this.message,
-    this.status,
+    required this.data,
+    required this.message,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>
@@ -22,16 +20,20 @@ class CategoryModel {
 
 @JsonSerializable()
 class CategoryData {
-  int id;
-  String? name;
-  String? description;
-  String? image;
+  final int id;
+  final String name;
+  final String description;
+  @JsonKey(name: 'created_at')
+  final String createdAt;
+  @JsonKey(name: 'updated_at')
+  final String updatedAtAt;
 
   CategoryData({
     required this.id,
-    this.name,
-    this.description,
-    this.image,
+    required this.name,
+    required this.description,
+    required this.createdAt,
+    required this.updatedAtAt,
   });
 
   factory CategoryData.fromJson(Map<String, dynamic> json) =>
