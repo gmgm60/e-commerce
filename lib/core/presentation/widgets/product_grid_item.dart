@@ -19,7 +19,6 @@ class ProductGridItem extends StatelessWidget {
     return LayoutBuilder(builder: (context, constrain) {
       final double width = constrain.maxWidth;
       final double height = constrain.maxHeight;
-      // print(constrain.maxHeight.toString() +"," +constrain.maxWidth.toString());
       return GestureDetector(
         onTap: () {
           Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) {
@@ -29,7 +28,7 @@ class ProductGridItem extends StatelessWidget {
             var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
             return SlideTransition(
               position: animation.drive(tween),
-              child: ProductPage(product: product,showAppBar: showAppBar),
+              child: ProductPage(productId: product.id,showAppBar: showAppBar),
             );
           }),);
           context.read<BackButtonCubit>().refresh();
@@ -56,7 +55,7 @@ class ProductGridItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                        (product.price * (1 - product.discount))
+                        (product.newPrice)
                             .toStringAsFixed(1) +
                             context.tr.currency,
                         style: Theme.of(context).textTheme.headline6),
@@ -71,7 +70,7 @@ class ProductGridItem extends StatelessWidget {
                         )),
                     const SizedBox(width: 10),
                     Text(
-                      (product.discount * 100).toInt().toString() +
+                      product.percentage.toString() +
                           context.tr.off,
                       style: Theme.of(context)
                           .textTheme

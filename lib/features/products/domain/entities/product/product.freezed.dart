@@ -23,7 +23,7 @@ mixin _$Product {
   String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   double get discount => throw _privateConstructorUsedError;
-  bool get isAvailable => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $ProductCopyWith<$Res> {
       String image,
       double price,
       double discount,
-      bool isAvailable});
+      int quantity});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? image = freezed,
     Object? price = freezed,
     Object? discount = freezed,
-    Object? isAvailable = freezed,
+    Object? quantity = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -92,10 +92,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
-      isAvailable: isAvailable == freezed
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -113,7 +113,7 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String image,
       double price,
       double discount,
-      bool isAvailable});
+      int quantity});
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? image = freezed,
     Object? price = freezed,
     Object? discount = freezed,
-    Object? isAvailable = freezed,
+    Object? quantity = freezed,
   }) {
     return _then(_Product(
       id: id == freezed
@@ -165,17 +165,17 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
-      isAvailable: isAvailable == freezed
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Product implements _Product {
+class _$_Product extends _Product {
   _$_Product(
       {required this.id,
       required this.catId,
@@ -184,7 +184,8 @@ class _$_Product implements _Product {
       required this.image,
       required this.price,
       required this.discount,
-      required this.isAvailable});
+      required this.quantity})
+      : super._();
 
   @override
   final int id;
@@ -201,11 +202,11 @@ class _$_Product implements _Product {
   @override
   final double discount;
   @override
-  final bool isAvailable;
+  final int quantity;
 
   @override
   String toString() {
-    return 'Product(id: $id, catId: $catId, name: $name, description: $description, image: $image, price: $price, discount: $discount, isAvailable: $isAvailable)';
+    return 'Product(id: $id, catId: $catId, name: $name, description: $description, image: $image, price: $price, discount: $discount, quantity: $quantity)';
   }
 
   @override
@@ -221,8 +222,7 @@ class _$_Product implements _Product {
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.discount, discount) &&
-            const DeepCollectionEquality()
-                .equals(other.isAvailable, isAvailable));
+            const DeepCollectionEquality().equals(other.quantity, quantity));
   }
 
   @override
@@ -235,7 +235,7 @@ class _$_Product implements _Product {
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(discount),
-      const DeepCollectionEquality().hash(isAvailable));
+      const DeepCollectionEquality().hash(quantity));
 
   @JsonKey(ignore: true)
   @override
@@ -243,7 +243,7 @@ class _$_Product implements _Product {
       __$ProductCopyWithImpl<_Product>(this, _$identity);
 }
 
-abstract class _Product implements Product {
+abstract class _Product extends Product {
   factory _Product(
       {required final int id,
       required final int catId,
@@ -252,7 +252,8 @@ abstract class _Product implements Product {
       required final String image,
       required final double price,
       required final double discount,
-      required final bool isAvailable}) = _$_Product;
+      required final int quantity}) = _$_Product;
+  _Product._() : super._();
 
   @override
   int get id => throw _privateConstructorUsedError;
@@ -269,7 +270,7 @@ abstract class _Product implements Product {
   @override
   double get discount => throw _privateConstructorUsedError;
   @override
-  bool get isAvailable => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProductCopyWith<_Product> get copyWith =>
