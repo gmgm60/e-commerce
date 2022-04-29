@@ -73,8 +73,8 @@ class FavoritesCubit extends Cubit<FavoritesState> {
         emit(FavoritesState.error());
       },
       (favoritesList) {
-        for (FavoriteItem favoriteItem in favoritesList) {
-          favorites[favoriteItem.product.id] = favoriteItem;
+        for (Product product in favoritesList) {
+          favorites[product.id] = FavoriteItem(product: product);
         }
         emit(FavoritesState.done());
       },
