@@ -224,8 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         context.tr.alreadyHaveAccount,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1!
-                            .copyWith(color: appGrey),
+                            .bodyText1,
                       ),
                       const SizedBox(
                         width: 2,
