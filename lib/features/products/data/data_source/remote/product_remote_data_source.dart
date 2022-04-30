@@ -2,6 +2,7 @@ import 'package:ecommerce/core/data/throw_app_exception.dart';
 import 'package:ecommerce/features/products/data/data_source/remote/product_service_impl.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
 import 'package:ecommerce/features/products/domain/data_source/product_remote_data_source.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ProductRemoteDataSource)
@@ -16,7 +17,7 @@ class ProductRemoteDataSourceImpl extends ProductRemoteDataSource {
       final response = await _productServiceImpl.getProducts();
       return response;
     } catch (e) {
-      print("product e : ${e.toString()}");
+      debugPrint("product e : ${e.toString()}");
       throw throwAppException(e);
     }
   }

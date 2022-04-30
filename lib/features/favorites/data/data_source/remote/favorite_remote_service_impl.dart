@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/favorites/data/models/favorite_model/favorite_model.dart';
-import 'package:ecommerce/features/favorites/domain/data/data_source/favorite_remote_data_source.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 

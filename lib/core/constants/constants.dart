@@ -3,7 +3,7 @@ RegExp emailRegExp = RegExp(
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
 //remote
-const String baseUrl = 'https://0326-41-38-218-115.ngrok.io/api/';
+const String baseUrl = 'https://5aa9-154-180-46-124.eu.ngrok.io/api/';
 const String loginEndPoint = 'login';
 const String registerEndPoint = 'register';
 const String logoutEndPoint = 'logout';
