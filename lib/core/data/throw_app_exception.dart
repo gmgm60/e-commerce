@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 AppException throwAppException(exception) {
   String errorMessage = 'Something went wrong';
-  print(exception.toString());
+  debugPrint(exception.toString());
   if (exception is DioError) {
     debugPrint('Dio Error with code: ${exception.response?.statusCode}');
 
@@ -30,7 +30,7 @@ AppException throwAppException(exception) {
         return GeneralRemoteAppException.unKnown(message: errorMessage);
     }
   } else {
-    print(exception.toString());
+    debugPrint(exception.toString());
     return GeneralRemoteAppException.unKnown(message: errorMessage);
   }
 }

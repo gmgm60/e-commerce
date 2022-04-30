@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

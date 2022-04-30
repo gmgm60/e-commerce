@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
-import 'package:ecommerce/core/presentation/widgets/dash_line.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/confirm_order.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/edit_cart.dart';
@@ -8,6 +7,7 @@ import 'package:ecommerce/features/cart/domain/use_cases/get_cart.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
+
 import 'cart_state.dart';
 //TODO add discount price after get real api
 
@@ -124,15 +124,13 @@ class CartCubit extends Cubit<CartState> {
     emit(CartState.loading());
     final result = await _confirmOrder(cart.values.toList());
 
-   await result.fold((failure)async {
-
+    await result.fold((failure) async {
       emit(CartState.error(errMsg: failure.message));
-    }, (unit)async {
-     cart.clear();
-     animatedListCount=0;
+    }, (unit) async {
+      cart.clear();
+      animatedListCount = 0;
       emit(CartState.done(refresh: -100));
       await Future.delayed(const Duration(milliseconds: 50));
-
     });
   }
 }

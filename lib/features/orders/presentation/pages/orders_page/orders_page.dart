@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
-import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
+import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/di/injectable.dart';
+import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:ecommerce/features/orders/domain/entities/order.dart';
 import 'package:ecommerce/features/orders/presentation/bloc/orders_cubit/orders_cubit.dart';
 import 'package:ecommerce/features/orders/presentation/bloc/orders_cubit/orders_states.dart';
@@ -20,13 +21,10 @@ class OrdersPage extends StatelessWidget {
         child:
             BlocBuilder<OrdersCubit, OrdersStates>(builder: (context, state) {
           return state.maybeWhen(
-            loading: () => const AppProgressIndicator(),
+            loading: () => const ListShimmer(),
             loaded: (orders) => OrdersList(orders: orders),
-            error: (error) => Center(
-              child: Text(
-                error,
-                style: Theme.of(context).textTheme.headline6,
-              ),
+            error: (error) => AppErrorWidget(
+              error: error,
             ),
             orElse: () => Container(),
           );
@@ -58,17 +56,17 @@ class _OrdersListState extends State<OrdersList> {
   }
 
   Future _addOrders() async {
-    for(var _ in widget.orders){
+    for (var _ in widget.orders) {
       await Future.delayed(const Duration(milliseconds: 200));
       _counter++;
-      _listKey.currentState!.insertItem(_counter-1);
+      _listKey.currentState!.insertItem(_counter - 1);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedList(
-      key: _listKey,
+        key: _listKey,
         initialItemCount: _counter,
         itemBuilder: (context, index, animation) {
           return SlideTransition(
