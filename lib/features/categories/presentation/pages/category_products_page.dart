@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/presentation/widgets/app_empty_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
 import 'package:ecommerce/core/presentation/widgets/product_shimmer.dart';
@@ -23,7 +24,8 @@ class CategoryProductsPage extends StatelessWidget {
           return state.maybeWhen(
               loading: () => const ProductShimmer(),
               error: (error) => AppErrorWidget(error: error),
-              productsLoaded: (products) => ProductsGrid(products: products),
+              productsLoaded: (products) => products.isNotEmpty
+                  ?ProductsGrid(products: products): const AppEmptyWidget(),
               orElse: () => Container());
         }),
       ),

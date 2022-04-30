@@ -28,12 +28,10 @@ class _StartupPageState extends State<StartupPage> {
       create: (context) => _authCubit..getToken(),
       child: BlocListener<AuthCubit, AuthStates>(
         listener: (context, state) {
-          state.whenOrNull(
-              loaded: () {
-                AutoRouter.of(context).replace(const HomeRoute());
-              },
-          error: (error) {
-                AutoRouter.of(context).replace(const LoginRoute());
+          state.whenOrNull(loaded: () {
+            AutoRouter.of(context).replace(const HomeRoute());
+          }, error: (error) {
+            AutoRouter.of(context).replace(const LoginRoute());
           });
         },
         child: Scaffold(

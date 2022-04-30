@@ -29,7 +29,7 @@
   "description": "Description :",
   "off": " % Off",
   "currency": " EGP",
-  "yourCart" : "Your Cart",
+  "yourCart": "Your Cart",
   "checkYourEmail": "Check Your Email",
   "resetPassword": "Reset Your Password",
   "profile": "Profile",
@@ -51,12 +51,13 @@
   "thisProductISInTheCart": "This Product is in the Cart",
   "productNotAvailable": "This Product Is Not Available at This Moment",
   "productName": "Product Name",
-  "price" : "Price",
+  "price": "Price",
   "count": "Count",
   "total": "Total",
   "checkout": "Checkout",
   "confirm": "Confirm",
   "ok": "OK",
   "orderSuccess": "Your order is Success",
-  "orderFailed": "Error,You order confirmation is failed!"
+  "orderFailed": "Error,You order confirmation is failed!",
+  "noDataToShow": "Nothing to show here!"
 }
