@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
+import 'package:ecommerce/core/presentation/widgets/app_empty_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
@@ -22,7 +23,8 @@ class OrdersPage extends StatelessWidget {
             BlocBuilder<OrdersCubit, OrdersStates>(builder: (context, state) {
           return state.maybeWhen(
             loading: () => const ListShimmer(),
-            loaded: (orders) => OrdersList(orders: orders),
+            loaded: (orders) => orders.isNotEmpty
+                ?OrdersList(orders: orders) : const AppEmptyWidget(),
             error: (error) => AppErrorWidget(
               error: error,
             ),

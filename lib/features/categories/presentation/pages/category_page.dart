@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
+import 'package:ecommerce/core/presentation/widgets/app_empty_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
+import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/categories/domain/entities/category.dart';
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_cubit.dart';
 import 'package:ecommerce/features/categories/presentation/bloc/category_cubit/category_states.dart';
 import 'package:ecommerce/features/categories/presentation/widgets/category_item.dart';
-import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,8 +24,9 @@ class CategoryPage extends StatelessWidget {
           return state.maybeWhen(
               loading: () => const ListShimmer(),
               error: (error) => AppErrorWidget(error: error),
-              categoryLoaded: (categories) =>
-                  CategoryList(categories: categories),
+              categoryLoaded: (categories) => categories.isNotEmpty
+                  ? CategoryList(categories: categories)
+                  : const AppEmptyWidget(),
               orElse: () => Container());
         }),
       ),

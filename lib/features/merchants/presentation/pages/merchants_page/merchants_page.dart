@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
+import 'package:ecommerce/core/presentation/widgets/app_empty_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:ecommerce/di/injectable.dart';
@@ -21,9 +22,9 @@ class MerchantsPage extends StatelessWidget {
           body: BlocBuilder<MerchantsCubit, MerchantsStates>(
               builder: (context, state) {
             return state.maybeWhen(
-                loaded: (merchants) {
-                  return MerchantsList(merchants: merchants);
-                },
+                loaded: (merchants) => merchants.isNotEmpty
+                    ? MerchantsList(merchants: merchants)
+                    : const AppEmptyWidget(),
                 loading: () => const ListShimmer(),
                 error: (error) => AppErrorWidget(
                       error: error,
