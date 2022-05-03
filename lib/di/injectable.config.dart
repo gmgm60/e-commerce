@@ -69,19 +69,19 @@ import '../features/categories/domain/use_case/get_products_by_cat_id_use_case.d
 import '../features/categories/presentation/bloc/category_cubit/category_cubit.dart'
     as _i68;
 import '../features/favorites/data/data_source/local/favorite_local_data_source.dart'
-    as _i33;
+    as _i34;
 import '../features/favorites/data/data_source/remote/favorite_remote_service_impl.dart'
     as _i5;
 import '../features/favorites/data/data_source/remote/favorites_remote_data_source.dart'
-    as _i35;
-import '../features/favorites/data/repository/favorite_repository_impl.dart'
-    as _i37;
-import '../features/favorites/domain/data/data_source/favorite_local_data_source.dart'
-    as _i38;
-import '../features/favorites/domain/data/data_source/favorite_remote_data_source.dart'
-    as _i34;
-import '../features/favorites/domain/data/repository/favorite_repository.dart'
     as _i36;
+import '../features/favorites/data/repository/favorite_repository_impl.dart'
+    as _i38;
+import '../features/favorites/domain/data/data_source/favorite_local_data_source.dart'
+    as _i33;
+import '../features/favorites/domain/data/data_source/favorite_remote_data_source.dart'
+    as _i35;
+import '../features/favorites/domain/data/repository/favorite_repository.dart'
+    as _i37;
 import '../features/favorites/domain/use_cases/add_to_favorite.dart' as _i62;
 import '../features/favorites/domain/use_cases/get_favorites.dart' as _i40;
 import '../features/favorites/domain/use_cases/remove_from_favorite.dart'
@@ -186,17 +186,17 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i30.CategoriesRemoteDatasourceImpl(get<_i28.CategoriesApiService>()));
   gh.factory<_i31.CategoryRepository>(
       () => _i32.CategoryRepoImpl(get<_i29.CategoriesRemoteDatasource>()));
-  gh.factory<_i33.FavoriteLocalDataSourceImpl>(
-      () => _i33.FavoriteLocalDataSourceImpl(get<_i19.SharedPreferences>()));
-  gh.factory<_i34.FavoriteRemoteDataSource>(() =>
-      _i35.FavoriteRemoteDataSourceImpl(get<_i5.FavoriteRemoteService>()));
-  gh.factory<_i36.FavoriteRepository>(() => _i37.FavoriteRepositoryImpl(
-      get<_i34.FavoriteRemoteDataSource>(),
-      get<_i38.FavoriteLocalDataSource>()));
+  gh.factory<_i33.FavoriteLocalDataSource>(
+      () => _i34.FavoriteLocalDataSourceImpl(get<_i19.SharedPreferences>()));
+  gh.factory<_i35.FavoriteRemoteDataSource>(() =>
+      _i36.FavoriteRemoteDataSourceImpl(get<_i5.FavoriteRemoteService>()));
+  gh.factory<_i37.FavoriteRepository>(() => _i38.FavoriteRepositoryImpl(
+      get<_i35.FavoriteRemoteDataSource>(),
+      get<_i33.FavoriteLocalDataSource>()));
   gh.factory<_i39.GetCategoriesUseCase>(
       () => _i39.GetCategoriesUseCase(get<_i31.CategoryRepository>()));
   gh.factory<_i40.GetFavorites>(
-      () => _i40.GetFavorites(get<_i36.FavoriteRepository>()));
+      () => _i40.GetFavorites(get<_i37.FavoriteRepository>()));
   gh.factory<_i41.GetMerchantsUseCase>(
       () => _i41.GetMerchantsUseCase(get<_i10.MerchantsRepository>()));
   gh.factory<_i42.GetOrderUseCase>(
@@ -226,13 +226,13 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i58.RegisterUseCase>(
       () => _i58.RegisterUseCase(get<_i25.AuthRepository>()));
   gh.factory<_i59.RemoveFromFavorite>(
-      () => _i59.RemoveFromFavorite(get<_i36.FavoriteRepository>()));
+      () => _i59.RemoveFromFavorite(get<_i37.FavoriteRepository>()));
   gh.factory<_i60.ResetPassUseCase>(
       () => _i60.ResetPassUseCase(get<_i25.AuthRepository>()));
   gh.factory<_i61.UpdateUserUseCase>(
       () => _i61.UpdateUserUseCase(get<_i56.ProfileRepository>()));
   gh.factory<_i62.AddToFavorite>(
-      () => _i62.AddToFavorite(get<_i36.FavoriteRepository>()));
+      () => _i62.AddToFavorite(get<_i37.FavoriteRepository>()));
   gh.factory<_i63.AuthCubit>(() => _i63.AuthCubit(
       get<_i46.LoginUseCase>(),
       get<_i47.LogoutUseCase>(),

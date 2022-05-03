@@ -10,7 +10,7 @@ part of 'favorite_remote_service_impl.dart';
 
 class _FavoriteRemoteService implements FavoriteRemoteService {
   _FavoriteRemoteService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://0326-41-38-218-115.ngrok.io/api/';
+    baseUrl ??= 'https://5aa9-154-180-46-124.eu.ngrok.io/api/';
   }
 
   final Dio _dio;
@@ -25,7 +25,7 @@ class _FavoriteRemoteService implements FavoriteRemoteService {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ProductModel>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
+            Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'product/${productId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));

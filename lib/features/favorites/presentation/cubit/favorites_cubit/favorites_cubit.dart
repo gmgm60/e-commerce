@@ -26,19 +26,19 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       : super(FavoritesState.init());
 
   Future<void> addToFavorites({required Product product}) async {
-    if (currentId ==-1) {
+    if (currentId == -1) {
       favorites[product.id] = FavoriteItem(product: product);
       currentId = product.id;
       emit(FavoritesState.loading());
-      // final result = await _addToFavorite(product.id);
-      // result.fold(
-      //   (error) {
-      //     print(error.error);
-      //     favorites.remove(product.id);
-      //     emit(FavoritesState.error());
-      //   },
-      //   (unit) => emit(FavoritesState.done()),
-      // );
+      final result = await _addToFavorite(product.id);
+      result.fold(
+        (error) {
+          print(error.message);
+          favorites.remove(product.id);
+          emit(FavoritesState.error());
+        },
+        (unit) => emit(FavoritesState.done()),
+      );
       await Future.delayed(const Duration(milliseconds: 500));
       emit(FavoritesState.done());
       currentId = -1;
@@ -46,26 +46,27 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   }
 
   Future<void> removeFromFavorites({required int productId}) async {
-    if (currentId ==-1) {
+    if (currentId == -1) {
       final FavoriteItem favoriteItem = favorites[productId]!;
       favorites.remove(productId);
       currentId = productId;
       emit(FavoritesState.loading());
-     // final result = await _removeFromFavorite(productId);
-      // result.fold(
-      //   (error) {
-      //     favorites[productId] = favoriteItem;
-      //     emit(FavoritesState.error());
-      //   },
-      //   (unit) => emit(FavoritesState.done()),
-      // );
-     await Future.delayed(const Duration(milliseconds: 500));
+      final result = await _removeFromFavorite(productId);
+      result.fold(
+        (error) {
+          favorites[productId] = favoriteItem;
+          emit(FavoritesState.error());
+        },
+        (unit) => emit(FavoritesState.done()),
+      );
+      await Future.delayed(const Duration(milliseconds: 500));
       emit(FavoritesState.done());
       currentId = -1;
     }
   }
 
   Future<void> getFavorites() async {
+    currentId = -100;
     emit(FavoritesState.loading());
     final result = await _getFavorites(NoParams());
     result.fold(
@@ -79,5 +80,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
         emit(FavoritesState.done());
       },
     );
+    await Future.delayed(const Duration(seconds: 1));
+    currentId = -1;
   }
 }

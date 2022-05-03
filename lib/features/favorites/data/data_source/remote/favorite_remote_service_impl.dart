@@ -15,7 +15,7 @@ abstract class FavoriteRemoteService {
   @factoryMethod
   factory FavoriteRemoteService(Dio dio) = _FavoriteRemoteService;
 
-  @POST("$productEndPoint/{productId}")
+  @GET("$productEndPoint/{productId}")
   Future<ProductModel> getToFavorite({
     @Path() required int productId,
   });

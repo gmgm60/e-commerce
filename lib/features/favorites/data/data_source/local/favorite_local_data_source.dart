@@ -2,7 +2,7 @@ import 'package:ecommerce/core/data/throw_app_exception.dart';
 import 'package:ecommerce/features/favorites/domain/data/data_source/favorite_local_data_source.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-@injectable
+@Injectable(as: FavoriteLocalDataSource)
 class FavoriteLocalDataSourceImpl extends FavoriteLocalDataSource {
   final SharedPreferences _preferences;
   final String favoritesKey = "favorites";
