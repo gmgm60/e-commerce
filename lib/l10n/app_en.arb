@@ -59,5 +59,8 @@
   "ok": "OK",
   "orderSuccess": "Your order is Success",
   "orderFailed": "Error,You order confirmation is failed!",
-  "noDataToShow": "Nothing to show here!"
+  "noDataToShow": "Nothing to show here!",
+  "favoritesList": "Favorites List",
+  "noFavoritesYet": "No favorites yet.",
+  "noFavoritesText": "Click the heart icon on any product, and you will see it here next time you view this page."
 }
