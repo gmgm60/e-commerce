@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/constants/constants.dart';
+import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 class AppErrorWidget extends StatelessWidget {
@@ -17,11 +19,20 @@ class AppErrorWidget extends StatelessWidget {
           ),
 
           Text(
-            error,
+            errorTranslate(error,context),
             style: Theme.of(context).textTheme.titleLarge,
           )
         ],
       ),
     );
   }
+}
+
+String errorTranslate(String error,BuildContext context){
+
+switch(error){
+  case unknownError : return context.tr.unknownError;
+  case somethingWentWrong : return context.tr.somethingWentWrong;
+  default : return error ;
+}
 }

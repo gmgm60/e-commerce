@@ -24,3 +24,7 @@ const String arLanguageCode = 'ar';
 // keys
 const String tokenKey = 'token_key';
 const String localeCodeKey = 'locale_code_key';
+
+//error message
+const String unknownError ="Unknown Error";
+const String somethingWentWrong ="Something Went Wrong!";
