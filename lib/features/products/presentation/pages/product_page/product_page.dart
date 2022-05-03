@@ -174,8 +174,10 @@ class _ProductPageState extends State<ProductPage> {
                                               color: Colors.black12,
                                               child: TextButton(
                                                   onPressed: () {
-                                                    count += 1;
-                                                    setState(() {});
+                                                    if (count <= product.quantity) {
+                                                      count += 1;
+                                                      setState(() {});
+                                                    }
                                                   },
                                                   child: const Text("+"),
                                                   style: const ButtonStyle())),
