@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/widgets/product_grid_item.dart';
 import 'package:ecommerce/features/favorites/presentation/cubit/favorites_cubit/favorites_cubit.dart';
+import 'package:ecommerce/features/favorites/presentation/pages/favorites_page/no_favorites.dart';
+import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +12,7 @@ class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Favorites List"),
+      appBar: AppBar(title: Text(context.tr.favoritesList),
       leading: const SizedBox.shrink(),
       actions: [
         IconButton(onPressed: (){
@@ -20,7 +22,12 @@ class FavoritesPage extends StatelessWidget {
       ]),
       body: BlocBuilder<FavoritesCubit, FavoritesState>(
         builder: (context, state) {
-          return ListView(
+
+          return context
+              .read<FavoritesCubit>()
+              .favorites.isEmpty ?
+            const NoFavorites()
+            : ListView(
             children: [
               GridView.count(
                 primary: false,
@@ -31,7 +38,7 @@ class FavoritesPage extends StatelessWidget {
                 children: context
                     .read<FavoritesCubit>()
                     .favorites.values
-                    .map((product) => ProductGridItem(product: product.product,showAppBar: true,))
+                    .map((favoriteItem) => ProductGridItem(product: favoriteItem.product,showAppBar: true,))
                     .toList(),
               ),
             ],
