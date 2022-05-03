@@ -62,5 +62,7 @@
   "noDataToShow": "Nothing to show here!",
   "favoritesList": "Favorites List",
   "noFavoritesYet": "No favorites yet.",
-  "noFavoritesText": "Click the heart icon on any product, and you will see it here next time you view this page."
+  "noFavoritesText": "Click the heart icon on any product, and you will see it here next time you view this page.",
+  "unknownError": "Unknown Error!",
+  "somethingWentWrong": "Something Went Wrong!"
 }

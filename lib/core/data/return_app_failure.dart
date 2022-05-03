@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
 
@@ -12,6 +13,6 @@ AppFailure returnAppFailure(appException) {
             GeneralRemoteAppFailure.serverError(message: e.message),
         unKnown: (e) => GeneralRemoteAppFailure.unKnown(message: e.message));
   } else {
-    return GeneralRemoteAppFailure.unKnown(message: "Unknown Error");
+    return GeneralRemoteAppFailure.unKnown(message: unknownError);
   }
 }
