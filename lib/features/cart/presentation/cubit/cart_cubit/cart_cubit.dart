@@ -77,7 +77,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   void editCount({required int productId, required int count}) {
-    if (count > 0) {
+    if (cart[productId] != null && count > 0 && count <= cart[productId]!.product.quantity ) {
       editedProductId = productId;
       emit(CartState.loading());
       cart[productId] = cart[productId]!.copyWith(count: count);
