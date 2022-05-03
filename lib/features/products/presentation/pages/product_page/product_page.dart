@@ -40,7 +40,9 @@ class _ProductPageState extends State<ProductPage> {
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, productState) {
         return productState.maybeMap(
-          loading: (_) =>  const AppProgressIndicator(),
+          loading: (_) => const Center(
+            child: Scaffold(body: Center(child: AppProgressIndicator())),
+          ),
           productDone: (doneState) {
             final Product product = doneState.product;
             return Scaffold(

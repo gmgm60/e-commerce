@@ -1,9 +1,6 @@
-import 'package:ecommerce/features/favorites/data/models/favorite_model/favorite_model.dart';
+import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
 
 abstract class FavoriteRemoteDataSource {
- Future<dynamic> addToFavorites({required int productId});
 
-Future<dynamic>  removeFromFavorites({required int productId});
-
- Future<List<FavoriteModel>> getFavorites();
+ Future<List<ProductModel>> getFavorites({required List<int> favoritesIds});
 }
