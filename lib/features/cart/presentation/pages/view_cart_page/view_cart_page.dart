@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
+import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
+import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'cart_details.dart';
 import 'cart_item_row.dart';
 
@@ -43,9 +46,9 @@ class _ViewCartPageState extends State<ViewCartPage> {
           builder: (context, state) {
             _addCartItem();
             return state.map(
-              init: (_) => const CircularProgressIndicator(),
-              loading: (_) => const CircularProgressIndicator(),
-              error: (error) => Text(error.errMsg),
+              init: (_) => const ListShimmer(),
+              loading: (_) => const ListShimmer(),
+              error: (error) => AppErrorWidget(error: error.errMsg),
               done: (_) => ListView(
                 children: [
                   AnimatedList(
@@ -62,11 +65,16 @@ class _ViewCartPageState extends State<ViewCartPage> {
                   const CartDetails(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: AppElevatedButton(onPressed: () {
-                      AutoRouter.of(context).push(const ConfirmOrderRoute());
-                    }, text: context.tr.checkout),
+                    child: AppElevatedButton(
+                        onPressed: () {
+                          AutoRouter.of(context)
+                              .push(const ConfirmOrderRoute());
+                        },
+                        text: context.tr.checkout),
                   ),
-                  const SizedBox(height: 20,)
+                  const SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
             );

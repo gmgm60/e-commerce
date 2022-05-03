@@ -37,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
     super.initState();
     nameController = TextEditingController(text: 'taha');
     phoneController = TextEditingController(text: '12312312302');
-    addressController = TextEditingController(text: 'hkjhkuh');
+    addressController = TextEditingController(text: 'Damanhour, Behera, Egypt');
     emailController = TextEditingController(text: 'taha@gmail.com');
     passwordController = TextEditingController(text: '12345678');
     passwordConfirmationController = TextEditingController(text: '12345678');
@@ -74,13 +74,11 @@ class _RegisterPageState extends State<RegisterPage> {
         },
         child: SafeArea(
           child: Scaffold(
-            appBar: AppBar(),
             body: SingleChildScrollView(
-              padding: const EdgeInsets.only(top: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const AuthLogoDesign(),
+                  const AuthLogo(),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
                     child: Form(
@@ -226,8 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         context.tr.alreadyHaveAccount,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1!
-                            .copyWith(color: appGrey),
+                            .bodyText1,
                       ),
                       const SizedBox(
                         width: 2,
@@ -238,10 +235,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           },
                           child: Text(
                             context.tr.login,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle1!
-                                .copyWith(color: appBlue),
+                            style: Theme.of(context).textTheme.subtitle1,
                           )),
                     ],
                   ),

@@ -26,7 +26,7 @@ class AppElevatedButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: appRed),
+        style: ElevatedButton.styleFrom(primary: appMainColor),
         onPressed: onPressed,
         child: isLoading == false
             ? Text(

@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/presentation/colors/colors.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
+import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/app_network_image.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
 import 'package:ecommerce/di/injectable.dart';
@@ -30,9 +31,7 @@ class ProfilePage extends StatelessWidget {
             return state.maybeWhen(
               loading: () => const AppProgressIndicator(),
               loaded: (user) => ProfileBody(user: user),
-              error: (failures) => Center(
-                child: Text(failures),
-              ),
+              error: (error) => AppErrorWidget(error: error),
               orElse: () => Container(),
             );
           },
