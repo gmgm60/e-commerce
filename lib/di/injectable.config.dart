@@ -13,15 +13,15 @@ import 'package:shared_preferences/shared_preferences.dart' as _i19;
 import '../core/features/locale/data/data_source/local/localization_service.dart'
     as _i45;
 import '../core/features/locale/data/repository/localization_repo_impl.dart'
-    as _i77;
+    as _i78;
 import '../core/features/locale/domain/repository/localization_repository.dart'
-    as _i76;
+    as _i77;
 import '../core/features/locale/domain/use_case/change_locale_use_case.dart'
-    as _i81;
-import '../core/features/locale/domain/use_case/get_locale_use_case.dart'
     as _i82;
-import '../core/features/locale/presentation/bloc/locale_cubit/locale_cubit.dart'
+import '../core/features/locale/domain/use_case/get_locale_use_case.dart'
     as _i83;
+import '../core/features/locale/presentation/bloc/locale_cubit/locale_cubit.dart'
+    as _i84;
 import '../core/presentation/cubit/back_button_cubit/back_button_cubit.dart'
     as _i3;
 import '../features/auth/data/data_source/local/auth_local_datasource_impl.dart'
@@ -50,9 +50,10 @@ import '../features/cart/domain/data/data_source/cart_remote_data_source.dart'
     as _i64;
 import '../features/cart/domain/data/repository/cart_repository.dart' as _i66;
 import '../features/cart/domain/use_cases/confirm_order.dart' as _i69;
-import '../features/cart/domain/use_cases/edit_cart.dart' as _i70;
-import '../features/cart/domain/use_cases/get_cart.dart' as _i72;
-import '../features/cart/presentation/cubit/cart_cubit/cart_cubit.dart' as _i80;
+import '../features/cart/domain/use_cases/delete_from_cart.dart' as _i70;
+import '../features/cart/domain/use_cases/edit_cart.dart' as _i71;
+import '../features/cart/domain/use_cases/get_cart.dart' as _i73;
+import '../features/cart/presentation/cubit/cart_cubit/cart_cubit.dart' as _i81;
 import '../features/categories/data/data_source/remote/categories_api_service.dart'
     as _i28;
 import '../features/categories/data/data_source/remote/categories_remote_datasource_impl.dart'
@@ -87,7 +88,7 @@ import '../features/favorites/domain/use_cases/get_favorites.dart' as _i40;
 import '../features/favorites/domain/use_cases/remove_from_favorite.dart'
     as _i59;
 import '../features/favorites/presentation/cubit/favorites_cubit/favorites_cubit.dart'
-    as _i71;
+    as _i72;
 import '../features/merchants/data/data_source/remote/merchants_api_service.dart'
     as _i7;
 import '../features/merchants/data/data_source/remote/merchants_remote_datasource_impl.dart'
@@ -120,10 +121,10 @@ import '../features/products/data/repository/products_repo_impl.dart' as _i53;
 import '../features/products/domain/data_source/product_remote_data_source.dart'
     as _i50;
 import '../features/products/domain/repository/product_repo.dart' as _i52;
-import '../features/products/domain/use_cases/get_product.dart' as _i73;
-import '../features/products/domain/use_cases/get_products.dart' as _i74;
+import '../features/products/domain/use_cases/get_product.dart' as _i74;
+import '../features/products/domain/use_cases/get_products.dart' as _i75;
 import '../features/products/presentation/cubit/products_cubit/products_cubit.dart'
-    as _i78;
+    as _i79;
 import '../features/profile/data/data_source/remote/profile_remote_datasource_impl.dart'
     as _i55;
 import '../features/profile/data/data_source/remote/profile_user_service.dart'
@@ -132,14 +133,14 @@ import '../features/profile/data/repository/profile_repo_impl.dart' as _i57;
 import '../features/profile/domain/data_source/remote/profile_remote_datasource.dart'
     as _i54;
 import '../features/profile/domain/repository/profile_repository.dart' as _i56;
-import '../features/profile/domain/use_case/get_user_use_case.dart' as _i75;
+import '../features/profile/domain/use_case/get_user_use_case.dart' as _i76;
 import '../features/profile/domain/use_case/update_user_use_case.dart' as _i61;
 import '../features/profile/presentation/bloc/profile_cubit/profile_cubit.dart'
-    as _i79;
-import 'module/dio.dart' as _i84;
-import 'module/logger.dart' as _i85;
+    as _i80;
+import 'module/dio.dart' as _i85;
+import 'module/logger.dart' as _i86;
 import 'module/shared_preferences.dart'
-    as _i86; // ignore_for_file: unnecessary_lambdas
+    as _i87; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -247,35 +248,41 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       get<_i39.GetCategoriesUseCase>(), get<_i43.GetProductsByCatIdUseCase>()));
   gh.factory<_i69.ConfirmOrder>(
       () => _i69.ConfirmOrder(get<_i66.CartRepository>()));
-  gh.factory<_i70.EditCart>(() => _i70.EditCart(get<_i66.CartRepository>()));
-  gh.factory<_i71.FavoritesCubit>(() => _i71.FavoritesCubit(
+  gh.factory<_i70.DeleteFromCart>(
+      () => _i70.DeleteFromCart(get<_i66.CartRepository>()));
+  gh.factory<_i71.EditCart>(() => _i71.EditCart(get<_i66.CartRepository>()));
+  gh.factory<_i72.FavoritesCubit>(() => _i72.FavoritesCubit(
       get<_i62.AddToFavorite>(),
       get<_i59.RemoveFromFavorite>(),
       get<_i40.GetFavorites>()));
-  gh.factory<_i72.GetCart>(() => _i72.GetCart(get<_i66.CartRepository>()));
-  gh.factory<_i73.GetProduct>(() => _i73.GetProduct(get<_i52.ProductRepo>()));
-  gh.factory<_i74.GetProducts>(() => _i74.GetProducts(get<_i52.ProductRepo>()));
-  gh.factory<_i75.GetUserUseCase>(
-      () => _i75.GetUserUseCase(get<_i56.ProfileRepository>()));
-  gh.factory<_i76.LocalizationRepository>(
-      () => _i77.LocalizationRepoImpl(get<_i45.LocalizationService>()));
-  gh.factory<_i78.ProductsCubit>(() =>
-      _i78.ProductsCubit(get<_i74.GetProducts>(), get<_i73.GetProduct>()));
-  gh.factory<_i79.ProfileCubit>(() => _i79.ProfileCubit(
-      get<_i75.GetUserUseCase>(), get<_i61.UpdateUserUseCase>()));
-  gh.factory<_i80.CartCubit>(() => _i80.CartCubit(get<_i72.GetCart>(),
-      get<_i70.EditCart>(), get<_i6.Logger>(), get<_i69.ConfirmOrder>()));
-  gh.factory<_i81.ChangeLocaleUseCase>(
-      () => _i81.ChangeLocaleUseCase(get<_i76.LocalizationRepository>()));
-  gh.factory<_i82.GetLocaleUseCase>(
-      () => _i82.GetLocaleUseCase(get<_i76.LocalizationRepository>()));
-  gh.factory<_i83.LocaleCubit>(() => _i83.LocaleCubit(
-      get<_i82.GetLocaleUseCase>(), get<_i81.ChangeLocaleUseCase>()));
+  gh.factory<_i73.GetCart>(() => _i73.GetCart(get<_i66.CartRepository>()));
+  gh.factory<_i74.GetProduct>(() => _i74.GetProduct(get<_i52.ProductRepo>()));
+  gh.factory<_i75.GetProducts>(() => _i75.GetProducts(get<_i52.ProductRepo>()));
+  gh.factory<_i76.GetUserUseCase>(
+      () => _i76.GetUserUseCase(get<_i56.ProfileRepository>()));
+  gh.factory<_i77.LocalizationRepository>(
+      () => _i78.LocalizationRepoImpl(get<_i45.LocalizationService>()));
+  gh.factory<_i79.ProductsCubit>(() =>
+      _i79.ProductsCubit(get<_i75.GetProducts>(), get<_i74.GetProduct>()));
+  gh.factory<_i80.ProfileCubit>(() => _i80.ProfileCubit(
+      get<_i76.GetUserUseCase>(), get<_i61.UpdateUserUseCase>()));
+  gh.factory<_i81.CartCubit>(() => _i81.CartCubit(
+      get<_i73.GetCart>(),
+      get<_i71.EditCart>(),
+      get<_i6.Logger>(),
+      get<_i69.ConfirmOrder>(),
+      get<_i70.DeleteFromCart>()));
+  gh.factory<_i82.ChangeLocaleUseCase>(
+      () => _i82.ChangeLocaleUseCase(get<_i77.LocalizationRepository>()));
+  gh.factory<_i83.GetLocaleUseCase>(
+      () => _i83.GetLocaleUseCase(get<_i77.LocalizationRepository>()));
+  gh.factory<_i84.LocaleCubit>(() => _i84.LocaleCubit(
+      get<_i83.GetLocaleUseCase>(), get<_i82.ChangeLocaleUseCase>()));
   return get;
 }
 
-class _$AppDioInject extends _i84.AppDioInject {}
+class _$AppDioInject extends _i85.AppDioInject {}
 
-class _$MyLoggerInject extends _i85.MyLoggerInject {}
+class _$MyLoggerInject extends _i86.MyLoggerInject {}
 
-class _$InjectionModule extends _i86.InjectionModule {}
+class _$InjectionModule extends _i87.InjectionModule {}

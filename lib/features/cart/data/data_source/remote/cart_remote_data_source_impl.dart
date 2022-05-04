@@ -12,9 +12,9 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
   CartRemoteDataSourceImp(this._cartRemoteService);
 
   @override
-  Future confirmOrder() async {
+  Future confirmOrder({required String address}) async {
     try {
-      final response = await _cartRemoteService.confirmOrder();
+      final response = await _cartRemoteService.confirmOrder(address: address);
       return response;
     } catch (e) {
       throw throwAppException(e);
@@ -44,8 +44,12 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
   }
 
   @override
-  Future deleteCart({required int productId}) {
-    // TODO: implement deleteCart
-    throw UnimplementedError();
+  Future deleteCart({required int productId}) async{
+    try {
+      final response = await _cartRemoteService.deleteFromCart(productId: productId);
+      return response;
+    } catch (e) {
+      throw throwAppException(e);
+    }
   }
 }

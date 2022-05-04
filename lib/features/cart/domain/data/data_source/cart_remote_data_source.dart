@@ -5,7 +5,7 @@ abstract class CartRemoteDataSource {
   Future<dynamic> editCart({required CartEditModel cartEditModel});
   Future<dynamic> deleteCart({required int productId});
 
-  Future<dynamic> confirmOrder();
+  Future<dynamic> confirmOrder({required String address});
 
   Future<List<CartItemModel>> getCart();
 
