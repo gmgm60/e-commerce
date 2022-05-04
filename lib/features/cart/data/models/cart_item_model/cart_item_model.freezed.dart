@@ -22,7 +22,7 @@ CartItemModel _$CartItemModelFromJson(Map<String, dynamic> json) {
 mixin _$CartItemModel {
   @JsonKey(name: "product")
   ProductModel get productModel => throw _privateConstructorUsedError;
-  int get count => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,8 @@ abstract class $CartItemModelCopyWith<$Res> {
   factory $CartItemModelCopyWith(
           CartItemModel value, $Res Function(CartItemModel) then) =
       _$CartItemModelCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: "product") ProductModel productModel, int count});
+  $Res call(
+      {@JsonKey(name: "product") ProductModel productModel, int quantity});
 
   $ProductModelCopyWith<$Res> get productModel;
 }
@@ -52,16 +53,16 @@ class _$CartItemModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productModel = freezed,
-    Object? count = freezed,
+    Object? quantity = freezed,
   }) {
     return _then(_value.copyWith(
       productModel: productModel == freezed
           ? _value.productModel
           : productModel // ignore: cast_nullable_to_non_nullable
               as ProductModel,
-      count: count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -81,7 +82,8 @@ abstract class _$CartItemModelCopyWith<$Res>
           _CartItemModel value, $Res Function(_CartItemModel) then) =
       __$CartItemModelCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: "product") ProductModel productModel, int count});
+  $Res call(
+      {@JsonKey(name: "product") ProductModel productModel, int quantity});
 
   @override
   $ProductModelCopyWith<$Res> get productModel;
@@ -101,16 +103,16 @@ class __$CartItemModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productModel = freezed,
-    Object? count = freezed,
+    Object? quantity = freezed,
   }) {
     return _then(_CartItemModel(
       productModel: productModel == freezed
           ? _value.productModel
           : productModel // ignore: cast_nullable_to_non_nullable
               as ProductModel,
-      count: count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -121,7 +123,7 @@ class __$CartItemModelCopyWithImpl<$Res>
 class _$_CartItemModel implements _CartItemModel {
   _$_CartItemModel(
       {@JsonKey(name: "product") required this.productModel,
-      required this.count});
+      required this.quantity});
 
   factory _$_CartItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_CartItemModelFromJson(json);
@@ -130,11 +132,11 @@ class _$_CartItemModel implements _CartItemModel {
   @JsonKey(name: "product")
   final ProductModel productModel;
   @override
-  final int count;
+  final int quantity;
 
   @override
   String toString() {
-    return 'CartItemModel(productModel: $productModel, count: $count)';
+    return 'CartItemModel(productModel: $productModel, quantity: $quantity)';
   }
 
   @override
@@ -144,7 +146,7 @@ class _$_CartItemModel implements _CartItemModel {
             other is _CartItemModel &&
             const DeepCollectionEquality()
                 .equals(other.productModel, productModel) &&
-            const DeepCollectionEquality().equals(other.count, count));
+            const DeepCollectionEquality().equals(other.quantity, quantity));
   }
 
   @JsonKey(ignore: true)
@@ -152,7 +154,7 @@ class _$_CartItemModel implements _CartItemModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(productModel),
-      const DeepCollectionEquality().hash(count));
+      const DeepCollectionEquality().hash(quantity));
 
   @JsonKey(ignore: true)
   @override
@@ -168,7 +170,7 @@ class _$_CartItemModel implements _CartItemModel {
 abstract class _CartItemModel implements CartItemModel {
   factory _CartItemModel(
       {@JsonKey(name: "product") required final ProductModel productModel,
-      required final int count}) = _$_CartItemModel;
+      required final int quantity}) = _$_CartItemModel;
 
   factory _CartItemModel.fromJson(Map<String, dynamic> json) =
       _$_CartItemModel.fromJson;
@@ -177,7 +179,7 @@ abstract class _CartItemModel implements CartItemModel {
   @JsonKey(name: "product")
   ProductModel get productModel => throw _privateConstructorUsedError;
   @override
-  int get count => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CartItemModelCopyWith<_CartItemModel> get copyWith =>

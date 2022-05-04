@@ -1,8 +1,8 @@
 import 'package:ecommerce/core/data/throw_app_exception.dart';
 import 'package:ecommerce/features/cart/data/data_source/remote/cart_remote_service.dart';
+import 'package:ecommerce/features/cart/data/models/cart_edit_model/cart_edit_model.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/domain/data/data_source/cart_remote_data_source.dart';
-import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CartRemoteDataSource)
@@ -12,9 +12,9 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
   CartRemoteDataSourceImp(this._cartRemoteService);
 
   @override
-  Future confirmOrder({required List<CartItem> cart}) async {
+  Future confirmOrder() async {
     try {
-      final response = await _cartRemoteService.confirmOrder(cart: cart);
+      final response = await _cartRemoteService.confirmOrder();
       return response;
     } catch (e) {
       throw throwAppException(e);
@@ -23,10 +23,10 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
 
   @override
   Future editCart({
-    required List<CartItemModel> cart,
+    required CartEditModel cartEditModel,
   }) async {
     try {
-      final response = await _cartRemoteService.editCart(cart: cart);
+      final response = await _cartRemoteService.editCart(cartEditModel: cartEditModel);
       return response;
     } catch (e) {
       throw throwAppException(e);
@@ -37,9 +37,15 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
   Future<List<CartItemModel>> getCart() async {
     try {
       final response = await _cartRemoteService.getCart();
-      return response;
+      return response.data;
     } catch (e) {
       throw throwAppException(e);
     }
+  }
+
+  @override
+  Future deleteCart({required int productId}) {
+    // TODO: implement deleteCart
+    throw UnimplementedError();
   }
 }

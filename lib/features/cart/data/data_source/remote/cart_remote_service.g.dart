@@ -10,7 +10,7 @@ part of 'cart_remote_service.dart';
 
 class _CartRemoteService implements CartRemoteService {
   _CartRemoteService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://my.api.mockaroo.com';
+    baseUrl ??= 'https://86d3-197-55-70-128.eu.ngrok.io/api/';
   }
 
   final Dio _dio;
@@ -18,32 +18,31 @@ class _CartRemoteService implements CartRemoteService {
   String? baseUrl;
 
   @override
-  Future<List<CartItemModel>> getCart() async {
+  Future<CartResponseModel> getCart() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<CartItemModel>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<CartResponseModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/cart?key=e59c4330',
+                .compose(_dio.options, 'cart/view',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => CartItemModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = CartResponseModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<dynamic> editCart({required cart}) async {
+  Future<dynamic> editCart({required cartEditModel}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
+    _data.addAll(cartEditModel.toJson());
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/cart?key=e59c4330',
+            .compose(_dio.options, 'addToCart',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;
@@ -51,14 +50,29 @@ class _CartRemoteService implements CartRemoteService {
   }
 
   @override
-  Future<dynamic> confirmOrder({required cart}) async {
+  Future<dynamic> confirmOrder() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/cart?key=e59c4330',
+            .compose(_dio.options, 'order/store',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
+  Future<dynamic> deleteFromCart({required productId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'GET', headers: _headers, extra: _extra)
+            .compose(_dio.options, 'cart/delete',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;

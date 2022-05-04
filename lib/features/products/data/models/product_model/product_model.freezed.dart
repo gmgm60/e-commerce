@@ -190,13 +190,13 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
 class _$_ProductModel implements _ProductModel {
   _$_ProductModel(
       {required this.id,
-      @JsonKey(name: "category_id") required this.catId,
+      @JsonKey(name: "category_id") this.catId = 1,
       required this.name,
       required this.description,
       required this.image,
       required this.price,
-      required this.discount,
-      @JsonKey(name: "quantity") required this.quantity});
+      this.discount = 0,
+      @JsonKey(name: "quantity") this.quantity = 0});
 
   factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProductModelFromJson(json);
@@ -215,6 +215,7 @@ class _$_ProductModel implements _ProductModel {
   @override
   final double price;
   @override
+  @JsonKey()
   final double discount;
   @override
   @JsonKey(name: "quantity")
@@ -267,15 +268,14 @@ class _$_ProductModel implements _ProductModel {
 
 abstract class _ProductModel implements ProductModel {
   factory _ProductModel(
-          {required final int id,
-          @JsonKey(name: "category_id") required final int catId,
-          required final String name,
-          required final String description,
-          required final String image,
-          required final double price,
-          required final double discount,
-          @JsonKey(name: "quantity") required final int quantity}) =
-      _$_ProductModel;
+      {required final int id,
+      @JsonKey(name: "category_id") final int catId,
+      required final String name,
+      required final String description,
+      required final String image,
+      required final double price,
+      final double discount,
+      @JsonKey(name: "quantity") final int quantity}) = _$_ProductModel;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$_ProductModel.fromJson;

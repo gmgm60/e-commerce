@@ -1,5 +1,8 @@
+import 'package:auto_route/annotations.dart';
 import 'package:dio/dio.dart';
-import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
+import 'package:ecommerce/core/constants/constants.dart';
+import 'package:ecommerce/features/cart/data/models/cart_edit_model/cart_edit_model.dart';
+import 'package:ecommerce/features/cart/data/models/cart_response_model/cart_response_model.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
@@ -7,21 +10,25 @@ import 'package:retrofit/http.dart';
 part 'cart_remote_service.g.dart';
 
 @Injectable()
-@RestApi(baseUrl: "https://my.api.mockaroo.com")
+@RestApi(baseUrl: baseUrl)
 abstract class CartRemoteService{
   @factoryMethod
   factory CartRemoteService(Dio dio) = _CartRemoteService;
 
 
-  @GET('/cart?key=e59c4330')
-  Future<List<CartItemModel>> getCart();
+  @GET(viewCartEndPoint)
+  Future<CartResponseModel> getCart();
 
-  @GET('/cart?key=e59c4330')
+  @GET(addToCartEndPoint)
   Future<dynamic> editCart({
-    required List<CartItemModel> cart,
+   @Body() required CartEditModel cartEditModel,
   });
 
+  @GET(confirmOrderEndPoint)
+  Future confirmOrder();
 
-  @GET('/cart?key=e59c4330')
-  Future confirmOrder({required List<CartItem> cart});
+  @GET(deleteFromCartEndPoint)
+  Future deleteFromCart({
+    @QueryParam("product_id")
+    required int productId});
 }
