@@ -4,11 +4,11 @@ import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
 
 extension ModelToDomain on CartItemModel{
   CartItem toDomain(){
-    return CartItem(product: productModel.toDomain(), count: count);
+    return CartItem(product: productModel.toDomain(), count: quantity);
   }
 }
 extension DomainToModel on CartItem{
   CartItemModel toModel(){
-    return CartItemModel(productModel: product.toModel(), count: count);
+    return CartItemModel(productModel: product.toModel(), quantity: count);
   }
 }

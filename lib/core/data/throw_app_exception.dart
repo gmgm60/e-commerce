@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 
 AppException throwAppException(exception) {
   String errorMessage = somethingWentWrong;
- // debugPrint(exception.toString());
+ debugPrint(exception.toString());
   if (exception is DioError) {
-   // debugPrint('Dio Error with code: ${exception.response?.statusCode}');
+   debugPrint('Dio Error with code: ${exception.response?.statusCode}');
     try {
       errorMessage = exception.response?.data['message'] as String;
     } catch (e) {

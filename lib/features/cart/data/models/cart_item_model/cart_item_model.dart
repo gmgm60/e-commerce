@@ -8,7 +8,7 @@ class CartItemModel with _$CartItemModel{
   factory CartItemModel({
     @JsonKey(name: "product")
     required ProductModel productModel,
-    required int count,
+    required int quantity,
 }) = _CartItemModel;
   factory CartItemModel.fromJson(Map<String,dynamic> json) => _$CartItemModelFromJson(json);
 }

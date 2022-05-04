@@ -8,14 +8,14 @@ class ProductModel with _$ProductModel {
   factory ProductModel({
     required int id,
     @JsonKey(name: "category_id")
-    required int catId,
+    @Default(1) int catId,
     required String name,
     required String description,
     required String image,
     required double price,
-    required double discount,
+    @Default(0) double discount,
     @JsonKey(name: "quantity")
-    required int quantity,
+    @Default(0) int quantity,
   }) = _ProductModel ;
   factory ProductModel.fromJson(Map<String,dynamic> json) => _$ProductModelFromJson(json) ;
 }

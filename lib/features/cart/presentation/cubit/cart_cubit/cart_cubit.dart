@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
+import 'package:ecommerce/features/cart/domain/entities/cart_edit/cart_edit.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/confirm_order.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/edit_cart.dart';
@@ -31,7 +32,7 @@ class CartCubit extends Cubit<CartState> {
     emit(CartState.loading());
     cart[product.id] = CartItem(product: product, count: count);
     final List<CartItem> cartList = cart.values.toList();
-    final result = await _editCart(cartList);
+    final result = await _editCart(CartEdit(productId: product.id, quantity: count));
     result.fold(
       (failure) => emit(CartState.error(errMsg: failure.message)),
       (unit) => emit(CartState.done()),
@@ -59,18 +60,18 @@ class CartCubit extends Cubit<CartState> {
     return cart.containsKey(productId);
   }
 
-  Future<void> editCart({required Map<int, CartItem> cart}) async {
-    final List<CartItem> cartList = cart.values.toList();
-    final result = await _editCart(cartList);
-    result.fold(
-      (failure) => emit(CartState.error(errMsg: failure.message)),
-      (unit) {
-        this.cart.clear();
-        this.cart.addAll(cart);
-        emit(CartState.done());
-      },
-    );
-  }
+  // Future<void> editCart({required Map<int, CartItem> cart}) async {
+  //   final List<CartItem> cartList = cart.values.toList();
+  //   final result = await _editCart(cartList);
+  //   result.fold(
+  //     (failure) => emit(CartState.error(errMsg: failure.message)),
+  //     (unit) {
+  //       this.cart.clear();
+  //       this.cart.addAll(cart);
+  //       emit(CartState.done());
+  //     },
+  //   );
+  // }
 
   int productCount({required int productId}) {
     return cart[productId]?.count ?? 1;
@@ -122,7 +123,7 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> confirmOrder() async {
     emit(CartState.loading());
-    final result = await _confirmOrder(cart.values.toList());
+    final result = await _confirmOrder(NoParams());
 
     await result.fold((failure) async {
       emit(CartState.error(errMsg: failure.message));
