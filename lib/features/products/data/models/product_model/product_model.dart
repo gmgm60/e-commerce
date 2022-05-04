@@ -15,7 +15,7 @@ class ProductModel with _$ProductModel {
     required double price,
     @Default(0) double discount,
     @JsonKey(name: "quantity")
-    @Default(0) int quantity,
+    @Default(10) int quantity,
   }) = _ProductModel ;
   factory ProductModel.fromJson(Map<String,dynamic> json) => _$ProductModelFromJson(json) ;
 }

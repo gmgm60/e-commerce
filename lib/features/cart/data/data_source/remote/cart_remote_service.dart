@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/cart/data/models/cart_edit_model/cart_edit_model.dart';
 import 'package:ecommerce/features/cart/data/models/cart_response_model/cart_response_model.dart';
-import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
@@ -19,16 +18,18 @@ abstract class CartRemoteService{
   @GET(viewCartEndPoint)
   Future<CartResponseModel> getCart();
 
-  @GET(addToCartEndPoint)
+  @POST(addToCartEndPoint)
   Future<dynamic> editCart({
    @Body() required CartEditModel cartEditModel,
   });
 
-  @GET(confirmOrderEndPoint)
-  Future confirmOrder();
+  @POST(confirmOrderEndPoint)
+  Future confirmOrder({
+    @Field("shipping_address")
+    required String address});
 
-  @GET(deleteFromCartEndPoint)
+  @POST(deleteFromCartEndPoint)
   Future deleteFromCart({
-    @QueryParam("product_id")
+    @Field("product_id")
     required int productId});
 }

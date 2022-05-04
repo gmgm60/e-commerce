@@ -3,6 +3,7 @@ import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_edit/cart_edit.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/confirm_order.dart';
+import 'package:ecommerce/features/cart/domain/use_cases/delete_from_cart.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/edit_cart.dart';
 import 'package:ecommerce/features/cart/domain/use_cases/get_cart.dart';
 import 'package:ecommerce/features/products/domain/entities/product/product.dart';
@@ -10,13 +11,14 @@ import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 import 'cart_state.dart';
-//TODO add discount price after get real api
 
 @injectable
 class CartCubit extends Cubit<CartState> {
   final Logger _logger;
+
   final GetCart _getCart;
   final EditCart _editCart;
+  final DeleteFromCart _deleteFromCart;
   final ConfirmOrder _confirmOrder;
 
   // using cart as Map to don't make duplicate values
@@ -24,17 +26,19 @@ class CartCubit extends Cubit<CartState> {
   int editedProductId = -1;
   int animatedListCount = 0;
 
-  CartCubit(this._getCart, this._editCart, this._logger, this._confirmOrder)
+  CartCubit(this._getCart, this._editCart, this._logger, this._confirmOrder, this._deleteFromCart)
       : super(CartState.init());
 
   Future<void> addToCart({required Product product, required int count}) async {
     editedProductId = product.id;
     emit(CartState.loading());
     cart[product.id] = CartItem(product: product, count: count);
-    final List<CartItem> cartList = cart.values.toList();
     final result = await _editCart(CartEdit(productId: product.id, quantity: count));
     result.fold(
-      (failure) => emit(CartState.error(errMsg: failure.message)),
+      (failure) {
+        cart.remove(product.id);
+        emit(CartState.error(errMsg: failure.message));
+      } ,
       (unit) => emit(CartState.done()),
     );
     editedProductId = -1;
@@ -77,21 +81,32 @@ class CartCubit extends Cubit<CartState> {
     return cart[productId]?.count ?? 1;
   }
 
-  void editCount({required int productId, required int count}) {
+  Future<void> editCount({required int productId, required int count}) async {
     if (cart[productId] != null && count > 0 && count <= cart[productId]!.product.quantity ) {
       editedProductId = productId;
       emit(CartState.loading());
       cart[productId] = cart[productId]!.copyWith(count: count);
-      emit(CartState.done());
+      final result = await _editCart(CartEdit(productId: productId, quantity: count));
+      result.fold(
+            (failure) {
+          cart.remove(productId);
+          emit(CartState.error(errMsg: failure.message));
+        } ,
+            (unit) => emit(CartState.done()),
+      );
       editedProductId = -1;
     }
   }
 
-  void deleteProduct({required int productId}) {
+  Future<void> deleteProduct({required int productId}) async{
     emit(CartState.done(refresh: null));
     cart.remove(productId);
     animatedListCount--;
-    emit(CartState.done(refresh: 1));
+    final result = await _deleteFromCart(productId);
+    result.fold((failure) {
+      emit(CartState.error(errMsg: failure.message));
+    }, (r) => emit(CartState.done(refresh: 1)));
+
   }
 
   double productsPrice() {
@@ -121,9 +136,9 @@ class CartCubit extends Cubit<CartState> {
     return count;
   }
 
-  Future<void> confirmOrder() async {
+  Future<void> confirmOrder({required String address}) async {
     emit(CartState.loading());
-    final result = await _confirmOrder(NoParams());
+    final result = await _confirmOrder(address);
 
     await result.fold((failure) async {
       emit(CartState.error(errMsg: failure.message));

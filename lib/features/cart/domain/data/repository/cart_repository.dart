@@ -10,5 +10,5 @@ abstract class CartRepository {
 
   Future<Either<AppFailure, List<CartItem>>> getCart();
 
-  Future<Either<AppFailure, Unit>> confirmOrder();
+  Future<Either<AppFailure, Unit>> confirmOrder({required String address});
 }
