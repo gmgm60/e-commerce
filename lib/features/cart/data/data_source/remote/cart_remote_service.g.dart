@@ -10,7 +10,7 @@ part of 'cart_remote_service.dart';
 
 class _CartRemoteService implements CartRemoteService {
   _CartRemoteService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://86d3-197-55-70-128.eu.ngrok.io/api/';
+    baseUrl ??= 'https://1e7d-197-55-70-128.eu.ngrok.io/api/';
   }
 
   final Dio _dio;

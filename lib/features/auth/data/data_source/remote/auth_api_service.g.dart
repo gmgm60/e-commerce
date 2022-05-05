@@ -10,7 +10,7 @@ part of 'auth_api_service.dart';
 
 class _AuthApiService implements AuthApiService {
   _AuthApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://86d3-197-55-70-128.eu.ngrok.io/api/';
+    baseUrl ??= 'https://1e7d-197-55-70-128.eu.ngrok.io/api/';
   }
 
   final Dio _dio;
