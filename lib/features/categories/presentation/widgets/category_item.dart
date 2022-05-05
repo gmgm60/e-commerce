@@ -14,46 +14,36 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
+    return ListTile(
+      title: Row(
+        children: [
+          AppNetworkImage(
+            url: category.image,
+            height: 120,
+            width: 120,
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                  width: 80,
-                  height: 80,
-                  child: AppNetworkImage(
-                    url: category.image,
-                  )),
+              Text(
+                category.name,
+                style: Theme.of(context).textTheme.headline6,
+              ),
               const SizedBox(
-                width: 16,
+                height: 8,
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      category.name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      category.description,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                  ],
-                ),
-              ),
+              Text(
+                category.description,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.subtitle2,
+              )
             ],
           ),
-        ),
+        ],
       ),
       onTap: onTap,
     );
