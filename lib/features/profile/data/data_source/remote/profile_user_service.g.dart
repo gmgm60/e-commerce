@@ -10,7 +10,7 @@ part of 'profile_user_service.dart';
 
 class _ProfileUserService implements ProfileUserService {
   _ProfileUserService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://86d3-197-55-70-128.eu.ngrok.io/api/';
+    baseUrl ??= 'https://1e7d-197-55-70-128.eu.ngrok.io/api/';
   }
 
   final Dio _dio;
