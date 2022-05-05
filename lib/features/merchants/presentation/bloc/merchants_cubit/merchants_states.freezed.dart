@@ -21,6 +21,7 @@ mixin _$MerchantsStates {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Merchant> merchants) loaded,
+    required TResult Function(MerchantDetails merchantDetails) detailsLoaded,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$MerchantsStates {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$MerchantsStates {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$MerchantsStates {
     required TResult Function(MerchantsInitialState value) initial,
     required TResult Function(MerchantsLoadingState value) loading,
     required TResult Function(MerchantsLoadedState value) loaded,
+    required TResult Function(MerchantDetailsLoadedState value) detailsLoaded,
     required TResult Function(MerchantsErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$MerchantsStates {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$MerchantsStates {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
     required TResult orElse(),
   }) =>
@@ -129,6 +135,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Merchant> merchants) loaded,
+    required TResult Function(MerchantDetails merchantDetails) detailsLoaded,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -140,6 +147,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
   }) {
     return initial?.call();
@@ -151,6 +159,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -166,6 +175,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
     required TResult Function(MerchantsInitialState value) initial,
     required TResult Function(MerchantsLoadingState value) loading,
     required TResult Function(MerchantsLoadedState value) loaded,
+    required TResult Function(MerchantDetailsLoadedState value) detailsLoaded,
     required TResult Function(MerchantsErrorState value) error,
   }) {
     return initial(this);
@@ -177,6 +187,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
   }) {
     return initial?.call(this);
@@ -188,6 +199,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -246,6 +258,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Merchant> merchants) loaded,
+    required TResult Function(MerchantDetails merchantDetails) detailsLoaded,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -257,6 +270,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
   }) {
     return loading?.call();
@@ -268,6 +282,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -283,6 +298,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
     required TResult Function(MerchantsInitialState value) initial,
     required TResult Function(MerchantsLoadingState value) loading,
     required TResult Function(MerchantsLoadedState value) loaded,
+    required TResult Function(MerchantDetailsLoadedState value) detailsLoaded,
     required TResult Function(MerchantsErrorState value) error,
   }) {
     return loading(this);
@@ -294,6 +310,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
   }) {
     return loading?.call(this);
@@ -305,6 +322,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -393,6 +411,7 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Merchant> merchants) loaded,
+    required TResult Function(MerchantDetails merchantDetails) detailsLoaded,
     required TResult Function(String error) error,
   }) {
     return loaded(merchants);
@@ -404,6 +423,7 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
   }) {
     return loaded?.call(merchants);
@@ -415,6 +435,7 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -430,6 +451,7 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
     required TResult Function(MerchantsInitialState value) initial,
     required TResult Function(MerchantsLoadingState value) loading,
     required TResult Function(MerchantsLoadedState value) loaded,
+    required TResult Function(MerchantDetailsLoadedState value) detailsLoaded,
     required TResult Function(MerchantsErrorState value) error,
   }) {
     return loaded(this);
@@ -441,6 +463,7 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
   }) {
     return loaded?.call(this);
@@ -452,6 +475,7 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -470,6 +494,164 @@ abstract class MerchantsLoadedState implements MerchantsStates {
   @JsonKey(ignore: true)
   $MerchantsLoadedStateCopyWith<MerchantsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MerchantDetailsLoadedStateCopyWith<$Res> {
+  factory $MerchantDetailsLoadedStateCopyWith(MerchantDetailsLoadedState value,
+          $Res Function(MerchantDetailsLoadedState) then) =
+      _$MerchantDetailsLoadedStateCopyWithImpl<$Res>;
+  $Res call({MerchantDetails merchantDetails});
+}
+
+/// @nodoc
+class _$MerchantDetailsLoadedStateCopyWithImpl<$Res>
+    extends _$MerchantsStatesCopyWithImpl<$Res>
+    implements $MerchantDetailsLoadedStateCopyWith<$Res> {
+  _$MerchantDetailsLoadedStateCopyWithImpl(MerchantDetailsLoadedState _value,
+      $Res Function(MerchantDetailsLoadedState) _then)
+      : super(_value, (v) => _then(v as MerchantDetailsLoadedState));
+
+  @override
+  MerchantDetailsLoadedState get _value =>
+      super._value as MerchantDetailsLoadedState;
+
+  @override
+  $Res call({
+    Object? merchantDetails = freezed,
+  }) {
+    return _then(MerchantDetailsLoadedState(
+      merchantDetails: merchantDetails == freezed
+          ? _value.merchantDetails
+          : merchantDetails // ignore: cast_nullable_to_non_nullable
+              as MerchantDetails,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MerchantDetailsLoadedState implements MerchantDetailsLoadedState {
+  const _$MerchantDetailsLoadedState({required this.merchantDetails});
+
+  @override
+  final MerchantDetails merchantDetails;
+
+  @override
+  String toString() {
+    return 'MerchantsStates.detailsLoaded(merchantDetails: $merchantDetails)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MerchantDetailsLoadedState &&
+            const DeepCollectionEquality()
+                .equals(other.merchantDetails, merchantDetails));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(merchantDetails));
+
+  @JsonKey(ignore: true)
+  @override
+  $MerchantDetailsLoadedStateCopyWith<MerchantDetailsLoadedState>
+      get copyWith =>
+          _$MerchantDetailsLoadedStateCopyWithImpl<MerchantDetailsLoadedState>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Merchant> merchants) loaded,
+    required TResult Function(MerchantDetails merchantDetails) detailsLoaded,
+    required TResult Function(String error) error,
+  }) {
+    return detailsLoaded(merchantDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
+    TResult Function(String error)? error,
+  }) {
+    return detailsLoaded?.call(merchantDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (detailsLoaded != null) {
+      return detailsLoaded(merchantDetails);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MerchantsInitialState value) initial,
+    required TResult Function(MerchantsLoadingState value) loading,
+    required TResult Function(MerchantsLoadedState value) loaded,
+    required TResult Function(MerchantDetailsLoadedState value) detailsLoaded,
+    required TResult Function(MerchantsErrorState value) error,
+  }) {
+    return detailsLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MerchantsInitialState value)? initial,
+    TResult Function(MerchantsLoadingState value)? loading,
+    TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
+    TResult Function(MerchantsErrorState value)? error,
+  }) {
+    return detailsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MerchantsInitialState value)? initial,
+    TResult Function(MerchantsLoadingState value)? loading,
+    TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
+    TResult Function(MerchantsErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    if (detailsLoaded != null) {
+      return detailsLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MerchantDetailsLoadedState implements MerchantsStates {
+  const factory MerchantDetailsLoadedState(
+          {required final MerchantDetails merchantDetails}) =
+      _$MerchantDetailsLoadedState;
+
+  MerchantDetails get merchantDetails => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MerchantDetailsLoadedStateCopyWith<MerchantDetailsLoadedState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -540,6 +722,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Merchant> merchants) loaded,
+    required TResult Function(MerchantDetails merchantDetails) detailsLoaded,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -551,6 +734,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -562,6 +746,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Merchant> merchants)? loaded,
+    TResult Function(MerchantDetails merchantDetails)? detailsLoaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -577,6 +762,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
     required TResult Function(MerchantsInitialState value) initial,
     required TResult Function(MerchantsLoadingState value) loading,
     required TResult Function(MerchantsLoadedState value) loaded,
+    required TResult Function(MerchantDetailsLoadedState value) detailsLoaded,
     required TResult Function(MerchantsErrorState value) error,
   }) {
     return error(this);
@@ -588,6 +774,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
   }) {
     return error?.call(this);
@@ -599,6 +786,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
     TResult Function(MerchantsInitialState value)? initial,
     TResult Function(MerchantsLoadingState value)? loading,
     TResult Function(MerchantsLoadedState value)? loaded,
+    TResult Function(MerchantDetailsLoadedState value)? detailsLoaded,
     TResult Function(MerchantsErrorState value)? error,
     required TResult orElse(),
   }) {

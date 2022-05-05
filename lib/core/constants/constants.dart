@@ -9,10 +9,11 @@ const String registerEndPoint = 'register';
 const String logoutEndPoint = 'logout';
 const String resetPassEndPoint = 'forgot_password';
 const String authorizationHeader = 'Authorization';
-const String ordersEndPoint = 'orders';
+const String ordersEndPoint = 'order/index';
 const String categoriesEndPoint = 'category/index';
-const String categoryByIDEndPoint = 'category/show';
+const String categoryByIDEndPoint = 'category/view';
 const String merchantsEndPoint = 'seller/index';
+const String merchantProductsEndPoint = 'seller_prod';
 
 const String productsEndPoint = 'product/index';
 const String productEndPoint = 'product';

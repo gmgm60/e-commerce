@@ -34,20 +34,18 @@ class _CategoriesApiService implements CategoriesApiService {
   }
 
   @override
-  Future<List<ProductModel>> getProductsByCatId({required catId}) async {
+  Future<CategoryDetailsModel> getProductsByCatId({required catId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<ProductModel>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<CategoryDetailsModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'category/show/${catId}',
+                .compose(_dio.options, 'category/view/${catId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => ProductModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = CategoryDetailsModel.fromJson(_result.data!);
     return value;
   }
 
