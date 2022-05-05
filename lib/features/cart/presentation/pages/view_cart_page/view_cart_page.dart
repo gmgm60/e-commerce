@@ -5,6 +5,7 @@ import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
+import 'package:ecommerce/generated/assets.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,19 +63,26 @@ class _ViewCartPageState extends State<ViewCartPage> {
                             index: index,
                             animation: animation,
                           )),
-                  const CartDetails(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: AppElevatedButton(
-                        onPressed: () {
-                          AutoRouter.of(context)
-                              .push(const ConfirmOrderRoute());
-                        },
-                        text: context.tr.checkout),
+                  if(cartCubit.cart.isNotEmpty)
+                  Column(
+                    children: [
+                      const CartDetails(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: AppElevatedButton(
+                            onPressed: () {
+                              AutoRouter.of(context)
+                                  .push(const ConfirmOrderRoute());
+                            },
+                            text: context.tr.checkout),
+                      ),
+                      const SizedBox(height: 20),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  )
+                  if(cartCubit.cart.isEmpty)
+                    Image.asset(Assets.imagesShoppingCart),
+
+
                 ],
               ),
             );
