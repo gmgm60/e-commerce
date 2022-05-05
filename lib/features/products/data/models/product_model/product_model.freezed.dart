@@ -196,7 +196,7 @@ class _$_ProductModel implements _ProductModel {
       required this.image,
       required this.price,
       this.discount = 0,
-      @JsonKey(name: "quantity") this.quantity = 0});
+      @JsonKey(name: "quantity") this.quantity = 10});
 
   factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProductModelFromJson(json);
