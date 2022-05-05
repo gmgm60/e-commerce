@@ -74,8 +74,8 @@ class _MerchantsListState extends State<MerchantsList> {
             child: MerchantItem(
               merchant: widget.merchants[index],
               onTap: () {
-                AutoRouter.of(context).navigate(
-                    MerchantDetailsRoute(merchant: widget.merchants[index]));
+                AutoRouter.of(context).navigate(MerchantDetailsRoute(
+                    merchantId: widget.merchants[index].id));
               },
             ),
             position: animation.drive(Tween<Offset>(

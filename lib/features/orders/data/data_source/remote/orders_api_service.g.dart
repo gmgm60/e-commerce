@@ -10,7 +10,7 @@ part of 'orders_api_service.dart';
 
 class _OrdersApiService implements OrdersApiService {
   _OrdersApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://my.api.mockaroo.com';
+    baseUrl ??= 'https://86d3-197-55-70-128.eu.ngrok.io/api/';
   }
 
   final Dio _dio;
@@ -26,7 +26,7 @@ class _OrdersApiService implements OrdersApiService {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<OrdersModel>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/orders.json?key=ec0ea640',
+                .compose(_dio.options, 'order/index',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!

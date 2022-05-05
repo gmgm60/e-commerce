@@ -43,11 +43,13 @@ class CategoryRepoImpl extends CategoryRepository {
     debugPrint('Get Category Products start');
 
     try {
-      final productModel =
-          await _categoriesRemoteDatasource.getProductsByCatId(catId: 0);
+      final categoryDetailsModel =
+          await _categoriesRemoteDatasource.getProductsByCatId(catId: catId);
       debugPrint('Get Category Products Done:');
 
-      return right(productModel.map((product) => product.toDomain()).toList());
+      return right(categoryDetailsModel.data
+          .map((product) => product.toDomain())
+          .toList());
     } on AppException catch (exception) {
       debugPrint('Get Category Products Dio Error: ${exception.message}');
 

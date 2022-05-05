@@ -25,7 +25,8 @@ class CategoryProductsPage extends StatelessWidget {
               loading: () => const ProductShimmer(),
               error: (error) => AppErrorWidget(error: error),
               productsLoaded: (products) => products.isNotEmpty
-                  ?ProductsGrid(products: products): const AppEmptyWidget(),
+                  ? ProductsGrid(products: products)
+                  : const AppEmptyWidget(),
               orElse: () => Container());
         }),
       ),
