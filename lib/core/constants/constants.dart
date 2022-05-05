@@ -13,6 +13,7 @@ const String ordersEndPoint = 'orders';
 const String categoriesEndPoint = 'category/index';
 const String categoryByIDEndPoint = 'category/show';
 const String merchantsEndPoint = 'seller/index';
+const String merchantProductsEndPoint = 'seller_prod';
 
 const String productsEndPoint = 'product/index';
 const String productEndPoint = 'product';

@@ -29,7 +29,6 @@ import '../../../features/categories/presentation/pages/category_products_page.d
     as _i19;
 import '../../../features/favorites/presentation/pages/favorites_page/favorites_page.dart'
     as _i5;
-import '../../../features/merchants/domain/entities/merchant.dart' as _i23;
 import '../../../features/merchants/presentation/pages/merchant_details/merchant_details_page.dart'
     as _i17;
 import '../../../features/merchants/presentation/pages/merchants_page/merchants_page.dart'
@@ -208,8 +207,8 @@ class AppRouter extends _i9.RootStackRouter {
       final args = routeData.argsAs<MerchantDetailsRouteArgs>();
       return _i9.CustomPage<dynamic>(
           routeData: routeData,
-          child:
-              _i17.MerchantDetailsPage(key: args.key, merchant: args.merchant),
+          child: _i17.MerchantDetailsPage(
+              key: args.key, merchantId: args.merchantId),
           opaque: true,
           barrierDismissible: false);
     },
@@ -518,24 +517,24 @@ class MerchantsRoute extends _i9.PageRouteInfo<void> {
 /// generated route for
 /// [_i17.MerchantDetailsPage]
 class MerchantDetailsRoute extends _i9.PageRouteInfo<MerchantDetailsRouteArgs> {
-  MerchantDetailsRoute({_i20.Key? key, required _i23.Merchant merchant})
+  MerchantDetailsRoute({_i20.Key? key, required int merchantId})
       : super(MerchantDetailsRoute.name,
             path: 'MerchantDetailsPage',
-            args: MerchantDetailsRouteArgs(key: key, merchant: merchant));
+            args: MerchantDetailsRouteArgs(key: key, merchantId: merchantId));
 
   static const String name = 'MerchantDetailsRoute';
 }
 
 class MerchantDetailsRouteArgs {
-  const MerchantDetailsRouteArgs({this.key, required this.merchant});
+  const MerchantDetailsRouteArgs({this.key, required this.merchantId});
 
   final _i20.Key? key;
 
-  final _i23.Merchant merchant;
+  final int merchantId;
 
   @override
   String toString() {
-    return 'MerchantDetailsRouteArgs{key: $key, merchant: $merchant}';
+    return 'MerchantDetailsRouteArgs{key: $key, merchantId: $merchantId}';
   }
 }
 
