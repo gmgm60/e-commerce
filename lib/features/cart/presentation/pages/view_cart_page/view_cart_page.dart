@@ -80,7 +80,7 @@ class _ViewCartPageState extends State<ViewCartPage> {
                     ],
                   ),
                   if(cartCubit.cart.isEmpty)
-                    Image.asset(Assets.imagesShoppingCart),
+                    Image.asset(Assets.imagesShoppingCart,color: Colors.amber,),
 
 
                 ],
