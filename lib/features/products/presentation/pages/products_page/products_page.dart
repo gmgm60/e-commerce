@@ -27,30 +27,41 @@ class _ProductsPageState extends State<ProductsPage> {
     return Scaffold(
       body: BlocBuilder<ProductsCubit, ProductsState>(
         builder: (context, state) {
-          return state.maybeMap(
-            init: (_) => const ProductShimmer(),
-            loading: (_) => const ProductShimmer(),
-            // done: (_) =>
-            //     GridView.count(
-            //       physics: const BouncingScrollPhysics(),
-            //       crossAxisCount: 2,
-            //       childAspectRatio: .6,
-            //       children: context
-            //           .read<ProductsCubit>()
-            //           .products
-            //           .map((product) => ProductGridItem(product: product))
-            //           .toList(),
-            //     ),
-            error: (error) => AppErrorWidget(error: error.error),
-            orElse: () => GridView.count(
-              physics: const BouncingScrollPhysics(),
-              crossAxisCount: 2,
-              childAspectRatio: .6,
-              children: context
-                  .read<ProductsCubit>()
-                  .products
-                  .map((product) => ProductGridItem(product: product))
-                  .toList(),
+          return RefreshIndicator(
+            onRefresh: () async {
+              await context.read<ProductsCubit>().getProducts();
+            },
+            child: ListView(
+              //physics: const BouncingScrollPhysics(),
+              children: [
+                state.maybeMap(
+                  init: (_) => const ProductShimmer(),
+                  loading: (_) => const ProductShimmer(),
+                  // done: (_) =>
+                  //     GridView.count(
+                  //       physics: const BouncingScrollPhysics(),
+                  //       crossAxisCount: 2,
+                  //       childAspectRatio: .6,
+                  //       children: context
+                  //           .read<ProductsCubit>()
+                  //           .products
+                  //           .map((product) => ProductGridItem(product: product))
+                  //           .toList(),
+                  //     ),
+                  error: (error) => AppErrorWidget(error: error.error),
+                  orElse: () => GridView.count(
+                   // physics: const BouncingScrollPhysics(),
+                    primary: false,shrinkWrap: true,
+                    crossAxisCount: 2,
+                    childAspectRatio: .6,
+                    children: context
+                        .read<ProductsCubit>()
+                        .products
+                        .map((product) => ProductGridItem(product: product))
+                        .toList(),
+                  ),
+                ),
+              ],
             ),
           );
         },

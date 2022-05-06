@@ -64,7 +64,10 @@
   "noFavoritesYet": "لا يوجد لديك منتجات مفضله حتى الان !",
   "noFavoritesText": "اضغط رمز القلب لاى منتج, و سوف تجد هذا المنتج هنا فى المره القادمه التى تزور فيها هذه الصفحه.",
   "unknownError": "خطأ مجول!",
-  "somethingWentWrong": "هناك خطأ ما!"
+  "somethingWentWrong": "هناك خطأ ما!",
+  "unauthorized" : "لا تملك تصريح!",
+  "serverError" : "خطأ فى السيرفر!",
+  "notFound" : "لم يتم العثور عليه!"
 
 
 
