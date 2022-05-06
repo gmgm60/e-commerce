@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:ecommerce/core/data/throw_app_exception.dart';
 import 'package:ecommerce/features/auth/data/data_source/remote/auth_api_service.dart';
 import 'package:ecommerce/features/auth/data/models/login/login_model.dart';
@@ -18,7 +17,7 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
     try {
       return await _authApiService.login(loginModel: loginModel);
     } catch (e) {
-     throw throwAppException(e);
+      throw throwAppException(e);
     }
   }
 
@@ -44,11 +43,7 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
   Future<String> resetPassword({required String email}) async {
     try {
       return await _authApiService.resetPassword(email: email);
-    }on DioError catch(dioError){
-      throw throwAppException(dioError);
-    }
-
-    catch (e) {
+    } catch (e) {
       throw throwAppException(e);
     }
   }

@@ -66,16 +66,11 @@ class AuthRepoImpl extends AuthRepository {
   Future<Either<AppFailure, String>> logout() async {
     debugPrint('start logout...');
     try {
-
-      // remove token from local
-      await _localDatasource.deleteToken();
-
       final logoutResult = await _authRemoteDatasource.logout();
 
-      debugPrint('you have logged out...');
-
-
-
+      debugPrint('logged out success: $logoutResult');
+      // remove token from local
+      await _localDatasource.deleteToken();
       return right(logoutResult);
     } on AppException catch (exception) {
       debugPrint('Logout Catch Error: ${exception.message}');

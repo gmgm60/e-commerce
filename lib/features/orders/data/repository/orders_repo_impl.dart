@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:ecommerce/core/data/return_app_failure.dart';
 import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
@@ -27,10 +25,7 @@ class OrdersRepoImpl extends OrdersRepository {
       final ordersModel = await _ordersRemoteDatasource.getOrders();
       debugPrint('Get Orders Model: $ordersModel');
 
-      List<String> statuses = ['Pending', 'Shipped', 'Delivered'];
-
       return right(ordersModel.map((e) {
-        e.status = statuses[Random().nextInt(3)];
         return e.fromModel;
       }).toList());
     } on AppException catch (exception) {

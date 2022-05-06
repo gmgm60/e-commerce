@@ -2,6 +2,7 @@ import 'package:ecommerce/core/features/locale/presentation/bloc/locale_cubit/lo
 import 'package:ecommerce/core/features/locale/presentation/bloc/locale_cubit/locale_states.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/theme/theme_light.dart';
+import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => getIt<AuthCubit>()..getToken()),
         BlocProvider(create: (context) => getIt<CartCubit>() //..getCart(),
             ),
         BlocProvider(
