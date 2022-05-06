@@ -3,7 +3,6 @@ import 'package:ecommerce/core/features/locale/presentation/widgets/app_locales.
 import 'package:ecommerce/core/presentation/colors/colors.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_progress_indicator.dart';
-import 'package:ecommerce/di/injectable.dart';
 import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_cubit.dart';
 import 'package:ecommerce/features/auth/presentation/bloc/auth_cubit/auth_states.dart';
 import 'package:ecommerce/l10n/l10n.dart';
@@ -42,7 +41,10 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.person,color: appGrey,),
+            leading: const Icon(
+              Icons.person,
+              color: appGrey,
+            ),
             title: Text(
               context.tr.profile,
               style: Theme.of(context).textTheme.bodyText1,
@@ -53,7 +55,10 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const FaIcon(FontAwesomeIcons.language, color: appGrey,),
+            leading: const FaIcon(
+              FontAwesomeIcons.language,
+              color: appGrey,
+            ),
             title: Text(
               context.tr.language,
               style: Theme.of(context).textTheme.bodyText1,
@@ -68,32 +73,31 @@ class AppDrawer extends StatelessWidget {
               });
             },
           ),
-          BlocProvider(
-            create: (context) => getIt<AuthCubit>(),
-            child: BlocConsumer<AuthCubit, AuthStates>(
-              listener: (context, state) {
-                state.whenOrNull(loggOut: () {
-                  AutoRouter.of(context).popUntilRoot();
-                  AutoRouter.of(context).replace(const StartupRoute());
-                });
-              },
-              builder: (context, state) {
-                return state.maybeWhen(
-                    loading: () => const AppProgressIndicator(),
-                    orElse: () => ListTile(
-                          leading: const FaIcon(
-                              FontAwesomeIcons.arrowRightFromBracket, color: appGrey,),
-                          title: Text(
-                            context.tr.logout,
-                            style: Theme.of(context).textTheme.bodyText1,
-                          ),
-                          onTap: () {
-                            BlocProvider.of<AuthCubit>(context).logout();
-                          },
-                        ));
-              },
-            ),
-          )
+          BlocConsumer<AuthCubit, AuthStates>(
+            listener: (context, state) {
+              state.whenOrNull(loggOut: () {
+                AutoRouter.of(context).popUntilRoot();
+                AutoRouter.of(context).replace(const LoginRoute());
+              });
+            },
+            builder: (context, state) {
+              return state.maybeWhen(
+                  loading: () => const AppProgressIndicator(),
+                  orElse: () => ListTile(
+                        leading: const FaIcon(
+                          FontAwesomeIcons.arrowRightFromBracket,
+                          color: appGrey,
+                        ),
+                        title: Text(
+                          context.tr.logout,
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                        onTap: () {
+                          BlocProvider.of<AuthCubit>(context).logout();
+                        },
+                      ));
+            },
+          ),
         ],
       ),
     );
