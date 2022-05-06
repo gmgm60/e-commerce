@@ -33,6 +33,9 @@ String errorTranslate(String error,BuildContext context){
 switch(error){
   case unknownError : return context.tr.unknownError;
   case somethingWentWrong : return context.tr.somethingWentWrong;
+  case unauthorized : return context.tr.unauthorized;
+  case serverError : return context.tr.serverError;
+  case notFound : return context.tr.notFound;
   default : return error ;
 }
 }

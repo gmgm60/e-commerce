@@ -7,6 +7,7 @@ class ProductShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      shrinkWrap: true,
       padding: const EdgeInsets.all(10),
       crossAxisCount: 2,
       crossAxisSpacing: 10,

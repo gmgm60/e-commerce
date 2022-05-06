@@ -4,14 +4,18 @@ RegExp emailRegExp = RegExp(
 
 //remote
 const String baseUrl = 'https://1e7d-197-55-70-128.eu.ngrok.io/api/';
+
 const String loginEndPoint = 'login';
 const String registerEndPoint = 'register';
 const String logoutEndPoint = 'logout';
 const String resetPassEndPoint = 'forgot_password';
 const String authorizationHeader = 'Authorization';
+
 const String ordersEndPoint = 'order/index';
+
 const String categoriesEndPoint = 'category/index';
 const String categoryByIDEndPoint = 'category/view';
+
 const String merchantsEndPoint = 'seller/index';
 const String merchantProductsEndPoint = 'seller_prod';
 
@@ -34,3 +38,7 @@ const String localeCodeKey = 'locale_code_key';
 //error message
 const String unknownError ="Unknown Error";
 const String somethingWentWrong ="Something Went Wrong!";
+const String unauthorized ="unauthorized!";
+const String serverError ="server Error!";
+const String notFound ="Not Found!";
+const String noInternet ="No Internet Connection!";
