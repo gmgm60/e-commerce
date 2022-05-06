@@ -41,3 +41,4 @@ const String somethingWentWrong ="Something Went Wrong!";
 const String unauthorized ="unauthorized!";
 const String serverError ="server Error!";
 const String notFound ="Not Found!";
+const String noInternet ="No Internet Connection!";

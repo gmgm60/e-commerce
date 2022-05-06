@@ -67,5 +67,6 @@
   "somethingWentWrong": "Something Went Wrong!",
   "unauthorized" : "unauthorized!",
   "serverError" : "server Error!",
-  "notFound" : "Not Found!"
+  "notFound" : "Not Found!",
+  "noInternet" :"No Internet Connection!"
 }

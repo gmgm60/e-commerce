@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 
 AppException throwAppException(exception) {
   String? errorMessage; //= somethingWentWrong;
-  debugPrint(exception.toString());
+ // debugPrint(exception.toString());
   if (exception is DioError) {
-    debugPrint('Dio Error with code: ${exception.response?.statusCode}');
+   // debugPrint('Dio Error with code: ${exception.response?.statusCode}');
     try {
       errorMessage = exception.response?.data['message'] as String?;
     } catch (e) {
@@ -17,10 +17,15 @@ AppException throwAppException(exception) {
     }
 
     return getExceptionFromCode(exception, errorMessage);
-  } else {
-    debugPrint(exception.toString());
-    return GeneralRemoteAppException.unKnown(message: somethingWentWrong);
   }
+
+  if(exception is SocketException ){
+    debugPrint("socket");
+    return GeneralRemoteAppException.noConnection(message: exception.message);
+  }
+
+    return GeneralRemoteAppException.unKnown(message: somethingWentWrong);
+
 }
 
 AppException getExceptionFromCode(DioError exception, String? errorMessage) {
@@ -32,9 +37,8 @@ AppException getExceptionFromCode(DioError exception, String? errorMessage) {
           message: errorMessage ?? serverError);
     case HttpStatus.notFound:
       return GeneralRemoteAppException.noData(message: errorMessage ?? notFound );
-    // case HttpStatus.connectionClosedWithoutResponse:
-    //   return GeneralRemoteAppException.noConnection(
-    //       message: errorMessage ?? "444");
+    case HttpStatus.networkConnectTimeoutError:
+      return GeneralRemoteAppException.noData(message: errorMessage ?? noInternet );
 
     default:
       return GeneralRemoteAppException.unKnown(message: somethingWentWrong);

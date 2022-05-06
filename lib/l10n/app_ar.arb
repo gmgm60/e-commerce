@@ -67,7 +67,8 @@
   "somethingWentWrong": "هناك خطأ ما!",
   "unauthorized" : "لا تملك تصريح!",
   "serverError" : "خطأ فى السيرفر!",
-  "notFound" : "لم يتم العثور عليه!"
+  "notFound" : "لم يتم العثور عليه!",
+  "noInternet" :"لا يوجد اتصال بالانترنت!"
 
 
 
