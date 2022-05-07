@@ -20,6 +20,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
 
   final Map<int, FavoriteItem> favorites = {};
   int currentId = -1;
+  bool refreshAll = false;
 
   FavoritesCubit(
       this._addToFavorite, this._removeFromFavorite, this._getFavorites)
@@ -33,7 +34,6 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       final result = await _addToFavorite(product.id);
       result.fold(
         (error) {
-          print(error.message);
           favorites.remove(product.id);
           emit(FavoritesState.error());
         },
@@ -66,7 +66,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   }
 
   Future<void> getFavorites() async {
-    currentId = -100;
+    refreshAll = true;
     emit(FavoritesState.loading());
     final result = await _getFavorites(NoParams());
     result.fold(
@@ -81,6 +81,6 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       },
     );
     await Future.delayed(const Duration(seconds: 1));
-    currentId = -1;
+    refreshAll = false;
   }
 }

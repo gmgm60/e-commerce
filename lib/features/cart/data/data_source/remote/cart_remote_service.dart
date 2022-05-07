@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
 import 'package:ecommerce/features/cart/data/models/cart_edit_model/cart_edit_model.dart';

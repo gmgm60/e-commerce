@@ -20,7 +20,7 @@ class _FavoriteButtonState extends State<FavoriteButton>
   Widget build(BuildContext context) {
     final favoritesCubit = context.read<FavoritesCubit>();
     return BlocBuilder<FavoritesCubit, FavoritesState>(
-      buildWhen: (_, __) => widget.product.id == favoritesCubit.currentId || favoritesCubit.currentId == -100,
+      buildWhen: (_, __) => widget.product.id == favoritesCubit.currentId || favoritesCubit.refreshAll,
       builder: (context, state) {
         return Heart(
           product: widget.product,

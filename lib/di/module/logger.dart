@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 abstract class MyLoggerInject {
 
   Logger get logger {
-    Logger logger = Logger(level: Level.verbose);
+    Logger logger = Logger(level: Level.error);
 
     return logger;
   }

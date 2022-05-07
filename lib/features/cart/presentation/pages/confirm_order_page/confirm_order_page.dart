@@ -5,7 +5,6 @@ import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_state.dart';
 import 'package:ecommerce/features/cart/presentation/pages/view_cart_page/cart_details.dart';
-import 'package:ecommerce/features/profile/presentation/bloc/profile_cubit/profile_cubit.dart';
 import 'package:ecommerce/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +23,8 @@ class ConfirmOrderPage extends StatefulWidget {
 }
 
 class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
-  String address = 'No Address';
+  //String address = 'No Address';
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late TextEditingController _addressController;
 
   @override
@@ -46,87 +46,120 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                    flex: f1,
-                    child: Text(
-                      context.tr.productName,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    )),
-                const Expanded(child: SizedBox()),
-                Expanded(
-                    flex: f2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(context.tr.price,
-                            maxLines: 1, overflow: TextOverflow.ellipsis),
-                        Text('(' + context.tr.currency + ')',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.caption)
-                      ],
-                    )),
-                Expanded(
-                    flex: f3,
-                    child: Text(
-                      context.tr.count,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    )),
-                Expanded(
-                    flex: f4,
-                    child: Text(
-                      context.tr.total,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    )),
-              ],
-            ),
-            const SizedBox(height: 10),
-            ListView.separated(
-                shrinkWrap: true,
-                primary: false,
-                itemBuilder: (BuildContext context, int index) {
-                  return ConfirmOrderItem(
-                    cartItem: cartItems[index],
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.black12,
-                      width: double.infinity,
-                      height: 1,
-                    ),
-                  );
-                },
-                itemCount: cartItems.length),
-            const CartDetails(),
-            const SizedBox(
-              height: 10,
-            ),
-            AppTextFormField(
-                controller: _addressController,
-                validate: (value) {},
-                inputType: TextInputType.streetAddress,
-                label: context.tr.address),
-            const SizedBox(
-              height: 20,
-            ),
-            BlocBuilder<CartCubit, CartState>(
-              builder: (context, state) {
-                WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-                  state.mapOrNull(done: (doneState) {
-                    if (doneState.refresh == -100) {
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                      flex: f1,
+                      child: Text(
+                        context.tr.productName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      )),
+                  const Expanded(child: SizedBox()),
+                  Expanded(
+                      flex: f2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(context.tr.price,
+                              maxLines: 1, overflow: TextOverflow.ellipsis),
+                          Text('(' + context.tr.currency + ')',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context).textTheme.caption)
+                        ],
+                      )),
+                  Expanded(
+                      flex: f3,
+                      child: Text(
+                        context.tr.count,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      )),
+                  Expanded(
+                      flex: f4,
+                      child: Text(
+                        context.tr.total,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      )),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ListView.separated(
+                  shrinkWrap: true,
+                  primary: false,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ConfirmOrderItem(
+                      cartItem: cartItems[index],
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        color: Colors.black12,
+                        width: double.infinity,
+                        height: 1,
+                      ),
+                    );
+                  },
+                  itemCount: cartItems.length),
+              const CartDetails(),
+              const SizedBox(
+                height: 10,
+              ),
+              AppTextFormField(
+                  controller: _addressController,
+                  validate: (value) {
+                    if(value != null && value.isNotEmpty && value.length > 6){
+                      return null;
+                    }
+                    return context.tr.addressFieldValidation;
+                  },
+                  inputType: TextInputType.streetAddress,
+                  label: context.tr.address),
+              const SizedBox(
+                height: 20,
+              ),
+              BlocBuilder<CartCubit, CartState>(
+                builder: (context, state) {
+                  WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+                    state.mapOrNull(done: (doneState) {
+                      if (doneState.refresh == -100) {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext _) {
+                              return AlertDialog(
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(context.tr.orderSuccess),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      AppElevatedButton(
+                                          onPressed: () async {
+                                            await AutoRouter.of(context).pop();
+                                            AutoRouter.of(context).pop();
+                                          },
+                                          text: context.tr.ok)
+                                    ],
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ));
+                            });
+                      }
+                    }, error: (errorState) {
                       showDialog(
                           context: context,
                           barrierDismissible: false,
@@ -135,14 +168,13 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(context.tr.orderSuccess),
+                                    Text(context.tr.orderFailed),
                                     const SizedBox(
                                       height: 20,
                                     ),
                                     AppElevatedButton(
                                         onPressed: () async {
-                                          await AutoRouter.of(context).pop();
-                                          AutoRouter.of(context).pop();
+                                          AutoRouter.of(_).pop();
                                         },
                                         text: context.tr.ok)
                                   ],
@@ -151,44 +183,22 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                                   borderRadius: BorderRadius.circular(20),
                                 ));
                           });
-                    }
-                  }, error: (errorState) {
-                    showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (BuildContext _) {
-                          return AlertDialog(
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(context.tr.orderFailed),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  AppElevatedButton(
-                                      onPressed: () async {
-                                        AutoRouter.of(_).pop();
-                                      },
-                                      text: context.tr.ok)
-                                ],
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ));
-                        });
+                    });
                   });
-                });
 
-                return AppElevatedButton(
-                  onPressed: () {
-                    cartCubit.confirmOrder(address: _addressController.text);
-                  },
-                  text: context.tr.confirm,
-                  isLoading: state is Loading,
-                );
-              },
-            )
-          ],
+                  return AppElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        cartCubit.confirmOrder(address: _addressController.text);
+                      }
+                    },
+                    text: context.tr.confirm,
+                    isLoading: state is Loading,
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

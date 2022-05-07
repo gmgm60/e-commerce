@@ -6,6 +6,7 @@ part 'cart_item_model.g.dart';
 @Freezed()
 class CartItemModel with _$CartItemModel{
   factory CartItemModel({
+    // ignore: invalid_annotation_target
     @JsonKey(name: "product")
     required ProductModel productModel,
     required int quantity,

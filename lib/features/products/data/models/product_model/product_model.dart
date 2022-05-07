@@ -7,6 +7,7 @@ class ProductModel with _$ProductModel {
 
   factory ProductModel({
     required int id,
+    // ignore: invalid_annotation_target
     @JsonKey(name: "category_id")
     @Default(1) int catId,
     required String name,
@@ -14,6 +15,7 @@ class ProductModel with _$ProductModel {
     required String image,
     required double price,
     @Default(0) double discount,
+    // ignore: invalid_annotation_target
     @JsonKey(name: "quantity")
     @Default(10) int quantity,
   }) = _ProductModel ;
