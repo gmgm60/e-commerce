@@ -5,8 +5,8 @@ import 'injectable.config.dart';
 final GetIt getIt = GetIt.instance;
 
 @InjectableInit()
-Future<void> configureInjection({String? environment})async{
-  await $initGetIt(getIt,environment: environment  );
+Future<void> configureInjection({String? environment}) async {
+  await $initGetIt(getIt, environment: environment);
 }
 
 abstract class InjectInv {
@@ -14,8 +14,4 @@ abstract class InjectInv {
   static const test = "test";
   static const localMock = "localMock";
   static const prod = "prod";
-
 }
-
-
-

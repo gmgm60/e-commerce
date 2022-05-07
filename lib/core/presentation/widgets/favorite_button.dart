@@ -14,13 +14,13 @@ class FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<FavoriteButton>
     with SingleTickerProviderStateMixin {
-
-
   @override
   Widget build(BuildContext context) {
     final favoritesCubit = context.read<FavoritesCubit>();
     return BlocBuilder<FavoritesCubit, FavoritesState>(
-      buildWhen: (_, __) => widget.product.id == favoritesCubit.currentId || favoritesCubit.refreshAll,
+      buildWhen: (_, __) =>
+          widget.product.id == favoritesCubit.currentId ||
+          favoritesCubit.refreshAll,
       builder: (context, state) {
         return Heart(
           product: widget.product,
@@ -59,9 +59,8 @@ class _HeartState extends State<Heart> with TickerProviderStateMixin {
     _curve = CurvedAnimation(parent: _controller, curve: Curves.slowMiddle);
 
     isFavorite = favoritesCubit.favorites[widget.product.id] != null;
-      _colorAnimation =
-          ColorTween(begin: Colors.black26, end: Colors.red).animate(_curve);
-
+    _colorAnimation =
+        ColorTween(begin: Colors.black26, end: Colors.red).animate(_curve);
 
     _sizeAnimation = TweenSequence<double>([
       TweenSequenceItem<double>(
@@ -96,8 +95,7 @@ class _HeartState extends State<Heart> with TickerProviderStateMixin {
         if (isFavorite) {
           // remove from favorites
           // isFavorite = false;
-          favoritesCubit
-              .removeFromFavorites(productId: widget.product.id);
+          favoritesCubit.removeFromFavorites(productId: widget.product.id);
           _controller.reverse();
         } else {
           // add to favorite

@@ -12,6 +12,6 @@ class ConfirmOrder extends UseCase<Unit, String> {
 
   @override
   Future<Either<AppFailure, Unit>> call(String params) async {
-    return await _cartRepository.confirmOrder(address:params);
+    return await _cartRepository.confirmOrder(address: params);
   }
 }

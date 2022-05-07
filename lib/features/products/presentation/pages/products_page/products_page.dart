@@ -38,7 +38,6 @@ class _ProductsPageState extends State<ProductsPage> {
                 state.maybeMap(
                   init: (_) => const ProductShimmer(),
                   loading: (_) => const ProductShimmer(),
-
                   error: (error) => AppErrorWidget(error: error.error),
                   orElse: () => GridView.count(
                     primary: false,

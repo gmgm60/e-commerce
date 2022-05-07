@@ -12,7 +12,8 @@ class ProductsCubit extends Cubit<ProductsState> {
   final GetProduct _getProduct;
   final List<Product> products = [];
 
-  ProductsCubit(this._getProducts, this._getProduct) : super(ProductsState.init());
+  ProductsCubit(this._getProducts, this._getProduct)
+      : super(ProductsState.init());
 
   Future<void> getProducts() async {
     emit(ProductsState.loading());
@@ -23,22 +24,18 @@ class ProductsCubit extends Cubit<ProductsState> {
       (products) {
         this.products.addAll(products);
         emit(ProductsState.done());
-        },
+      },
     );
   }
-
-
 
   Future<void> getProduct({required int productId}) async {
     emit(ProductsState.loading());
     final result = await _getProduct(productId);
     result.fold(
-          (failure) => emit(ProductsState.productError(error: failure.message)),
-          (product) {
+      (failure) => emit(ProductsState.productError(error: failure.message)),
+      (product) {
         emit(ProductsState.productDone(product: product));
       },
     );
   }
-
-
 }

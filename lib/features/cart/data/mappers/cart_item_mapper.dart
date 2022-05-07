@@ -2,13 +2,14 @@ import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_mo
 import 'package:ecommerce/features/cart/domain/entities/cart_item/cart_item.dart';
 import 'package:ecommerce/features/products/data/mappers/product_mapper.dart';
 
-extension ModelToDomain on CartItemModel{
-  CartItem toDomain(){
+extension ModelToDomain on CartItemModel {
+  CartItem toDomain() {
     return CartItem(product: productModel.toDomain(), count: quantity);
   }
 }
-extension DomainToModel on CartItem{
-  CartItemModel toModel(){
+
+extension DomainToModel on CartItem {
+  CartItemModel toModel() {
     return CartItemModel(productModel: product.toModel(), quantity: count);
   }
 }

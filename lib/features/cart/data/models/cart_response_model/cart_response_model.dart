@@ -9,8 +9,7 @@ class CartResponseModel with _$CartResponseModel {
   factory CartResponseModel({
     required List<CartItemModel> data,
     // ignore: invalid_annotation_target
-    @JsonKey(name: "Message")
-    required String message,
+    @JsonKey(name: "Message") required String message,
   }) = _CartResponseModel;
 
   factory CartResponseModel.fromJson(Map<String, dynamic> json) =>

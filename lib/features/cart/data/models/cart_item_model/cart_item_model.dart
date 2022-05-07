@@ -4,12 +4,12 @@ part 'cart_item_model.freezed.dart';
 part 'cart_item_model.g.dart';
 
 @Freezed()
-class CartItemModel with _$CartItemModel{
+class CartItemModel with _$CartItemModel {
   factory CartItemModel({
     // ignore: invalid_annotation_target
-    @JsonKey(name: "product")
-    required ProductModel productModel,
+    @JsonKey(name: "product") required ProductModel productModel,
     required int quantity,
-}) = _CartItemModel;
-  factory CartItemModel.fromJson(Map<String,dynamic> json) => _$CartItemModelFromJson(json);
+  }) = _CartItemModel;
+  factory CartItemModel.fromJson(Map<String, dynamic> json) =>
+      _$CartItemModelFromJson(json);
 }

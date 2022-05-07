@@ -8,9 +8,8 @@ part 'back_button_cubit.freezed.dart';
 class BackButtonCubit extends Cubit<BackButtonState> {
   BackButtonCubit() : super(BackButtonState.init());
 
-  void refresh(){
+  void refresh() {
     emit(BackButtonState.refresh());
     emit(BackButtonState.init());
   }
-
 }

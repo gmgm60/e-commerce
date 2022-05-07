@@ -5,7 +5,6 @@ part 'merchant_details_model.g.dart';
 
 @JsonSerializable()
 class MerchantDetailsModel {
-
   // todo data must not be list it is a single object
   @JsonKey(name: 'Data')
   final List<MerchantDetailsData> data;

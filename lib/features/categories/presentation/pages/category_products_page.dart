@@ -50,6 +50,8 @@ class ProductsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
+      shrinkWrap: true,
+      primary: false,
       physics: const BouncingScrollPhysics(),
       childAspectRatio: .6,
       children: List.generate(

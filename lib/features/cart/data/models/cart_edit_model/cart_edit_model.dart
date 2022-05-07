@@ -11,7 +11,6 @@ class CartEditModel with _$CartEditModel {
     required int quantity,
   }) = _CartEditModel;
 
-  factory CartEditModel.fromJson(Map<String,dynamic> json) => _$CartEditModelFromJson(json);
-
-
+  factory CartEditModel.fromJson(Map<String, dynamic> json) =>
+      _$CartEditModelFromJson(json);
 }

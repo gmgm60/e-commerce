@@ -119,7 +119,7 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
               AppTextFormField(
                   controller: _addressController,
                   validate: (value) {
-                    if(value != null && value.isNotEmpty && value.length > 6){
+                    if (value != null && value.isNotEmpty && value.length > 6) {
                       return null;
                     }
                     return context.tr.addressFieldValidation;
@@ -189,7 +189,8 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                   return AppElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        cartCubit.confirmOrder(address: _addressController.text);
+                        cartCubit.confirmOrder(
+                            address: _addressController.text);
                       }
                     },
                     text: context.tr.confirm,

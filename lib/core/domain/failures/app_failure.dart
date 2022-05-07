@@ -26,7 +26,8 @@ class GeneralRemoteAppFailure extends RemoteAppFailure
       _ServerError;
 
   factory GeneralRemoteAppFailure.unKnown({required String message}) = _UnKnown;
-  factory GeneralRemoteAppFailure.notFound({required String message}) = _NotFound;
+  factory GeneralRemoteAppFailure.notFound({required String message}) =
+      _NotFound;
 }
 
 abstract class LocalAppFailure extends AppFailure {

@@ -8,6 +8,4 @@ class CartEdit with _$CartEdit {
     required int productId,
     required int quantity,
   }) = _CartEdit;
-
-
 }

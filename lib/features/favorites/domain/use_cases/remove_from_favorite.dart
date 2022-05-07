@@ -11,7 +11,7 @@ class RemoveFromFavorite extends UseCase<Unit, int> {
   RemoveFromFavorite(this._favoriteRepository);
 
   @override
-  Future<Either<AppFailure, Unit>> call(int params) async{
+  Future<Either<AppFailure, Unit>> call(int params) async {
     return _favoriteRepository.removeFromFavorite(productId: params);
   }
 }

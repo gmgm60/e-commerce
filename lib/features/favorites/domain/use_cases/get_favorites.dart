@@ -12,7 +12,7 @@ class GetFavorites extends UseCase<List<Product>, NoParams> {
   GetFavorites(this._favoriteRepository);
 
   @override
-  Future<Either<AppFailure, List<Product>>> call(NoParams params) async{
+  Future<Either<AppFailure, List<Product>>> call(NoParams params) async {
     return _favoriteRepository.getFavorites();
   }
 }

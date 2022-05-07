@@ -32,11 +32,13 @@ class MerchantsRepoImpl extends MerchantsRepository {
   }
 
   @override
-  Future<Either<AppFailure, MerchantDetails>> getMerchantDetails({required int merchantId}) async{
+  Future<Either<AppFailure, MerchantDetails>> getMerchantDetails(
+      {required int merchantId}) async {
     debugPrint('start get merchant Details');
 
     try {
-      final merchantDetailsModel = await _merchantsRemoteDatasource.getMerchantDetails(merchantId: merchantId);
+      final merchantDetailsModel = await _merchantsRemoteDatasource
+          .getMerchantDetails(merchantId: merchantId);
       debugPrint('get merchants: $merchantDetailsModel');
       return right(merchantDetailsModel.data.first.fromModel);
     } on AppException catch (exception) {
