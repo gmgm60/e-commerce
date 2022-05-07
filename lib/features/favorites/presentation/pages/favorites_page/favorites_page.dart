@@ -12,37 +12,46 @@ class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.tr.favoritesList),
-      leading: const SizedBox.shrink(),
-      actions: [
-        IconButton(onPressed: (){
-          AutoRouter.of(context).pop();
-        }, icon: const Icon(Icons.arrow_forward_ios))
-
-      ]),
+      appBar: AppBar(
+          title: Text(context.tr.favoritesList),
+          leading: const SizedBox.shrink(),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  AutoRouter.of(context).pop();
+                },
+                icon: const Icon(Icons.arrow_forward_ios))
+          ]),
       body: BlocBuilder<FavoritesCubit, FavoritesState>(
         builder: (context, state) {
-
-          return context
-              .read<FavoritesCubit>()
-              .favorites.isEmpty ?
-            const NoFavorites()
-            : ListView(
-            children: [
-              GridView.count(
-                primary: false,
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-                crossAxisCount: 2,
-                childAspectRatio: .6,
-                children: context
-                    .read<FavoritesCubit>()
-                    .favorites.values
-                    .map((favoriteItem) => ProductGridItem(product: favoriteItem.product,showAppBar: true,))
-                    .toList(),
-              ),
-            ],
-          );
+          return context.read<FavoritesCubit>().favorites.isEmpty
+              ? const NoFavorites()
+              : RefreshIndicator(
+                  onRefresh: () async {
+                    await context.read<FavoritesCubit>().getFavorites();
+                  },
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      GridView.count(
+                        primary: false,
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        crossAxisCount: 2,
+                        childAspectRatio: .6,
+                        children: context
+                            .read<FavoritesCubit>()
+                            .favorites
+                            .values
+                            .map((favoriteItem) => ProductGridItem(
+                                  product: favoriteItem.product,
+                                  showAppBar: true,
+                                ))
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                );
         },
       ),
     );
