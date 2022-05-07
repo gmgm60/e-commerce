@@ -25,8 +25,7 @@ class OrdersPage extends StatelessWidget {
             onRefresh: () async {
               await BlocProvider.of<OrdersCubit>(context).getOrders();
             },
-            child: ListView(
-                children: [
+            child: ListView(children: [
               state.maybeWhen(
                 loading: () => const ListShimmer(),
                 loaded: (orders) => orders.isNotEmpty
@@ -81,6 +80,8 @@ class _OrdersListState extends State<OrdersList> {
     return AnimatedList(
         key: _listKey,
         initialItemCount: _counter,
+        shrinkWrap: true,
+        primary: false,
         itemBuilder: (context, index, animation) {
           return SlideTransition(
             child: OrderItem(

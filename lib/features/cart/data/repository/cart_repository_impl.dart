@@ -21,9 +21,10 @@ class CartRepositoryImpl extends CartRepository {
   CartRepositoryImpl(this._cartRemoteService, this._logger);
 
   @override
-  Future<Either<AppFailure, Unit>> confirmOrder({required String address}) async {
+  Future<Either<AppFailure, Unit>> confirmOrder(
+      {required String address}) async {
     try {
-      final response = await _cartRemoteService.confirmOrder(address:address);
+      final response = await _cartRemoteService.confirmOrder(address: address);
       _logger.v(response);
       return right(unit);
     } on AppException catch (e) {
@@ -59,9 +60,11 @@ class CartRepositoryImpl extends CartRepository {
   }
 
   @override
-  Future<Either<AppFailure, Unit>> deleteFromCart({required int productId})async {
+  Future<Either<AppFailure, Unit>> deleteFromCart(
+      {required int productId}) async {
     try {
-      final response = await _cartRemoteService.deleteCart(productId: productId);
+      final response =
+          await _cartRemoteService.deleteCart(productId: productId);
       _logger.v(response);
       return right(unit);
     } on AppException catch (e) {

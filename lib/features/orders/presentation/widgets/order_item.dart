@@ -24,9 +24,7 @@ class OrderItem extends StatelessWidget {
             order.orderStatus,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context)
-                .textTheme
-                .bodyText2,
+            style: Theme.of(context).textTheme.bodyText2,
           )
         ],
       ),
@@ -34,7 +32,6 @@ class OrderItem extends StatelessWidget {
         order.products,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-
       ),
       subtitle: Row(
         children: [
@@ -61,4 +58,3 @@ class OrderItem extends StatelessWidget {
     );
   }
 }
-

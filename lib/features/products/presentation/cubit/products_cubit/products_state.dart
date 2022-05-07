@@ -5,11 +5,10 @@ part 'products_state.freezed.dart';
 
 @Freezed()
 class ProductsState with _$ProductsState {
-  factory ProductsState.init() = _Init ;
-  factory ProductsState.loading() = ProductsLoading ;
-  factory ProductsState.done() = _Done ;
-  factory ProductsState.productDone({required Product product}) = _productDone ;
-  factory ProductsState.error({required String error}) = _Error ;
-  factory ProductsState.productError({required String error}) = _ProductError ;
+  factory ProductsState.init() = _Init;
+  factory ProductsState.loading() = ProductsLoading;
+  factory ProductsState.done() = _Done;
+  factory ProductsState.productDone({required Product product}) = _productDone;
+  factory ProductsState.error({required String error}) = _Error;
+  factory ProductsState.productError({required String error}) = _ProductError;
 }
-

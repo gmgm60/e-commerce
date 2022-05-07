@@ -6,14 +6,13 @@ import 'package:ecommerce/features/cart/domain/entities/cart_edit/cart_edit.dart
 import 'package:injectable/injectable.dart';
 
 @injectable
-class EditCart extends UseCase<Unit,CartEdit>{
+class EditCart extends UseCase<Unit, CartEdit> {
   final CartRepository _cartRepository;
 
   EditCart(this._cartRepository);
 
   @override
-  Future<Either<AppFailure, Unit>> call(CartEdit params)async {
+  Future<Either<AppFailure, Unit>> call(CartEdit params) async {
     return await _cartRepository.editCart(cartEdit: params);
   }
-
 }

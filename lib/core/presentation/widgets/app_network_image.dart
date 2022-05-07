@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class AppNetworkImage extends StatelessWidget {
   const AppNetworkImage({
     Key? key,
-    required this.url, this.width = double.infinity, this.height = double.infinity,
+    required this.url,
+    this.width = double.infinity,
+    this.height = double.infinity,
   }) : super(key: key);
   final String url;
 
@@ -36,16 +38,13 @@ class AppNetworkImage extends StatelessWidget {
   }
 
   Widget _placeholder() {
-    return  Container(
-     // clipBehavior: Clip.antiAliasWithSaveLayer,
+    return Container(
+      // clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: Colors.white,
-        image: const DecorationImage(
-          image: AssetImage('assets/images/placeholder.png')
-        )
-      ),
-
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          image: const DecorationImage(
+              image: AssetImage('assets/images/placeholder.png'))),
     );
   }
 }

@@ -8,6 +8,4 @@ abstract class CartRemoteDataSource {
   Future<dynamic> confirmOrder({required String address});
 
   Future<List<CartItemModel>> getCart();
-
-
 }

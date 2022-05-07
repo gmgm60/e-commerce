@@ -22,6 +22,6 @@ class Product with _$Product {
   }
 
   int get percentage {
-    return ((1-(newPrice / price)) * 100).toInt();
+    return ((1 - (newPrice / price)) * 100).toInt();
   }
 }

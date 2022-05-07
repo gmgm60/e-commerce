@@ -3,6 +3,7 @@ import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/core/domain/use/use_case.dart';
 import 'package:ecommerce/features/favorites/domain/data/repository/favorite_repository.dart';
 import 'package:injectable/injectable.dart';
+
 @Injectable()
 class AddToFavorite extends UseCase<Unit, int> {
   final FavoriteRepository _favoriteRepository;
@@ -10,7 +11,7 @@ class AddToFavorite extends UseCase<Unit, int> {
   AddToFavorite(this._favoriteRepository);
 
   @override
-  Future<Either<AppFailure, Unit>> call(int params) async{
+  Future<Either<AppFailure, Unit>> call(int params) async {
     return _favoriteRepository.addToFavorite(productId: params);
   }
 }

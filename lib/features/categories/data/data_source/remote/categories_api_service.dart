@@ -18,5 +18,4 @@ abstract class CategoriesApiService {
 
   @GET('$categoryByIDEndPoint/{catId}')
   Future<CategoryDetailsModel> getProductsByCatId({@Path() required int catId});
-  
 }

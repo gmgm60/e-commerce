@@ -74,6 +74,8 @@ class _CategoryListState extends State<CategoryList> {
   Widget build(BuildContext context) {
     return AnimatedList(
       key: _listKey,
+      shrinkWrap: true,
+      primary: false,
       padding: const EdgeInsets.all(16),
       initialItemCount: _counter,
       itemBuilder: (context, index, animation) => SlideTransition(

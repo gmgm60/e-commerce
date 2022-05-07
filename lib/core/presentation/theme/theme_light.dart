@@ -94,9 +94,10 @@ final themeLight = ThemeData(
       ),
       elevation: 16,
       color: Colors.white),
-  bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-      unselectedIconTheme: const IconThemeData(color: appGrey),
-      selectedItemColor: appDarkBlue,
-  elevation: 4,
-  backgroundColor: appGrey.withOpacity(.8),),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    unselectedIconTheme: const IconThemeData(color: appGrey),
+    selectedItemColor: appDarkBlue,
+    elevation: 4,
+    backgroundColor: appGrey.withOpacity(.8),
+  ),
 );

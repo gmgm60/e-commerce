@@ -26,19 +26,21 @@ class CartCubit extends Cubit<CartState> {
   int editedProductId = -1;
   int animatedListCount = 0;
 
-  CartCubit(this._getCart, this._editCart, this._logger, this._confirmOrder, this._deleteFromCart)
+  CartCubit(this._getCart, this._editCart, this._logger, this._confirmOrder,
+      this._deleteFromCart)
       : super(CartState.init());
 
   Future<void> addToCart({required Product product, required int count}) async {
     editedProductId = product.id;
     emit(CartState.loading());
     cart[product.id] = CartItem(product: product, count: count);
-    final result = await _editCart(CartEdit(productId: product.id, quantity: count));
+    final result =
+        await _editCart(CartEdit(productId: product.id, quantity: count));
     result.fold(
       (failure) {
         cart.remove(product.id);
         emit(CartState.error(errMsg: failure.message));
-      } ,
+      },
       (unit) => emit(CartState.done()),
     );
     editedProductId = -1;
@@ -82,23 +84,26 @@ class CartCubit extends Cubit<CartState> {
   }
 
   Future<void> editCount({required int productId, required int count}) async {
-    if (cart[productId] != null && count > 0 && count <= cart[productId]!.product.quantity ) {
+    if (cart[productId] != null &&
+        count > 0 &&
+        count <= cart[productId]!.product.quantity) {
       editedProductId = productId;
       emit(CartState.loading());
       cart[productId] = cart[productId]!.copyWith(count: count);
-      final result = await _editCart(CartEdit(productId: productId, quantity: count));
+      final result =
+          await _editCart(CartEdit(productId: productId, quantity: count));
       result.fold(
-            (failure) {
+        (failure) {
           cart.remove(productId);
           emit(CartState.error(errMsg: failure.message));
-        } ,
-            (unit) => emit(CartState.done()),
+        },
+        (unit) => emit(CartState.done()),
       );
       editedProductId = -1;
     }
   }
 
-  Future<void> deleteProduct({required int productId}) async{
+  Future<void> deleteProduct({required int productId}) async {
     emit(CartState.done(refresh: null));
     cart.remove(productId);
     animatedListCount--;
@@ -106,7 +111,6 @@ class CartCubit extends Cubit<CartState> {
     result.fold((failure) {
       emit(CartState.error(errMsg: failure.message));
     }, (r) => emit(CartState.done(refresh: 1)));
-
   }
 
   double productsPrice() {

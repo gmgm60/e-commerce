@@ -5,7 +5,7 @@ part 'cart_item.freezed.dart';
 @Freezed()
 class CartItem with _$CartItem {
   factory CartItem({
-  required Product product,
-  required int count,
+    required Product product,
+    required int count,
   }) = _CartItem;
 }

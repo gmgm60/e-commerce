@@ -108,5 +108,4 @@ class AuthRepoImpl extends AuthRepository {
       return left(returnAppFailure(exception));
     }
   }
-
 }

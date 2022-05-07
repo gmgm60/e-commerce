@@ -7,7 +7,7 @@ class AppElevatedButton extends StatelessWidget {
       {Key? key,
       required this.onPressed,
       required this.text,
-        this.color,
+      this.color,
       this.isLoading = false})
       : super(key: key);
 

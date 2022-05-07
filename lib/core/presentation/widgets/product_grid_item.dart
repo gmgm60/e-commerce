@@ -12,7 +12,9 @@ class ProductGridItem extends StatelessWidget {
   final Product product;
   final bool showAppBar;
 
-  const ProductGridItem({Key? key, required this.product, this.showAppBar= false}) : super(key: key);
+  const ProductGridItem(
+      {Key? key, required this.product, this.showAppBar = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +23,21 @@ class ProductGridItem extends StatelessWidget {
       final double height = constrain.maxHeight;
       return GestureDetector(
         onTap: () {
-          Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) {
-            const begin = Offset(-1.0, 0.0);
-            const end = Offset.zero;
-            const curve = Curves.ease;
-            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-            return SlideTransition(
-              position: animation.drive(tween),
-              child: ProductPage(productId: product.id,showAppBar: showAppBar),
-            );
-          }),);
+          Navigator.of(context).push(
+            PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) {
+              const begin = Offset(-1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
+              var tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              return SlideTransition(
+                position: animation.drive(tween),
+                child:
+                    ProductPage(productId: product.id, showAppBar: showAppBar),
+              );
+            }),
+          );
           context.read<BackButtonCubit>().refresh();
         },
         child: Card(
@@ -43,7 +50,11 @@ class ProductGridItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: AppNetworkImage(url: product.image,width: width ,height: height *.5,),
+                    child: AppNetworkImage(
+                      url: product.image,
+                      width: width,
+                      height: height * .5,
+                    ),
                   ),
                 ),
                 Text(product.name,
@@ -55,8 +66,7 @@ class ProductGridItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                        (product.newPrice)
-                            .toStringAsFixed(1) +
+                        (product.newPrice).toStringAsFixed(1) +
                             context.tr.currency,
                         style: Theme.of(context).textTheme.headline6),
                     FavoriteButton(product: product),
@@ -66,12 +76,11 @@ class ProductGridItem extends StatelessWidget {
                   children: [
                     Text(product.price.toStringAsFixed(1) + context.tr.currency,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                          decoration: TextDecoration.lineThrough,
-                        )),
+                              decoration: TextDecoration.lineThrough,
+                            )),
                     const SizedBox(width: 10),
                     Text(
-                      product.percentage.toString() +
-                          context.tr.off,
+                      product.percentage.toString() + context.tr.off,
                       style: Theme.of(context)
                           .textTheme
                           .subtitle2!

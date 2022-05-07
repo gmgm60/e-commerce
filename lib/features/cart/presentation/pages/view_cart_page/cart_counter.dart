@@ -33,7 +33,7 @@ class CartCounter extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: BlocBuilder<CartCubit, CartState>(
-            buildWhen: (_,__)=> productId == cartCubit.editedProductId,
+            buildWhen: (_, __) => productId == cartCubit.editedProductId,
             builder: (context, state) {
               return Text(
                   cartCubit.productCount(productId: productId).toString());

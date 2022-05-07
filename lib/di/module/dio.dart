@@ -35,8 +35,6 @@ abstract class AppDioInject {
               )),
         );
       }
-
-
     }));
     dio.options.headers = {"Accept": "application/json"};
     return dio;

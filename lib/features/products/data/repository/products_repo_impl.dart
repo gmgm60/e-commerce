@@ -29,7 +29,8 @@ class ProductsRepoImpl extends ProductRepo {
   }
 
   @override
-  Future<Either<AppFailure, Product>> getProduct({required int productId}) async{
+  Future<Either<AppFailure, Product>> getProduct(
+      {required int productId}) async {
     try {
       final ProductModel response =
           await _productDataSource.getProduct(productId: productId);

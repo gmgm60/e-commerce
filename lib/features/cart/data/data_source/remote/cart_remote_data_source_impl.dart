@@ -26,7 +26,8 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
     required CartEditModel cartEditModel,
   }) async {
     try {
-      final response = await _cartRemoteService.editCart(cartEditModel: cartEditModel);
+      final response =
+          await _cartRemoteService.editCart(cartEditModel: cartEditModel);
       return response;
     } catch (e) {
       throw throwAppException(e);
@@ -44,9 +45,10 @@ class CartRemoteDataSourceImp extends CartRemoteDataSource {
   }
 
   @override
-  Future deleteCart({required int productId}) async{
+  Future deleteCart({required int productId}) async {
     try {
-      final response = await _cartRemoteService.deleteFromCart(productId: productId);
+      final response =
+          await _cartRemoteService.deleteFromCart(productId: productId);
       return response;
     } catch (e) {
       throw throwAppException(e);

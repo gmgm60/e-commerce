@@ -76,6 +76,8 @@ class _MerchantsListState extends State<MerchantsList> {
   Widget build(BuildContext context) {
     return AnimatedList(
         key: _listKey,
+        shrinkWrap: true,
+        primary: false,
         initialItemCount: _counter,
         itemBuilder: (context, index, animation) {
           return SlideTransition(
