@@ -25,9 +25,11 @@ class OrdersRepoImpl extends OrdersRepository {
       final ordersModel = await _ordersRemoteDatasource.getOrders();
       debugPrint('Get Orders Model: $ordersModel');
 
-      return right(ordersModel.map((e) {
-        return e.fromModel;
-      }).toList());
+      final _orders = ordersModel.data?.map((_data) {
+        return _data.fromModel;
+      }).toList();
+
+      return right(_orders ?? []);
     } on AppException catch (exception) {
       debugPrint('Get Orders Error ${exception.message}');
       return left(returnAppFailure(exception));

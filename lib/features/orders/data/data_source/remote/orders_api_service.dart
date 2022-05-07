@@ -13,5 +13,5 @@ abstract class OrdersApiService {
   factory OrdersApiService(Dio dio) = _OrdersApiService;
 
   @GET(ordersEndPoint)
-  Future<List<OrdersModel>> getOrders();
+  Future<OrdersModel> getOrders();
 }
