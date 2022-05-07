@@ -25,7 +25,10 @@ class CategoryPage extends StatelessWidget {
               loading: () => const ListShimmer(),
               error: (error) => AppErrorWidget(error: error),
               categoryLoaded: (categories) => categories.isNotEmpty
-                  ? CategoryList(categories: categories)
+                  ? RefreshIndicator(
+                      onRefresh: () => BlocProvider.of<CategoryCubit>(context)
+                          .getCategories(),
+                      child: CategoryList(categories: categories))
                   : const AppEmptyWidget(),
               orElse: () => Container());
         }),

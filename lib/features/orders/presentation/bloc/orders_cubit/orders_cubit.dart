@@ -10,7 +10,7 @@ class OrdersCubit extends Cubit<OrdersStates> {
 
   final GetOrderUseCase _getOrdersUseCase;
 
-  void getOrders() async {
+  Future<void> getOrders() async {
     emit(const OrdersLoadingState());
     final result = await _getOrdersUseCase(NoParams());
     emit(result.fold((error) => OrdersErrorState(error: error.message),

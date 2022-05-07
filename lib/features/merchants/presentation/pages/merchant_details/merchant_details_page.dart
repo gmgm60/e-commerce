@@ -25,16 +25,21 @@ class MerchantDetailsPage extends StatelessWidget {
               loading: () => const ListShimmer(),
               detailsLoaded: (merchantDetails) =>
                   merchantDetails.products.isNotEmpty
-                      ? GridView.count(
-                          shrinkWrap: true,
-                          primary: false,
-                          crossAxisCount: 2,
-                          physics: const BouncingScrollPhysics(),
-                          childAspectRatio: .6,
-                          children: List.generate(
-                            merchantDetails.products.length,
-                            (index) => ProductGridItem(
-                              product: merchantDetails.products[index],
+                      ? RefreshIndicator(
+                          onRefresh: () =>
+                              BlocProvider.of<MerchantsCubit>(context)
+                                  .getMerchantDetails(merchantId: merchantId),
+                          child: GridView.count(
+                            shrinkWrap: true,
+                            primary: false,
+                            crossAxisCount: 2,
+                            physics: const BouncingScrollPhysics(),
+                            childAspectRatio: .6,
+                            children: List.generate(
+                              merchantDetails.products.length,
+                              (index) => ProductGridItem(
+                                product: merchantDetails.products[index],
+                              ),
                             ),
                           ),
                         )
