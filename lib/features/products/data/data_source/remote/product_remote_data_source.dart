@@ -17,7 +17,7 @@ class ProductRemoteDataSourceImpl extends ProductRemoteDataSource {
       final response = await _productServiceImpl.getProducts();
       return response;
     } catch (e) {
-      debugPrint("product e : ${e.toString()}");
+     // debugPrint("product e : ${e.toString()}");
       throw throwAppException(e);
     }
   }
