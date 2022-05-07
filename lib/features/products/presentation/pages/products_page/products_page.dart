@@ -30,6 +30,7 @@ class _ProductsPageState extends State<ProductsPage> {
           return RefreshIndicator(
             onRefresh: () async {
               await context.read<ProductsCubit>().getProducts();
+              Future.delayed(Duration(milliseconds: 900));
             },
             child: ListView(
               //physics: const BouncingScrollPhysics(),

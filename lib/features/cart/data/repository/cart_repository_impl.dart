@@ -4,7 +4,6 @@ import 'package:ecommerce/core/domain/app_exception/app_exception.dart';
 import 'package:ecommerce/core/domain/failures/app_failure.dart';
 import 'package:ecommerce/features/cart/data/mappers/cart_edit_mapper.dart';
 import 'package:ecommerce/features/cart/data/mappers/cart_item_mapper.dart';
-import 'package:ecommerce/features/cart/data/models/cart_item_model/cart_item_model.dart';
 import 'package:ecommerce/features/cart/domain/data/data_source/cart_remote_data_source.dart';
 import 'package:ecommerce/features/cart/domain/data/repository/cart_repository.dart';
 import 'package:ecommerce/features/cart/domain/entities/cart_edit/cart_edit.dart';
