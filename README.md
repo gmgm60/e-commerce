@@ -64,7 +64,7 @@ flutter_launcher_icons: ^0.9.2
 ## drawer
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_20.png" width="300">
 
-* change languish 
+* change language 
 
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_21.png" width="300">
 
