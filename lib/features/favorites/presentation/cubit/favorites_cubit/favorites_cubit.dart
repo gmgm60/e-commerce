@@ -34,7 +34,6 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       final result = await _addToFavorite(product.id);
       result.fold(
         (error) {
-          print(error.message);
           favorites.remove(product.id);
           emit(FavoritesState.error());
         },
