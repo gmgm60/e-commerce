@@ -10,7 +10,7 @@ part of 'favorite_remote_service_impl.dart';
 
 class _FavoriteRemoteService implements FavoriteRemoteService {
   _FavoriteRemoteService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://e4ee-197-55-22-254.eu.ngrok.io/api/';
+    baseUrl ??= 'https://62c4-197-55-236-203.eu.ngrok.io/api/';
   }
 
   final Dio _dio;

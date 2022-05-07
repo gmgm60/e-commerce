@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           create: (context) => getIt<LocaleCubit>()..getLocalization(),
         ),
         BlocProvider(
-          create: (context) => getIt<FavoritesCubit>()..getFavorites(),
+          create: (context) => getIt<FavoritesCubit>(),
         ),
         BlocProvider(
           create: (context) => getIt<BackButtonCubit>(),

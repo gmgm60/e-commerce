@@ -19,6 +19,7 @@ class _ProductsPageState extends State<ProductsPage> {
   void initState() {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       context.read<ProductsCubit>().getProducts();
+      context.read<FavoritesCubit>().getFavorites();
     });
     super.initState();
   }
