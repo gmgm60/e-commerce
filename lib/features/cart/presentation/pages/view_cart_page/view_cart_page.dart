@@ -46,43 +46,54 @@ class _ViewCartPageState extends State<ViewCartPage> {
           buildWhen: (_, __) => cartCubit.editedProductId == -1,
           builder: (context, state) {
             _addCartItem();
-            return state.map(
-              init: (_) => const ListShimmer(),
-              loading: (_) => const ListShimmer(),
-              error: (error) => AppErrorWidget(error: error.errMsg),
-              done: (_) => ListView(
+            return RefreshIndicator(
+              onRefresh: () async{
+               await cartCubit.getCart();
+              },
+              child: ListView(
                 children: [
-                  AnimatedList(
-                      key: _listKey,
-                      primary: false,
+                  state.map(
+                    init: (_) => const ListShimmer(),
+                    loading: (_) => const ListShimmer(),
+                    error: (error) => AppErrorWidget(error: error.errMsg),
+                    done: (_) => ListView(
                       shrinkWrap: true,
-                      initialItemCount: cartCubit.animatedListCount,
-                      itemBuilder: (context, index, animation) =>
-                          AnimatedCartRow(
-                            cartItem: cartCubit.cart.values.elementAt(index),
-                            index: index,
-                            animation: animation,
-                          )),
-                  if(cartCubit.cart.isNotEmpty)
-                  Column(
-                    children: [
-                      const CartDetails(),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: AppElevatedButton(
-                            onPressed: () {
-                              AutoRouter.of(context)
-                                  .push(const ConfirmOrderRoute());
-                            },
-                            text: context.tr.checkout),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
+                      primary: false,
+                      children: [
+                        AnimatedList(
+                            key: _listKey,
+                            primary: false,
+                            shrinkWrap: true,
+                            initialItemCount: cartCubit.animatedListCount,
+                            itemBuilder: (context, index, animation) =>
+                                AnimatedCartRow(
+                                  cartItem: cartCubit.cart.values.elementAt(index),
+                                  index: index,
+                                  animation: animation,
+                                )),
+                        if(cartCubit.cart.isNotEmpty)
+                        Column(
+                          children: [
+                            const CartDetails(),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: AppElevatedButton(
+                                  onPressed: () {
+                                    AutoRouter.of(context)
+                                        .push(const ConfirmOrderRoute());
+                                  },
+                                  text: context.tr.checkout),
+                            ),
+                            const SizedBox(height: 20),
+                          ],
+                        ),
+                        if(cartCubit.cart.isEmpty)
+                          Image.asset(Assets.imagesShoppingCart,color: Colors.amber,),
+
+
+                      ],
+                    ),
                   ),
-                  if(cartCubit.cart.isEmpty)
-                    Image.asset(Assets.imagesShoppingCart,color: Colors.amber,),
-
-
                 ],
               ),
             );
