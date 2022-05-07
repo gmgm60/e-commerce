@@ -86,19 +86,19 @@ class _$FavoritesStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$initCopyWith<$Res> {
-  factory _$initCopyWith(_init value, $Res Function(_init) then) =
-      __$initCopyWithImpl<$Res>;
+abstract class _$$_initCopyWith<$Res> {
+  factory _$$_initCopyWith(_$_init value, $Res Function(_$_init) then) =
+      __$$_initCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$initCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
-    implements _$initCopyWith<$Res> {
-  __$initCopyWithImpl(_init _value, $Res Function(_init) _then)
-      : super(_value, (v) => _then(v as _init));
+class __$$_initCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
+    implements _$$_initCopyWith<$Res> {
+  __$$_initCopyWithImpl(_$_init _value, $Res Function(_$_init) _then)
+      : super(_value, (v) => _then(v as _$_init));
 
   @override
-  _init get _value => super._value as _init;
+  _$_init get _value => super._value as _$_init;
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class _$_init implements _init {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _init);
+        (other.runtimeType == runtimeType && other is _$_init);
   }
 
   @override
@@ -200,19 +200,20 @@ abstract class _init implements FavoritesState {
 }
 
 /// @nodoc
-abstract class _$loadingCopyWith<$Res> {
-  factory _$loadingCopyWith(_loading value, $Res Function(_loading) then) =
-      __$loadingCopyWithImpl<$Res>;
+abstract class _$$_loadingCopyWith<$Res> {
+  factory _$$_loadingCopyWith(
+          _$_loading value, $Res Function(_$_loading) then) =
+      __$$_loadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$loadingCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
-    implements _$loadingCopyWith<$Res> {
-  __$loadingCopyWithImpl(_loading _value, $Res Function(_loading) _then)
-      : super(_value, (v) => _then(v as _loading));
+class __$$_loadingCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
+    implements _$$_loadingCopyWith<$Res> {
+  __$$_loadingCopyWithImpl(_$_loading _value, $Res Function(_$_loading) _then)
+      : super(_value, (v) => _then(v as _$_loading));
 
   @override
-  _loading get _value => super._value as _loading;
+  _$_loading get _value => super._value as _$_loading;
 }
 
 /// @nodoc
@@ -228,7 +229,7 @@ class _$_loading implements _loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _loading);
+        (other.runtimeType == runtimeType && other is _$_loading);
   }
 
   @override
@@ -314,19 +315,19 @@ abstract class _loading implements FavoritesState {
 }
 
 /// @nodoc
-abstract class _$errorCopyWith<$Res> {
-  factory _$errorCopyWith(_error value, $Res Function(_error) then) =
-      __$errorCopyWithImpl<$Res>;
+abstract class _$$_errorCopyWith<$Res> {
+  factory _$$_errorCopyWith(_$_error value, $Res Function(_$_error) then) =
+      __$$_errorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$errorCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
-    implements _$errorCopyWith<$Res> {
-  __$errorCopyWithImpl(_error _value, $Res Function(_error) _then)
-      : super(_value, (v) => _then(v as _error));
+class __$$_errorCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
+    implements _$$_errorCopyWith<$Res> {
+  __$$_errorCopyWithImpl(_$_error _value, $Res Function(_$_error) _then)
+      : super(_value, (v) => _then(v as _$_error));
 
   @override
-  _error get _value => super._value as _error;
+  _$_error get _value => super._value as _$_error;
 }
 
 /// @nodoc
@@ -342,7 +343,7 @@ class _$_error implements _error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _error);
+        (other.runtimeType == runtimeType && other is _$_error);
   }
 
   @override
@@ -428,19 +429,19 @@ abstract class _error implements FavoritesState {
 }
 
 /// @nodoc
-abstract class _$doneCopyWith<$Res> {
-  factory _$doneCopyWith(_done value, $Res Function(_done) then) =
-      __$doneCopyWithImpl<$Res>;
+abstract class _$$_doneCopyWith<$Res> {
+  factory _$$_doneCopyWith(_$_done value, $Res Function(_$_done) then) =
+      __$$_doneCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$doneCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
-    implements _$doneCopyWith<$Res> {
-  __$doneCopyWithImpl(_done _value, $Res Function(_done) _then)
-      : super(_value, (v) => _then(v as _done));
+class __$$_doneCopyWithImpl<$Res> extends _$FavoritesStateCopyWithImpl<$Res>
+    implements _$$_doneCopyWith<$Res> {
+  __$$_doneCopyWithImpl(_$_done _value, $Res Function(_$_done) _then)
+      : super(_value, (v) => _then(v as _$_done));
 
   @override
-  _done get _value => super._value as _done;
+  _$_done get _value => super._value as _$_done;
 }
 
 /// @nodoc
@@ -456,7 +457,7 @@ class _$_done implements _done {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _done);
+        (other.runtimeType == runtimeType && other is _$_done);
   }
 
   @override

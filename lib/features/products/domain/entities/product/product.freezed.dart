@@ -101,9 +101,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$ProductCopyWith(_Product value, $Res Function(_Product) then) =
-      __$ProductCopyWithImpl<$Res>;
+abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
+  factory _$$_ProductCopyWith(
+          _$_Product value, $Res Function(_$_Product) then) =
+      __$$_ProductCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -117,13 +118,13 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
-    implements _$ProductCopyWith<$Res> {
-  __$ProductCopyWithImpl(_Product _value, $Res Function(_Product) _then)
-      : super(_value, (v) => _then(v as _Product));
+class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
+    implements _$$_ProductCopyWith<$Res> {
+  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+      : super(_value, (v) => _then(v as _$_Product));
 
   @override
-  _Product get _value => super._value as _Product;
+  _$_Product get _value => super._value as _$_Product;
 
   @override
   $Res call({
@@ -136,7 +137,7 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? discount = freezed,
     Object? quantity = freezed,
   }) {
-    return _then(_Product(
+    return _then(_$_Product(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -213,7 +214,7 @@ class _$_Product extends _Product {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Product &&
+            other is _$_Product &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.catId, catId) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -239,8 +240,8 @@ class _$_Product extends _Product {
 
   @JsonKey(ignore: true)
   @override
-  _$ProductCopyWith<_Product> get copyWith =>
-      __$ProductCopyWithImpl<_Product>(this, _$identity);
+  _$$_ProductCopyWith<_$_Product> get copyWith =>
+      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
 }
 
 abstract class _Product extends Product {
@@ -273,6 +274,6 @@ abstract class _Product extends Product {
   int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProductCopyWith<_Product> get copyWith =>
+  _$$_ProductCopyWith<_$_Product> get copyWith =>
       throw _privateConstructorUsedError;
 }

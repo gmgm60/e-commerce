@@ -35,7 +35,9 @@ class AuthRepoImpl extends AuthRepository {
       _localDatasource.saveToken(token: userModel.token).then((value) {
         debugPrint('login save token: $value');
       });
-
+      _localDatasource.saveCurrentUser(user: userModel).then((value) {
+        debugPrint('login save user: $value');
+      });
       return right(userModel.userData.fromModel);
     } on AppException catch (exception) {
       return left(returnAppFailure(exception));
@@ -54,6 +56,9 @@ class AuthRepoImpl extends AuthRepository {
       _localDatasource.saveToken(token: userModel.token).then((value) {
         debugPrint('register save token: $value');
       });
+      _localDatasource.saveCurrentUser(user: userModel).then((value) {
+        debugPrint('register save user: $value');
+      });
 
       return right(userModel.userData.fromModel);
     } on AppException catch (exception) {
@@ -69,8 +74,9 @@ class AuthRepoImpl extends AuthRepository {
       final logoutResult = await _authRemoteDatasource.logout();
 
       debugPrint('logged out success: $logoutResult');
-      // remove token from local
+      // remove token & user from local
       await _localDatasource.deleteToken();
+      await _localDatasource.deleteCurrentUser();
       return right(logoutResult);
     } on AppException catch (exception) {
       debugPrint('Logout Catch Error: ${exception.message}');
@@ -102,4 +108,5 @@ class AuthRepoImpl extends AuthRepository {
       return left(returnAppFailure(exception));
     }
   }
+
 }

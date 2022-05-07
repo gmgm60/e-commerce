@@ -85,22 +85,22 @@ class _$OrdersStatesCopyWithImpl<$Res> implements $OrdersStatesCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $OrdersInitialStateCopyWith<$Res> {
-  factory $OrdersInitialStateCopyWith(
-          OrdersInitialState value, $Res Function(OrdersInitialState) then) =
-      _$OrdersInitialStateCopyWithImpl<$Res>;
+abstract class _$$OrdersInitialStateCopyWith<$Res> {
+  factory _$$OrdersInitialStateCopyWith(_$OrdersInitialState value,
+          $Res Function(_$OrdersInitialState) then) =
+      __$$OrdersInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OrdersInitialStateCopyWithImpl<$Res>
+class __$$OrdersInitialStateCopyWithImpl<$Res>
     extends _$OrdersStatesCopyWithImpl<$Res>
-    implements $OrdersInitialStateCopyWith<$Res> {
-  _$OrdersInitialStateCopyWithImpl(
-      OrdersInitialState _value, $Res Function(OrdersInitialState) _then)
-      : super(_value, (v) => _then(v as OrdersInitialState));
+    implements _$$OrdersInitialStateCopyWith<$Res> {
+  __$$OrdersInitialStateCopyWithImpl(
+      _$OrdersInitialState _value, $Res Function(_$OrdersInitialState) _then)
+      : super(_value, (v) => _then(v as _$OrdersInitialState));
 
   @override
-  OrdersInitialState get _value => super._value as OrdersInitialState;
+  _$OrdersInitialState get _value => super._value as _$OrdersInitialState;
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ class _$OrdersInitialState implements OrdersInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is OrdersInitialState);
+        (other.runtimeType == runtimeType && other is _$OrdersInitialState);
   }
 
   @override
@@ -202,22 +202,22 @@ abstract class OrdersInitialState implements OrdersStates {
 }
 
 /// @nodoc
-abstract class $OrdersLoadingStateCopyWith<$Res> {
-  factory $OrdersLoadingStateCopyWith(
-          OrdersLoadingState value, $Res Function(OrdersLoadingState) then) =
-      _$OrdersLoadingStateCopyWithImpl<$Res>;
+abstract class _$$OrdersLoadingStateCopyWith<$Res> {
+  factory _$$OrdersLoadingStateCopyWith(_$OrdersLoadingState value,
+          $Res Function(_$OrdersLoadingState) then) =
+      __$$OrdersLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OrdersLoadingStateCopyWithImpl<$Res>
+class __$$OrdersLoadingStateCopyWithImpl<$Res>
     extends _$OrdersStatesCopyWithImpl<$Res>
-    implements $OrdersLoadingStateCopyWith<$Res> {
-  _$OrdersLoadingStateCopyWithImpl(
-      OrdersLoadingState _value, $Res Function(OrdersLoadingState) _then)
-      : super(_value, (v) => _then(v as OrdersLoadingState));
+    implements _$$OrdersLoadingStateCopyWith<$Res> {
+  __$$OrdersLoadingStateCopyWithImpl(
+      _$OrdersLoadingState _value, $Res Function(_$OrdersLoadingState) _then)
+      : super(_value, (v) => _then(v as _$OrdersLoadingState));
 
   @override
-  OrdersLoadingState get _value => super._value as OrdersLoadingState;
+  _$OrdersLoadingState get _value => super._value as _$OrdersLoadingState;
 }
 
 /// @nodoc
@@ -233,7 +233,7 @@ class _$OrdersLoadingState implements OrdersLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is OrdersLoadingState);
+        (other.runtimeType == runtimeType && other is _$OrdersLoadingState);
   }
 
   @override
@@ -319,31 +319,31 @@ abstract class OrdersLoadingState implements OrdersStates {
 }
 
 /// @nodoc
-abstract class $OrdersLoadedStateCopyWith<$Res> {
-  factory $OrdersLoadedStateCopyWith(
-          OrdersLoadedState value, $Res Function(OrdersLoadedState) then) =
-      _$OrdersLoadedStateCopyWithImpl<$Res>;
+abstract class _$$OrdersLoadedStateCopyWith<$Res> {
+  factory _$$OrdersLoadedStateCopyWith(
+          _$OrdersLoadedState value, $Res Function(_$OrdersLoadedState) then) =
+      __$$OrdersLoadedStateCopyWithImpl<$Res>;
   $Res call({List<Order> order});
 }
 
 /// @nodoc
-class _$OrdersLoadedStateCopyWithImpl<$Res>
+class __$$OrdersLoadedStateCopyWithImpl<$Res>
     extends _$OrdersStatesCopyWithImpl<$Res>
-    implements $OrdersLoadedStateCopyWith<$Res> {
-  _$OrdersLoadedStateCopyWithImpl(
-      OrdersLoadedState _value, $Res Function(OrdersLoadedState) _then)
-      : super(_value, (v) => _then(v as OrdersLoadedState));
+    implements _$$OrdersLoadedStateCopyWith<$Res> {
+  __$$OrdersLoadedStateCopyWithImpl(
+      _$OrdersLoadedState _value, $Res Function(_$OrdersLoadedState) _then)
+      : super(_value, (v) => _then(v as _$OrdersLoadedState));
 
   @override
-  OrdersLoadedState get _value => super._value as OrdersLoadedState;
+  _$OrdersLoadedState get _value => super._value as _$OrdersLoadedState;
 
   @override
   $Res call({
     Object? order = freezed,
   }) {
-    return _then(OrdersLoadedState(
+    return _then(_$OrdersLoadedState(
       order: order == freezed
-          ? _value.order
+          ? _value._order
           : order // ignore: cast_nullable_to_non_nullable
               as List<Order>,
     ));
@@ -372,18 +372,18 @@ class _$OrdersLoadedState implements OrdersLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is OrdersLoadedState &&
-            const DeepCollectionEquality().equals(other.order, order));
+            other is _$OrdersLoadedState &&
+            const DeepCollectionEquality().equals(other._order, _order));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(order));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_order));
 
   @JsonKey(ignore: true)
   @override
-  $OrdersLoadedStateCopyWith<OrdersLoadedState> get copyWith =>
-      _$OrdersLoadedStateCopyWithImpl<OrdersLoadedState>(this, _$identity);
+  _$$OrdersLoadedStateCopyWith<_$OrdersLoadedState> get copyWith =>
+      __$$OrdersLoadedStateCopyWithImpl<_$OrdersLoadedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -466,34 +466,34 @@ abstract class OrdersLoadedState implements OrdersStates {
 
   List<Order> get order => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OrdersLoadedStateCopyWith<OrdersLoadedState> get copyWith =>
+  _$$OrdersLoadedStateCopyWith<_$OrdersLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OrdersErrorStateCopyWith<$Res> {
-  factory $OrdersErrorStateCopyWith(
-          OrdersErrorState value, $Res Function(OrdersErrorState) then) =
-      _$OrdersErrorStateCopyWithImpl<$Res>;
+abstract class _$$OrdersErrorStateCopyWith<$Res> {
+  factory _$$OrdersErrorStateCopyWith(
+          _$OrdersErrorState value, $Res Function(_$OrdersErrorState) then) =
+      __$$OrdersErrorStateCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$OrdersErrorStateCopyWithImpl<$Res>
+class __$$OrdersErrorStateCopyWithImpl<$Res>
     extends _$OrdersStatesCopyWithImpl<$Res>
-    implements $OrdersErrorStateCopyWith<$Res> {
-  _$OrdersErrorStateCopyWithImpl(
-      OrdersErrorState _value, $Res Function(OrdersErrorState) _then)
-      : super(_value, (v) => _then(v as OrdersErrorState));
+    implements _$$OrdersErrorStateCopyWith<$Res> {
+  __$$OrdersErrorStateCopyWithImpl(
+      _$OrdersErrorState _value, $Res Function(_$OrdersErrorState) _then)
+      : super(_value, (v) => _then(v as _$OrdersErrorState));
 
   @override
-  OrdersErrorState get _value => super._value as OrdersErrorState;
+  _$OrdersErrorState get _value => super._value as _$OrdersErrorState;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(OrdersErrorState(
+    return _then(_$OrdersErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -519,7 +519,7 @@ class _$OrdersErrorState implements OrdersErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is OrdersErrorState &&
+            other is _$OrdersErrorState &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -529,8 +529,8 @@ class _$OrdersErrorState implements OrdersErrorState {
 
   @JsonKey(ignore: true)
   @override
-  $OrdersErrorStateCopyWith<OrdersErrorState> get copyWith =>
-      _$OrdersErrorStateCopyWithImpl<OrdersErrorState>(this, _$identity);
+  _$$OrdersErrorStateCopyWith<_$OrdersErrorState> get copyWith =>
+      __$$OrdersErrorStateCopyWithImpl<_$OrdersErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -613,6 +613,6 @@ abstract class OrdersErrorState implements OrdersStates {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OrdersErrorStateCopyWith<OrdersErrorState> get copyWith =>
+  _$$OrdersErrorStateCopyWith<_$OrdersErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

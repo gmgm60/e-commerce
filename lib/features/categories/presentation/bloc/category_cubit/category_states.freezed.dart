@@ -92,22 +92,22 @@ class _$CategoryStatesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CategoryInitialStateCopyWith<$Res> {
-  factory $CategoryInitialStateCopyWith(CategoryInitialState value,
-          $Res Function(CategoryInitialState) then) =
-      _$CategoryInitialStateCopyWithImpl<$Res>;
+abstract class _$$CategoryInitialStateCopyWith<$Res> {
+  factory _$$CategoryInitialStateCopyWith(_$CategoryInitialState value,
+          $Res Function(_$CategoryInitialState) then) =
+      __$$CategoryInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CategoryInitialStateCopyWithImpl<$Res>
+class __$$CategoryInitialStateCopyWithImpl<$Res>
     extends _$CategoryStatesCopyWithImpl<$Res>
-    implements $CategoryInitialStateCopyWith<$Res> {
-  _$CategoryInitialStateCopyWithImpl(
-      CategoryInitialState _value, $Res Function(CategoryInitialState) _then)
-      : super(_value, (v) => _then(v as CategoryInitialState));
+    implements _$$CategoryInitialStateCopyWith<$Res> {
+  __$$CategoryInitialStateCopyWithImpl(_$CategoryInitialState _value,
+      $Res Function(_$CategoryInitialState) _then)
+      : super(_value, (v) => _then(v as _$CategoryInitialState));
 
   @override
-  CategoryInitialState get _value => super._value as CategoryInitialState;
+  _$CategoryInitialState get _value => super._value as _$CategoryInitialState;
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class _$CategoryInitialState implements CategoryInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is CategoryInitialState);
+        (other.runtimeType == runtimeType && other is _$CategoryInitialState);
   }
 
   @override
@@ -215,22 +215,22 @@ abstract class CategoryInitialState implements CategoryStates {
 }
 
 /// @nodoc
-abstract class $CategoryLoadingStateCopyWith<$Res> {
-  factory $CategoryLoadingStateCopyWith(CategoryLoadingState value,
-          $Res Function(CategoryLoadingState) then) =
-      _$CategoryLoadingStateCopyWithImpl<$Res>;
+abstract class _$$CategoryLoadingStateCopyWith<$Res> {
+  factory _$$CategoryLoadingStateCopyWith(_$CategoryLoadingState value,
+          $Res Function(_$CategoryLoadingState) then) =
+      __$$CategoryLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CategoryLoadingStateCopyWithImpl<$Res>
+class __$$CategoryLoadingStateCopyWithImpl<$Res>
     extends _$CategoryStatesCopyWithImpl<$Res>
-    implements $CategoryLoadingStateCopyWith<$Res> {
-  _$CategoryLoadingStateCopyWithImpl(
-      CategoryLoadingState _value, $Res Function(CategoryLoadingState) _then)
-      : super(_value, (v) => _then(v as CategoryLoadingState));
+    implements _$$CategoryLoadingStateCopyWith<$Res> {
+  __$$CategoryLoadingStateCopyWithImpl(_$CategoryLoadingState _value,
+      $Res Function(_$CategoryLoadingState) _then)
+      : super(_value, (v) => _then(v as _$CategoryLoadingState));
 
   @override
-  CategoryLoadingState get _value => super._value as CategoryLoadingState;
+  _$CategoryLoadingState get _value => super._value as _$CategoryLoadingState;
 }
 
 /// @nodoc
@@ -246,7 +246,7 @@ class _$CategoryLoadingState implements CategoryLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is CategoryLoadingState);
+        (other.runtimeType == runtimeType && other is _$CategoryLoadingState);
   }
 
   @override
@@ -338,31 +338,31 @@ abstract class CategoryLoadingState implements CategoryStates {
 }
 
 /// @nodoc
-abstract class $CategoryLoadedStateCopyWith<$Res> {
-  factory $CategoryLoadedStateCopyWith(
-          CategoryLoadedState value, $Res Function(CategoryLoadedState) then) =
-      _$CategoryLoadedStateCopyWithImpl<$Res>;
+abstract class _$$CategoryLoadedStateCopyWith<$Res> {
+  factory _$$CategoryLoadedStateCopyWith(_$CategoryLoadedState value,
+          $Res Function(_$CategoryLoadedState) then) =
+      __$$CategoryLoadedStateCopyWithImpl<$Res>;
   $Res call({List<ProductsCategory> categories});
 }
 
 /// @nodoc
-class _$CategoryLoadedStateCopyWithImpl<$Res>
+class __$$CategoryLoadedStateCopyWithImpl<$Res>
     extends _$CategoryStatesCopyWithImpl<$Res>
-    implements $CategoryLoadedStateCopyWith<$Res> {
-  _$CategoryLoadedStateCopyWithImpl(
-      CategoryLoadedState _value, $Res Function(CategoryLoadedState) _then)
-      : super(_value, (v) => _then(v as CategoryLoadedState));
+    implements _$$CategoryLoadedStateCopyWith<$Res> {
+  __$$CategoryLoadedStateCopyWithImpl(
+      _$CategoryLoadedState _value, $Res Function(_$CategoryLoadedState) _then)
+      : super(_value, (v) => _then(v as _$CategoryLoadedState));
 
   @override
-  CategoryLoadedState get _value => super._value as CategoryLoadedState;
+  _$CategoryLoadedState get _value => super._value as _$CategoryLoadedState;
 
   @override
   $Res call({
     Object? categories = freezed,
   }) {
-    return _then(CategoryLoadedState(
+    return _then(_$CategoryLoadedState(
       categories: categories == freezed
-          ? _value.categories
+          ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<ProductsCategory>,
     ));
@@ -392,19 +392,20 @@ class _$CategoryLoadedState implements CategoryLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CategoryLoadedState &&
+            other is _$CategoryLoadedState &&
             const DeepCollectionEquality()
-                .equals(other.categories, categories));
+                .equals(other._categories, _categories));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(categories));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categories));
 
   @JsonKey(ignore: true)
   @override
-  $CategoryLoadedStateCopyWith<CategoryLoadedState> get copyWith =>
-      _$CategoryLoadedStateCopyWithImpl<CategoryLoadedState>(this, _$identity);
+  _$$CategoryLoadedStateCopyWith<_$CategoryLoadedState> get copyWith =>
+      __$$CategoryLoadedStateCopyWithImpl<_$CategoryLoadedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -494,34 +495,34 @@ abstract class CategoryLoadedState implements CategoryStates {
 
   List<ProductsCategory> get categories => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CategoryLoadedStateCopyWith<CategoryLoadedState> get copyWith =>
+  _$$CategoryLoadedStateCopyWith<_$CategoryLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryErrorStateCopyWith<$Res> {
-  factory $CategoryErrorStateCopyWith(
-          CategoryErrorState value, $Res Function(CategoryErrorState) then) =
-      _$CategoryErrorStateCopyWithImpl<$Res>;
+abstract class _$$CategoryErrorStateCopyWith<$Res> {
+  factory _$$CategoryErrorStateCopyWith(_$CategoryErrorState value,
+          $Res Function(_$CategoryErrorState) then) =
+      __$$CategoryErrorStateCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$CategoryErrorStateCopyWithImpl<$Res>
+class __$$CategoryErrorStateCopyWithImpl<$Res>
     extends _$CategoryStatesCopyWithImpl<$Res>
-    implements $CategoryErrorStateCopyWith<$Res> {
-  _$CategoryErrorStateCopyWithImpl(
-      CategoryErrorState _value, $Res Function(CategoryErrorState) _then)
-      : super(_value, (v) => _then(v as CategoryErrorState));
+    implements _$$CategoryErrorStateCopyWith<$Res> {
+  __$$CategoryErrorStateCopyWithImpl(
+      _$CategoryErrorState _value, $Res Function(_$CategoryErrorState) _then)
+      : super(_value, (v) => _then(v as _$CategoryErrorState));
 
   @override
-  CategoryErrorState get _value => super._value as CategoryErrorState;
+  _$CategoryErrorState get _value => super._value as _$CategoryErrorState;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(CategoryErrorState(
+    return _then(_$CategoryErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -547,7 +548,7 @@ class _$CategoryErrorState implements CategoryErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CategoryErrorState &&
+            other is _$CategoryErrorState &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -557,8 +558,9 @@ class _$CategoryErrorState implements CategoryErrorState {
 
   @JsonKey(ignore: true)
   @override
-  $CategoryErrorStateCopyWith<CategoryErrorState> get copyWith =>
-      _$CategoryErrorStateCopyWithImpl<CategoryErrorState>(this, _$identity);
+  _$$CategoryErrorStateCopyWith<_$CategoryErrorState> get copyWith =>
+      __$$CategoryErrorStateCopyWithImpl<_$CategoryErrorState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -647,36 +649,36 @@ abstract class CategoryErrorState implements CategoryStates {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CategoryErrorStateCopyWith<CategoryErrorState> get copyWith =>
+  _$$CategoryErrorStateCopyWith<_$CategoryErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductsLoadedStateCopyWith<$Res> {
-  factory $ProductsLoadedStateCopyWith(
-          ProductsLoadedState value, $Res Function(ProductsLoadedState) then) =
-      _$ProductsLoadedStateCopyWithImpl<$Res>;
+abstract class _$$ProductsLoadedStateCopyWith<$Res> {
+  factory _$$ProductsLoadedStateCopyWith(_$ProductsLoadedState value,
+          $Res Function(_$ProductsLoadedState) then) =
+      __$$ProductsLoadedStateCopyWithImpl<$Res>;
   $Res call({List<Product> products});
 }
 
 /// @nodoc
-class _$ProductsLoadedStateCopyWithImpl<$Res>
+class __$$ProductsLoadedStateCopyWithImpl<$Res>
     extends _$CategoryStatesCopyWithImpl<$Res>
-    implements $ProductsLoadedStateCopyWith<$Res> {
-  _$ProductsLoadedStateCopyWithImpl(
-      ProductsLoadedState _value, $Res Function(ProductsLoadedState) _then)
-      : super(_value, (v) => _then(v as ProductsLoadedState));
+    implements _$$ProductsLoadedStateCopyWith<$Res> {
+  __$$ProductsLoadedStateCopyWithImpl(
+      _$ProductsLoadedState _value, $Res Function(_$ProductsLoadedState) _then)
+      : super(_value, (v) => _then(v as _$ProductsLoadedState));
 
   @override
-  ProductsLoadedState get _value => super._value as ProductsLoadedState;
+  _$ProductsLoadedState get _value => super._value as _$ProductsLoadedState;
 
   @override
   $Res call({
     Object? products = freezed,
   }) {
-    return _then(ProductsLoadedState(
+    return _then(_$ProductsLoadedState(
       products: products == freezed
-          ? _value.products
+          ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
     ));
@@ -705,18 +707,19 @@ class _$ProductsLoadedState implements ProductsLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProductsLoadedState &&
-            const DeepCollectionEquality().equals(other.products, products));
+            other is _$ProductsLoadedState &&
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(products));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
-  $ProductsLoadedStateCopyWith<ProductsLoadedState> get copyWith =>
-      _$ProductsLoadedStateCopyWithImpl<ProductsLoadedState>(this, _$identity);
+  _$$ProductsLoadedStateCopyWith<_$ProductsLoadedState> get copyWith =>
+      __$$ProductsLoadedStateCopyWithImpl<_$ProductsLoadedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -805,6 +808,6 @@ abstract class ProductsLoadedState implements CategoryStates {
 
   List<Product> get products => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductsLoadedStateCopyWith<ProductsLoadedState> get copyWith =>
+  _$$ProductsLoadedStateCopyWith<_$ProductsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }

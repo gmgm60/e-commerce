@@ -92,22 +92,22 @@ class _$MerchantsStatesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $MerchantsInitialStateCopyWith<$Res> {
-  factory $MerchantsInitialStateCopyWith(MerchantsInitialState value,
-          $Res Function(MerchantsInitialState) then) =
-      _$MerchantsInitialStateCopyWithImpl<$Res>;
+abstract class _$$MerchantsInitialStateCopyWith<$Res> {
+  factory _$$MerchantsInitialStateCopyWith(_$MerchantsInitialState value,
+          $Res Function(_$MerchantsInitialState) then) =
+      __$$MerchantsInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MerchantsInitialStateCopyWithImpl<$Res>
+class __$$MerchantsInitialStateCopyWithImpl<$Res>
     extends _$MerchantsStatesCopyWithImpl<$Res>
-    implements $MerchantsInitialStateCopyWith<$Res> {
-  _$MerchantsInitialStateCopyWithImpl(
-      MerchantsInitialState _value, $Res Function(MerchantsInitialState) _then)
-      : super(_value, (v) => _then(v as MerchantsInitialState));
+    implements _$$MerchantsInitialStateCopyWith<$Res> {
+  __$$MerchantsInitialStateCopyWithImpl(_$MerchantsInitialState _value,
+      $Res Function(_$MerchantsInitialState) _then)
+      : super(_value, (v) => _then(v as _$MerchantsInitialState));
 
   @override
-  MerchantsInitialState get _value => super._value as MerchantsInitialState;
+  _$MerchantsInitialState get _value => super._value as _$MerchantsInitialState;
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class _$MerchantsInitialState implements MerchantsInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is MerchantsInitialState);
+        (other.runtimeType == runtimeType && other is _$MerchantsInitialState);
   }
 
   @override
@@ -215,22 +215,22 @@ abstract class MerchantsInitialState implements MerchantsStates {
 }
 
 /// @nodoc
-abstract class $MerchantsLoadingStateCopyWith<$Res> {
-  factory $MerchantsLoadingStateCopyWith(MerchantsLoadingState value,
-          $Res Function(MerchantsLoadingState) then) =
-      _$MerchantsLoadingStateCopyWithImpl<$Res>;
+abstract class _$$MerchantsLoadingStateCopyWith<$Res> {
+  factory _$$MerchantsLoadingStateCopyWith(_$MerchantsLoadingState value,
+          $Res Function(_$MerchantsLoadingState) then) =
+      __$$MerchantsLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MerchantsLoadingStateCopyWithImpl<$Res>
+class __$$MerchantsLoadingStateCopyWithImpl<$Res>
     extends _$MerchantsStatesCopyWithImpl<$Res>
-    implements $MerchantsLoadingStateCopyWith<$Res> {
-  _$MerchantsLoadingStateCopyWithImpl(
-      MerchantsLoadingState _value, $Res Function(MerchantsLoadingState) _then)
-      : super(_value, (v) => _then(v as MerchantsLoadingState));
+    implements _$$MerchantsLoadingStateCopyWith<$Res> {
+  __$$MerchantsLoadingStateCopyWithImpl(_$MerchantsLoadingState _value,
+      $Res Function(_$MerchantsLoadingState) _then)
+      : super(_value, (v) => _then(v as _$MerchantsLoadingState));
 
   @override
-  MerchantsLoadingState get _value => super._value as MerchantsLoadingState;
+  _$MerchantsLoadingState get _value => super._value as _$MerchantsLoadingState;
 }
 
 /// @nodoc
@@ -246,7 +246,7 @@ class _$MerchantsLoadingState implements MerchantsLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is MerchantsLoadingState);
+        (other.runtimeType == runtimeType && other is _$MerchantsLoadingState);
   }
 
   @override
@@ -338,31 +338,31 @@ abstract class MerchantsLoadingState implements MerchantsStates {
 }
 
 /// @nodoc
-abstract class $MerchantsLoadedStateCopyWith<$Res> {
-  factory $MerchantsLoadedStateCopyWith(MerchantsLoadedState value,
-          $Res Function(MerchantsLoadedState) then) =
-      _$MerchantsLoadedStateCopyWithImpl<$Res>;
+abstract class _$$MerchantsLoadedStateCopyWith<$Res> {
+  factory _$$MerchantsLoadedStateCopyWith(_$MerchantsLoadedState value,
+          $Res Function(_$MerchantsLoadedState) then) =
+      __$$MerchantsLoadedStateCopyWithImpl<$Res>;
   $Res call({List<Merchant> merchants});
 }
 
 /// @nodoc
-class _$MerchantsLoadedStateCopyWithImpl<$Res>
+class __$$MerchantsLoadedStateCopyWithImpl<$Res>
     extends _$MerchantsStatesCopyWithImpl<$Res>
-    implements $MerchantsLoadedStateCopyWith<$Res> {
-  _$MerchantsLoadedStateCopyWithImpl(
-      MerchantsLoadedState _value, $Res Function(MerchantsLoadedState) _then)
-      : super(_value, (v) => _then(v as MerchantsLoadedState));
+    implements _$$MerchantsLoadedStateCopyWith<$Res> {
+  __$$MerchantsLoadedStateCopyWithImpl(_$MerchantsLoadedState _value,
+      $Res Function(_$MerchantsLoadedState) _then)
+      : super(_value, (v) => _then(v as _$MerchantsLoadedState));
 
   @override
-  MerchantsLoadedState get _value => super._value as MerchantsLoadedState;
+  _$MerchantsLoadedState get _value => super._value as _$MerchantsLoadedState;
 
   @override
   $Res call({
     Object? merchants = freezed,
   }) {
-    return _then(MerchantsLoadedState(
+    return _then(_$MerchantsLoadedState(
       merchants: merchants == freezed
-          ? _value.merchants
+          ? _value._merchants
           : merchants // ignore: cast_nullable_to_non_nullable
               as List<Merchant>,
     ));
@@ -391,18 +391,19 @@ class _$MerchantsLoadedState implements MerchantsLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is MerchantsLoadedState &&
-            const DeepCollectionEquality().equals(other.merchants, merchants));
+            other is _$MerchantsLoadedState &&
+            const DeepCollectionEquality()
+                .equals(other._merchants, _merchants));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(merchants));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_merchants));
 
   @JsonKey(ignore: true)
   @override
-  $MerchantsLoadedStateCopyWith<MerchantsLoadedState> get copyWith =>
-      _$MerchantsLoadedStateCopyWithImpl<MerchantsLoadedState>(
+  _$$MerchantsLoadedStateCopyWith<_$MerchantsLoadedState> get copyWith =>
+      __$$MerchantsLoadedStateCopyWithImpl<_$MerchantsLoadedState>(
           this, _$identity);
 
   @override
@@ -492,35 +493,37 @@ abstract class MerchantsLoadedState implements MerchantsStates {
 
   List<Merchant> get merchants => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MerchantsLoadedStateCopyWith<MerchantsLoadedState> get copyWith =>
+  _$$MerchantsLoadedStateCopyWith<_$MerchantsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MerchantDetailsLoadedStateCopyWith<$Res> {
-  factory $MerchantDetailsLoadedStateCopyWith(MerchantDetailsLoadedState value,
-          $Res Function(MerchantDetailsLoadedState) then) =
-      _$MerchantDetailsLoadedStateCopyWithImpl<$Res>;
+abstract class _$$MerchantDetailsLoadedStateCopyWith<$Res> {
+  factory _$$MerchantDetailsLoadedStateCopyWith(
+          _$MerchantDetailsLoadedState value,
+          $Res Function(_$MerchantDetailsLoadedState) then) =
+      __$$MerchantDetailsLoadedStateCopyWithImpl<$Res>;
   $Res call({MerchantDetails merchantDetails});
 }
 
 /// @nodoc
-class _$MerchantDetailsLoadedStateCopyWithImpl<$Res>
+class __$$MerchantDetailsLoadedStateCopyWithImpl<$Res>
     extends _$MerchantsStatesCopyWithImpl<$Res>
-    implements $MerchantDetailsLoadedStateCopyWith<$Res> {
-  _$MerchantDetailsLoadedStateCopyWithImpl(MerchantDetailsLoadedState _value,
-      $Res Function(MerchantDetailsLoadedState) _then)
-      : super(_value, (v) => _then(v as MerchantDetailsLoadedState));
+    implements _$$MerchantDetailsLoadedStateCopyWith<$Res> {
+  __$$MerchantDetailsLoadedStateCopyWithImpl(
+      _$MerchantDetailsLoadedState _value,
+      $Res Function(_$MerchantDetailsLoadedState) _then)
+      : super(_value, (v) => _then(v as _$MerchantDetailsLoadedState));
 
   @override
-  MerchantDetailsLoadedState get _value =>
-      super._value as MerchantDetailsLoadedState;
+  _$MerchantDetailsLoadedState get _value =>
+      super._value as _$MerchantDetailsLoadedState;
 
   @override
   $Res call({
     Object? merchantDetails = freezed,
   }) {
-    return _then(MerchantDetailsLoadedState(
+    return _then(_$MerchantDetailsLoadedState(
       merchantDetails: merchantDetails == freezed
           ? _value.merchantDetails
           : merchantDetails // ignore: cast_nullable_to_non_nullable
@@ -546,7 +549,7 @@ class _$MerchantDetailsLoadedState implements MerchantDetailsLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is MerchantDetailsLoadedState &&
+            other is _$MerchantDetailsLoadedState &&
             const DeepCollectionEquality()
                 .equals(other.merchantDetails, merchantDetails));
   }
@@ -557,10 +560,9 @@ class _$MerchantDetailsLoadedState implements MerchantDetailsLoadedState {
 
   @JsonKey(ignore: true)
   @override
-  $MerchantDetailsLoadedStateCopyWith<MerchantDetailsLoadedState>
-      get copyWith =>
-          _$MerchantDetailsLoadedStateCopyWithImpl<MerchantDetailsLoadedState>(
-              this, _$identity);
+  _$$MerchantDetailsLoadedStateCopyWith<_$MerchantDetailsLoadedState>
+      get copyWith => __$$MerchantDetailsLoadedStateCopyWithImpl<
+          _$MerchantDetailsLoadedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -650,34 +652,34 @@ abstract class MerchantDetailsLoadedState implements MerchantsStates {
 
   MerchantDetails get merchantDetails => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MerchantDetailsLoadedStateCopyWith<MerchantDetailsLoadedState>
+  _$$MerchantDetailsLoadedStateCopyWith<_$MerchantDetailsLoadedState>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MerchantsErrorStateCopyWith<$Res> {
-  factory $MerchantsErrorStateCopyWith(
-          MerchantsErrorState value, $Res Function(MerchantsErrorState) then) =
-      _$MerchantsErrorStateCopyWithImpl<$Res>;
+abstract class _$$MerchantsErrorStateCopyWith<$Res> {
+  factory _$$MerchantsErrorStateCopyWith(_$MerchantsErrorState value,
+          $Res Function(_$MerchantsErrorState) then) =
+      __$$MerchantsErrorStateCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$MerchantsErrorStateCopyWithImpl<$Res>
+class __$$MerchantsErrorStateCopyWithImpl<$Res>
     extends _$MerchantsStatesCopyWithImpl<$Res>
-    implements $MerchantsErrorStateCopyWith<$Res> {
-  _$MerchantsErrorStateCopyWithImpl(
-      MerchantsErrorState _value, $Res Function(MerchantsErrorState) _then)
-      : super(_value, (v) => _then(v as MerchantsErrorState));
+    implements _$$MerchantsErrorStateCopyWith<$Res> {
+  __$$MerchantsErrorStateCopyWithImpl(
+      _$MerchantsErrorState _value, $Res Function(_$MerchantsErrorState) _then)
+      : super(_value, (v) => _then(v as _$MerchantsErrorState));
 
   @override
-  MerchantsErrorState get _value => super._value as MerchantsErrorState;
+  _$MerchantsErrorState get _value => super._value as _$MerchantsErrorState;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(MerchantsErrorState(
+    return _then(_$MerchantsErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -703,7 +705,7 @@ class _$MerchantsErrorState implements MerchantsErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is MerchantsErrorState &&
+            other is _$MerchantsErrorState &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -713,8 +715,9 @@ class _$MerchantsErrorState implements MerchantsErrorState {
 
   @JsonKey(ignore: true)
   @override
-  $MerchantsErrorStateCopyWith<MerchantsErrorState> get copyWith =>
-      _$MerchantsErrorStateCopyWithImpl<MerchantsErrorState>(this, _$identity);
+  _$$MerchantsErrorStateCopyWith<_$MerchantsErrorState> get copyWith =>
+      __$$MerchantsErrorStateCopyWithImpl<_$MerchantsErrorState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -803,6 +806,6 @@ abstract class MerchantsErrorState implements MerchantsStates {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MerchantsErrorStateCopyWith<MerchantsErrorState> get copyWith =>
+  _$$MerchantsErrorStateCopyWith<_$MerchantsErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

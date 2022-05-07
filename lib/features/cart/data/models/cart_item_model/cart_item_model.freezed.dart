@@ -20,6 +20,7 @@ CartItemModel _$CartItemModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CartItemModel {
+// ignore: invalid_annotation_target
   @JsonKey(name: "product")
   ProductModel get productModel => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
@@ -76,11 +77,11 @@ class _$CartItemModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CartItemModelCopyWith<$Res>
+abstract class _$$_CartItemModelCopyWith<$Res>
     implements $CartItemModelCopyWith<$Res> {
-  factory _$CartItemModelCopyWith(
-          _CartItemModel value, $Res Function(_CartItemModel) then) =
-      __$CartItemModelCopyWithImpl<$Res>;
+  factory _$$_CartItemModelCopyWith(
+          _$_CartItemModel value, $Res Function(_$_CartItemModel) then) =
+      __$$_CartItemModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: "product") ProductModel productModel, int quantity});
@@ -90,22 +91,22 @@ abstract class _$CartItemModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$CartItemModelCopyWithImpl<$Res>
+class __$$_CartItemModelCopyWithImpl<$Res>
     extends _$CartItemModelCopyWithImpl<$Res>
-    implements _$CartItemModelCopyWith<$Res> {
-  __$CartItemModelCopyWithImpl(
-      _CartItemModel _value, $Res Function(_CartItemModel) _then)
-      : super(_value, (v) => _then(v as _CartItemModel));
+    implements _$$_CartItemModelCopyWith<$Res> {
+  __$$_CartItemModelCopyWithImpl(
+      _$_CartItemModel _value, $Res Function(_$_CartItemModel) _then)
+      : super(_value, (v) => _then(v as _$_CartItemModel));
 
   @override
-  _CartItemModel get _value => super._value as _CartItemModel;
+  _$_CartItemModel get _value => super._value as _$_CartItemModel;
 
   @override
   $Res call({
     Object? productModel = freezed,
     Object? quantity = freezed,
   }) {
-    return _then(_CartItemModel(
+    return _then(_$_CartItemModel(
       productModel: productModel == freezed
           ? _value.productModel
           : productModel // ignore: cast_nullable_to_non_nullable
@@ -128,6 +129,7 @@ class _$_CartItemModel implements _CartItemModel {
   factory _$_CartItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_CartItemModelFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "product")
   final ProductModel productModel;
@@ -143,7 +145,7 @@ class _$_CartItemModel implements _CartItemModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CartItemModel &&
+            other is _$_CartItemModel &&
             const DeepCollectionEquality()
                 .equals(other.productModel, productModel) &&
             const DeepCollectionEquality().equals(other.quantity, quantity));
@@ -158,8 +160,8 @@ class _$_CartItemModel implements _CartItemModel {
 
   @JsonKey(ignore: true)
   @override
-  _$CartItemModelCopyWith<_CartItemModel> get copyWith =>
-      __$CartItemModelCopyWithImpl<_CartItemModel>(this, _$identity);
+  _$$_CartItemModelCopyWith<_$_CartItemModel> get copyWith =>
+      __$$_CartItemModelCopyWithImpl<_$_CartItemModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -175,13 +177,13 @@ abstract class _CartItemModel implements CartItemModel {
   factory _CartItemModel.fromJson(Map<String, dynamic> json) =
       _$_CartItemModel.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "product")
   ProductModel get productModel => throw _privateConstructorUsedError;
   @override
   int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CartItemModelCopyWith<_CartItemModel> get copyWith =>
+  _$$_CartItemModelCopyWith<_$_CartItemModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

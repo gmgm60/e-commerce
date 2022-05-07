@@ -41,7 +41,7 @@
   "description": "التفاصيل :",
   "off": " % خصم",
   "currency": " جم",
-  "yourCart" : "عربة التسوق",
+  "yourCart": "عربة التسوق",
   "addToCart": "أضف الى العربة",
   "items": "المنتجات",
   "shipping": "الشحن",
@@ -51,7 +51,7 @@
   "thisProductISInTheCart": "تمت اضافة هذا المنتج للعربه",
   "productNotAvailable": "هذا المنتج غير متاح حاليا",
   "productName": "أسم المنتج",
-  "price" : "السعر",
+  "price": "السعر",
   "count": "العدد",
   "total": "الاجمالى",
   "checkout": "طلب الشراء",
@@ -65,11 +65,10 @@
   "noFavoritesText": "اضغط رمز القلب لاى منتج, و سوف تجد هذا المنتج هنا فى المره القادمه التى تزور فيها هذه الصفحه.",
   "unknownError": "خطأ مجول!",
   "somethingWentWrong": "هناك خطأ ما!",
-  "unauthorized" : "لا تملك تصريح!",
-  "serverError" : "خطأ فى السيرفر!",
-  "notFound" : "لم يتم العثور عليه!",
-  "noInternet" :"لا يوجد اتصال بالانترنت!"
-
-
-
+  "unauthorized": "لا تملك تصريح!",
+  "serverError": "خطأ فى السيرفر!",
+  "notFound": "لم يتم العثور عليه!",
+  "noInternet": "لا يوجد اتصال بالانترنت!",
+  "status": "حاله الطلب",
+  "noUser": "بيانات المستخدم غير متاحه"
 }

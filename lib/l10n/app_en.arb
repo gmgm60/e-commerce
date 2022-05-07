@@ -65,8 +65,10 @@
   "noFavoritesText": "Click the heart icon on any product, and you will see it here next time you view this page.",
   "unknownError": "Unknown Error!",
   "somethingWentWrong": "Something Went Wrong!",
-  "unauthorized" : "unauthorized!",
-  "serverError" : "server Error!",
-  "notFound" : "Not Found!",
-  "noInternet" :"No Internet Connection!"
+  "unauthorized": "unauthorized!",
+  "serverError": "server Error!",
+  "notFound": "Not Found!",
+  "noInternet": "No Internet Connection!",
+  "status": "Order Status",
+  "noUser": "User Data not available"
 }

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class AppEmptyWidget extends StatelessWidget {
   const AppEmptyWidget({
     Key? key,
+    this.message,
   }) : super(key: key);
+  final String? message;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +20,11 @@ class AppEmptyWidget extends StatelessWidget {
             height: 250,
           ),
           Text(
-            context.tr.noDataToShow,
-            style: Theme.of(context).textTheme.titleLarge,
+            message ?? context.tr.noDataToShow,
+            style: Theme.of(context)
+                .textTheme
+                .headline6!
+                .copyWith(color: Colors.blueGrey),
           )
         ],
       ),

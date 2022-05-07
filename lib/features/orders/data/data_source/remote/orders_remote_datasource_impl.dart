@@ -11,7 +11,7 @@ class OrdersRemoteDatasourceImpl extends OrdersRemoteDatasource {
   OrdersRemoteDatasourceImpl(this._ordersApiService);
 
   @override
-  Future<List<OrdersModel>> getOrders() async {
+  Future<OrdersModel> getOrders() async {
     try {
       return await _ordersApiService.getOrders();
     } catch (e) {

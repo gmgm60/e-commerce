@@ -20,6 +20,7 @@ CartEditModel _$CartEditModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CartEditModel {
+// ignore: invalid_annotation_target
   @JsonKey(name: "product_id")
   int get productId => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
@@ -66,32 +67,32 @@ class _$CartEditModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CartEditModelCopyWith<$Res>
+abstract class _$$_CartEditModelCopyWith<$Res>
     implements $CartEditModelCopyWith<$Res> {
-  factory _$CartEditModelCopyWith(
-          _CartEditModel value, $Res Function(_CartEditModel) then) =
-      __$CartEditModelCopyWithImpl<$Res>;
+  factory _$$_CartEditModelCopyWith(
+          _$_CartEditModel value, $Res Function(_$_CartEditModel) then) =
+      __$$_CartEditModelCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: "product_id") int productId, int quantity});
 }
 
 /// @nodoc
-class __$CartEditModelCopyWithImpl<$Res>
+class __$$_CartEditModelCopyWithImpl<$Res>
     extends _$CartEditModelCopyWithImpl<$Res>
-    implements _$CartEditModelCopyWith<$Res> {
-  __$CartEditModelCopyWithImpl(
-      _CartEditModel _value, $Res Function(_CartEditModel) _then)
-      : super(_value, (v) => _then(v as _CartEditModel));
+    implements _$$_CartEditModelCopyWith<$Res> {
+  __$$_CartEditModelCopyWithImpl(
+      _$_CartEditModel _value, $Res Function(_$_CartEditModel) _then)
+      : super(_value, (v) => _then(v as _$_CartEditModel));
 
   @override
-  _CartEditModel get _value => super._value as _CartEditModel;
+  _$_CartEditModel get _value => super._value as _$_CartEditModel;
 
   @override
   $Res call({
     Object? productId = freezed,
     Object? quantity = freezed,
   }) {
-    return _then(_CartEditModel(
+    return _then(_$_CartEditModel(
       productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -114,6 +115,7 @@ class _$_CartEditModel implements _CartEditModel {
   factory _$_CartEditModel.fromJson(Map<String, dynamic> json) =>
       _$$_CartEditModelFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "product_id")
   final int productId;
@@ -129,7 +131,7 @@ class _$_CartEditModel implements _CartEditModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CartEditModel &&
+            other is _$_CartEditModel &&
             const DeepCollectionEquality().equals(other.productId, productId) &&
             const DeepCollectionEquality().equals(other.quantity, quantity));
   }
@@ -143,8 +145,8 @@ class _$_CartEditModel implements _CartEditModel {
 
   @JsonKey(ignore: true)
   @override
-  _$CartEditModelCopyWith<_CartEditModel> get copyWith =>
-      __$CartEditModelCopyWithImpl<_CartEditModel>(this, _$identity);
+  _$$_CartEditModelCopyWith<_$_CartEditModel> get copyWith =>
+      __$$_CartEditModelCopyWithImpl<_$_CartEditModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -160,13 +162,13 @@ abstract class _CartEditModel implements CartEditModel {
   factory _CartEditModel.fromJson(Map<String, dynamic> json) =
       _$_CartEditModel.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "product_id")
   int get productId => throw _privateConstructorUsedError;
   @override
   int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CartEditModelCopyWith<_CartEditModel> get copyWith =>
+  _$$_CartEditModelCopyWith<_$_CartEditModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

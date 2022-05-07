@@ -18,20 +18,18 @@ class _OrdersApiService implements OrdersApiService {
   String? baseUrl;
 
   @override
-  Future<List<OrdersModel>> getOrders() async {
+  Future<OrdersModel> getOrders() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<OrdersModel>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<OrdersModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'order/index',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => OrdersModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = OrdersModel.fromJson(_result.data!);
     return value;
   }
 

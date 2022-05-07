@@ -15,7 +15,6 @@ import 'package:ecommerce/features/orders/presentation/pages/orders_page/orders_
 import 'package:ecommerce/features/products/presentation/pages/product_page/product_page.dart';
 import 'package:ecommerce/features/products/presentation/pages/products_page/products_page.dart';
 import 'package:ecommerce/features/profile/presentation/pages/profile_page.dart';
-import 'package:ecommerce/features/profile/presentation/pages/update_profile_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../features/cart/presentation/pages/confirm_order_page/confirm_order_page.dart';
@@ -121,10 +120,6 @@ import '../../../features/cart/presentation/pages/confirm_order_page/confirm_ord
     AutoRoute(
       page: ProfilePage,
       path: 'ProfilePage',
-    ),
-    AutoRoute(
-      page: UpdateProfilePage,
-      path: 'UpdateProfilePage',
     ),
   ],
 )
