@@ -21,18 +21,23 @@ class MerchantsPage extends StatelessWidget {
         child: Scaffold(
           body: BlocBuilder<MerchantsCubit, MerchantsStates>(
               builder: (context, state) {
-            return state.maybeWhen(
-                loaded: (merchants) => merchants.isNotEmpty
-                    ? RefreshIndicator(
-                    onRefresh: () => BlocProvider.of<MerchantsCubit>(context)
-                    .getMerchants(),
-                    child: MerchantsList(merchants: merchants))
-                    : const AppEmptyWidget(),
-                loading: () => const ListShimmer(),
-                error: (error) => AppErrorWidget(
-                      error: error,
-                    ),
-                orElse: () => Container());
+            return RefreshIndicator(
+              onRefresh: () =>
+                  BlocProvider.of<MerchantsCubit>(context).getMerchants(),
+              child: ListView(
+                children: [
+                  state.maybeWhen(
+                      loaded: (merchants) => merchants.isNotEmpty
+                          ? MerchantsList(merchants: merchants)
+                          : const AppEmptyWidget(),
+                      loading: () => const ListShimmer(),
+                      error: (error) => AppErrorWidget(
+                            error: error,
+                          ),
+                      orElse: () => Container()),
+                ],
+              ),
+            );
           }),
         ));
   }

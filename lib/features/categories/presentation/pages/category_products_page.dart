@@ -21,16 +21,21 @@ class CategoryProductsPage extends StatelessWidget {
             getIt<CategoryCubit>()..getCategoryProducts(catId: catId),
         child: BlocBuilder<CategoryCubit, CategoryStates>(
             builder: (context, state) {
-          return state.maybeWhen(
-              loading: () => const ProductShimmer(),
-              error: (error) => AppErrorWidget(error: error),
-              productsLoaded: (products) => products.isNotEmpty
-                  ? RefreshIndicator(
-                  onRefresh: () => BlocProvider.of<CategoryCubit>(context)
-                      .getCategoryProducts(catId: catId),
-                  child: ProductsGrid(products: products))
-                  : const AppEmptyWidget(),
-              orElse: () => Container());
+          return RefreshIndicator(
+            onRefresh: () => BlocProvider.of<CategoryCubit>(context)
+                .getCategoryProducts(catId: catId),
+            child: ListView(
+              children: [
+                state.maybeWhen(
+                    loading: () => const ProductShimmer(),
+                    error: (error) => AppErrorWidget(error: error),
+                    productsLoaded: (products) => products.isNotEmpty
+                        ? ProductsGrid(products: products)
+                        : const AppEmptyWidget(),
+                    orElse: () => Container()),
+              ],
+            ),
+          );
         }),
       ),
     );
