@@ -57,10 +57,13 @@ class ProductGridItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(product.name,
-                    style: Theme.of(context).textTheme.headline6,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(product.name,
+                      style: Theme.of(context).textTheme.headline6,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2),
+                ),
                 const Expanded(child: Text("")),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
