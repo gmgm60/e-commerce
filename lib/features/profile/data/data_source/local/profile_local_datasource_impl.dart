@@ -16,6 +16,7 @@ class ProfileLocalDatasourceImpl extends ProfileLocalDatasource {
   Future<UserData?> getCurrentUser() async {
     var user = _preferences.getString(currentUserKey);
     if (user != null) {
+      UserModel.fromJson(json.decode(user));
       return UserModel.fromJson(json.decode(user)).userData;
     }
     return null;

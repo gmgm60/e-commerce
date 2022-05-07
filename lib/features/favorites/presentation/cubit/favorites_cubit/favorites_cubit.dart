@@ -67,6 +67,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
 
   Future<void> getFavorites() async {
     refreshAll = true;
+    favorites.clear();
     emit(FavoritesState.loading());
     final result = await _getFavorites(NoParams());
     result.fold(
