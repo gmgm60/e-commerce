@@ -74,19 +74,19 @@ class _$BackButtonStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$initCopyWith<$Res> {
-  factory _$initCopyWith(_init value, $Res Function(_init) then) =
-      __$initCopyWithImpl<$Res>;
+abstract class _$$_initCopyWith<$Res> {
+  factory _$$_initCopyWith(_$_init value, $Res Function(_$_init) then) =
+      __$$_initCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$initCopyWithImpl<$Res> extends _$BackButtonStateCopyWithImpl<$Res>
-    implements _$initCopyWith<$Res> {
-  __$initCopyWithImpl(_init _value, $Res Function(_init) _then)
-      : super(_value, (v) => _then(v as _init));
+class __$$_initCopyWithImpl<$Res> extends _$BackButtonStateCopyWithImpl<$Res>
+    implements _$$_initCopyWith<$Res> {
+  __$$_initCopyWithImpl(_$_init _value, $Res Function(_$_init) _then)
+      : super(_value, (v) => _then(v as _$_init));
 
   @override
-  _init get _value => super._value as _init;
+  _$_init get _value => super._value as _$_init;
 }
 
 /// @nodoc
@@ -102,7 +102,7 @@ class _$_init implements _init {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _init);
+        (other.runtimeType == runtimeType && other is _$_init);
   }
 
   @override
@@ -176,19 +176,20 @@ abstract class _init implements BackButtonState {
 }
 
 /// @nodoc
-abstract class _$refreshCopyWith<$Res> {
-  factory _$refreshCopyWith(_refresh value, $Res Function(_refresh) then) =
-      __$refreshCopyWithImpl<$Res>;
+abstract class _$$_refreshCopyWith<$Res> {
+  factory _$$_refreshCopyWith(
+          _$_refresh value, $Res Function(_$_refresh) then) =
+      __$$_refreshCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$refreshCopyWithImpl<$Res> extends _$BackButtonStateCopyWithImpl<$Res>
-    implements _$refreshCopyWith<$Res> {
-  __$refreshCopyWithImpl(_refresh _value, $Res Function(_refresh) _then)
-      : super(_value, (v) => _then(v as _refresh));
+class __$$_refreshCopyWithImpl<$Res> extends _$BackButtonStateCopyWithImpl<$Res>
+    implements _$$_refreshCopyWith<$Res> {
+  __$$_refreshCopyWithImpl(_$_refresh _value, $Res Function(_$_refresh) _then)
+      : super(_value, (v) => _then(v as _$_refresh));
 
   @override
-  _refresh get _value => super._value as _refresh;
+  _$_refresh get _value => super._value as _$_refresh;
 }
 
 /// @nodoc
@@ -204,7 +205,7 @@ class _$_refresh implements _refresh {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _refresh);
+        (other.runtimeType == runtimeType && other is _$_refresh);
   }
 
   @override

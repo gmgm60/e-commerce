@@ -69,5 +69,6 @@
   "serverError": "server Error!",
   "notFound": "Not Found!",
   "noInternet": "No Internet Connection!",
-  "status": "Order Status"
+  "status": "Order Status",
+  "noUser": "User Data not available"
 }

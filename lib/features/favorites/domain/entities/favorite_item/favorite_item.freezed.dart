@@ -62,11 +62,11 @@ class _$FavoriteItemCopyWithImpl<$Res> implements $FavoriteItemCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FavoriteItemCopyWith<$Res>
+abstract class _$$_FavoriteItemCopyWith<$Res>
     implements $FavoriteItemCopyWith<$Res> {
-  factory _$FavoriteItemCopyWith(
-          _FavoriteItem value, $Res Function(_FavoriteItem) then) =
-      __$FavoriteItemCopyWithImpl<$Res>;
+  factory _$$_FavoriteItemCopyWith(
+          _$_FavoriteItem value, $Res Function(_$_FavoriteItem) then) =
+      __$$_FavoriteItemCopyWithImpl<$Res>;
   @override
   $Res call({Product product});
 
@@ -75,20 +75,21 @@ abstract class _$FavoriteItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$FavoriteItemCopyWithImpl<$Res> extends _$FavoriteItemCopyWithImpl<$Res>
-    implements _$FavoriteItemCopyWith<$Res> {
-  __$FavoriteItemCopyWithImpl(
-      _FavoriteItem _value, $Res Function(_FavoriteItem) _then)
-      : super(_value, (v) => _then(v as _FavoriteItem));
+class __$$_FavoriteItemCopyWithImpl<$Res>
+    extends _$FavoriteItemCopyWithImpl<$Res>
+    implements _$$_FavoriteItemCopyWith<$Res> {
+  __$$_FavoriteItemCopyWithImpl(
+      _$_FavoriteItem _value, $Res Function(_$_FavoriteItem) _then)
+      : super(_value, (v) => _then(v as _$_FavoriteItem));
 
   @override
-  _FavoriteItem get _value => super._value as _FavoriteItem;
+  _$_FavoriteItem get _value => super._value as _$_FavoriteItem;
 
   @override
   $Res call({
     Object? product = freezed,
   }) {
-    return _then(_FavoriteItem(
+    return _then(_$_FavoriteItem(
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -114,7 +115,7 @@ class _$_FavoriteItem implements _FavoriteItem {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FavoriteItem &&
+            other is _$_FavoriteItem &&
             const DeepCollectionEquality().equals(other.product, product));
   }
 
@@ -124,8 +125,8 @@ class _$_FavoriteItem implements _FavoriteItem {
 
   @JsonKey(ignore: true)
   @override
-  _$FavoriteItemCopyWith<_FavoriteItem> get copyWith =>
-      __$FavoriteItemCopyWithImpl<_FavoriteItem>(this, _$identity);
+  _$$_FavoriteItemCopyWith<_$_FavoriteItem> get copyWith =>
+      __$$_FavoriteItemCopyWithImpl<_$_FavoriteItem>(this, _$identity);
 }
 
 abstract class _FavoriteItem implements FavoriteItem {
@@ -135,6 +136,6 @@ abstract class _FavoriteItem implements FavoriteItem {
   Product get product => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FavoriteItemCopyWith<_FavoriteItem> get copyWith =>
+  _$$_FavoriteItemCopyWith<_$_FavoriteItem> get copyWith =>
       throw _privateConstructorUsedError;
 }

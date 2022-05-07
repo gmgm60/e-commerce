@@ -20,7 +20,8 @@ CartResponseModel _$CartResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CartResponseModel {
-  List<CartItemModel> get data => throw _privateConstructorUsedError;
+  List<CartItemModel> get data =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "Message")
   String get message => throw _privateConstructorUsedError;
 
@@ -67,35 +68,35 @@ class _$CartResponseModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CartResponseModelCopyWith<$Res>
+abstract class _$$_CartResponseModelCopyWith<$Res>
     implements $CartResponseModelCopyWith<$Res> {
-  factory _$CartResponseModelCopyWith(
-          _CartResponseModel value, $Res Function(_CartResponseModel) then) =
-      __$CartResponseModelCopyWithImpl<$Res>;
+  factory _$$_CartResponseModelCopyWith(_$_CartResponseModel value,
+          $Res Function(_$_CartResponseModel) then) =
+      __$$_CartResponseModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<CartItemModel> data, @JsonKey(name: "Message") String message});
 }
 
 /// @nodoc
-class __$CartResponseModelCopyWithImpl<$Res>
+class __$$_CartResponseModelCopyWithImpl<$Res>
     extends _$CartResponseModelCopyWithImpl<$Res>
-    implements _$CartResponseModelCopyWith<$Res> {
-  __$CartResponseModelCopyWithImpl(
-      _CartResponseModel _value, $Res Function(_CartResponseModel) _then)
-      : super(_value, (v) => _then(v as _CartResponseModel));
+    implements _$$_CartResponseModelCopyWith<$Res> {
+  __$$_CartResponseModelCopyWithImpl(
+      _$_CartResponseModel _value, $Res Function(_$_CartResponseModel) _then)
+      : super(_value, (v) => _then(v as _$_CartResponseModel));
 
   @override
-  _CartResponseModel get _value => super._value as _CartResponseModel;
+  _$_CartResponseModel get _value => super._value as _$_CartResponseModel;
 
   @override
   $Res call({
     Object? data = freezed,
     Object? message = freezed,
   }) {
-    return _then(_CartResponseModel(
+    return _then(_$_CartResponseModel(
       data: data == freezed
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<CartItemModel>,
       message: message == freezed
@@ -124,6 +125,7 @@ class _$_CartResponseModel implements _CartResponseModel {
     return EqualUnmodifiableListView(_data);
   }
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "Message")
   final String message;
@@ -137,8 +139,8 @@ class _$_CartResponseModel implements _CartResponseModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CartResponseModel &&
-            const DeepCollectionEquality().equals(other.data, data) &&
+            other is _$_CartResponseModel &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -146,13 +148,14 @@ class _$_CartResponseModel implements _CartResponseModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
-  _$CartResponseModelCopyWith<_CartResponseModel> get copyWith =>
-      __$CartResponseModelCopyWithImpl<_CartResponseModel>(this, _$identity);
+  _$$_CartResponseModelCopyWith<_$_CartResponseModel> get copyWith =>
+      __$$_CartResponseModelCopyWithImpl<_$_CartResponseModel>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -171,11 +174,11 @@ abstract class _CartResponseModel implements CartResponseModel {
 
   @override
   List<CartItemModel> get data => throw _privateConstructorUsedError;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "Message")
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CartResponseModelCopyWith<_CartResponseModel> get copyWith =>
+  _$$_CartResponseModelCopyWith<_$_CartResponseModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

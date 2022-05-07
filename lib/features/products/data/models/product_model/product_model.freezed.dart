@@ -20,14 +20,16 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductModel {
-  int get id => throw _privateConstructorUsedError;
+  int get id =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "category_id")
   int get catId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
-  double get discount => throw _privateConstructorUsedError;
+  double get discount =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "quantity")
   int get quantity => throw _privateConstructorUsedError;
 
@@ -110,11 +112,11 @@ class _$ProductModelCopyWithImpl<$Res> implements $ProductModelCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProductModelCopyWith<$Res>
+abstract class _$$_ProductModelCopyWith<$Res>
     implements $ProductModelCopyWith<$Res> {
-  factory _$ProductModelCopyWith(
-          _ProductModel value, $Res Function(_ProductModel) then) =
-      __$ProductModelCopyWithImpl<$Res>;
+  factory _$$_ProductModelCopyWith(
+          _$_ProductModel value, $Res Function(_$_ProductModel) then) =
+      __$$_ProductModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -128,14 +130,15 @@ abstract class _$ProductModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
-    implements _$ProductModelCopyWith<$Res> {
-  __$ProductModelCopyWithImpl(
-      _ProductModel _value, $Res Function(_ProductModel) _then)
-      : super(_value, (v) => _then(v as _ProductModel));
+class __$$_ProductModelCopyWithImpl<$Res>
+    extends _$ProductModelCopyWithImpl<$Res>
+    implements _$$_ProductModelCopyWith<$Res> {
+  __$$_ProductModelCopyWithImpl(
+      _$_ProductModel _value, $Res Function(_$_ProductModel) _then)
+      : super(_value, (v) => _then(v as _$_ProductModel));
 
   @override
-  _ProductModel get _value => super._value as _ProductModel;
+  _$_ProductModel get _value => super._value as _$_ProductModel;
 
   @override
   $Res call({
@@ -148,7 +151,7 @@ class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
     Object? discount = freezed,
     Object? quantity = freezed,
   }) {
-    return _then(_ProductModel(
+    return _then(_$_ProductModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -203,6 +206,7 @@ class _$_ProductModel implements _ProductModel {
 
   @override
   final int id;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "category_id")
   final int catId;
@@ -217,6 +221,7 @@ class _$_ProductModel implements _ProductModel {
   @override
   @JsonKey()
   final double discount;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "quantity")
   final int quantity;
@@ -230,7 +235,7 @@ class _$_ProductModel implements _ProductModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProductModel &&
+            other is _$_ProductModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.catId, catId) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -257,8 +262,8 @@ class _$_ProductModel implements _ProductModel {
 
   @JsonKey(ignore: true)
   @override
-  _$ProductModelCopyWith<_ProductModel> get copyWith =>
-      __$ProductModelCopyWithImpl<_ProductModel>(this, _$identity);
+  _$$_ProductModelCopyWith<_$_ProductModel> get copyWith =>
+      __$$_ProductModelCopyWithImpl<_$_ProductModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -282,7 +287,7 @@ abstract class _ProductModel implements ProductModel {
 
   @override
   int get id => throw _privateConstructorUsedError;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "category_id")
   int get catId => throw _privateConstructorUsedError;
   @override
@@ -295,11 +300,11 @@ abstract class _ProductModel implements ProductModel {
   double get price => throw _privateConstructorUsedError;
   @override
   double get discount => throw _privateConstructorUsedError;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "quantity")
   int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProductModelCopyWith<_ProductModel> get copyWith =>
+  _$$_ProductModelCopyWith<_$_ProductModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

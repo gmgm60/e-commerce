@@ -116,29 +116,29 @@ class _$GeneralRemoteAppFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UnAuthCopyWith<$Res>
+abstract class _$$_UnAuthCopyWith<$Res>
     implements $GeneralRemoteAppFailureCopyWith<$Res> {
-  factory _$UnAuthCopyWith(_UnAuth value, $Res Function(_UnAuth) then) =
-      __$UnAuthCopyWithImpl<$Res>;
+  factory _$$_UnAuthCopyWith(_$_UnAuth value, $Res Function(_$_UnAuth) then) =
+      __$$_UnAuthCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$UnAuthCopyWithImpl<$Res>
+class __$$_UnAuthCopyWithImpl<$Res>
     extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
-    implements _$UnAuthCopyWith<$Res> {
-  __$UnAuthCopyWithImpl(_UnAuth _value, $Res Function(_UnAuth) _then)
-      : super(_value, (v) => _then(v as _UnAuth));
+    implements _$$_UnAuthCopyWith<$Res> {
+  __$$_UnAuthCopyWithImpl(_$_UnAuth _value, $Res Function(_$_UnAuth) _then)
+      : super(_value, (v) => _then(v as _$_UnAuth));
 
   @override
-  _UnAuth get _value => super._value as _UnAuth;
+  _$_UnAuth get _value => super._value as _$_UnAuth;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_UnAuth(
+    return _then(_$_UnAuth(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ class _$_UnAuth implements _UnAuth {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UnAuth &&
+            other is _$_UnAuth &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -174,8 +174,8 @@ class _$_UnAuth implements _UnAuth {
 
   @JsonKey(ignore: true)
   @override
-  _$UnAuthCopyWith<_UnAuth> get copyWith =>
-      __$UnAuthCopyWithImpl<_UnAuth>(this, _$identity);
+  _$$_UnAuthCopyWith<_$_UnAuth> get copyWith =>
+      __$$_UnAuthCopyWithImpl<_$_UnAuth>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -271,33 +271,34 @@ abstract class _UnAuth implements GeneralRemoteAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UnAuthCopyWith<_UnAuth> get copyWith => throw _privateConstructorUsedError;
+  _$$_UnAuthCopyWith<_$_UnAuth> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$NoDataCopyWith<$Res>
+abstract class _$$_NoDataCopyWith<$Res>
     implements $GeneralRemoteAppFailureCopyWith<$Res> {
-  factory _$NoDataCopyWith(_NoData value, $Res Function(_NoData) then) =
-      __$NoDataCopyWithImpl<$Res>;
+  factory _$$_NoDataCopyWith(_$_NoData value, $Res Function(_$_NoData) then) =
+      __$$_NoDataCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$NoDataCopyWithImpl<$Res>
+class __$$_NoDataCopyWithImpl<$Res>
     extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
-    implements _$NoDataCopyWith<$Res> {
-  __$NoDataCopyWithImpl(_NoData _value, $Res Function(_NoData) _then)
-      : super(_value, (v) => _then(v as _NoData));
+    implements _$$_NoDataCopyWith<$Res> {
+  __$$_NoDataCopyWithImpl(_$_NoData _value, $Res Function(_$_NoData) _then)
+      : super(_value, (v) => _then(v as _$_NoData));
 
   @override
-  _NoData get _value => super._value as _NoData;
+  _$_NoData get _value => super._value as _$_NoData;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_NoData(
+    return _then(_$_NoData(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -323,7 +324,7 @@ class _$_NoData implements _NoData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NoData &&
+            other is _$_NoData &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -333,8 +334,8 @@ class _$_NoData implements _NoData {
 
   @JsonKey(ignore: true)
   @override
-  _$NoDataCopyWith<_NoData> get copyWith =>
-      __$NoDataCopyWithImpl<_NoData>(this, _$identity);
+  _$$_NoDataCopyWith<_$_NoData> get copyWith =>
+      __$$_NoDataCopyWithImpl<_$_NoData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -430,35 +431,36 @@ abstract class _NoData implements GeneralRemoteAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NoDataCopyWith<_NoData> get copyWith => throw _privateConstructorUsedError;
+  _$$_NoDataCopyWith<_$_NoData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$NoConnectionCopyWith<$Res>
+abstract class _$$_NoConnectionCopyWith<$Res>
     implements $GeneralRemoteAppFailureCopyWith<$Res> {
-  factory _$NoConnectionCopyWith(
-          _NoConnection value, $Res Function(_NoConnection) then) =
-      __$NoConnectionCopyWithImpl<$Res>;
+  factory _$$_NoConnectionCopyWith(
+          _$_NoConnection value, $Res Function(_$_NoConnection) then) =
+      __$$_NoConnectionCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$NoConnectionCopyWithImpl<$Res>
+class __$$_NoConnectionCopyWithImpl<$Res>
     extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
-    implements _$NoConnectionCopyWith<$Res> {
-  __$NoConnectionCopyWithImpl(
-      _NoConnection _value, $Res Function(_NoConnection) _then)
-      : super(_value, (v) => _then(v as _NoConnection));
+    implements _$$_NoConnectionCopyWith<$Res> {
+  __$$_NoConnectionCopyWithImpl(
+      _$_NoConnection _value, $Res Function(_$_NoConnection) _then)
+      : super(_value, (v) => _then(v as _$_NoConnection));
 
   @override
-  _NoConnection get _value => super._value as _NoConnection;
+  _$_NoConnection get _value => super._value as _$_NoConnection;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_NoConnection(
+    return _then(_$_NoConnection(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -484,7 +486,7 @@ class _$_NoConnection implements _NoConnection {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NoConnection &&
+            other is _$_NoConnection &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -494,8 +496,8 @@ class _$_NoConnection implements _NoConnection {
 
   @JsonKey(ignore: true)
   @override
-  _$NoConnectionCopyWith<_NoConnection> get copyWith =>
-      __$NoConnectionCopyWithImpl<_NoConnection>(this, _$identity);
+  _$$_NoConnectionCopyWith<_$_NoConnection> get copyWith =>
+      __$$_NoConnectionCopyWithImpl<_$_NoConnection>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -591,36 +593,36 @@ abstract class _NoConnection implements GeneralRemoteAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NoConnectionCopyWith<_NoConnection> get copyWith =>
+  _$$_NoConnectionCopyWith<_$_NoConnection> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ServerErrorCopyWith<$Res>
+abstract class _$$_ServerErrorCopyWith<$Res>
     implements $GeneralRemoteAppFailureCopyWith<$Res> {
-  factory _$ServerErrorCopyWith(
-          _ServerError value, $Res Function(_ServerError) then) =
-      __$ServerErrorCopyWithImpl<$Res>;
+  factory _$$_ServerErrorCopyWith(
+          _$_ServerError value, $Res Function(_$_ServerError) then) =
+      __$$_ServerErrorCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$ServerErrorCopyWithImpl<$Res>
+class __$$_ServerErrorCopyWithImpl<$Res>
     extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
-    implements _$ServerErrorCopyWith<$Res> {
-  __$ServerErrorCopyWithImpl(
-      _ServerError _value, $Res Function(_ServerError) _then)
-      : super(_value, (v) => _then(v as _ServerError));
+    implements _$$_ServerErrorCopyWith<$Res> {
+  __$$_ServerErrorCopyWithImpl(
+      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+      : super(_value, (v) => _then(v as _$_ServerError));
 
   @override
-  _ServerError get _value => super._value as _ServerError;
+  _$_ServerError get _value => super._value as _$_ServerError;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_ServerError(
+    return _then(_$_ServerError(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -646,7 +648,7 @@ class _$_ServerError implements _ServerError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ServerError &&
+            other is _$_ServerError &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -656,8 +658,8 @@ class _$_ServerError implements _ServerError {
 
   @JsonKey(ignore: true)
   @override
-  _$ServerErrorCopyWith<_ServerError> get copyWith =>
-      __$ServerErrorCopyWithImpl<_ServerError>(this, _$identity);
+  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+      __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -753,34 +755,35 @@ abstract class _ServerError implements GeneralRemoteAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ServerErrorCopyWith<_ServerError> get copyWith =>
+  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$UnKnownCopyWith<$Res>
+abstract class _$$_UnKnownCopyWith<$Res>
     implements $GeneralRemoteAppFailureCopyWith<$Res> {
-  factory _$UnKnownCopyWith(_UnKnown value, $Res Function(_UnKnown) then) =
-      __$UnKnownCopyWithImpl<$Res>;
+  factory _$$_UnKnownCopyWith(
+          _$_UnKnown value, $Res Function(_$_UnKnown) then) =
+      __$$_UnKnownCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$UnKnownCopyWithImpl<$Res>
+class __$$_UnKnownCopyWithImpl<$Res>
     extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
-    implements _$UnKnownCopyWith<$Res> {
-  __$UnKnownCopyWithImpl(_UnKnown _value, $Res Function(_UnKnown) _then)
-      : super(_value, (v) => _then(v as _UnKnown));
+    implements _$$_UnKnownCopyWith<$Res> {
+  __$$_UnKnownCopyWithImpl(_$_UnKnown _value, $Res Function(_$_UnKnown) _then)
+      : super(_value, (v) => _then(v as _$_UnKnown));
 
   @override
-  _UnKnown get _value => super._value as _UnKnown;
+  _$_UnKnown get _value => super._value as _$_UnKnown;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_UnKnown(
+    return _then(_$_UnKnown(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -806,7 +809,7 @@ class _$_UnKnown implements _UnKnown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UnKnown &&
+            other is _$_UnKnown &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -816,8 +819,8 @@ class _$_UnKnown implements _UnKnown {
 
   @JsonKey(ignore: true)
   @override
-  _$UnKnownCopyWith<_UnKnown> get copyWith =>
-      __$UnKnownCopyWithImpl<_UnKnown>(this, _$identity);
+  _$$_UnKnownCopyWith<_$_UnKnown> get copyWith =>
+      __$$_UnKnownCopyWithImpl<_$_UnKnown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -913,34 +916,36 @@ abstract class _UnKnown implements GeneralRemoteAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UnKnownCopyWith<_UnKnown> get copyWith =>
+  _$$_UnKnownCopyWith<_$_UnKnown> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$NotFoundCopyWith<$Res>
+abstract class _$$_NotFoundCopyWith<$Res>
     implements $GeneralRemoteAppFailureCopyWith<$Res> {
-  factory _$NotFoundCopyWith(_NotFound value, $Res Function(_NotFound) then) =
-      __$NotFoundCopyWithImpl<$Res>;
+  factory _$$_NotFoundCopyWith(
+          _$_NotFound value, $Res Function(_$_NotFound) then) =
+      __$$_NotFoundCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$NotFoundCopyWithImpl<$Res>
+class __$$_NotFoundCopyWithImpl<$Res>
     extends _$GeneralRemoteAppFailureCopyWithImpl<$Res>
-    implements _$NotFoundCopyWith<$Res> {
-  __$NotFoundCopyWithImpl(_NotFound _value, $Res Function(_NotFound) _then)
-      : super(_value, (v) => _then(v as _NotFound));
+    implements _$$_NotFoundCopyWith<$Res> {
+  __$$_NotFoundCopyWithImpl(
+      _$_NotFound _value, $Res Function(_$_NotFound) _then)
+      : super(_value, (v) => _then(v as _$_NotFound));
 
   @override
-  _NotFound get _value => super._value as _NotFound;
+  _$_NotFound get _value => super._value as _$_NotFound;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_NotFound(
+    return _then(_$_NotFound(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -966,7 +971,7 @@ class _$_NotFound implements _NotFound {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NotFound &&
+            other is _$_NotFound &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -976,8 +981,8 @@ class _$_NotFound implements _NotFound {
 
   @JsonKey(ignore: true)
   @override
-  _$NotFoundCopyWith<_NotFound> get copyWith =>
-      __$NotFoundCopyWithImpl<_NotFound>(this, _$identity);
+  _$$_NotFoundCopyWith<_$_NotFound> get copyWith =>
+      __$$_NotFoundCopyWithImpl<_$_NotFound>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1073,7 +1078,7 @@ abstract class _NotFound implements GeneralRemoteAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NotFoundCopyWith<_NotFound> get copyWith =>
+  _$$_NotFoundCopyWith<_$_NotFound> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1149,31 +1154,31 @@ class _$GeneralLocalAppFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CantAccessCopyWith<$Res>
+abstract class _$$_CantAccessCopyWith<$Res>
     implements $GeneralLocalAppFailureCopyWith<$Res> {
-  factory _$CantAccessCopyWith(
-          _CantAccess value, $Res Function(_CantAccess) then) =
-      __$CantAccessCopyWithImpl<$Res>;
+  factory _$$_CantAccessCopyWith(
+          _$_CantAccess value, $Res Function(_$_CantAccess) then) =
+      __$$_CantAccessCopyWithImpl<$Res>;
   @override
   $Res call({String message});
 }
 
 /// @nodoc
-class __$CantAccessCopyWithImpl<$Res>
+class __$$_CantAccessCopyWithImpl<$Res>
     extends _$GeneralLocalAppFailureCopyWithImpl<$Res>
-    implements _$CantAccessCopyWith<$Res> {
-  __$CantAccessCopyWithImpl(
-      _CantAccess _value, $Res Function(_CantAccess) _then)
-      : super(_value, (v) => _then(v as _CantAccess));
+    implements _$$_CantAccessCopyWith<$Res> {
+  __$$_CantAccessCopyWithImpl(
+      _$_CantAccess _value, $Res Function(_$_CantAccess) _then)
+      : super(_value, (v) => _then(v as _$_CantAccess));
 
   @override
-  _CantAccess get _value => super._value as _CantAccess;
+  _$_CantAccess get _value => super._value as _$_CantAccess;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_CantAccess(
+    return _then(_$_CantAccess(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1199,7 +1204,7 @@ class _$_CantAccess implements _CantAccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CantAccess &&
+            other is _$_CantAccess &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -1209,8 +1214,8 @@ class _$_CantAccess implements _CantAccess {
 
   @JsonKey(ignore: true)
   @override
-  _$CantAccessCopyWith<_CantAccess> get copyWith =>
-      __$CantAccessCopyWithImpl<_CantAccess>(this, _$identity);
+  _$$_CantAccessCopyWith<_$_CantAccess> get copyWith =>
+      __$$_CantAccessCopyWithImpl<_$_CantAccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1276,6 +1281,6 @@ abstract class _CantAccess implements GeneralLocalAppFailure {
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CantAccessCopyWith<_CantAccess> get copyWith =>
+  _$$_CantAccessCopyWith<_$_CantAccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

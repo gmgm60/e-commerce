@@ -91,22 +91,22 @@ class _$AuthStatesCopyWithImpl<$Res> implements $AuthStatesCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $AuthInitialStateCopyWith<$Res> {
-  factory $AuthInitialStateCopyWith(
-          AuthInitialState value, $Res Function(AuthInitialState) then) =
-      _$AuthInitialStateCopyWithImpl<$Res>;
+abstract class _$$AuthInitialStateCopyWith<$Res> {
+  factory _$$AuthInitialStateCopyWith(
+          _$AuthInitialState value, $Res Function(_$AuthInitialState) then) =
+      __$$AuthInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthInitialStateCopyWithImpl<$Res>
+class __$$AuthInitialStateCopyWithImpl<$Res>
     extends _$AuthStatesCopyWithImpl<$Res>
-    implements $AuthInitialStateCopyWith<$Res> {
-  _$AuthInitialStateCopyWithImpl(
-      AuthInitialState _value, $Res Function(AuthInitialState) _then)
-      : super(_value, (v) => _then(v as AuthInitialState));
+    implements _$$AuthInitialStateCopyWith<$Res> {
+  __$$AuthInitialStateCopyWithImpl(
+      _$AuthInitialState _value, $Res Function(_$AuthInitialState) _then)
+      : super(_value, (v) => _then(v as _$AuthInitialState));
 
   @override
-  AuthInitialState get _value => super._value as AuthInitialState;
+  _$AuthInitialState get _value => super._value as _$AuthInitialState;
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class _$AuthInitialState implements AuthInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthInitialState);
+        (other.runtimeType == runtimeType && other is _$AuthInitialState);
   }
 
   @override
@@ -214,22 +214,22 @@ abstract class AuthInitialState implements AuthStates {
 }
 
 /// @nodoc
-abstract class $AuthLoadingStateCopyWith<$Res> {
-  factory $AuthLoadingStateCopyWith(
-          AuthLoadingState value, $Res Function(AuthLoadingState) then) =
-      _$AuthLoadingStateCopyWithImpl<$Res>;
+abstract class _$$AuthLoadingStateCopyWith<$Res> {
+  factory _$$AuthLoadingStateCopyWith(
+          _$AuthLoadingState value, $Res Function(_$AuthLoadingState) then) =
+      __$$AuthLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthLoadingStateCopyWithImpl<$Res>
+class __$$AuthLoadingStateCopyWithImpl<$Res>
     extends _$AuthStatesCopyWithImpl<$Res>
-    implements $AuthLoadingStateCopyWith<$Res> {
-  _$AuthLoadingStateCopyWithImpl(
-      AuthLoadingState _value, $Res Function(AuthLoadingState) _then)
-      : super(_value, (v) => _then(v as AuthLoadingState));
+    implements _$$AuthLoadingStateCopyWith<$Res> {
+  __$$AuthLoadingStateCopyWithImpl(
+      _$AuthLoadingState _value, $Res Function(_$AuthLoadingState) _then)
+      : super(_value, (v) => _then(v as _$AuthLoadingState));
 
   @override
-  AuthLoadingState get _value => super._value as AuthLoadingState;
+  _$AuthLoadingState get _value => super._value as _$AuthLoadingState;
 }
 
 /// @nodoc
@@ -245,7 +245,7 @@ class _$AuthLoadingState implements AuthLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthLoadingState);
+        (other.runtimeType == runtimeType && other is _$AuthLoadingState);
   }
 
   @override
@@ -337,21 +337,22 @@ abstract class AuthLoadingState implements AuthStates {
 }
 
 /// @nodoc
-abstract class $AuthLoadedStateCopyWith<$Res> {
-  factory $AuthLoadedStateCopyWith(
-          AuthLoadedState value, $Res Function(AuthLoadedState) then) =
-      _$AuthLoadedStateCopyWithImpl<$Res>;
+abstract class _$$AuthLoadedStateCopyWith<$Res> {
+  factory _$$AuthLoadedStateCopyWith(
+          _$AuthLoadedState value, $Res Function(_$AuthLoadedState) then) =
+      __$$AuthLoadedStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthLoadedStateCopyWithImpl<$Res> extends _$AuthStatesCopyWithImpl<$Res>
-    implements $AuthLoadedStateCopyWith<$Res> {
-  _$AuthLoadedStateCopyWithImpl(
-      AuthLoadedState _value, $Res Function(AuthLoadedState) _then)
-      : super(_value, (v) => _then(v as AuthLoadedState));
+class __$$AuthLoadedStateCopyWithImpl<$Res>
+    extends _$AuthStatesCopyWithImpl<$Res>
+    implements _$$AuthLoadedStateCopyWith<$Res> {
+  __$$AuthLoadedStateCopyWithImpl(
+      _$AuthLoadedState _value, $Res Function(_$AuthLoadedState) _then)
+      : super(_value, (v) => _then(v as _$AuthLoadedState));
 
   @override
-  AuthLoadedState get _value => super._value as AuthLoadedState;
+  _$AuthLoadedState get _value => super._value as _$AuthLoadedState;
 }
 
 /// @nodoc
@@ -367,7 +368,7 @@ class _$AuthLoadedState implements AuthLoadedState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthLoadedState);
+        (other.runtimeType == runtimeType && other is _$AuthLoadedState);
   }
 
   @override
@@ -459,28 +460,29 @@ abstract class AuthLoadedState implements AuthStates {
 }
 
 /// @nodoc
-abstract class $AuthErrorStateCopyWith<$Res> {
-  factory $AuthErrorStateCopyWith(
-          AuthErrorState value, $Res Function(AuthErrorState) then) =
-      _$AuthErrorStateCopyWithImpl<$Res>;
+abstract class _$$AuthErrorStateCopyWith<$Res> {
+  factory _$$AuthErrorStateCopyWith(
+          _$AuthErrorState value, $Res Function(_$AuthErrorState) then) =
+      __$$AuthErrorStateCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$AuthErrorStateCopyWithImpl<$Res> extends _$AuthStatesCopyWithImpl<$Res>
-    implements $AuthErrorStateCopyWith<$Res> {
-  _$AuthErrorStateCopyWithImpl(
-      AuthErrorState _value, $Res Function(AuthErrorState) _then)
-      : super(_value, (v) => _then(v as AuthErrorState));
+class __$$AuthErrorStateCopyWithImpl<$Res>
+    extends _$AuthStatesCopyWithImpl<$Res>
+    implements _$$AuthErrorStateCopyWith<$Res> {
+  __$$AuthErrorStateCopyWithImpl(
+      _$AuthErrorState _value, $Res Function(_$AuthErrorState) _then)
+      : super(_value, (v) => _then(v as _$AuthErrorState));
 
   @override
-  AuthErrorState get _value => super._value as AuthErrorState;
+  _$AuthErrorState get _value => super._value as _$AuthErrorState;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(AuthErrorState(
+    return _then(_$AuthErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -506,7 +508,7 @@ class _$AuthErrorState implements AuthErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is AuthErrorState &&
+            other is _$AuthErrorState &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -516,8 +518,8 @@ class _$AuthErrorState implements AuthErrorState {
 
   @JsonKey(ignore: true)
   @override
-  $AuthErrorStateCopyWith<AuthErrorState> get copyWith =>
-      _$AuthErrorStateCopyWithImpl<AuthErrorState>(this, _$identity);
+  _$$AuthErrorStateCopyWith<_$AuthErrorState> get copyWith =>
+      __$$AuthErrorStateCopyWithImpl<_$AuthErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -606,26 +608,27 @@ abstract class AuthErrorState implements AuthStates {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AuthErrorStateCopyWith<AuthErrorState> get copyWith =>
+  _$$AuthErrorStateCopyWith<_$AuthErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthLogoutStateCopyWith<$Res> {
-  factory $AuthLogoutStateCopyWith(
-          AuthLogoutState value, $Res Function(AuthLogoutState) then) =
-      _$AuthLogoutStateCopyWithImpl<$Res>;
+abstract class _$$AuthLogoutStateCopyWith<$Res> {
+  factory _$$AuthLogoutStateCopyWith(
+          _$AuthLogoutState value, $Res Function(_$AuthLogoutState) then) =
+      __$$AuthLogoutStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthLogoutStateCopyWithImpl<$Res> extends _$AuthStatesCopyWithImpl<$Res>
-    implements $AuthLogoutStateCopyWith<$Res> {
-  _$AuthLogoutStateCopyWithImpl(
-      AuthLogoutState _value, $Res Function(AuthLogoutState) _then)
-      : super(_value, (v) => _then(v as AuthLogoutState));
+class __$$AuthLogoutStateCopyWithImpl<$Res>
+    extends _$AuthStatesCopyWithImpl<$Res>
+    implements _$$AuthLogoutStateCopyWith<$Res> {
+  __$$AuthLogoutStateCopyWithImpl(
+      _$AuthLogoutState _value, $Res Function(_$AuthLogoutState) _then)
+      : super(_value, (v) => _then(v as _$AuthLogoutState));
 
   @override
-  AuthLogoutState get _value => super._value as AuthLogoutState;
+  _$AuthLogoutState get _value => super._value as _$AuthLogoutState;
 }
 
 /// @nodoc
@@ -641,7 +644,7 @@ class _$AuthLogoutState implements AuthLogoutState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthLogoutState);
+        (other.runtimeType == runtimeType && other is _$AuthLogoutState);
   }
 
   @override

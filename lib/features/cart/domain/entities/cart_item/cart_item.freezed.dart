@@ -67,9 +67,10 @@ class _$CartItemCopyWithImpl<$Res> implements $CartItemCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
-  factory _$CartItemCopyWith(_CartItem value, $Res Function(_CartItem) then) =
-      __$CartItemCopyWithImpl<$Res>;
+abstract class _$$_CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
+  factory _$$_CartItemCopyWith(
+          _$_CartItem value, $Res Function(_$_CartItem) then) =
+      __$$_CartItemCopyWithImpl<$Res>;
   @override
   $Res call({Product product, int count});
 
@@ -78,20 +79,21 @@ abstract class _$CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$CartItemCopyWithImpl<$Res> extends _$CartItemCopyWithImpl<$Res>
-    implements _$CartItemCopyWith<$Res> {
-  __$CartItemCopyWithImpl(_CartItem _value, $Res Function(_CartItem) _then)
-      : super(_value, (v) => _then(v as _CartItem));
+class __$$_CartItemCopyWithImpl<$Res> extends _$CartItemCopyWithImpl<$Res>
+    implements _$$_CartItemCopyWith<$Res> {
+  __$$_CartItemCopyWithImpl(
+      _$_CartItem _value, $Res Function(_$_CartItem) _then)
+      : super(_value, (v) => _then(v as _$_CartItem));
 
   @override
-  _CartItem get _value => super._value as _CartItem;
+  _$_CartItem get _value => super._value as _$_CartItem;
 
   @override
   $Res call({
     Object? product = freezed,
     Object? count = freezed,
   }) {
-    return _then(_CartItem(
+    return _then(_$_CartItem(
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -123,7 +125,7 @@ class _$_CartItem implements _CartItem {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CartItem &&
+            other is _$_CartItem &&
             const DeepCollectionEquality().equals(other.product, product) &&
             const DeepCollectionEquality().equals(other.count, count));
   }
@@ -136,8 +138,8 @@ class _$_CartItem implements _CartItem {
 
   @JsonKey(ignore: true)
   @override
-  _$CartItemCopyWith<_CartItem> get copyWith =>
-      __$CartItemCopyWithImpl<_CartItem>(this, _$identity);
+  _$$_CartItemCopyWith<_$_CartItem> get copyWith =>
+      __$$_CartItemCopyWithImpl<_$_CartItem>(this, _$identity);
 }
 
 abstract class _CartItem implements CartItem {
@@ -150,6 +152,6 @@ abstract class _CartItem implements CartItem {
   int get count => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CartItemCopyWith<_CartItem> get copyWith =>
+  _$$_CartItemCopyWith<_$_CartItem> get copyWith =>
       throw _privateConstructorUsedError;
 }

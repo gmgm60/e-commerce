@@ -68,11 +68,11 @@ class _$FavoriteModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$FavoriteModelCopyWith<$Res>
+abstract class _$$_FavoriteModelCopyWith<$Res>
     implements $FavoriteModelCopyWith<$Res> {
-  factory _$FavoriteModelCopyWith(
-          _FavoriteModel value, $Res Function(_FavoriteModel) then) =
-      __$FavoriteModelCopyWithImpl<$Res>;
+  factory _$$_FavoriteModelCopyWith(
+          _$_FavoriteModel value, $Res Function(_$_FavoriteModel) then) =
+      __$$_FavoriteModelCopyWithImpl<$Res>;
   @override
   $Res call({ProductModel productModel});
 
@@ -81,21 +81,21 @@ abstract class _$FavoriteModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$FavoriteModelCopyWithImpl<$Res>
+class __$$_FavoriteModelCopyWithImpl<$Res>
     extends _$FavoriteModelCopyWithImpl<$Res>
-    implements _$FavoriteModelCopyWith<$Res> {
-  __$FavoriteModelCopyWithImpl(
-      _FavoriteModel _value, $Res Function(_FavoriteModel) _then)
-      : super(_value, (v) => _then(v as _FavoriteModel));
+    implements _$$_FavoriteModelCopyWith<$Res> {
+  __$$_FavoriteModelCopyWithImpl(
+      _$_FavoriteModel _value, $Res Function(_$_FavoriteModel) _then)
+      : super(_value, (v) => _then(v as _$_FavoriteModel));
 
   @override
-  _FavoriteModel get _value => super._value as _FavoriteModel;
+  _$_FavoriteModel get _value => super._value as _$_FavoriteModel;
 
   @override
   $Res call({
     Object? productModel = freezed,
   }) {
-    return _then(_FavoriteModel(
+    return _then(_$_FavoriteModel(
       productModel: productModel == freezed
           ? _value.productModel
           : productModel // ignore: cast_nullable_to_non_nullable
@@ -124,7 +124,7 @@ class _$_FavoriteModel implements _FavoriteModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FavoriteModel &&
+            other is _$_FavoriteModel &&
             const DeepCollectionEquality()
                 .equals(other.productModel, productModel));
   }
@@ -136,8 +136,8 @@ class _$_FavoriteModel implements _FavoriteModel {
 
   @JsonKey(ignore: true)
   @override
-  _$FavoriteModelCopyWith<_FavoriteModel> get copyWith =>
-      __$FavoriteModelCopyWithImpl<_FavoriteModel>(this, _$identity);
+  _$$_FavoriteModelCopyWith<_$_FavoriteModel> get copyWith =>
+      __$$_FavoriteModelCopyWithImpl<_$_FavoriteModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -156,6 +156,6 @@ abstract class _FavoriteModel implements FavoriteModel {
   ProductModel get productModel => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FavoriteModelCopyWith<_FavoriteModel> get copyWith =>
+  _$$_FavoriteModelCopyWith<_$_FavoriteModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

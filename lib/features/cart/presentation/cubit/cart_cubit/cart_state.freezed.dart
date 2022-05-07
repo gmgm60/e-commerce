@@ -84,19 +84,19 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$InitCopyWith<$Res> {
-  factory _$InitCopyWith(_Init value, $Res Function(_Init) then) =
-      __$InitCopyWithImpl<$Res>;
+abstract class _$$_InitCopyWith<$Res> {
+  factory _$$_InitCopyWith(_$_Init value, $Res Function(_$_Init) then) =
+      __$$_InitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements _$InitCopyWith<$Res> {
-  __$InitCopyWithImpl(_Init _value, $Res Function(_Init) _then)
-      : super(_value, (v) => _then(v as _Init));
+class __$$_InitCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
+    implements _$$_InitCopyWith<$Res> {
+  __$$_InitCopyWithImpl(_$_Init _value, $Res Function(_$_Init) _then)
+      : super(_value, (v) => _then(v as _$_Init));
 
   @override
-  _Init get _value => super._value as _Init;
+  _$_Init get _value => super._value as _$_Init;
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class _$_Init implements _Init {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Init);
+        (other.runtimeType == runtimeType && other is _$_Init);
   }
 
   @override
@@ -198,19 +198,19 @@ abstract class _Init implements CartState {
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<$Res> {
-  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
-      _$LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingCopyWith<$Res> {
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
+      __$$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements $LoadingCopyWith<$Res> {
-  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
-      : super(_value, (v) => _then(v as Loading));
+class __$$LoadingCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
+    implements _$$LoadingCopyWith<$Res> {
+  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+      : super(_value, (v) => _then(v as _$Loading));
 
   @override
-  Loading get _value => super._value as Loading;
+  _$Loading get _value => super._value as _$Loading;
 }
 
 /// @nodoc
@@ -226,7 +226,7 @@ class _$Loading implements Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Loading);
+        (other.runtimeType == runtimeType && other is _$Loading);
   }
 
   @override
@@ -312,26 +312,26 @@ abstract class Loading implements CartState {
 }
 
 /// @nodoc
-abstract class _$DoneCopyWith<$Res> {
-  factory _$DoneCopyWith(_Done value, $Res Function(_Done) then) =
-      __$DoneCopyWithImpl<$Res>;
+abstract class _$$_DoneCopyWith<$Res> {
+  factory _$$_DoneCopyWith(_$_Done value, $Res Function(_$_Done) then) =
+      __$$_DoneCopyWithImpl<$Res>;
   $Res call({int? refresh});
 }
 
 /// @nodoc
-class __$DoneCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements _$DoneCopyWith<$Res> {
-  __$DoneCopyWithImpl(_Done _value, $Res Function(_Done) _then)
-      : super(_value, (v) => _then(v as _Done));
+class __$$_DoneCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
+    implements _$$_DoneCopyWith<$Res> {
+  __$$_DoneCopyWithImpl(_$_Done _value, $Res Function(_$_Done) _then)
+      : super(_value, (v) => _then(v as _$_Done));
 
   @override
-  _Done get _value => super._value as _Done;
+  _$_Done get _value => super._value as _$_Done;
 
   @override
   $Res call({
     Object? refresh = freezed,
   }) {
-    return _then(_Done(
+    return _then(_$_Done(
       refresh: refresh == freezed
           ? _value.refresh
           : refresh // ignore: cast_nullable_to_non_nullable
@@ -357,7 +357,7 @@ class _$_Done implements _Done {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Done &&
+            other is _$_Done &&
             const DeepCollectionEquality().equals(other.refresh, refresh));
   }
 
@@ -367,8 +367,8 @@ class _$_Done implements _Done {
 
   @JsonKey(ignore: true)
   @override
-  _$DoneCopyWith<_Done> get copyWith =>
-      __$DoneCopyWithImpl<_Done>(this, _$identity);
+  _$$_DoneCopyWith<_$_Done> get copyWith =>
+      __$$_DoneCopyWithImpl<_$_Done>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -450,30 +450,30 @@ abstract class _Done implements CartState {
 
   int? get refresh => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DoneCopyWith<_Done> get copyWith => throw _privateConstructorUsedError;
+  _$$_DoneCopyWith<_$_Done> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
   $Res call({String errMsg});
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
+class __$$_ErrorCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
 
   @override
-  _Error get _value => super._value as _Error;
+  _$_Error get _value => super._value as _$_Error;
 
   @override
   $Res call({
     Object? errMsg = freezed,
   }) {
-    return _then(_Error(
+    return _then(_$_Error(
       errMsg: errMsg == freezed
           ? _value.errMsg
           : errMsg // ignore: cast_nullable_to_non_nullable
@@ -499,7 +499,7 @@ class _$_Error implements _Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Error &&
+            other is _$_Error &&
             const DeepCollectionEquality().equals(other.errMsg, errMsg));
   }
 
@@ -509,8 +509,8 @@ class _$_Error implements _Error {
 
   @JsonKey(ignore: true)
   @override
-  _$ErrorCopyWith<_Error> get copyWith =>
-      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -592,5 +592,6 @@ abstract class _Error implements CartState {
 
   String get errMsg => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }

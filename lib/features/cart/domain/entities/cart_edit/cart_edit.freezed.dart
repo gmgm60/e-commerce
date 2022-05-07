@@ -58,28 +58,30 @@ class _$CartEditCopyWithImpl<$Res> implements $CartEditCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CartEditCopyWith<$Res> implements $CartEditCopyWith<$Res> {
-  factory _$CartEditCopyWith(_CartEdit value, $Res Function(_CartEdit) then) =
-      __$CartEditCopyWithImpl<$Res>;
+abstract class _$$_CartEditCopyWith<$Res> implements $CartEditCopyWith<$Res> {
+  factory _$$_CartEditCopyWith(
+          _$_CartEdit value, $Res Function(_$_CartEdit) then) =
+      __$$_CartEditCopyWithImpl<$Res>;
   @override
   $Res call({int productId, int quantity});
 }
 
 /// @nodoc
-class __$CartEditCopyWithImpl<$Res> extends _$CartEditCopyWithImpl<$Res>
-    implements _$CartEditCopyWith<$Res> {
-  __$CartEditCopyWithImpl(_CartEdit _value, $Res Function(_CartEdit) _then)
-      : super(_value, (v) => _then(v as _CartEdit));
+class __$$_CartEditCopyWithImpl<$Res> extends _$CartEditCopyWithImpl<$Res>
+    implements _$$_CartEditCopyWith<$Res> {
+  __$$_CartEditCopyWithImpl(
+      _$_CartEdit _value, $Res Function(_$_CartEdit) _then)
+      : super(_value, (v) => _then(v as _$_CartEdit));
 
   @override
-  _CartEdit get _value => super._value as _CartEdit;
+  _$_CartEdit get _value => super._value as _$_CartEdit;
 
   @override
   $Res call({
     Object? productId = freezed,
     Object? quantity = freezed,
   }) {
-    return _then(_CartEdit(
+    return _then(_$_CartEdit(
       productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -111,7 +113,7 @@ class _$_CartEdit implements _CartEdit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CartEdit &&
+            other is _$_CartEdit &&
             const DeepCollectionEquality().equals(other.productId, productId) &&
             const DeepCollectionEquality().equals(other.quantity, quantity));
   }
@@ -124,8 +126,8 @@ class _$_CartEdit implements _CartEdit {
 
   @JsonKey(ignore: true)
   @override
-  _$CartEditCopyWith<_CartEdit> get copyWith =>
-      __$CartEditCopyWithImpl<_CartEdit>(this, _$identity);
+  _$$_CartEditCopyWith<_$_CartEdit> get copyWith =>
+      __$$_CartEditCopyWithImpl<_$_CartEdit>(this, _$identity);
 }
 
 abstract class _CartEdit implements CartEdit {
@@ -139,6 +141,6 @@ abstract class _CartEdit implements CartEdit {
   int get quantity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CartEditCopyWith<_CartEdit> get copyWith =>
+  _$$_CartEditCopyWith<_$_CartEdit> get copyWith =>
       throw _privateConstructorUsedError;
 }

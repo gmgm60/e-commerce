@@ -86,22 +86,22 @@ class _$LocaleStatesCopyWithImpl<$Res> implements $LocaleStatesCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $LocaleInitialStateCopyWith<$Res> {
-  factory $LocaleInitialStateCopyWith(
-          LocaleInitialState value, $Res Function(LocaleInitialState) then) =
-      _$LocaleInitialStateCopyWithImpl<$Res>;
+abstract class _$$LocaleInitialStateCopyWith<$Res> {
+  factory _$$LocaleInitialStateCopyWith(_$LocaleInitialState value,
+          $Res Function(_$LocaleInitialState) then) =
+      __$$LocaleInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LocaleInitialStateCopyWithImpl<$Res>
+class __$$LocaleInitialStateCopyWithImpl<$Res>
     extends _$LocaleStatesCopyWithImpl<$Res>
-    implements $LocaleInitialStateCopyWith<$Res> {
-  _$LocaleInitialStateCopyWithImpl(
-      LocaleInitialState _value, $Res Function(LocaleInitialState) _then)
-      : super(_value, (v) => _then(v as LocaleInitialState));
+    implements _$$LocaleInitialStateCopyWith<$Res> {
+  __$$LocaleInitialStateCopyWithImpl(
+      _$LocaleInitialState _value, $Res Function(_$LocaleInitialState) _then)
+      : super(_value, (v) => _then(v as _$LocaleInitialState));
 
   @override
-  LocaleInitialState get _value => super._value as LocaleInitialState;
+  _$LocaleInitialState get _value => super._value as _$LocaleInitialState;
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class _$LocaleInitialState implements LocaleInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is LocaleInitialState);
+        (other.runtimeType == runtimeType && other is _$LocaleInitialState);
   }
 
   @override
@@ -204,29 +204,29 @@ abstract class LocaleInitialState implements LocaleStates {
 }
 
 /// @nodoc
-abstract class $LocaleChangedStateCopyWith<$Res> {
-  factory $LocaleChangedStateCopyWith(
-          LocaleChangedState value, $Res Function(LocaleChangedState) then) =
-      _$LocaleChangedStateCopyWithImpl<$Res>;
+abstract class _$$LocaleChangedStateCopyWith<$Res> {
+  factory _$$LocaleChangedStateCopyWith(_$LocaleChangedState value,
+          $Res Function(_$LocaleChangedState) then) =
+      __$$LocaleChangedStateCopyWithImpl<$Res>;
   $Res call({Locale locale});
 }
 
 /// @nodoc
-class _$LocaleChangedStateCopyWithImpl<$Res>
+class __$$LocaleChangedStateCopyWithImpl<$Res>
     extends _$LocaleStatesCopyWithImpl<$Res>
-    implements $LocaleChangedStateCopyWith<$Res> {
-  _$LocaleChangedStateCopyWithImpl(
-      LocaleChangedState _value, $Res Function(LocaleChangedState) _then)
-      : super(_value, (v) => _then(v as LocaleChangedState));
+    implements _$$LocaleChangedStateCopyWith<$Res> {
+  __$$LocaleChangedStateCopyWithImpl(
+      _$LocaleChangedState _value, $Res Function(_$LocaleChangedState) _then)
+      : super(_value, (v) => _then(v as _$LocaleChangedState));
 
   @override
-  LocaleChangedState get _value => super._value as LocaleChangedState;
+  _$LocaleChangedState get _value => super._value as _$LocaleChangedState;
 
   @override
   $Res call({
     Object? locale = freezed,
   }) {
-    return _then(LocaleChangedState(
+    return _then(_$LocaleChangedState(
       locale: locale == freezed
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
@@ -252,7 +252,7 @@ class _$LocaleChangedState implements LocaleChangedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LocaleChangedState &&
+            other is _$LocaleChangedState &&
             const DeepCollectionEquality().equals(other.locale, locale));
   }
 
@@ -262,8 +262,9 @@ class _$LocaleChangedState implements LocaleChangedState {
 
   @JsonKey(ignore: true)
   @override
-  $LocaleChangedStateCopyWith<LocaleChangedState> get copyWith =>
-      _$LocaleChangedStateCopyWithImpl<LocaleChangedState>(this, _$identity);
+  _$$LocaleChangedStateCopyWith<_$LocaleChangedState> get copyWith =>
+      __$$LocaleChangedStateCopyWithImpl<_$LocaleChangedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -347,36 +348,37 @@ abstract class LocaleChangedState implements LocaleStates {
 
   Locale get locale => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LocaleChangedStateCopyWith<LocaleChangedState> get copyWith =>
+  _$$LocaleChangedStateCopyWith<_$LocaleChangedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocaleLoadedFromSharedStateCopyWith<$Res> {
-  factory $LocaleLoadedFromSharedStateCopyWith(
-          LocaleLoadedFromSharedState value,
-          $Res Function(LocaleLoadedFromSharedState) then) =
-      _$LocaleLoadedFromSharedStateCopyWithImpl<$Res>;
+abstract class _$$LocaleLoadedFromSharedStateCopyWith<$Res> {
+  factory _$$LocaleLoadedFromSharedStateCopyWith(
+          _$LocaleLoadedFromSharedState value,
+          $Res Function(_$LocaleLoadedFromSharedState) then) =
+      __$$LocaleLoadedFromSharedStateCopyWithImpl<$Res>;
   $Res call({Locale locale});
 }
 
 /// @nodoc
-class _$LocaleLoadedFromSharedStateCopyWithImpl<$Res>
+class __$$LocaleLoadedFromSharedStateCopyWithImpl<$Res>
     extends _$LocaleStatesCopyWithImpl<$Res>
-    implements $LocaleLoadedFromSharedStateCopyWith<$Res> {
-  _$LocaleLoadedFromSharedStateCopyWithImpl(LocaleLoadedFromSharedState _value,
-      $Res Function(LocaleLoadedFromSharedState) _then)
-      : super(_value, (v) => _then(v as LocaleLoadedFromSharedState));
+    implements _$$LocaleLoadedFromSharedStateCopyWith<$Res> {
+  __$$LocaleLoadedFromSharedStateCopyWithImpl(
+      _$LocaleLoadedFromSharedState _value,
+      $Res Function(_$LocaleLoadedFromSharedState) _then)
+      : super(_value, (v) => _then(v as _$LocaleLoadedFromSharedState));
 
   @override
-  LocaleLoadedFromSharedState get _value =>
-      super._value as LocaleLoadedFromSharedState;
+  _$LocaleLoadedFromSharedState get _value =>
+      super._value as _$LocaleLoadedFromSharedState;
 
   @override
   $Res call({
     Object? locale = freezed,
   }) {
-    return _then(LocaleLoadedFromSharedState(
+    return _then(_$LocaleLoadedFromSharedState(
       locale: locale == freezed
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
@@ -402,7 +404,7 @@ class _$LocaleLoadedFromSharedState implements LocaleLoadedFromSharedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LocaleLoadedFromSharedState &&
+            other is _$LocaleLoadedFromSharedState &&
             const DeepCollectionEquality().equals(other.locale, locale));
   }
 
@@ -412,9 +414,9 @@ class _$LocaleLoadedFromSharedState implements LocaleLoadedFromSharedState {
 
   @JsonKey(ignore: true)
   @override
-  $LocaleLoadedFromSharedStateCopyWith<LocaleLoadedFromSharedState>
-      get copyWith => _$LocaleLoadedFromSharedStateCopyWithImpl<
-          LocaleLoadedFromSharedState>(this, _$identity);
+  _$$LocaleLoadedFromSharedStateCopyWith<_$LocaleLoadedFromSharedState>
+      get copyWith => __$$LocaleLoadedFromSharedStateCopyWithImpl<
+          _$LocaleLoadedFromSharedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -498,34 +500,34 @@ abstract class LocaleLoadedFromSharedState implements LocaleStates {
 
   Locale get locale => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LocaleLoadedFromSharedStateCopyWith<LocaleLoadedFromSharedState>
+  _$$LocaleLoadedFromSharedStateCopyWith<_$LocaleLoadedFromSharedState>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocaleErrorStateCopyWith<$Res> {
-  factory $LocaleErrorStateCopyWith(
-          LocaleErrorState value, $Res Function(LocaleErrorState) then) =
-      _$LocaleErrorStateCopyWithImpl<$Res>;
+abstract class _$$LocaleErrorStateCopyWith<$Res> {
+  factory _$$LocaleErrorStateCopyWith(
+          _$LocaleErrorState value, $Res Function(_$LocaleErrorState) then) =
+      __$$LocaleErrorStateCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$LocaleErrorStateCopyWithImpl<$Res>
+class __$$LocaleErrorStateCopyWithImpl<$Res>
     extends _$LocaleStatesCopyWithImpl<$Res>
-    implements $LocaleErrorStateCopyWith<$Res> {
-  _$LocaleErrorStateCopyWithImpl(
-      LocaleErrorState _value, $Res Function(LocaleErrorState) _then)
-      : super(_value, (v) => _then(v as LocaleErrorState));
+    implements _$$LocaleErrorStateCopyWith<$Res> {
+  __$$LocaleErrorStateCopyWithImpl(
+      _$LocaleErrorState _value, $Res Function(_$LocaleErrorState) _then)
+      : super(_value, (v) => _then(v as _$LocaleErrorState));
 
   @override
-  LocaleErrorState get _value => super._value as LocaleErrorState;
+  _$LocaleErrorState get _value => super._value as _$LocaleErrorState;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(LocaleErrorState(
+    return _then(_$LocaleErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -551,7 +553,7 @@ class _$LocaleErrorState implements LocaleErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LocaleErrorState &&
+            other is _$LocaleErrorState &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -561,8 +563,8 @@ class _$LocaleErrorState implements LocaleErrorState {
 
   @JsonKey(ignore: true)
   @override
-  $LocaleErrorStateCopyWith<LocaleErrorState> get copyWith =>
-      _$LocaleErrorStateCopyWithImpl<LocaleErrorState>(this, _$identity);
+  _$$LocaleErrorStateCopyWith<_$LocaleErrorState> get copyWith =>
+      __$$LocaleErrorStateCopyWithImpl<_$LocaleErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -646,6 +648,6 @@ abstract class LocaleErrorState implements LocaleStates {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LocaleErrorStateCopyWith<LocaleErrorState> get copyWith =>
+  _$$LocaleErrorStateCopyWith<_$LocaleErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

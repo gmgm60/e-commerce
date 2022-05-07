@@ -20,8 +20,7 @@ mixin _$ProfileStates {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User user) loaded,
-    required TResult Function(User user) updated,
+    required TResult Function(User? user) loaded,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,8 +28,7 @@ mixin _$ProfileStates {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,8 +36,7 @@ mixin _$ProfileStates {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -49,7 +46,6 @@ mixin _$ProfileStates {
     required TResult Function(ProfileInitialState value) initial,
     required TResult Function(ProfileLoadingState value) loading,
     required TResult Function(ProfileLoadedState value) loaded,
-    required TResult Function(ProfileUpdatedState value) updated,
     required TResult Function(ProfileErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +54,6 @@ mixin _$ProfileStates {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +62,6 @@ mixin _$ProfileStates {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
     required TResult orElse(),
   }) =>
@@ -92,22 +86,22 @@ class _$ProfileStatesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ProfileInitialStateCopyWith<$Res> {
-  factory $ProfileInitialStateCopyWith(
-          ProfileInitialState value, $Res Function(ProfileInitialState) then) =
-      _$ProfileInitialStateCopyWithImpl<$Res>;
+abstract class _$$ProfileInitialStateCopyWith<$Res> {
+  factory _$$ProfileInitialStateCopyWith(_$ProfileInitialState value,
+          $Res Function(_$ProfileInitialState) then) =
+      __$$ProfileInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileInitialStateCopyWithImpl<$Res>
+class __$$ProfileInitialStateCopyWithImpl<$Res>
     extends _$ProfileStatesCopyWithImpl<$Res>
-    implements $ProfileInitialStateCopyWith<$Res> {
-  _$ProfileInitialStateCopyWithImpl(
-      ProfileInitialState _value, $Res Function(ProfileInitialState) _then)
-      : super(_value, (v) => _then(v as ProfileInitialState));
+    implements _$$ProfileInitialStateCopyWith<$Res> {
+  __$$ProfileInitialStateCopyWithImpl(
+      _$ProfileInitialState _value, $Res Function(_$ProfileInitialState) _then)
+      : super(_value, (v) => _then(v as _$ProfileInitialState));
 
   @override
-  ProfileInitialState get _value => super._value as ProfileInitialState;
+  _$ProfileInitialState get _value => super._value as _$ProfileInitialState;
 }
 
 /// @nodoc
@@ -123,7 +117,7 @@ class _$ProfileInitialState implements ProfileInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileInitialState);
+        (other.runtimeType == runtimeType && other is _$ProfileInitialState);
   }
 
   @override
@@ -134,8 +128,7 @@ class _$ProfileInitialState implements ProfileInitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User user) loaded,
-    required TResult Function(User user) updated,
+    required TResult Function(User? user) loaded,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -146,8 +139,7 @@ class _$ProfileInitialState implements ProfileInitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
   }) {
     return initial?.call();
@@ -158,8 +150,7 @@ class _$ProfileInitialState implements ProfileInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -175,7 +166,6 @@ class _$ProfileInitialState implements ProfileInitialState {
     required TResult Function(ProfileInitialState value) initial,
     required TResult Function(ProfileLoadingState value) loading,
     required TResult Function(ProfileLoadedState value) loaded,
-    required TResult Function(ProfileUpdatedState value) updated,
     required TResult Function(ProfileErrorState value) error,
   }) {
     return initial(this);
@@ -187,7 +177,6 @@ class _$ProfileInitialState implements ProfileInitialState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
   }) {
     return initial?.call(this);
@@ -199,7 +188,6 @@ class _$ProfileInitialState implements ProfileInitialState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -215,22 +203,22 @@ abstract class ProfileInitialState implements ProfileStates {
 }
 
 /// @nodoc
-abstract class $ProfileLoadingStateCopyWith<$Res> {
-  factory $ProfileLoadingStateCopyWith(
-          ProfileLoadingState value, $Res Function(ProfileLoadingState) then) =
-      _$ProfileLoadingStateCopyWithImpl<$Res>;
+abstract class _$$ProfileLoadingStateCopyWith<$Res> {
+  factory _$$ProfileLoadingStateCopyWith(_$ProfileLoadingState value,
+          $Res Function(_$ProfileLoadingState) then) =
+      __$$ProfileLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileLoadingStateCopyWithImpl<$Res>
+class __$$ProfileLoadingStateCopyWithImpl<$Res>
     extends _$ProfileStatesCopyWithImpl<$Res>
-    implements $ProfileLoadingStateCopyWith<$Res> {
-  _$ProfileLoadingStateCopyWithImpl(
-      ProfileLoadingState _value, $Res Function(ProfileLoadingState) _then)
-      : super(_value, (v) => _then(v as ProfileLoadingState));
+    implements _$$ProfileLoadingStateCopyWith<$Res> {
+  __$$ProfileLoadingStateCopyWithImpl(
+      _$ProfileLoadingState _value, $Res Function(_$ProfileLoadingState) _then)
+      : super(_value, (v) => _then(v as _$ProfileLoadingState));
 
   @override
-  ProfileLoadingState get _value => super._value as ProfileLoadingState;
+  _$ProfileLoadingState get _value => super._value as _$ProfileLoadingState;
 }
 
 /// @nodoc
@@ -246,7 +234,7 @@ class _$ProfileLoadingState implements ProfileLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileLoadingState);
+        (other.runtimeType == runtimeType && other is _$ProfileLoadingState);
   }
 
   @override
@@ -257,8 +245,7 @@ class _$ProfileLoadingState implements ProfileLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User user) loaded,
-    required TResult Function(User user) updated,
+    required TResult Function(User? user) loaded,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -269,8 +256,7 @@ class _$ProfileLoadingState implements ProfileLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
   }) {
     return loading?.call();
@@ -281,8 +267,7 @@ class _$ProfileLoadingState implements ProfileLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -298,7 +283,6 @@ class _$ProfileLoadingState implements ProfileLoadingState {
     required TResult Function(ProfileInitialState value) initial,
     required TResult Function(ProfileLoadingState value) loading,
     required TResult Function(ProfileLoadedState value) loaded,
-    required TResult Function(ProfileUpdatedState value) updated,
     required TResult Function(ProfileErrorState value) error,
   }) {
     return loading(this);
@@ -310,7 +294,6 @@ class _$ProfileLoadingState implements ProfileLoadingState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
   }) {
     return loading?.call(this);
@@ -322,7 +305,6 @@ class _$ProfileLoadingState implements ProfileLoadingState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -338,33 +320,33 @@ abstract class ProfileLoadingState implements ProfileStates {
 }
 
 /// @nodoc
-abstract class $ProfileLoadedStateCopyWith<$Res> {
-  factory $ProfileLoadedStateCopyWith(
-          ProfileLoadedState value, $Res Function(ProfileLoadedState) then) =
-      _$ProfileLoadedStateCopyWithImpl<$Res>;
-  $Res call({User user});
+abstract class _$$ProfileLoadedStateCopyWith<$Res> {
+  factory _$$ProfileLoadedStateCopyWith(_$ProfileLoadedState value,
+          $Res Function(_$ProfileLoadedState) then) =
+      __$$ProfileLoadedStateCopyWithImpl<$Res>;
+  $Res call({User? user});
 }
 
 /// @nodoc
-class _$ProfileLoadedStateCopyWithImpl<$Res>
+class __$$ProfileLoadedStateCopyWithImpl<$Res>
     extends _$ProfileStatesCopyWithImpl<$Res>
-    implements $ProfileLoadedStateCopyWith<$Res> {
-  _$ProfileLoadedStateCopyWithImpl(
-      ProfileLoadedState _value, $Res Function(ProfileLoadedState) _then)
-      : super(_value, (v) => _then(v as ProfileLoadedState));
+    implements _$$ProfileLoadedStateCopyWith<$Res> {
+  __$$ProfileLoadedStateCopyWithImpl(
+      _$ProfileLoadedState _value, $Res Function(_$ProfileLoadedState) _then)
+      : super(_value, (v) => _then(v as _$ProfileLoadedState));
 
   @override
-  ProfileLoadedState get _value => super._value as ProfileLoadedState;
+  _$ProfileLoadedState get _value => super._value as _$ProfileLoadedState;
 
   @override
   $Res call({
     Object? user = freezed,
   }) {
-    return _then(ProfileLoadedState(
+    return _then(_$ProfileLoadedState(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 }
@@ -375,7 +357,7 @@ class _$ProfileLoadedState implements ProfileLoadedState {
   const _$ProfileLoadedState({required this.user});
 
   @override
-  final User user;
+  final User? user;
 
   @override
   String toString() {
@@ -386,7 +368,7 @@ class _$ProfileLoadedState implements ProfileLoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProfileLoadedState &&
+            other is _$ProfileLoadedState &&
             const DeepCollectionEquality().equals(other.user, user));
   }
 
@@ -396,16 +378,16 @@ class _$ProfileLoadedState implements ProfileLoadedState {
 
   @JsonKey(ignore: true)
   @override
-  $ProfileLoadedStateCopyWith<ProfileLoadedState> get copyWith =>
-      _$ProfileLoadedStateCopyWithImpl<ProfileLoadedState>(this, _$identity);
+  _$$ProfileLoadedStateCopyWith<_$ProfileLoadedState> get copyWith =>
+      __$$ProfileLoadedStateCopyWithImpl<_$ProfileLoadedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User user) loaded,
-    required TResult Function(User user) updated,
+    required TResult Function(User? user) loaded,
     required TResult Function(String error) error,
   }) {
     return loaded(user);
@@ -416,8 +398,7 @@ class _$ProfileLoadedState implements ProfileLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
   }) {
     return loaded?.call(user);
@@ -428,8 +409,7 @@ class _$ProfileLoadedState implements ProfileLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -445,7 +425,6 @@ class _$ProfileLoadedState implements ProfileLoadedState {
     required TResult Function(ProfileInitialState value) initial,
     required TResult Function(ProfileLoadingState value) loading,
     required TResult Function(ProfileLoadedState value) loaded,
-    required TResult Function(ProfileUpdatedState value) updated,
     required TResult Function(ProfileErrorState value) error,
   }) {
     return loaded(this);
@@ -457,7 +436,6 @@ class _$ProfileLoadedState implements ProfileLoadedState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
   }) {
     return loaded?.call(this);
@@ -469,7 +447,6 @@ class _$ProfileLoadedState implements ProfileLoadedState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -481,192 +458,39 @@ class _$ProfileLoadedState implements ProfileLoadedState {
 }
 
 abstract class ProfileLoadedState implements ProfileStates {
-  const factory ProfileLoadedState({required final User user}) =
+  const factory ProfileLoadedState({required final User? user}) =
       _$ProfileLoadedState;
 
-  User get user => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProfileLoadedStateCopyWith<ProfileLoadedState> get copyWith =>
+  _$$ProfileLoadedStateCopyWith<_$ProfileLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProfileUpdatedStateCopyWith<$Res> {
-  factory $ProfileUpdatedStateCopyWith(
-          ProfileUpdatedState value, $Res Function(ProfileUpdatedState) then) =
-      _$ProfileUpdatedStateCopyWithImpl<$Res>;
-  $Res call({User user});
-}
-
-/// @nodoc
-class _$ProfileUpdatedStateCopyWithImpl<$Res>
-    extends _$ProfileStatesCopyWithImpl<$Res>
-    implements $ProfileUpdatedStateCopyWith<$Res> {
-  _$ProfileUpdatedStateCopyWithImpl(
-      ProfileUpdatedState _value, $Res Function(ProfileUpdatedState) _then)
-      : super(_value, (v) => _then(v as ProfileUpdatedState));
-
-  @override
-  ProfileUpdatedState get _value => super._value as ProfileUpdatedState;
-
-  @override
-  $Res call({
-    Object? user = freezed,
-  }) {
-    return _then(ProfileUpdatedState(
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ProfileUpdatedState implements ProfileUpdatedState {
-  const _$ProfileUpdatedState({required this.user});
-
-  @override
-  final User user;
-
-  @override
-  String toString() {
-    return 'ProfileStates.updated(user: $user)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ProfileUpdatedState &&
-            const DeepCollectionEquality().equals(other.user, user));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
-
-  @JsonKey(ignore: true)
-  @override
-  $ProfileUpdatedStateCopyWith<ProfileUpdatedState> get copyWith =>
-      _$ProfileUpdatedStateCopyWithImpl<ProfileUpdatedState>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(User user) loaded,
-    required TResult Function(User user) updated,
-    required TResult Function(String error) error,
-  }) {
-    return updated(user);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
-    TResult Function(String error)? error,
-  }) {
-    return updated?.call(user);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (updated != null) {
-      return updated(user);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitialState value) initial,
-    required TResult Function(ProfileLoadingState value) loading,
-    required TResult Function(ProfileLoadedState value) loaded,
-    required TResult Function(ProfileUpdatedState value) updated,
-    required TResult Function(ProfileErrorState value) error,
-  }) {
-    return updated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
-    TResult Function(ProfileErrorState value)? error,
-  }) {
-    return updated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
-    TResult Function(ProfileErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (updated != null) {
-      return updated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileUpdatedState implements ProfileStates {
-  const factory ProfileUpdatedState({required final User user}) =
-      _$ProfileUpdatedState;
-
-  User get user => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ProfileUpdatedStateCopyWith<ProfileUpdatedState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ProfileErrorStateCopyWith<$Res> {
-  factory $ProfileErrorStateCopyWith(
-          ProfileErrorState value, $Res Function(ProfileErrorState) then) =
-      _$ProfileErrorStateCopyWithImpl<$Res>;
+abstract class _$$ProfileErrorStateCopyWith<$Res> {
+  factory _$$ProfileErrorStateCopyWith(
+          _$ProfileErrorState value, $Res Function(_$ProfileErrorState) then) =
+      __$$ProfileErrorStateCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class _$ProfileErrorStateCopyWithImpl<$Res>
+class __$$ProfileErrorStateCopyWithImpl<$Res>
     extends _$ProfileStatesCopyWithImpl<$Res>
-    implements $ProfileErrorStateCopyWith<$Res> {
-  _$ProfileErrorStateCopyWithImpl(
-      ProfileErrorState _value, $Res Function(ProfileErrorState) _then)
-      : super(_value, (v) => _then(v as ProfileErrorState));
+    implements _$$ProfileErrorStateCopyWith<$Res> {
+  __$$ProfileErrorStateCopyWithImpl(
+      _$ProfileErrorState _value, $Res Function(_$ProfileErrorState) _then)
+      : super(_value, (v) => _then(v as _$ProfileErrorState));
 
   @override
-  ProfileErrorState get _value => super._value as ProfileErrorState;
+  _$ProfileErrorState get _value => super._value as _$ProfileErrorState;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(ProfileErrorState(
+    return _then(_$ProfileErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -692,7 +516,7 @@ class _$ProfileErrorState implements ProfileErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ProfileErrorState &&
+            other is _$ProfileErrorState &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -702,16 +526,15 @@ class _$ProfileErrorState implements ProfileErrorState {
 
   @JsonKey(ignore: true)
   @override
-  $ProfileErrorStateCopyWith<ProfileErrorState> get copyWith =>
-      _$ProfileErrorStateCopyWithImpl<ProfileErrorState>(this, _$identity);
+  _$$ProfileErrorStateCopyWith<_$ProfileErrorState> get copyWith =>
+      __$$ProfileErrorStateCopyWithImpl<_$ProfileErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User user) loaded,
-    required TResult Function(User user) updated,
+    required TResult Function(User? user) loaded,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -722,8 +545,7 @@ class _$ProfileErrorState implements ProfileErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -734,8 +556,7 @@ class _$ProfileErrorState implements ProfileErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User user)? loaded,
-    TResult Function(User user)? updated,
+    TResult Function(User? user)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -751,7 +572,6 @@ class _$ProfileErrorState implements ProfileErrorState {
     required TResult Function(ProfileInitialState value) initial,
     required TResult Function(ProfileLoadingState value) loading,
     required TResult Function(ProfileLoadedState value) loaded,
-    required TResult Function(ProfileUpdatedState value) updated,
     required TResult Function(ProfileErrorState value) error,
   }) {
     return error(this);
@@ -763,7 +583,6 @@ class _$ProfileErrorState implements ProfileErrorState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
   }) {
     return error?.call(this);
@@ -775,7 +594,6 @@ class _$ProfileErrorState implements ProfileErrorState {
     TResult Function(ProfileInitialState value)? initial,
     TResult Function(ProfileLoadingState value)? loading,
     TResult Function(ProfileLoadedState value)? loaded,
-    TResult Function(ProfileUpdatedState value)? updated,
     TResult Function(ProfileErrorState value)? error,
     required TResult orElse(),
   }) {
@@ -792,6 +610,6 @@ abstract class ProfileErrorState implements ProfileStates {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProfileErrorStateCopyWith<ProfileErrorState> get copyWith =>
+  _$$ProfileErrorStateCopyWith<_$ProfileErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

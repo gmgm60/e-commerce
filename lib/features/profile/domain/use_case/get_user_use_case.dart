@@ -6,13 +6,13 @@ import 'package:ecommerce/features/profile/domain/repository/profile_repository.
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetUserUseCase extends UseCase<User, NoParams> {
+class GetUserUseCase extends UseCase<User?, NoParams> {
   final ProfileRepository _repository;
 
   GetUserUseCase(this._repository);
 
   @override
-  Future<Either<AppFailure, User>> call(NoParams params) {
+  Future<Either<AppFailure, User?>> call(NoParams params) {
     return _repository.getUser();
   }
 }

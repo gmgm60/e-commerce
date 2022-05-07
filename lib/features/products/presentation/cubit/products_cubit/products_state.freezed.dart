@@ -98,19 +98,19 @@ class _$ProductsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitCopyWith<$Res> {
-  factory _$InitCopyWith(_Init value, $Res Function(_Init) then) =
-      __$InitCopyWithImpl<$Res>;
+abstract class _$$_InitCopyWith<$Res> {
+  factory _$$_InitCopyWith(_$_Init value, $Res Function(_$_Init) then) =
+      __$$_InitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
-    implements _$InitCopyWith<$Res> {
-  __$InitCopyWithImpl(_Init _value, $Res Function(_Init) _then)
-      : super(_value, (v) => _then(v as _Init));
+class __$$_InitCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$$_InitCopyWith<$Res> {
+  __$$_InitCopyWithImpl(_$_Init _value, $Res Function(_$_Init) _then)
+      : super(_value, (v) => _then(v as _$_Init));
 
   @override
-  _Init get _value => super._value as _Init;
+  _$_Init get _value => super._value as _$_Init;
 }
 
 /// @nodoc
@@ -126,7 +126,7 @@ class _$_Init implements _Init {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Init);
+        (other.runtimeType == runtimeType && other is _$_Init);
   }
 
   @override
@@ -224,22 +224,22 @@ abstract class _Init implements ProductsState {
 }
 
 /// @nodoc
-abstract class $ProductsLoadingCopyWith<$Res> {
-  factory $ProductsLoadingCopyWith(
-          ProductsLoading value, $Res Function(ProductsLoading) then) =
-      _$ProductsLoadingCopyWithImpl<$Res>;
+abstract class _$$ProductsLoadingCopyWith<$Res> {
+  factory _$$ProductsLoadingCopyWith(
+          _$ProductsLoading value, $Res Function(_$ProductsLoading) then) =
+      __$$ProductsLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProductsLoadingCopyWithImpl<$Res>
+class __$$ProductsLoadingCopyWithImpl<$Res>
     extends _$ProductsStateCopyWithImpl<$Res>
-    implements $ProductsLoadingCopyWith<$Res> {
-  _$ProductsLoadingCopyWithImpl(
-      ProductsLoading _value, $Res Function(ProductsLoading) _then)
-      : super(_value, (v) => _then(v as ProductsLoading));
+    implements _$$ProductsLoadingCopyWith<$Res> {
+  __$$ProductsLoadingCopyWithImpl(
+      _$ProductsLoading _value, $Res Function(_$ProductsLoading) _then)
+      : super(_value, (v) => _then(v as _$ProductsLoading));
 
   @override
-  ProductsLoading get _value => super._value as ProductsLoading;
+  _$ProductsLoading get _value => super._value as _$ProductsLoading;
 }
 
 /// @nodoc
@@ -255,7 +255,7 @@ class _$ProductsLoading implements ProductsLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProductsLoading);
+        (other.runtimeType == runtimeType && other is _$ProductsLoading);
   }
 
   @override
@@ -353,19 +353,19 @@ abstract class ProductsLoading implements ProductsState {
 }
 
 /// @nodoc
-abstract class _$DoneCopyWith<$Res> {
-  factory _$DoneCopyWith(_Done value, $Res Function(_Done) then) =
-      __$DoneCopyWithImpl<$Res>;
+abstract class _$$_DoneCopyWith<$Res> {
+  factory _$$_DoneCopyWith(_$_Done value, $Res Function(_$_Done) then) =
+      __$$_DoneCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$DoneCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
-    implements _$DoneCopyWith<$Res> {
-  __$DoneCopyWithImpl(_Done _value, $Res Function(_Done) _then)
-      : super(_value, (v) => _then(v as _Done));
+class __$$_DoneCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$$_DoneCopyWith<$Res> {
+  __$$_DoneCopyWithImpl(_$_Done _value, $Res Function(_$_Done) _then)
+      : super(_value, (v) => _then(v as _$_Done));
 
   @override
-  _Done get _value => super._value as _Done;
+  _$_Done get _value => super._value as _$_Done;
 }
 
 /// @nodoc
@@ -381,7 +381,7 @@ class _$_Done implements _Done {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Done);
+        (other.runtimeType == runtimeType && other is _$_Done);
   }
 
   @override
@@ -479,30 +479,31 @@ abstract class _Done implements ProductsState {
 }
 
 /// @nodoc
-abstract class _$productDoneCopyWith<$Res> {
-  factory _$productDoneCopyWith(
-          _productDone value, $Res Function(_productDone) then) =
-      __$productDoneCopyWithImpl<$Res>;
+abstract class _$$_productDoneCopyWith<$Res> {
+  factory _$$_productDoneCopyWith(
+          _$_productDone value, $Res Function(_$_productDone) then) =
+      __$$_productDoneCopyWithImpl<$Res>;
   $Res call({Product product});
 
   $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
-class __$productDoneCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
-    implements _$productDoneCopyWith<$Res> {
-  __$productDoneCopyWithImpl(
-      _productDone _value, $Res Function(_productDone) _then)
-      : super(_value, (v) => _then(v as _productDone));
+class __$$_productDoneCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$$_productDoneCopyWith<$Res> {
+  __$$_productDoneCopyWithImpl(
+      _$_productDone _value, $Res Function(_$_productDone) _then)
+      : super(_value, (v) => _then(v as _$_productDone));
 
   @override
-  _productDone get _value => super._value as _productDone;
+  _$_productDone get _value => super._value as _$_productDone;
 
   @override
   $Res call({
     Object? product = freezed,
   }) {
-    return _then(_productDone(
+    return _then(_$_productDone(
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -535,7 +536,7 @@ class _$_productDone implements _productDone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _productDone &&
+            other is _$_productDone &&
             const DeepCollectionEquality().equals(other.product, product));
   }
 
@@ -545,8 +546,8 @@ class _$_productDone implements _productDone {
 
   @JsonKey(ignore: true)
   @override
-  _$productDoneCopyWith<_productDone> get copyWith =>
-      __$productDoneCopyWithImpl<_productDone>(this, _$identity);
+  _$$_productDoneCopyWith<_$_productDone> get copyWith =>
+      __$$_productDoneCopyWithImpl<_$_productDone>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -640,31 +641,31 @@ abstract class _productDone implements ProductsState {
 
   Product get product => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$productDoneCopyWith<_productDone> get copyWith =>
+  _$$_productDoneCopyWith<_$_productDone> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
+class __$$_ErrorCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
 
   @override
-  _Error get _value => super._value as _Error;
+  _$_Error get _value => super._value as _$_Error;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(_Error(
+    return _then(_$_Error(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -690,7 +691,7 @@ class _$_Error implements _Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Error &&
+            other is _$_Error &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -700,8 +701,8 @@ class _$_Error implements _Error {
 
   @JsonKey(ignore: true)
   @override
-  _$ErrorCopyWith<_Error> get copyWith =>
-      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -795,33 +796,34 @@ abstract class _Error implements ProductsState {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ProductErrorCopyWith<$Res> {
-  factory _$ProductErrorCopyWith(
-          _ProductError value, $Res Function(_ProductError) then) =
-      __$ProductErrorCopyWithImpl<$Res>;
+abstract class _$$_ProductErrorCopyWith<$Res> {
+  factory _$$_ProductErrorCopyWith(
+          _$_ProductError value, $Res Function(_$_ProductError) then) =
+      __$$_ProductErrorCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class __$ProductErrorCopyWithImpl<$Res>
+class __$$_ProductErrorCopyWithImpl<$Res>
     extends _$ProductsStateCopyWithImpl<$Res>
-    implements _$ProductErrorCopyWith<$Res> {
-  __$ProductErrorCopyWithImpl(
-      _ProductError _value, $Res Function(_ProductError) _then)
-      : super(_value, (v) => _then(v as _ProductError));
+    implements _$$_ProductErrorCopyWith<$Res> {
+  __$$_ProductErrorCopyWithImpl(
+      _$_ProductError _value, $Res Function(_$_ProductError) _then)
+      : super(_value, (v) => _then(v as _$_ProductError));
 
   @override
-  _ProductError get _value => super._value as _ProductError;
+  _$_ProductError get _value => super._value as _$_ProductError;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(_ProductError(
+    return _then(_$_ProductError(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -847,7 +849,7 @@ class _$_ProductError implements _ProductError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProductError &&
+            other is _$_ProductError &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -857,8 +859,8 @@ class _$_ProductError implements _ProductError {
 
   @JsonKey(ignore: true)
   @override
-  _$ProductErrorCopyWith<_ProductError> get copyWith =>
-      __$ProductErrorCopyWithImpl<_ProductError>(this, _$identity);
+  _$$_ProductErrorCopyWith<_$_ProductError> get copyWith =>
+      __$$_ProductErrorCopyWithImpl<_$_ProductError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -952,6 +954,6 @@ abstract class _ProductError implements ProductsState {
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ProductErrorCopyWith<_ProductError> get copyWith =>
+  _$$_ProductErrorCopyWith<_$_ProductError> get copyWith =>
       throw _privateConstructorUsedError;
 }
