@@ -23,7 +23,10 @@ class MerchantsPage extends StatelessWidget {
               builder: (context, state) {
             return state.maybeWhen(
                 loaded: (merchants) => merchants.isNotEmpty
-                    ? MerchantsList(merchants: merchants)
+                    ? RefreshIndicator(
+                    onRefresh: () => BlocProvider.of<MerchantsCubit>(context)
+                    .getMerchants(),
+                    child: MerchantsList(merchants: merchants))
                     : const AppEmptyWidget(),
                 loading: () => const ListShimmer(),
                 error: (error) => AppErrorWidget(

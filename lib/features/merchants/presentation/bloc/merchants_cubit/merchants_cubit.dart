@@ -13,14 +13,14 @@ class MerchantsCubit extends Cubit<MerchantsStates> {
   final GetMerchantsUseCase _getMerchantsUseCase;
   final GetMerchantDetailsUseCase _getMerchantDetailsUseCase;
 
-  void getMerchants() async {
+  Future<void> getMerchants() async {
     emit(const MerchantsLoadingState());
     final result = await _getMerchantsUseCase(NoParams());
     emit(result.fold((error) => MerchantsErrorState(error: error.message),
         (merchants) => MerchantsLoadedState(merchants: merchants)));
   }
 
-  void getMerchantDetails({required int merchantId}) async {
+  Future<void> getMerchantDetails({required int merchantId}) async {
     emit(const MerchantsLoadingState());
     final result = await _getMerchantDetailsUseCase(merchantId);
     emit(result.fold(

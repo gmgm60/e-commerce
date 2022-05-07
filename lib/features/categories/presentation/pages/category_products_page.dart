@@ -25,7 +25,10 @@ class CategoryProductsPage extends StatelessWidget {
               loading: () => const ProductShimmer(),
               error: (error) => AppErrorWidget(error: error),
               productsLoaded: (products) => products.isNotEmpty
-                  ? ProductsGrid(products: products)
+                  ? RefreshIndicator(
+                  onRefresh: () => BlocProvider.of<CategoryCubit>(context)
+                      .getCategoryProducts(catId: catId),
+                  child: ProductsGrid(products: products))
                   : const AppEmptyWidget(),
               orElse: () => Container());
         }),
