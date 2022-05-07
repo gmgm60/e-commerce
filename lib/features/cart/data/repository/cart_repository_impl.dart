@@ -27,7 +27,6 @@ class CartRepositoryImpl extends CartRepository {
       _logger.v(response);
       return right(unit);
     } on AppException catch (e) {
-      // TODO
       _logger.v(e.toString());
       return left(returnAppFailure(e));
     }
@@ -40,7 +39,6 @@ class CartRepositoryImpl extends CartRepository {
       await _cartRemoteService.editCart(cartEditModel: cartEdit.toModel());
       return right(unit);
     } on AppException catch (e) {
-      // TODO
       _logger.v(e.toString());
       return left(returnAppFailure(e));
     }
@@ -55,7 +53,6 @@ class CartRepositoryImpl extends CartRepository {
           response.map((cartItemModel) => cartItemModel.toDomain()).toList();
       return right(cart);
     } on AppException catch (e) {
-      // TODO
       _logger.v(e.toString());
       return left(returnAppFailure(e));
     }
@@ -68,7 +65,6 @@ class CartRepositoryImpl extends CartRepository {
       _logger.v(response);
       return right(unit);
     } on AppException catch (e) {
-      // TODO
       _logger.v(e.toString());
       return left(returnAppFailure(e));
     }
