@@ -8,6 +8,7 @@ part 'cart_response_model.g.dart';
 class CartResponseModel with _$CartResponseModel {
   factory CartResponseModel({
     required List<CartItemModel> data,
+    // ignore: invalid_annotation_target
     @JsonKey(name: "Message")
     required String message,
   }) = _CartResponseModel;

@@ -2,7 +2,6 @@ import 'package:ecommerce/core/data/throw_app_exception.dart';
 import 'package:ecommerce/features/products/data/data_source/remote/product_service_impl.dart';
 import 'package:ecommerce/features/products/data/models/product_model/product_model.dart';
 import 'package:ecommerce/features/products/domain/data_source/product_remote_data_source.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ProductRemoteDataSource)
