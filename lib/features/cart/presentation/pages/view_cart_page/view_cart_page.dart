@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce/core/presentation/routes/app_routes.gr.dart';
 import 'package:ecommerce/core/presentation/widgets/app_elevated_button.dart';
+import 'package:ecommerce/core/presentation/widgets/app_empty_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/app_error_widget.dart';
 import 'package:ecommerce/core/presentation/widgets/list_shimmer.dart';
 import 'package:ecommerce/features/cart/presentation/cubit/cart_cubit/cart_cubit.dart';
@@ -80,9 +81,7 @@ class _ViewCartPageState extends State<ViewCartPage> {
                     ],
                   ),
                   if(cartCubit.cart.isEmpty)
-                    Image.asset(Assets.imagesShoppingCart,color: Colors.amber,),
-
-
+                    const AppEmptyWidget()
                 ],
               ),
             );

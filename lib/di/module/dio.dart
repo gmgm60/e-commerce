@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/constants/constants.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,13 +18,20 @@ abstract class AppDioInject {
       options.headers.addAll({authorizationHeader: "Bearer $token"});
 
       try {
-        var socket = await Socket.connect('example.com', 80, timeout: const Duration(seconds: 2));
-       // var netAccess = await InternetAddress.lookup('example.com',);
-        print(socket.address);
+        var socket = await Socket.connect('example.com', 80,
+            timeout: const Duration(seconds: 2));
+        // var netAccess = await InternetAddress.lookup('example.com',);
+        debugPrint('${socket.address}');
         socket.destroy();
-
       } on SocketException catch (e) {
-        handler.reject(DioError(requestOptions:options,type: DioErrorType.cancel,response: Response(requestOptions: options,statusCode: HttpStatus.networkConnectTimeoutError)),);
+        handler.reject(
+          DioError(
+              requestOptions: options,
+              type: DioErrorType.cancel,
+              response: Response(
+                  requestOptions: options,
+                  statusCode: HttpStatus.networkConnectTimeoutError)),
+        );
       }
 
       handler.next(options);

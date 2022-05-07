@@ -17,7 +17,6 @@ class AppErrorWidget extends StatelessWidget {
             width: 250,
             height: 250,
           ),
-
           Text(
             errorTranslate(error,context),
             style: Theme.of(context).textTheme.titleLarge,
@@ -29,7 +28,6 @@ class AppErrorWidget extends StatelessWidget {
 }
 
 String errorTranslate(String error,BuildContext context){
-
 switch(error){
   case unknownError : return context.tr.unknownError;
   case somethingWentWrong : return context.tr.somethingWentWrong;
