@@ -34,6 +34,7 @@ switch(error){
   case unauthorized : return context.tr.unauthorized;
   case serverError : return context.tr.serverError;
   case notFound : return context.tr.notFound;
+  case noInternet : return context.tr.noInternet;
   default : return error ;
 }
 }
