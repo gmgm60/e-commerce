@@ -10,7 +10,7 @@ part of 'categories_api_service.dart';
 
 class _CategoriesApiService implements CategoriesApiService {
   _CategoriesApiService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://1e7d-197-55-70-128.eu.ngrok.io/api/';
+    baseUrl ??= 'https://e4ee-197-55-22-254.eu.ngrok.io/api/';
   }
 
   final Dio _dio;
