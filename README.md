@@ -75,17 +75,21 @@ flutter_launcher_icons: ^0.9.2
 
 ## Products
 * view all products
+  
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_2.png" width="300">
 
 * view single product
+  
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_3.png" width="300">
   
 * add product to cart
+  
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_4.png" width="300">
   
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_5.png" width="300">
 
 * add product to favorites
+  
   <img src="https://raw.githubusercontent.com/gmgm60/e-commerce/main/screenshot/Screenshot_6.png" width="300">
 
 ## view favorites
