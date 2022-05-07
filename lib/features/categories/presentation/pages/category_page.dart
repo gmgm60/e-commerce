@@ -21,16 +21,21 @@ class CategoryPage extends StatelessWidget {
         create: (context) => getIt<CategoryCubit>()..getCategories(),
         child: BlocBuilder<CategoryCubit, CategoryStates>(
             builder: (context, state) {
-          return state.maybeWhen(
-              loading: () => const ListShimmer(),
-              error: (error) => AppErrorWidget(error: error),
-              categoryLoaded: (categories) => categories.isNotEmpty
-                  ? RefreshIndicator(
-                      onRefresh: () => BlocProvider.of<CategoryCubit>(context)
-                          .getCategories(),
-                      child: CategoryList(categories: categories))
-                  : const AppEmptyWidget(),
-              orElse: () => Container());
+          return RefreshIndicator(
+            onRefresh: () =>
+                BlocProvider.of<CategoryCubit>(context).getCategories(),
+            child: ListView(
+              children: [
+                state.maybeWhen(
+                    loading: () => const ListShimmer(),
+                    error: (error) => AppErrorWidget(error: error),
+                    categoryLoaded: (categories) => categories.isNotEmpty
+                        ? CategoryList(categories: categories)
+                        : const AppEmptyWidget(),
+                    orElse: () => Container()),
+              ],
+            ),
+          );
         }),
       ),
     );

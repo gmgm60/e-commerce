@@ -21,33 +21,34 @@ class MerchantDetailsPage extends StatelessWidget {
             getIt<MerchantsCubit>()..getMerchantDetails(merchantId: merchantId),
         child: BlocBuilder<MerchantsCubit, MerchantsStates>(
           builder: (context, state) {
-            return state.maybeWhen(
-              loading: () => const ListShimmer(),
-              detailsLoaded: (merchantDetails) =>
-                  merchantDetails.products.isNotEmpty
-                      ? RefreshIndicator(
-                          onRefresh: () =>
-                              BlocProvider.of<MerchantsCubit>(context)
-                                  .getMerchantDetails(merchantId: merchantId),
-                          child: GridView.count(
-                            shrinkWrap: true,
-                            primary: false,
-                            crossAxisCount: 2,
-                            physics: const BouncingScrollPhysics(),
-                            childAspectRatio: .6,
-                            children: List.generate(
-                              merchantDetails.products.length,
-                              (index) => ProductGridItem(
-                                product: merchantDetails.products[index],
+            return RefreshIndicator(
+              onRefresh: () => BlocProvider.of<MerchantsCubit>(context)
+                  .getMerchantDetails(merchantId: merchantId),
+              child: ListView(children: [
+                state.maybeWhen(
+                  loading: () => const ListShimmer(),
+                  detailsLoaded: (merchantDetails) =>
+                      merchantDetails.products.isNotEmpty
+                          ? GridView.count(
+                              shrinkWrap: true,
+                              primary: false,
+                              crossAxisCount: 2,
+                              physics: const BouncingScrollPhysics(),
+                              childAspectRatio: .6,
+                              children: List.generate(
+                                merchantDetails.products.length,
+                                (index) => ProductGridItem(
+                                  product: merchantDetails.products[index],
+                                ),
                               ),
-                            ),
-                          ),
-                        )
-                      : const AppEmptyWidget(),
-              error: (error) => AppErrorWidget(
-                error: error,
-              ),
-              orElse: () => Container(),
+                            )
+                          : const AppEmptyWidget(),
+                  error: (error) => AppErrorWidget(
+                    error: error,
+                  ),
+                  orElse: () => Container(),
+                ),
+              ]),
             );
           },
         ),

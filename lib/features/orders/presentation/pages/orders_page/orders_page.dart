@@ -21,18 +21,25 @@ class OrdersPage extends StatelessWidget {
         create: (context) => getIt<OrdersCubit>()..getOrders(),
         child:
             BlocBuilder<OrdersCubit, OrdersStates>(builder: (context, state) {
-          return state.maybeWhen(
-            loading: () => const ListShimmer(),
-            loaded: (orders) => orders.isNotEmpty
-                ? RefreshIndicator(
-                    onRefresh: () =>
-                        BlocProvider.of<OrdersCubit>(context).getOrders(),
-                    child: OrdersList(orders: orders))
-                : const AppEmptyWidget(),
-            error: (error) => AppErrorWidget(
-              error: error,
-            ),
-            orElse: () => Container(),
+          return RefreshIndicator(
+            onRefresh: () async {
+              await BlocProvider.of<OrdersCubit>(context).getOrders();
+            },
+            child: ListView(
+                children: [
+              state.maybeWhen(
+                loading: () => const ListShimmer(),
+                loaded: (orders) => orders.isNotEmpty
+                    ? OrdersList(orders: orders)
+                    : const AppEmptyWidget(),
+                error: (error) => Center(
+                  child: AppErrorWidget(
+                    error: error,
+                  ),
+                ),
+                orElse: () => Container(),
+              ),
+            ]),
           );
         }),
       ),
