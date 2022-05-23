@@ -3,6 +3,7 @@ Shop app with flutter, support Arabic and English,with the ability to add more.
 
 # Main target of this app
 the main target  is to make clean code using tdd (without test case), with a team from 2 programmers with sharing code using git
+the backend repo link : https://github.com/MohamedSaad0/mega_e-commerce
 
 ##the packages used in this app :
 flutter_bloc: ^8.0.1
